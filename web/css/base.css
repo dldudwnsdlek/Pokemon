@@ -42,8 +42,9 @@ button {
   padding: var(--s1) var(--s3);
   transition: transform 60ms, box-shadow 60ms;
 }
-button:hover { background: var(--paper-deep); }
-button:active, button[aria-pressed="true"] { background: var(--paper-deep); }
+/* :where()로 우선순위를 0으로 — 풀숲 포켓몬·찾기 카드처럼 모양을 따로 정한 버튼에는 사각형 배경이 생기지 않게 */
+button:where(:hover) { background: var(--paper-deep); }
+button:where(:active, [aria-pressed="true"]) { background: var(--paper-deep); }
 
 /* 주요 버튼: 한 화면에 하나 — 도감 빨강 + 찍힌 그림자 */
 button.primary {
