@@ -1,12 +1,10 @@
 // 시작점: 서버 상태 확인 → 도감 색인 → 선택·기록·풀숲 연결
 import { api } from "./api.js";
-import { chainStrip, renderRecords, setAfterJob, setupPanes, showTab } from "./chat.js";
+import { chainStrip, renderRecords, setAfterJob, setupPanes, showTab, updatePaneLocks } from "./chat.js";
 import { setupFinder } from "./finder.js";
 import { meadow } from "./meadow.js";
-import { current, hasRecords, onSelect, selectPokemon, state, storageGet, storageSet } from "./state.js";
+import { current, hasRecords, onSelect, selectPokemon, state } from "./state.js";
 import { el, hideNotice, showNotice, TEXT } from "./ui.js";
-
-const LAST_KEY = "oak-last-pokemon";
 
 // 상단 오른쪽 라벨: "도감 151 · 문서 12" (F2002)
 async function refreshStatus() {
@@ -44,6 +42,12 @@ const pencilSvg = () => {
 function renderDex(filter = "") {
   const list = document.getElementById("dexList");
   const q = filter.trim();
+  // 맨 위: 포켓몬을 고르지 않고 묻는 자유 질문
+  const free = el("li", { class: `dex-item dex-free${state.selectedId === null ? " selected" : ""}` },
+    el("button", { type: "button", "aria-current": state.selectedId === null ? "true" : null, onclick: () => pick(null) },
+      el("span", { class: "dex-no" }, "···"),
+      el("span", {}, TEXT.freeLabel),
+      hasRecords(null) ? pencilSvg() : el("span", {})));
   const items = state.pokemon
     .filter((p) => !q || p.name_ko.includes(q) || p.dex_no.includes(q) || String(p.id) === q)
     .map((p) => el("li", { class: `dex-item${p.id === state.selectedId ? " selected" : ""}`, "data-id": p.id },
@@ -51,7 +55,7 @@ function renderDex(filter = "") {
         el("span", { class: "dex-no" }, p.dex_no),
         el("span", {}, p.name_ko),
         hasRecords(p.id) ? pencilSvg() : el("span", {}))));
-  list.replaceChildren(...items);
+  list.replaceChildren(...(q ? [] : [free]), ...items);
 }
 
 function pick(id) {
@@ -63,8 +67,9 @@ function pick(id) {
 
 function renderHeader() {
   const p = current();
-  document.getElementById("currentLabel").textContent = `No.${p.dex_no} ${p.name_ko}`;
-  document.title = `${p.name_ko} · 이박사의 연구노트`;
+  const label = p ? `No.${p.dex_no} ${p.name_ko}` : TEXT.freeLabel;
+  document.getElementById("currentLabel").textContent = label;
+  document.title = `${p ? p.name_ko : TEXT.freeLabel} · 이박사의 연구노트`;
 }
 
 // 진화 탭에는 계통 그림부터 보여준다 (데이터로 그림, 설명 글은 "진화 보기"의 답변)
@@ -72,6 +77,7 @@ async function renderEvoPreview() {
   const box = document.getElementById("evoPreview");
   const id = state.selectedId;
   box.replaceChildren();
+  if (id === null) return;  // 자유 질문에서는 그릴 계통이 없다
   try {
     const detail = await api.pokemon(id);
     if (state.selectedId === id) box.replaceChildren(chainStrip(detail.chain));
@@ -91,13 +97,13 @@ async function main() {
   state.byId = new Map(data.pokemon.map((p) => [p.id, p]));
 
   onSelect((id, changed) => {
-    storageSet(LAST_KEY, String(id));
     renderHeader();
     renderDex(document.getElementById("dexSearch").value);
     renderRecords();
     renderEvoPreview();
+    updatePaneLocks();
     meadow.bringIn(id);
-    if (changed) document.querySelector(`.dex-item[data-id="${id}"]`)?.scrollIntoView({ block: "nearest" });
+    if (changed && id !== null) document.querySelector(`.dex-item[data-id="${id}"]`)?.scrollIntoView({ block: "nearest" });
   });
 
   setupPanes();
@@ -114,8 +120,7 @@ async function main() {
   });
 
   meadow.init((id) => pick(id));
-  const lastId = Number(storageGet(LAST_KEY)) || 25;
-  selectPokemon(state.byId.has(lastId) ? lastId : 1);
+  selectPokemon(null); // 처음에는 포켓몬을 고르지 않은 자유 질문으로 시작
   showTab("chat");
 }
 

@@ -16,6 +16,10 @@ export const TEXT = {
   findEmpty: "조건에 맞는 포켓몬을 찾지 못했어요. 조건을 하나 줄여보세요.",
   noRefsYet: "답을 기록하면 여기에 참고한 자료가 붙어요.",
   retry: "다시 시도",
+  freeLabel: "자유 질문",
+  freeEmpty: "포켓몬을 고르지 않아도 물어볼 수 있어요. 질문에 포켓몬 이름이 있으면 그 포켓몬의 도감 자료로 찾아봐요.",
+  needPokemon: "이 기능은 포켓몬이 있어야 해요. 왼쪽 도감 색인이나 아래 풀숲에서 포켓몬을 먼저 골라 주세요.",
+  matched: (names) => `질문에서 ${names}을 찾아 그 도감 자료로 답했어요`,
   kind: { chat: "기록", battle: "배틀", evolution: "진화" },
 };
 

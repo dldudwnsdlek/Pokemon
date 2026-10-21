@@ -62,6 +62,9 @@
 .record-tools { margin-top: var(--s3); display: flex; gap: var(--s2); flex-wrap: wrap; }
 .record-tools button { box-shadow: none; font-size: 11px; padding: 2px var(--s2); }
 .error-line { color: var(--dex-red); }
+.matched { margin-top: var(--s2); }
+.matched p { margin: 0; }
+.dex-free button { border-bottom: 1px dashed var(--pencil); }
 .collected { margin-top: var(--s3); }
 .collected summary { cursor: pointer; }
 .collected ul { margin: var(--s2) 0 0; padding-left: var(--s4); font-size: 13px; color: var(--ink-soft); line-height: 1.6; }

@@ -16,7 +16,7 @@ from rag.collector import REGISTRY, load_registry
 from services.config import settings
 from services.http import UpstreamError
 from services.llm import ApiKeyMissing
-from store.indexer import index_meta, index_structured, index_wiki_page
+from store.indexer import FREE_ID, index_meta, index_structured, index_wiki_page
 from store.vector_store import DOCS, META, count, delete_collection
 
 
@@ -29,14 +29,15 @@ def reindex_wiki() -> int:
     reg = load_registry()
     names = {p["id"]: p["name_ko"] for p in load_pokemon()}
     total = 0
-    for pid, docs in reg["docs"].items():
+    for owner, docs in reg["docs"].items():
+        pid = FREE_ID if owner == "free" else int(owner)  # 'free' = 자유 질문으로 모은 문서
         for pageid, info in docs.items():
             try:
                 page = wiki_source.fetch_page(int(pageid))
             except UpstreamError:
                 print(f"  ! {info['title']} 본문을 가져오지 못해 건너뜀")
                 continue
-            info["chunks"] = index_wiki_page(int(pid), names[int(pid)], page, info["query"])
+            info["chunks"] = index_wiki_page(pid, names.get(pid, ""), page, info["query"])
             total += info["chunks"]
     REGISTRY.write_text(json.dumps(reg, ensure_ascii=False, indent=1), encoding="utf-8")
     return total
@@ -66,8 +67,10 @@ def main() -> None:
             print(f"{DOCS} 비움 (이전 {docs_before}청크)")
 
         type_docs, evo_docs = load("type_docs.json"), load("evolution_docs.json")
-        n = index_structured(type_docs, evo_docs)
-        print(f"구조화 문서 색인 완료: 타입 {len(type_docs)}개, 진화 계통 {len(evo_docs)}개 → {DOCS} 청크 {n}개")
+        rank_docs = load("rank_docs.json")
+        n = index_structured(type_docs, evo_docs + rank_docs)
+        print(f"구조화 문서 색인 완료: 타입 {len(type_docs)}개, 진화 계통 {len(evo_docs)}개, "
+              f"순위 {len(rank_docs)}개 → {DOCS} 청크 {n}개")
 
         if args.reset_docs:
             if args.forget_collected:

@@ -19,7 +19,7 @@ from data_prep.finder_terms import type_names
 from data_prep.sprites import sprite_urls
 from features import battle_coach, evolution_guide, finder
 from rag.collector import collected_titles, load_registry
-from rag.graph import check_ready, run
+from rag.graph import check_ready, match_question, run
 from rag.retriever import retrieve
 from services.config import settings
 from services.errors import ServiceError
@@ -34,7 +34,7 @@ app = FastAPI(title="이박사의 연구노트 API", version="1.0")
 
 # ---------- 요청 형식 (pydantic으로 검사) ----------
 class AskRequest(BaseModel):
-    pokemon_id: int = Field(ge=1)
+    pokemon_id: int | None = Field(default=None, ge=1)  # 없으면 자유 질문
     question: str = Field(min_length=1, max_length=500)
 
 
@@ -53,7 +53,7 @@ class FindRequest(BaseModel):
 
 
 class CompareRequest(BaseModel):
-    pokemon_id: int = Field(ge=1)
+    pokemon_id: int | None = Field(default=None, ge=1)  # 없으면 자유 질문
     question: str = Field(min_length=1, max_length=500)
     top_k: int | None = Field(default=None, ge=1, le=20)
 
@@ -194,9 +194,12 @@ def compare_search(req: CompareRequest):
                  "source_label": e["source_label"], "url": e["url"],
                  "snippet": e["text"].split("\n", 1)[-1][:120]} for e in evidence]
 
+    pid, extra = req.pokemon_id, []
+    if pid is None:  # 자유 질문은 답변과 같은 방식으로 질문 속 포켓몬 이름을 찾는다
+        pid, extra = match_question(req.question)
     try:
-        sim = retrieve(req.pokemon_id, req.question, top_k=req.top_k, search_type="similarity")
-        mmr = retrieve(req.pokemon_id, req.question, top_k=req.top_k, search_type="mmr")
+        sim = retrieve(pid, req.question, top_k=req.top_k, search_type="similarity", extra_ids=extra)
+        mmr = retrieve(pid, req.question, top_k=req.top_k, search_type="mmr", extra_ids=extra)
     except Exception as e:  # noqa: BLE001
         raise _as_service_error(e) from e
     sim_ids, mmr_ids = {e["id"] for e in sim}, {e["id"] for e in mmr}

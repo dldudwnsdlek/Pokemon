@@ -1,7 +1,7 @@
 // 연구 기록(대화), 참고 카드, 배틀·진화 실행 (F2008~F2010, F2012, F2014)
 import { api, ApiError } from "./api.js";
 import { meadow } from "./meadow.js";
-import { current, records, saveChats, state } from "./state.js";
+import { current, records, saveChats, selectPokemon, state } from "./state.js";
 import { el, errorText, formatTime, progressLog, showNotice, spriteImg, TEXT } from "./ui.js";
 
 const CITE = /\[근거\s*(\d+)\]/g;
@@ -150,6 +150,7 @@ function recordView(record) {
   if (record.chain) right.append(chainStrip(record.chain));
   right.append(answerBody(record));
   if (record.version_note) right.append(el("p", { class: "version-note" }, TEXT.versionNote));
+  if (record.matched?.length) right.append(matchedView(record.matched));
 
   // 좁은 화면에서는 참고 카드를 답변 바로 아래에
   right.append(el("div", { class: "inline-refs" },
@@ -167,8 +168,34 @@ function recordView(record) {
   return node;
 }
 
-function examples(name) {
+// 자유 질문에서 질문 속 포켓몬 이름을 찾았을 때: 안내 한 줄 + 그 포켓몬 노트로 가는 버튼
+function matchedView(matched) {
+  const names = matched.map((m) => `「${m.name_ko}」`).join(", ");
+  return el("div", { class: "matched" },
+    el("p", { class: "pencil small" }, TEXT.matched(names)),
+    el("div", { class: "record-tools" }, matched.map((m) =>
+      el("button", { type: "button", onclick: () => { selectPokemon(m.id); showTab("chat"); } }, `${m.name_ko} 노트 열기`))));
+}
+
+function examples(p) {
+  if (!p) return ["1세대에서 가장 무거운 포켓몬은?", "고스트 타입 기술은 에스퍼 타입에게 효과가 어때?", "피카츄와 꼬부기 중 누가 더 빨라?"];
+  const name = p.name_ko;
   return [`${name}은(는) 어떻게 진화해?`, `${name}의 타입과 약점은?`, `${name}의 키와 몸무게는?`];
+}
+
+// 배틀·진화는 포켓몬이 있어야 하므로, 자유 질문일 때는 안내를 띄우고 버튼을 잠근다
+export function updatePaneLocks() {
+  const locked = state.selectedId === null;
+  for (const pane of ["battle", "evolution"]) {
+    const box = document.querySelector(`.pane[data-pane="${pane}"]`);
+    let note = box.querySelector(".pane-lock");
+    if (!note) {
+      note = el("p", { class: "pane-lock error-line" }, TEXT.needPokemon);
+      box.querySelector(".pane-lead").after(note);
+    }
+    note.hidden = !locked;
+  }
+  setBusy(state.busy);
 }
 
 export function renderRecords() {
@@ -177,8 +204,8 @@ export function renderRecords() {
   if (!list.length) {
     const p = current();
     box.replaceChildren(el("div", { class: "empty" },
-      el("p", {}, TEXT.emptyRecord),
-      el("div", { class: "examples" }, examples(p.name_ko).map((q) =>
+      el("p", {}, p ? TEXT.emptyRecord : TEXT.freeEmpty),
+      el("div", { class: "examples" }, examples(p).map((q) =>
         el("button", { type: "button", onclick: () => { const i = document.getElementById("askInput"); i.value = q; i.focus(); } }, q)))));
   } else {
     box.replaceChildren(...list.map(recordView));
@@ -208,7 +235,7 @@ async function runJob(kind, label, call, retryInfo) {
     Object.assign(record, {
       answer: result.answer, citations: result.citations, no_citation: result.no_citation,
       version_note: result.version_note, verdict: result.verdict, chain: result.chain,
-      collected: result.collected, elapsed_ms: result.elapsed_ms,
+      collected: result.collected, elapsed_ms: result.elapsed_ms, matched: result.matched,
     });
     progressLog.fold(result.collected.indexed.length + result.collected.cached.length, result.elapsed_ms);
     meadow.greet(pokemonId);
@@ -233,7 +260,9 @@ async function runJob(kind, label, call, retryInfo) {
 }
 
 function setBusy(on) {
-  for (const id of ["askBtn", "battleBtn", "evoBtn"]) document.getElementById(id).disabled = on;
+  const locked = state.selectedId === null; // 배틀·진화는 포켓몬이 있어야 함
+  document.getElementById("askBtn").disabled = on;
+  for (const id of ["battleBtn", "evoBtn"]) document.getElementById(id).disabled = on || locked;
 }
 
 function retry(record) {
@@ -252,12 +281,14 @@ export function ask(question) {
 
 export function battle(opponent) {
   const id = state.selectedId;
+  if (id === null) return null; // 포켓몬이 있어야 하는 기능
   const vs = opponent.opponent_id ? state.byId.get(opponent.opponent_id).name_ko : `${opponent.opponent_type} 타입`;
   return runJob("battle", `상대 ${vs}와의 상성`, (prog) => api.battle(id, opponent, prog), { kind: "battle", payload: opponent });
 }
 
 export function evolution() {
   const id = state.selectedId;
+  if (id === null) return null; // 포켓몬이 있어야 하는 기능
   return runJob("evolution", "진화 계통 안내", (prog) => api.evolution(id, prog), { kind: "evolution" });
 }
 

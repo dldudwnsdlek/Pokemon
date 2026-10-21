@@ -363,6 +363,7 @@ export const meadow = {
   // 도감 색인이나 탐색 카드에서 고르면: 오른쪽 끝에서 걸어 들어온다 (이미 있으면 그 자리에서 깡충)
   async bringIn(id) {
     for (const c of critters) c.el.classList.toggle("selected", c.id === id);
+    if (id === null) return; // 자유 질문: 고른 포켓몬이 없다
     const here = find(id);
     if (here) {
       if (here.state !== "think" && !reduceMotion.matches) setState(here, "hop");

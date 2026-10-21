@@ -16,7 +16,7 @@ export const state = {
   pokemon: [],          // 151마리 요약 목록
   byId: new Map(),
   types: [],
-  selectedId: null,
+  selectedId: null,     // null = 포켓몬을 고르지 않은 자유 질문
   chats: loadChats(),
   activeRecord: null,   // 오른쪽 참고 카드에 보여줄 기록
   busy: false,
@@ -28,8 +28,9 @@ export function onSelect(fn) {
   listeners.add(fn);
 }
 
+// id가 null이면 자유 질문으로 돌아간다
 export function selectPokemon(id) {
-  if (!state.byId.has(id)) return;
+  if (id !== null && !state.byId.has(id)) return;
   const changed = state.selectedId !== id;
   state.selectedId = id;
   if (changed) state.activeRecord = null;
@@ -37,12 +38,16 @@ export function selectPokemon(id) {
 }
 
 export function current() {
-  return state.byId.get(state.selectedId);
+  return state.selectedId === null ? null : state.byId.get(state.selectedId);
 }
 
+// 기록 칸 이름: 포켓몬 번호, 자유 질문은 "free" (포켓몬별 기록과 섞이지 않게)
+const chatKey = (id) => (id === null ? "free" : id);
+
 export function records(id = state.selectedId) {
-  if (!state.chats[id]) state.chats[id] = [];
-  return state.chats[id];
+  const key = chatKey(id);
+  if (!state.chats[key]) state.chats[key] = [];
+  return state.chats[key];
 }
 
 export function saveChats() {
@@ -52,7 +57,7 @@ export function saveChats() {
 }
 
 export function hasRecords(id) {
-  return (state.chats[id] || []).some((r) => r.answer);
+  return (state.chats[chatKey(id)] || []).some((r) => r.answer);
 }
 
 export function storageGet(key) {

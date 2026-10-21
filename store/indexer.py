@@ -13,6 +13,19 @@ from services.http import with_retry
 from store.vector_store import DOCS, META, get_store, raw_collection
 
 
+SHARED_ID = 0   # 공용 문서(타입·진화): 어느 포켓몬에서나 검색됨
+FREE_ID = -1    # 자유 질문(포켓몬을 고르지 않음)으로 모은 문서: 포켓몬별 검색에는 섞이지 않음
+
+
+def owner_key(pokemon_id: int) -> str:
+    """청크 ID·수집 기록에 쓰는 주인 이름: 0 → shared, -1 → free, 그 밖에는 도감 번호."""
+    if pokemon_id == SHARED_ID:
+        return "shared"
+    if pokemon_id == FREE_ID:
+        return "free"
+    return str(pokemon_id)
+
+
 def meta_chunk_id(pokemon_id: int) -> str:
     """메타데이터 청크 ID: pkm:{도감번호}"""
     return f"pkm:{pokemon_id}"
@@ -67,7 +80,7 @@ def index_structured(type_docs: list[dict], evo_docs: list[dict]) -> int:
         docs.append(Document(
             page_content=d["text"],
             metadata={
-                "pokemon_id": 0,  # 공용 문서: 어느 포켓몬에서나 검색됨
+                "pokemon_id": SHARED_ID,  # 공용 문서: 어느 포켓몬에서나 검색됨
                 "related_names": ",".join(d.get("related_names", [])) or d.get("type_ko", ""),
                 "doc_id": d["doc_id"],
                 "source_type": "pokeapi",
@@ -115,7 +128,7 @@ def index_wiki_page(pokemon_id: int, related_name: str, page: dict, query: str) 
                 "chunk_index": i,
             },
         ))
-        ids.append(doc_chunk_id(pokemon_id, page["pageid"], i))
+        ids.append(doc_chunk_id(owner_key(pokemon_id), page["pageid"], i))
     if docs:
         _upsert(DOCS, docs, ids)
     return len(ids)

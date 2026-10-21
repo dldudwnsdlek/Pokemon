@@ -8,7 +8,7 @@ import re
 
 from data_prep.evolution_terms import condition_text
 from data_prep.pokeapi import fetch, gen_number, id_from_url, ko_name, name_in
-from data_prep.structured_docs import build_evolution_docs, build_type_docs
+from data_prep.structured_docs import build_evolution_docs, build_rank_docs, build_type_docs
 from services import http
 from services.config import settings
 
@@ -159,12 +159,14 @@ def main() -> None:
 
     type_docs = build_type_docs()
     evo_docs = build_evolution_docs(chains, lo, hi)
+    rank_docs = build_rank_docs(pokemon)
 
     for name, obj in [("pokemon.json", pokemon), ("type_docs.json", type_docs),
-                      ("evolution_docs.json", evo_docs)]:
+                      ("evolution_docs.json", evo_docs), ("rank_docs.json", rank_docs)]:
         (DATA / name).write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print(f"포켓몬 {len(pokemon)}마리, 타입 문서 {len(type_docs)}개, 진화 계통 문서 {len(evo_docs)}개 저장")
+    print(f"포켓몬 {len(pokemon)}마리, 타입 문서 {len(type_docs)}개, 진화 계통 문서 {len(evo_docs)}개, "
+          f"순위 문서 {len(rank_docs)}개 저장")
     print(f"이번 실행의 외부 호출: {http.call_count}회 (0회면 모두 캐시에서 읽음)")
 
 

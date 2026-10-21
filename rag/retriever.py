@@ -6,7 +6,7 @@ from functools import lru_cache
 from data_prep.build_item_text import pokemon_by_id
 from services.config import settings
 from services.http import with_retry
-from store.indexer import doc_chunk_id, meta_chunk_id
+from store.indexer import SHARED_ID, doc_chunk_id, meta_chunk_id, owner_key
 from store.vector_store import DOCS, META, get_by_ids, get_store
 
 SOURCE_LABEL = {"meta": "도감 데이터", "wikipedia": "위키백과", "pokeapi": "PokéAPI 자료"}
@@ -28,14 +28,17 @@ def _id_from_meta(meta: dict) -> str:
     """검색 결과의 메타데이터로 청크 ID를 다시 만든다."""
     if meta.get("source_type") == "meta":
         return meta_chunk_id(meta["pokemon_id"])
-    owner = meta["pokemon_id"] or "shared"
-    return doc_chunk_id(owner, meta["doc_id"], meta.get("chunk_index", 0))
+    return doc_chunk_id(owner_key(meta["pokemon_id"]), meta["doc_id"], meta.get("chunk_index", 0))
 
 
-def forced_ids(pokemon_id: int, mode: str, opponent_id: int | None = None,
-               opponent_type: str | None = None) -> list[tuple[str, str]]:
-    """검색 없이 항상 넣을 청크 (컬렉션, ID). 1번은 항상 선택한 포켓몬의 메타데이터."""
+def forced_ids(pokemon_id: int | None, mode: str, opponent_id: int | None = None,
+               opponent_type: str | None = None, extra_ids: list[int] | None = None) -> list[tuple[str, str]]:
+    """검색 없이 항상 넣을 청크 (컬렉션, ID). 1번은 항상 선택한 포켓몬의 메타데이터.
+    자유 질문(pokemon_id=None)이면 항상 넣을 것이 없다. extra_ids: 질문에 함께 나온 다른 포켓몬."""
+    if pokemon_id is None:
+        return []
     ids = [(META, meta_chunk_id(pokemon_id))]
+    ids += [(META, meta_chunk_id(e)) for e in extra_ids or [] if e != pokemon_id]
     if mode == "battle":
         # 배틀: 내 것 + 상대 것 메타데이터, 두 쪽 타입의 상성 문서
         types = list(pokemon_by_id(pokemon_id)["types"])
@@ -54,10 +57,16 @@ def forced_ids(pokemon_id: int, mode: str, opponent_id: int | None = None,
     return ids
 
 
-def search_docs(pokemon_id: int, question: str, top_k: int, search_type: str) -> list[dict]:
-    """pokemon_docs에서 질문과 가까운 청크를 찾는다. 범위: 그 포켓몬 문서 + 공용(0) 문서."""
-    store = get_store(DOCS)
-    where = {"$or": [{"pokemon_id": pokemon_id}, {"pokemon_id": 0}]}
+def search_docs(pokemon_id: int | None, question: str, top_k: int, search_type: str,
+                extra_ids: list[int] | None = None, collection: str = DOCS) -> list[dict]:
+    """질문과 가까운 청크를 찾는다.
+    범위: 그 포켓몬(+질문에 함께 나온 포켓몬) 문서 + 공용(0) 문서. 자유 질문이면 범위 제한 없음."""
+    store = get_store(collection)
+    if pokemon_id is None:
+        where = None
+    else:
+        owners = [pokemon_id, *(extra_ids or []), SHARED_ID]
+        where = {"$or": [{"pokemon_id": o} for o in dict.fromkeys(owners)]}
     if search_type == "mmr":
         # F2014 — 넉넉히 가져온 뒤(fetch_k) 다양성을 고려해 top_k개를 고른다
         docs = with_retry(lambda: store.max_marginal_relevance_search(
@@ -107,15 +116,19 @@ def number(chunks: list[dict]) -> list[dict]:
 
 
 # F2006 — 메타데이터 청크는 항상 + 외부 문서는 의미 검색 → 병합·중복 제거 → 번호
-def retrieve(pokemon_id: int, question: str, mode: str = "chat", opponent_id: int | None = None,
+def retrieve(pokemon_id: int | None, question: str, mode: str = "chat", opponent_id: int | None = None,
              opponent_type: str | None = None, top_k: int | None = None,
-             search_type: str | None = None) -> list[dict]:
+             search_type: str | None = None, extra_ids: list[int] | None = None) -> list[dict]:
     top_k = int(top_k or settings["retrieval"]["top_k"])
     search_type = search_type or settings["retrieval"]["search_type"]
     forced: list[dict] = []
-    for coll, cid in forced_ids(pokemon_id, mode, opponent_id, opponent_type):
+    for coll, cid in forced_ids(pokemon_id, mode, opponent_id, opponent_type, extra_ids):
         forced += get_by_ids(coll, [cid])
-    searched = search_docs(pokemon_id, question, top_k, search_type)
+    if pokemon_id is None:
+        # 자유 질문: 항상 넣을 메타데이터가 없으므로 질문과 가까운 포켓몬 도감 데이터를 검색으로 가져온다
+        forced = search_docs(None, question, int(settings["retrieval"]["free_meta_k"]), "similarity",
+                             collection=META)
+    searched = search_docs(pokemon_id, question, top_k, search_type, extra_ids)
     return number(merge(forced + searched))
 
 

@@ -10,6 +10,7 @@ from typing import TypedDict
 from langgraph.graph import END, START, StateGraph
 
 from data_prep.build_item_text import pokemon_by_id
+from data_prep.name_match import find_pokemon_in_text
 from rag import citations, prompts
 from rag.collector import Progress, _noop, collect
 from rag.retriever import evidence_block, retrieve
@@ -26,6 +27,7 @@ log = get_logger("graph")
 class RagState(TypedDict, total=False):
     pokemon_id: int
     question: str
+    extra_ids: list[int]       # 자유 질문에 함께 나온 다른 포켓몬
     mode: str                  # "chat" | "battle" | "evolution" | "no_rag"
     opponent_id: int | None    # 배틀 상대 포켓몬
     opponent_type: str | None  # 배틀 상대 타입(포켓몬 대신)
@@ -43,7 +45,7 @@ def retrieve_node(state: RagState) -> dict:
         return {"evidence": []}
     evidence = retrieve(state["pokemon_id"], state["question"], state.get("mode", "chat"),
                         state.get("opponent_id"), state.get("opponent_type"),
-                        state.get("top_k"), state.get("search_type"))
+                        state.get("top_k"), state.get("search_type"), state.get("extra_ids"))
     return {"evidence": evidence}
 
 
@@ -62,7 +64,8 @@ def generate_node(state: RagState) -> dict:
         return {"answer": answer, "citations": [], "no_citation": True}
 
     block = evidence_block(state["evidence"])
-    name = pokemon_by_id(state["pokemon_id"])["name_ko"]
+    pid = state.get("pokemon_id")
+    name = pokemon_by_id(pid)["name_ko"] if pid is not None else ""
     if mode == "battle":
         prompt = prompts.BATTLE.format(name_ko=name, opponent=_opponent_name(state), evidence_block=block)
     elif mode == "evolution":
@@ -87,12 +90,14 @@ def build_graph():
 app = build_graph()
 
 
-def check_ready(pokemon_id: int) -> None:
-    """키·색인·범위를 먼저 확인한다. 문제가 있으면 ServiceError."""
+def check_ready(pokemon_id: int | None) -> None:
+    """키·색인·범위를 먼저 확인한다. 문제가 있으면 ServiceError. None(자유 질문)은 범위 확인을 건너뛴다."""
     if not settings.has_api_key():
         raise ServiceError("API_KEY_MISSING")
     if count(META) == 0:
         raise ServiceError("INDEX_EMPTY")
+    if pokemon_id is None:
+        return
     lo, hi = settings["scope"]["dex_from"], settings["scope"]["dex_to"]
     if not (lo <= int(pokemon_id) <= hi) or pokemon_by_id(int(pokemon_id)) is None:
         raise ServiceError("OUT_OF_SCOPE")
@@ -105,17 +110,36 @@ def needs_version_note(evidence: list[dict], cited: list[dict], answer: str) -> 
     return any("세대별 변경" in t or "세대에 추가" in t for t in texts) or "세대" in answer
 
 
-def run(pokemon_id: int, question: str, mode: str = "chat", on_progress: Progress = _noop,
+def match_question(question: str) -> tuple[int | None, list[int]]:
+    """자유 질문 속 포켓몬 이름을 찾는다: (처음 나온 포켓몬, 함께 나온 다른 포켓몬들)."""
+    found = find_pokemon_in_text(question)
+    return (found[0], found[1:]) if found else (None, [])
+
+
+def run(pokemon_id: int | None, question: str, mode: str = "chat", on_progress: Progress = _noop,
         do_collect: bool = True, **options) -> dict:
-    """질문 하나를 끝까지 처리한다: 수집(그래프 밖) → retrieve → generate."""
+    """질문 하나를 끝까지 처리한다: 수집(그래프 밖) → retrieve → generate.
+
+    pokemon_id가 None이면 자유 질문. 질문에 포켓몬 이름이 있으면 그 포켓몬을 고른 것처럼 처리하고
+    (결과의 matched에 표시), 없으면 범위 제한 없이 검색한다.
+    """
     started = time.perf_counter()
     check_ready(pokemon_id)
+    matched = None
+    if pokemon_id is None and mode == "chat":
+        pokemon_id, extra = match_question(question)
+        if pokemon_id is not None:
+            options["extra_ids"] = extra
+            matched = [{"id": i, "name_ko": pokemon_by_id(i)["name_ko"]} for i in [pokemon_id, *extra]]
+            names = ", ".join(f"「{m['name_ko']}」" for m in matched)
+            on_progress("match", f"질문에서 {names}을 찾아 그 도감 자료로 찾아볼게요", matched)
     collected = {"queries": [], "indexed": [], "skipped": [], "cached": [], "failed": []}
     try:
         if do_collect and mode != "no_rag":
             collected = collect(pokemon_id, question, on_progress)
         on_progress("retrieve", "근거를 찾는 중이에요", None)
-        state = {"pokemon_id": int(pokemon_id), "question": question, "mode": mode, **options}
+        state = {"pokemon_id": None if pokemon_id is None else int(pokemon_id), "question": question,
+                 "mode": mode, **options}
         out: dict = {}
         # 노드가 하나 끝날 때마다 결과를 받아 진행 상태를 알린다
         for update in app.stream(state, stream_mode="updates"):
@@ -143,6 +167,7 @@ def run(pokemon_id: int, question: str, mode: str = "chat", on_progress: Progres
         "evidence_count": len(out.get("evidence", [])),
         "version_note": needs_version_note(out.get("evidence", []), out.get("citations", []), out["answer"]),
         "collected": {k: collected[k] for k in ("queries", "indexed", "skipped", "cached", "failed")},
+        "matched": matched,
         "elapsed_ms": elapsed,
     }
 

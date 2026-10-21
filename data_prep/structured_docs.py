@@ -56,6 +56,42 @@ def build_type_docs() -> list[dict]:
     return docs
 
 
+# (데이터 키, 한국어 이름, 단위) — 순위 문서를 만들 항목
+RANK_FIELDS = [
+    ("weight_kg", "몸무게", "kg"), ("height_m", "키", "m"), ("total", "능력치 합계", ""),
+    ("hp", "HP", ""), ("attack", "공격", ""), ("defense", "방어", ""),
+    ("sp_attack", "특수공격", ""), ("sp_defense", "특수방어", ""), ("speed", "스피드", ""),
+]
+
+
+def build_rank_docs(pokemon: list[dict], top: int = 10, bottom: int = 5) -> list[dict]:
+    """1세대 151마리 전체를 항목별로 줄 세운 순위 문서.
+    '가장 무거운 포켓몬은?'처럼 전체를 비교해야 하는 질문은 의미 검색만으로는 답할 수 없어서 만든다."""
+    def value(p: dict, key: str):
+        if key == "total":
+            return sum(p["stats"].values())
+        return p[key] if key in p else p["stats"][key]
+
+    docs = []
+    for key, label, unit in RANK_FIELDS:
+        ranked = sorted(pokemon, key=lambda p: (-value(p, key), p["id"]))
+        fmt = lambda p: f"{p['name_ko']}(No.{p['dex_no']}) {value(p, key):g}{unit}"  # noqa: E731
+        lines = [f"[도감 순위] 1세대(1~151번) 포켓몬 {label} 순위. 151마리 전체를 비교한 결과다."]
+        if key not in ("weight_kg", "height_m"):
+            lines.append("능력치는 현재 게임 기준 값이다. 1세대 게임에는 특수공격·특수방어 대신 '특수' 하나만 있었다.")
+        lines.append(f"{label} 상위 {top} (가장 높거나 큰 순서):")
+        lines += [f"{i}위. {fmt(p)}" for i, p in enumerate(ranked[:top], start=1)]
+        lines.append(f"{label} 하위 {bottom} (가장 낮거나 작은 순서):")
+        lines += [f"{len(ranked) - i}위. {fmt(p)}" for i, p in enumerate(reversed(ranked[-bottom:]))]
+        docs.append({
+            "doc_id": f"rank-{key}",
+            "title": f"1세대 {label} 순위",
+            "text": "\n".join(lines),
+            "source_url": "https://pokeapi.co/api/v2/pokemon/",
+        })
+    return docs
+
+
 def build_evolution_docs(chains: dict[int, list[dict]], lo: int, hi: int) -> list[dict]:
     """1세대 포켓몬이 들어 있는 진화 계통마다 문서 1개를 만든다."""
     from data_prep.fetch_pokeapi import evolution_line  # 순환 import 방지
