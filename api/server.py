@@ -29,7 +29,7 @@ from services.log import get_logger
 from store.vector_store import DOCS, META, count
 
 log = get_logger("api")
-app = FastAPI(title="오박사의 연구노트 API", version="1.0")
+app = FastAPI(title="이박사의 연구노트 API", version="1.0")
 
 
 # ---------- 요청 형식 (pydantic으로 검사) ----------

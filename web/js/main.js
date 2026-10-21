@@ -64,7 +64,7 @@ function pick(id) {
 function renderHeader() {
   const p = current();
   document.getElementById("currentLabel").textContent = `No.${p.dex_no} ${p.name_ko}`;
-  document.title = `${p.name_ko} · 오박사의 연구노트`;
+  document.title = `${p.name_ko} · 이박사의 연구노트`;
 }
 
 // 진화 탭에는 계통 그림부터 보여준다 (데이터로 그림, 설명 글은 "진화 보기"의 답변)

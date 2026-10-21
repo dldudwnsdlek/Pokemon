@@ -16,7 +16,7 @@ from services.log import get_logger
 from store.vector_store import DOCS, META, count
 
 log = get_logger("streamlit")
-st.set_page_config(page_title="오박사의 연구노트", layout="wide")
+st.set_page_config(page_title="이박사의 연구노트", layout="wide")
 
 VERSION_NOTE = "게임 버전에 따라 내용이 다를 수 있어요."
 NO_CITATION = "이번 답에는 인용된 근거가 없어요. 내용을 그대로 믿기 전에 확인해 주세요."
@@ -114,7 +114,7 @@ pokemon = load_pokemon()
 labels = {p["id"]: f"{p['dex_no']} {p['name_ko']}" for p in pokemon}
 
 with st.sidebar:
-    st.title("오박사의 연구노트")
+    st.title("이박사의 연구노트")
     meta_n, docs_n = count(META), count(DOCS)
     st.caption(f"도감 {meta_n} · 문서 {docs_n}")  # F2002 — 색인 건수 항상 표시
     if not settings.has_api_key():
