@@ -66,6 +66,10 @@
 .examples-title { margin: 0 0 var(--s2); color: var(--ink-soft); }
 .examples { display: flex; flex-wrap: wrap; gap: var(--s2); }
 .examples button { font-family: var(--font-body); font-size: 15px; border-style: dashed; padding: var(--s1) var(--s3); }
+/* 키가 낮은 화면(가로 휴대폰): 그림을 위에 붙여 아래로 밀려 잘리지 않게 */
+@media (max-height: 480px) {
+  .welcome { align-items: start; padding: var(--s2) 0; }
+}
 @media (max-width: 600px) {
   .welcome { grid-template-columns: 1fr; justify-items: start; }
   .welcome-mon { flex-direction: row; }

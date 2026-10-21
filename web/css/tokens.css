@@ -63,6 +63,9 @@
 @media (max-width: 900px) {
   :root { --meadow-h: 100px; }
 }
+@media (max-height: 480px) and (orientation: landscape) {
+  :root { --meadow-h: 0px; } /* 풀숲을 숨김 (meadow.css) */
+}
 
 /* 타입 배지 18색 — 원색 대신 채도를 낮춘 색. 글자는 모두 --ink (대비 확보) */
 .type-badge[data-type="노말"]   { --badge: #CFC8B2; }

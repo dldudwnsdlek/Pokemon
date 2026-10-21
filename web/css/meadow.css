@@ -41,14 +41,17 @@
   background: url("../assets/grass-back.svg") repeat-x left bottom / 120px 24px;
 }
 
-/* 나뭇잎 사이로 떨어지는 햇빛: 120x30칸 × 4배, 아주 천천히 흐름 */
+/* 나뭇잎 사이로 떨어지는 햇빛: 120x30칸 × 4배, 아주 천천히 흐름.
+   무늬 한 장만큼 왼쪽으로 넓게 깔고 층째로 미끄러뜨린다 (휴대폰에서도 다시 그리지 않아 가벼움) */
 .sunlight {
   top: var(--horizon);
   bottom: 0;
+  left: -480px;
   background: url("../assets/sunlight.svg") 0 0 / 480px 120px repeat;
   animation: sun-drift 90s linear infinite;
+  will-change: transform;
 }
-@keyframes sun-drift { to { background-position: 480px 0; } }
+@keyframes sun-drift { to { transform: translateX(480px); } }
 
 /* 앞쪽 키 큰 풀 무더기: 140x20칸 × 2배. 가끔 바람에 한 번 흔들린다 */
 .grass-tall {
@@ -178,6 +181,16 @@
 .critter .bubble .dot:nth-child(2) { animation-delay: 0.4s; }
 .critter .bubble .dot:nth-child(3) { animation-delay: 0.8s; }
 @keyframes dot { 0%, 100% { opacity: 0.25; } 33% { opacity: 1; } }
+
+/* 좁은 화면: 쪽지가 포켓몬에 가려 읽히지 않으므로 숨긴다 (풀숲 이름은 aria-label로 남음) */
+@media (max-width: 600px) {
+  .meadow-note { display: none; }
+}
+/* 가로로 눕힌 휴대폰처럼 키가 낮은 화면: 노트 본문 자리를 위해 풀숲을 숨긴다.
+   포켓몬 고르기는 도감 색인 서랍과 도감 기계 십자키로 할 수 있다 */
+@media (max-height: 480px) and (orientation: landscape) {
+  .meadow { display: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .critter .bubble .dot { animation: none; opacity: 1; }
