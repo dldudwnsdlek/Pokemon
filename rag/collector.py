@@ -60,12 +60,12 @@ def extract_queries(p: dict, question: str) -> list[str]:
 
 
 # F2004 — 프롬프트 2로 후보 중 색인할 문서를 고른다
-def select_candidates(question: str, candidates: list[dict]) -> list[int] | None:
+def select_candidates(name_ko: str, question: str, candidates: list[dict]) -> list[int] | None:
     """고른 후보 번호 목록. LLM 응답을 읽지 못하면 None."""
     if not candidates:
         return []
     lines = [f"{i}. {c['title']} — {c.get('summary', '')}" for i, c in enumerate(candidates)]
-    prompt = prompts.SELECT.format(max_docs=int(settings["collect"]["max_docs_per_question"]),
+    prompt = prompts.SELECT.format(name_ko=name_ko, max_docs=int(settings["collect"]["max_docs_per_question"]),
                                    question=question, numbered_candidates="\n".join(lines))
     picked = prompts.ask_json_array(prompt, ask_llm)
     if picked is None:
@@ -114,9 +114,13 @@ def collect(pokemon_id: int, question: str, on_progress: Progress = _noop) -> di
                 result["skipped"].append({"title": p["name_ko"], "reason": reason})
         for q in new_queries:
             for c in wiki_source.search(q, per_query):
-                if c["pageid"] not in seen:
-                    candidates.append({**c, "query": q})
-                    seen.add(c["pageid"])
+                if c["pageid"] in seen:
+                    continue
+                seen.add(c["pageid"])
+                if wiki_source.is_list_page(c["title"]):  # 표뿐인 목록 문서는 선별 전에 뺀다
+                    result["skipped"].append({"title": c["title"], "reason": "표로 된 목록 문서"})
+                    continue
+                candidates.append({**c, "query": q})
         sums = wiki_source.summaries([c["pageid"] for c in candidates][:20])
     except UpstreamError:
         log.exception("위키백과 검색 실패")
@@ -125,9 +129,16 @@ def collect(pokemon_id: int, question: str, on_progress: Progress = _noop) -> di
         return result
 
     for c in candidates:
-        c["summary"] = sums.get(c["pageid"], "")
-    optional = [c for c in candidates if not c.get("forced")]
-    picked = select_candidates(question, optional)
+        c["summary"] = sums.get(c["pageid"], {}).get("text", "")
+    optional = []
+    for c in candidates:
+        if c.get("forced"):
+            continue
+        if sums.get(c["pageid"], {}).get("disambiguation"):  # 동음이의어 문서는 선별 전에 뺀다
+            result["skipped"].append({"title": c["title"], "reason": "동음이의어 문서"})
+            continue
+        optional.append(c)
+    picked = select_candidates(p["name_ko"], question, optional)
     if picked is None:  # 선별 응답을 못 읽으면: 포켓몬 이름과 같은 제목 문서만
         picked = [i for i, c in enumerate(optional) if c["title"] == p["name_ko"]]
     chosen = [c for c in candidates if c.get("forced")] + [optional[i] for i in picked]

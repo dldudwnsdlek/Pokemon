@@ -78,7 +78,12 @@ streamlit run streamlit_app.py      # 필수 기능 확인용 간단 화면
 python -m data_prep.build_item_text --id 6   # 리자몽 1마리의 색인 글
 python -m rag.graph --draw                   # LangGraph 구조 (retrieve → generate)
 python -m scripts.compare_search --pokemon 133 --question "이브이는 무엇으로 진화해?" --top-k 3 8
+python -m scripts.run_checks                 # 대표 질문·탐색·특화 기능 검증 → docs/evidence/checks.md
+python -m scripts.compare_rag                # RAG 전후 비교 → docs/rag_comparison.md
 ```
+
+검증 결과는 [docs/verification.md](docs/verification.md)에 정리되어 있습니다.
+대표 질문 7개 중 RAG 없이는 2개만 완전히 맞았고, RAG로는 7개 모두 맞았습니다([docs/rag_comparison.md](docs/rag_comparison.md)).
 
 ## 4. 사용한 데이터·문서의 출처와 이용 조건
 

@@ -102,6 +102,25 @@ export function chainStrip(stages) {
   return strip;
 }
 
+// ---------- 수집 기록: 찾아볼 단어, 붙인 문서, 버린 문서와 이유 (F2003, F2004) ----------
+function collectedView(col) {
+  const row = (label, items) => el("li", {}, el("span", { class: "label px11" }, label), " ",
+    items.length ? items.join(", ") : "없음");
+  const summary = col.cached.length && !col.indexed.length
+    ? "예전에 모아 둔 자료를 다시 펼쳤어요"
+    : `위키백과 문서 ${col.indexed.length}개를 붙였어요`;
+  return el("details", { class: "collected" },
+    el("summary", { class: "pencil small" }, `수집 기록 · ${summary}`),
+    el("ul", {},
+      row("찾아볼 단어", col.queries || []),
+      row("붙인 문서", col.indexed.map((t) => `「${t}」`)),
+      // 위키 검색 후보에는 엉뚱한 제목도 섞이므로 앞 5개만 보이고 나머지는 개수로
+      row("버린 문서", [...col.skipped.slice(0, 5).map((s) => `${s.title}(${s.reason})`),
+        ...(col.skipped.length > 5 ? [`외 ${col.skipped.length - 5}개`] : [])]),
+      row("예전 자료", col.cached),
+      col.failed.length ? row("가져오지 못함", col.failed) : null));
+}
+
 // ---------- 기록 1건 ----------
 function recordView(record) {
   const { date, time } = formatTime(record.at);
@@ -135,6 +154,8 @@ function recordView(record) {
   // 좁은 화면에서는 참고 카드를 답변 바로 아래에
   right.append(el("div", { class: "inline-refs" },
     record.no_citation ? emptyRefCard() : record.citations.map((c) => refCard(c, null))));
+
+  if (record.collected) right.append(collectedView(record.collected));
 
   if (record.kind === "chat") {
     const tools = el("div", { class: "record-tools" });

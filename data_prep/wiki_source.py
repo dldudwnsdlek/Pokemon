@@ -35,18 +35,26 @@ def search(query: str, limit: int) -> list[dict]:
     return [{"pageid": r["pageid"], "title": r["title"]} for r in data.get("query", {}).get("search", [])]
 
 
-def summaries(pageids: list[int]) -> dict[int, str]:
-    """선별용 짧은 요약(첫 단락)을 summary_chars 글자로 잘라 돌려준다."""
+def summaries(pageids: list[int]) -> dict[int, dict]:
+    """선별용 짧은 요약(첫 단락, summary_chars 글자)과 동음이의어 문서인지를 함께 돌려준다.
+    결과: {pageid: {"text": 요약, "disambiguation": True/False}}"""
     if not pageids:
         return {}
     limit = int(settings["collect"]["summary_chars"])
-    data = _api({"action": "query", "prop": "extracts", "exintro": 1, "explaintext": 1,
-                 "exlimit": "max", "pageids": "|".join(map(str, pageids))}, "summary")
+    data = _api({"action": "query", "prop": "extracts|pageprops", "ppprop": "disambiguation",
+                 "exintro": 1, "explaintext": 1, "exlimit": "max",
+                 "pageids": "|".join(map(str, pageids))}, "summary")
     out = {}
     for p in data.get("query", {}).get("pages", []):
         text = re.sub(r"\s+", " ", p.get("extract", "")).strip()
-        out[p["pageid"]] = text[:limit]
+        out[p["pageid"]] = {"text": text[:limit],
+                            "disambiguation": "disambiguation" in p.get("pageprops", {})}
     return out
+
+
+def is_list_page(title: str) -> bool:
+    """'포켓몬 목록', '1세대 포켓몬 목록'처럼 표로만 된 목록 문서인지."""
+    return title.endswith("목록")
 
 
 def find_item_page(name_ko: str) -> tuple[dict | None, str]:
@@ -71,7 +79,8 @@ def find_item_page(name_ko: str) -> tuple[dict | None, str]:
             continue  # 표로만 된 목록 문서로 넘어감
         if name_ko not in target:
             continue  # 다른 포켓몬 문서로 넘어감 (예: 신뇽 → 망나뇽)
-        if "포켓몬" not in summaries([page["pageid"]]).get(page["pageid"], "") + page["title"]:
+        intro = summaries([page["pageid"]]).get(page["pageid"], {}).get("text", "")
+        if "포켓몬" not in intro + page["title"]:
             continue  # 같은 이름의 다른 주제 문서
         return {"pageid": page["pageid"], "title": page["title"]}, "found"
     return None, "위키백과에 이 포켓몬만 다룬 문서가 없어요"

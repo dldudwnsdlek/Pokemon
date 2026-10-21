@@ -69,6 +69,16 @@ def show_message(msg: dict) -> None:
         if msg.get("error"):
             return
         show_citations(msg)
+        col = msg.get("collected")
+        if col:
+            skipped = [f"{s['title']}({s['reason']})" for s in col["skipped"][:5]]
+            if len(col["skipped"]) > 5:  # 엉뚱한 검색 후보가 섞이므로 앞 5개만
+                skipped.append(f"외 {len(col['skipped']) - 5}개")
+            with st.expander("수집 기록"):
+                st.markdown(f"- 찾아볼 단어: {', '.join(col['queries']) or '없음'}\n"
+                            f"- 붙인 문서: {', '.join(col['indexed']) or '없음'}\n"
+                            f"- 버린 문서: {', '.join(skipped) or '없음'}\n"
+                            f"- 예전 자료(캐시): {', '.join(col['cached']) or '없음'}")
 
 
 def call_with_status(label: str, func) -> dict | None:
@@ -96,7 +106,7 @@ def to_message(result: dict, kind: str) -> dict:
         return {"role": "assistant", "kind": kind, "text": result["error"], "error": True}
     return {"role": "assistant", "kind": kind, "text": result["answer"], "citations": result["citations"],
             "no_citation": result["no_citation"], "version_note": result["version_note"],
-            "verdict": result.get("verdict"), "chain": result.get("chain")}
+            "verdict": result.get("verdict"), "chain": result.get("chain"), "collected": result.get("collected")}
 
 
 # ---------------- 사이드바 ----------------
