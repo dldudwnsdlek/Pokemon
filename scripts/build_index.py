@@ -43,6 +43,20 @@ def reindex_wiki() -> int:
     return total
 
 
+def build_base(say=print) -> None:
+    """도감 메타데이터 + 구조화 문서 색인. 서버가 빈 도감으로 켜졌을 때도 이 함수를 부른다 (api/server.py)."""
+    pokemon = load_pokemon()
+    say(f"포켓몬 데이터 {len(pokemon)}마리 불러옴")
+    before = count(META)
+    index_meta(pokemon)
+    say(f"{META} 색인 완료: {count(META)}청크 (이전 {before} → 지금 {count(META)})")
+    type_docs, evo_docs = load("type_docs.json"), load("evolution_docs.json")
+    rank_docs = load("rank_docs.json")
+    n = index_structured(type_docs, evo_docs + rank_docs)
+    say(f"구조화 문서 색인 완료: 타입 {len(type_docs)}개, 진화 계통 {len(evo_docs)}개, "
+        f"순위 {len(rank_docs)}개 → {DOCS} 청크 {n}개")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="포켓몬 RAG 색인")
     parser.add_argument("--reset-docs", action="store_true", help="pokemon_docs를 비우고 새 청크 설정으로 다시 색인")
@@ -54,23 +68,12 @@ def main() -> None:
         sys.exit(1)
 
     try:
-        pokemon = load_pokemon()
-        print(f"포켓몬 데이터 {len(pokemon)}마리 불러옴")
-
-        before = count(META)
-        index_meta(pokemon)
-        print(f"{META} 색인 완료: {count(META)}청크 (이전 {before} → 지금 {count(META)})")
-
         docs_before = count(DOCS)
         if args.reset_docs:
             delete_collection(DOCS)
             print(f"{DOCS} 비움 (이전 {docs_before}청크)")
 
-        type_docs, evo_docs = load("type_docs.json"), load("evolution_docs.json")
-        rank_docs = load("rank_docs.json")
-        n = index_structured(type_docs, evo_docs + rank_docs)
-        print(f"구조화 문서 색인 완료: 타입 {len(type_docs)}개, 진화 계통 {len(evo_docs)}개, "
-              f"순위 {len(rank_docs)}개 → {DOCS} 청크 {n}개")
+        build_base()
 
         if args.reset_docs:
             if args.forget_collected:

@@ -6,6 +6,7 @@ import json
 import mimetypes
 import queue
 import threading
+from contextlib import asynccontextmanager
 from typing import Callable
 
 from fastapi import FastAPI, Request
@@ -21,6 +22,7 @@ from features import battle_coach, evolution_guide, finder
 from rag.collector import collected_titles, load_registry
 from rag.graph import check_ready, match_question, run
 from rag.retriever import retrieve
+from scripts.build_index import build_base
 from services.config import settings
 from services.errors import ServiceError
 from services.http import UpstreamError
@@ -29,7 +31,43 @@ from services.log import get_logger
 from store.vector_store import DOCS, META, count
 
 log = get_logger("api")
-app = FastAPI(title="이박사의 연구노트 API", version="1.0")
+
+# ---------- 빈 도감으로 켜졌을 때 스스로 색인 ----------
+# 무료 배포 서버는 잠들었다 깨면 파일이 처음 상태로 돌아갈 수 있다.
+# 도감이 비어 있으면 뒤에서 색인을 만들고, 그동안 /api/status 의 building 으로 화면에 알린다.
+BUILD = {"running": False, "error": None}
+
+
+def _say(message: str) -> None:
+    """기록 파일과 화면(배포 서비스의 로그 창) 양쪽에 남긴다."""
+    log.info(message)
+    print(f"[자동 색인] {message}", flush=True)
+
+
+def _build_in_background() -> None:
+    BUILD.update(running=True, error=None)
+    try:
+        build_base(say=_say)
+    except (ApiKeyMissing, UpstreamError) as e:
+        BUILD["error"] = "API_KEY_MISSING" if isinstance(e, ApiKeyMissing) else "UPSTREAM_ERROR"
+        _say(f"실패: {BUILD['error']} (자세한 내용: logs/app.log)")
+    except Exception as e:  # noqa: BLE001 — 색인 실패가 서버를 끄지 않게
+        BUILD["error"] = "INTERNAL"
+        log.exception("자동 색인 실패")
+        _say(f"실패: {type(e).__name__}")
+    finally:
+        BUILD["running"] = False
+
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    if count(META) == 0 and settings.has_api_key():
+        _say("도감이 비어 있어 색인을 시작합니다")
+        threading.Thread(target=_build_in_background, daemon=True).start()
+    yield
+
+
+app = FastAPI(title="이박사의 연구노트 API", version="1.0", lifespan=lifespan)
 
 
 # ---------- 요청 형식 (pydantic으로 검사) ----------
@@ -140,6 +178,8 @@ def status():
         "collected_docs": sum(len(d) for d in reg["docs"].values()),
         "api_key": settings.has_api_key(),
         "search_type": settings["retrieval"]["search_type"],
+        "building": BUILD["running"],          # 빈 도감이라 지금 색인을 만드는 중
+        "build_error": BUILD["error"],
     }
 
 

@@ -5,7 +5,7 @@ import { setupFinder } from "./finder.js";
 import { meadow } from "./meadow.js";
 import { pokedex } from "./pokedex.js";
 import { current, hasRecords, onSelect, selectPokemon, state } from "./state.js";
-import { el, hideNotice, showNotice, TEXT } from "./ui.js";
+import { el, errorText, hideNotice, showNotice, TEXT } from "./ui.js";
 
 // 상단 오른쪽 라벨: "도감 151 · 문서 12" (F2002)
 async function refreshStatus() {
@@ -14,7 +14,12 @@ async function refreshStatus() {
     const s = await api.status();
     tag.textContent = `도감 ${s.meta_count} · 문서 ${s.collected_docs}`;
     pokedex.status(s);
-    if (s.meta_count === 0) showNotice("도감이 비어 있어요", TEXT.INDEX_EMPTY);
+    if (s.building) {
+      // 배포 서버가 빈 도감으로 켜져 스스로 색인하는 중: 끝날 때까지 3초마다 다시 확인
+      showNotice("도감을 펼치는 중이에요", TEXT.building);
+      setTimeout(refreshStatus, 3000);
+    } else if (s.meta_count === 0 && s.build_error) showNotice("도감을 펼치지 못했어요", errorText(s.build_error));
+    else if (s.meta_count === 0) showNotice("도감이 비어 있어요", TEXT.INDEX_EMPTY);
     else if (!s.api_key) showNotice("열쇠가 없어요", TEXT.API_KEY_MISSING);
     else hideNotice();
     return s;

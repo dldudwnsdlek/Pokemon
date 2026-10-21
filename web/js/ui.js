@@ -2,6 +2,7 @@
 
 export const TEXT = {
   opening: "연구노트를 펼치는 중…",
+  building: "연구소 서버가 막 깨어나서 151마리 도감 색인을 만들고 있어요. 1분쯤 걸려요. 끝나면 이 안내가 저절로 닫혀요.",
   INDEX_EMPTY: "아직 도감이 비어 있어요. 터미널에서 <code>python -m scripts.build_index</code> 를 실행한 뒤 새로고침해 주세요.",
   API_KEY_MISSING: "연구소 열쇠(API 키)가 설정되지 않았어요. <code>.env</code> 파일에 <code>GMS_API_KEY</code> 를 넣고 서버를 다시 켜 주세요.",
   serverDown: "연구소 서버와 연결되지 않아요. 터미널에서 서버가 켜져 있는지 확인해 주세요.",

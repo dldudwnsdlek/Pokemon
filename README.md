@@ -31,6 +31,17 @@ streamlit run streamlit_app.py      # 필수 기능 확인용 간단 화면
 ```
 
 `.env`에 키가 없거나 색인이 비어 있으면, 화면이 무엇을 해야 하는지 안내합니다.
+키가 있는데 도감 색인이 비어 있으면 서버가 켜질 때 스스로 색인을 만듭니다(약 10초~1분, 화면에 "도감을 펼치는 중" 안내).
+
+### 무료 배포 (Render)
+
+| 칸 | 값 |
+|---|---|
+| Build Command | `pip install -r requirements.txt` |
+| Start Command | `uvicorn api.server:app --host 0.0.0.0 --port $PORT` |
+| Environment | `GMS_API_KEY`, `GMS_BASE_URL`, `PYTHON_VERSION=3.12.9` |
+
+무료 서버는 잠들었다 깨면 파일이 처음 상태로 돌아갈 수 있어서, 색인은 서버가 켜질 때 비어 있으면 자동으로 만듭니다. 질문하며 모은 위키 문서도 이때 사라지고 다음 질문 때 다시 모읍니다.
 
 ## 2. 기능
 
