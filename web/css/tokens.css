@@ -5,18 +5,21 @@
 
   --paper: #F4EEDF;       /* 노트 종이 바탕 */
   --paper-deep: #EAE1CB;  /* 사이드바, 눌린 상태 */
-  --grid: #DCD2BA;        /* 모눈 선 (1px, 24px 간격) */
+  --grid: #E4DBC6;        /* 모눈 선 (1px, 24px 간격) — 글보다 앞에 보이지 않게 연하게 */
+  --rule: #DCD2BA;        /* 기록 사이 구분선처럼 꼭 보여야 하는 선 */
   --ink: #1F2A36;         /* 본문 글자, 테두리 */
   --ink-soft: #5B6470;    /* 보조 글자 */
-  --pencil: #8A8478;      /* 연필 메모, 비활성 */
-  --dex-red: #C8432F;     /* 강조색 — 한 화면에 한두 곳만 */
+  --pencil: #6F6A5E;      /* 연필 메모, 비활성 (종이 위 대비 4.5:1 이상) */
+  --dex-red: #C8432F;     /* 강조색 — 한 화면에 한두 곳만 (주요 버튼) */
+  --dex-red-dark: #A93824; /* 주요 버튼에 마우스를 올렸을 때 */
   --grass: #5E8C4A;       /* 풀숲, "유리" 도장 */
   --grass-dark: #3F6534;  /* 풀숲 그림자 */
   --marker: #F2D65C;      /* 형광펜 */
   --tape: rgba(242, 214, 92, 0.55); /* 참고 카드 테이프 */
 
   /* 글꼴 (가이드 9-3) */
-  --font-label: "Galmuri11", "Pretendard", monospace;
+  --font-label: "Galmuri11", "Pretendard", monospace;    /* 11·22·33px 전용 */
+  --font-label-14: "Galmuri14", "Pretendard", monospace; /* 14px 전용: 버튼·라벨 */
   --font-body: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --font-hand: "Nanum Pen Script", "Pretendard", cursive;
 
@@ -24,18 +27,23 @@
   --radius: 2px;
   --radius-card: 4px;
   --line: 1.5px solid var(--ink);
-  --shadow: 3px 3px 0 var(--ink);
+  --shadow: 3px 3px 0 var(--ink);   /* 주요 행동·강조 카드에만 */
   --shadow-pressed: 1px 1px 0 var(--ink);
 
   /* 여백 4px 단위 */
   --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s6: 24px; --s8: 32px; --s12: 48px;
 
-  --dex-w: 260px;
-  --refs-w: 300px;
-  --meadow-h: 150px;
-  --note-max: 680px;
+  /* 화면이 넓어지면 열과 글 폭도 함께 늘어난다 (전체 화면에서 빈 곳이 커지지 않게) */
+  --dex-w: clamp(220px, 15vw, 300px);
+  --refs-w: clamp(280px, 23vw, 440px);
+  --meadow-h: clamp(120px, 15vh, 180px);
+  --note-max: clamp(640px, 50vw, 920px);
+  --text: 16px;
 }
 
+@media (min-width: 1600px) {
+  :root { --text: 17px; }
+}
 @media (max-width: 900px) {
   :root { --meadow-h: 100px; }
 }

@@ -8,7 +8,7 @@
 | [PokéAPI](https://pokeapi.co/) (`pokeapi.co/api/v2`) | 1세대 151마리 데이터(이름·분류·타입·특성·키·몸무게·능력치·도감 설명), 타입 상성, 진화 계통 | 무료 공개 API, 인증 키 없음. **공정 이용 규칙**: 받은 응답을 로컬에 저장해 다시 쓸 것 → `cache/pokeapi/`에 모두 저장, 두 번째 실행부터 외부 호출 0회 | 2026-10-21 |
 | [PokéAPI sprites](https://github.com/PokeAPI/sprites) (GitHub) | 화면에 보이는 포켓몬 그림 (5세대 움직이는 GIF, 실패 시 정지 그림) | 주소로만 불러오고 저장소에 복사하지 않음. 그림 저작권은 Nintendo·Creatures·GAME FREAK. 교육용 비영리 사용 | (불러오기만 함) |
 | [한국어 위키백과](https://ko.wikipedia.org/) (MediaWiki API) | 외부 문서 본문 | **CC BY-SA 4.0**. 근거마다 문서 제목과 원문 링크(`https://ko.wikipedia.org/?curid=<pageid>`)를 표시. 요청에 연락처가 든 User-Agent를 넣고, 호출 사이 1초 간격·최대 3회 재시도 규칙을 지킴 | 문서별 `collected_at` (청크 메타데이터와 `cache/wiki/<pageid>.json`에 기록) |
-| [Galmuri11](https://github.com/quiple/galmuri) | 제목·라벨 글꼴 (jsDelivr `galmuri@2.40.3`) | SIL Open Font License 1.1 | — |
+| [Galmuri11·Galmuri14](https://github.com/quiple/galmuri) | 제목·라벨·버튼 글꼴 (jsDelivr `galmuri@2.40.3`) | SIL Open Font License 1.1 | — |
 | [Pretendard](https://github.com/orioncactus/pretendard) | 본문 글꼴 (jsDelivr `orioncactus/pretendard@v1.3.9`) | SIL Open Font License 1.1 | — |
 | [Nanum Pen Script](https://fonts.google.com/specimen/Nanum+Pen+Script) | 손글씨 메모 (Google Fonts) | SIL Open Font License 1.1 | — |
 

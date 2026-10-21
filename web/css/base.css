@@ -11,14 +11,15 @@ body {
   background-size: 24px 24px;
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: var(--text);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Galmuri11은 11의 배수 크기만 (픽셀이 뭉개지지 않게) */
-.label, h1, h2, h3, button, .dex-no { font-family: var(--font-label); font-weight: 400; }
+/* Galmuri11은 11의 배수, Galmuri14는 14px만 (픽셀이 뭉개지지 않게) */
+.label, h1, h2, h3, .dex-no { font-family: var(--font-label); font-weight: 400; }
 .px11 { font-size: 11px; line-height: 1.6; }
+.px14 { font-family: var(--font-label-14); font-size: 14px; line-height: 1.5; }
 .px22 { font-size: 22px; line-height: 1.4; }
 .px33 { font-size: 33px; line-height: 1.3; }
 
@@ -27,23 +28,36 @@ h1, h2, h3 { margin: 0; }
 a { color: var(--ink); text-underline-offset: 3px; }
 a:hover { color: var(--dex-red); }
 
+/* 보조 버튼: 납작한 종이 단추. 그림자는 주요 버튼(.primary)에만 */
 button {
   cursor: pointer;
   color: var(--ink);
   background: var(--paper);
   border: var(--line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  font-size: 11px;
-  padding: var(--s2) var(--s3);
+  font-family: var(--font-label-14);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: var(--s1) var(--s3);
   transition: transform 60ms, box-shadow 60ms;
 }
-button:active, button[aria-pressed="true"] {
-  transform: translate(2px, 2px);
-  box-shadow: var(--shadow-pressed);
-  background: var(--paper-deep);
+button:hover { background: var(--paper-deep); }
+button:active, button[aria-pressed="true"] { background: var(--paper-deep); }
+
+/* 주요 버튼: 한 화면에 하나 — 도감 빨강 + 찍힌 그림자 */
+button.primary {
+  color: var(--paper);
+  background: var(--dex-red);
+  box-shadow: var(--shadow);
+  padding: var(--s2) var(--s4);
 }
-button:disabled { color: var(--pencil); border-color: var(--pencil); box-shadow: none; cursor: default; }
+button.primary:hover { background: var(--dex-red-dark); }
+button.primary:active { transform: translate(2px, 2px); box-shadow: var(--shadow-pressed); }
+button:disabled, button.primary:disabled {
+  color: var(--pencil); background: var(--paper); border-color: var(--pencil);
+  box-shadow: none; transform: none; cursor: default;
+}
 
 :focus-visible { outline: 2px dashed var(--dex-red); outline-offset: 2px; }
 
@@ -70,3 +84,31 @@ select { border: var(--line); border-radius: var(--radius); background: var(--pa
 }
 
 .pixel { image-rendering: pixelated; }
+
+/* ---------- 스크롤바: 노트 가장자리에 끼운 픽셀 손잡이 ----------
+   손잡이 = 잉크 테두리 종이 조각 + 가운데 미끄럼 방지 줄 3개. 잡으면 도감 빨강. */
+::-webkit-scrollbar { width: 14px; height: 14px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(var(--ink-soft) 0 2px, transparent 2px 4px);
+  background-size: 4px 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+  border-radius: 0;
+  min-height: 40px;
+}
+::-webkit-scrollbar-thumb:hover { background-color: var(--marker); }
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--dex-red);
+  background-image: repeating-linear-gradient(var(--paper) 0 2px, transparent 2px 4px);
+}
+::-webkit-scrollbar-button, ::-webkit-scrollbar-corner { display: none; background: transparent; }
+
+/* 파이어폭스는 모양을 바꿀 수 없어 색만 맞춘다 */
+@supports not selector(::-webkit-scrollbar) {
+  * { scrollbar-width: thin; scrollbar-color: var(--ink-soft) transparent; }
+}

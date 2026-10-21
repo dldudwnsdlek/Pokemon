@@ -5,6 +5,7 @@ import { current, records, saveChats, selectPokemon, state } from "./state.js";
 import { el, errorText, formatTime, progressLog, showNotice, spriteImg, TEXT } from "./ui.js";
 
 const CITE = /\[근거\s*(\d+)\]/g;
+const WELCOME_ID = 25; // 첫 화면 대표 포켓몬: 피카츄
 let onDone = () => {};
 
 export function setAfterJob(fn) {
@@ -104,13 +105,14 @@ export function chainStrip(stages) {
 
 // ---------- 수집 기록: 찾아볼 단어, 붙인 문서, 버린 문서와 이유 (F2003, F2004) ----------
 function collectedView(col) {
-  const row = (label, items) => el("li", {}, el("span", { class: "label px11" }, label), " ",
+  const row = (label, items) => el("li", {}, el("span", { class: "label px14" }, label), " ",
     items.length ? items.join(", ") : "없음");
   const summary = col.cached.length && !col.indexed.length
     ? "예전에 모아 둔 자료를 다시 펼쳤어요"
     : `위키백과 문서 ${col.indexed.length}개를 붙였어요`;
-  return el("details", { class: "collected" },
-    el("summary", { class: "pencil small" }, `수집 기록 · ${summary}`),
+  return el("div", { class: "collected" },
+    el("h4", {}, "수집 기록"),
+    el("p", {}, summary),
     el("ul", {},
       row("찾아볼 단어", col.queries || []),
       row("붙인 문서", col.indexed.map((t) => `「${t}」`)),
@@ -150,31 +152,34 @@ function recordView(record) {
   if (record.chain) right.append(chainStrip(record.chain));
   right.append(answerBody(record));
   if (record.version_note) right.append(el("p", { class: "version-note" }, TEXT.versionNote));
-  if (record.matched?.length) right.append(matchedView(record.matched));
+  // 자주 쓰는 행동(질문 속 포켓몬의 노트 열기)만 바로 보이게
+  if (record.matched?.length) right.append(matchedButtons(record.matched));
 
   // 좁은 화면에서는 참고 카드를 답변 바로 아래에
   right.append(el("div", { class: "inline-refs" },
     record.no_citation ? emptyRefCard() : record.citations.map((c) => refCard(c, null))));
 
-  if (record.collected) right.append(collectedView(record.collected));
-
+  // 나머지(이름 인식 설명, 수집 기록, 검색 방식 비교)는 "자세히 보기"에 접어 둔다
+  const more = el("div", { class: "more-body" });
+  if (record.matched?.length) more.append(el("p", {}, TEXT.matched(record.matched.map((m) => `「${m.name_ko}」`).join(", "))));
+  if (record.collected) more.append(collectedView(record.collected));
   if (record.kind === "chat") {
-    const tools = el("div", { class: "record-tools" });
-    const btn = el("button", { onclick: () => compare(record, tools, btn) }, "근거 비교: 유사도 · MMR");
-    tools.append(btn);
-    right.append(tools);
+    const tools = el("div", {}, el("h4", {}, "검색 방식 비교"),
+      el("p", {}, "같은 질문을 두 가지 방법으로 찾았을 때 근거가 어떻게 달라지는지 봐요."));
+    const btn = el("button", { type: "button", onclick: () => compare(record, tools, btn) }, "유사도 · MMR 비교하기");
+    tools.append(el("div", { class: "record-tools" }, btn));
+    more.append(tools);
   }
+  if (more.childElementCount) right.append(el("details", { class: "more" }, el("summary", {}, "자세히 보기"), more));
+
   node.addEventListener("click", () => setActive(record));
   return node;
 }
 
-// 자유 질문에서 질문 속 포켓몬 이름을 찾았을 때: 안내 한 줄 + 그 포켓몬 노트로 가는 버튼
-function matchedView(matched) {
-  const names = matched.map((m) => `「${m.name_ko}」`).join(", ");
-  return el("div", { class: "matched" },
-    el("p", { class: "pencil small" }, TEXT.matched(names)),
-    el("div", { class: "record-tools" }, matched.map((m) =>
-      el("button", { type: "button", onclick: () => { selectPokemon(m.id); showTab("chat"); } }, `${m.name_ko} 노트 열기`))));
+// 자유 질문에서 질문 속 포켓몬 이름을 찾았을 때: 그 포켓몬 노트로 가는 버튼
+function matchedButtons(matched) {
+  return el("div", { class: "record-tools" }, matched.map((m) =>
+    el("button", { type: "button", onclick: () => { selectPokemon(m.id); showTab("chat"); } }, `${m.name_ko} 노트 열기`)));
 }
 
 function examples(p) {
@@ -198,15 +203,28 @@ export function updatePaneLocks() {
   setBusy(state.busy);
 }
 
+// 첫 화면: 대표 포켓몬 한 마리 + 짧은 시작 안내 + 예시 질문
+function welcomeView(p) {
+  const mon = p || state.byId.get(WELCOME_ID);
+  const fill = (q) => { const i = document.getElementById("askInput"); i.value = q; i.focus(); };
+  return el("div", { class: "welcome" },
+    mon ? el("div", { class: "welcome-mon" },
+      spriteImg(mon, { animated: false, size: 192 }),
+      el("span", { class: "pencil" }, `No.${mon.dex_no} ${mon.name_ko}`)) : el("span", {}),
+    el("div", {},
+      el("h2", { class: "px22 underlined" }, p ? `${p.name_ko} 연구 노트` : TEXT.welcomeTitle),
+      el("p", { class: "lead" }, p ? TEXT.emptyRecord : TEXT.freeEmpty),
+      p ? null : el("ol", { class: "steps" }, TEXT.welcomeSteps.map((t) => el("li", {}, t))),
+      el("p", { class: "examples-title px14" }, "이렇게 물어보세요"),
+      el("div", { class: "examples" }, examples(p).map((q) =>
+        el("button", { type: "button", onclick: () => fill(q) }, q)))));
+}
+
 export function renderRecords() {
   const box = document.getElementById("records");
   const list = records();
   if (!list.length) {
-    const p = current();
-    box.replaceChildren(el("div", { class: "empty" },
-      el("p", {}, p ? TEXT.emptyRecord : TEXT.freeEmpty),
-      el("div", { class: "examples" }, examples(p).map((q) =>
-        el("button", { type: "button", onclick: () => { const i = document.getElementById("askInput"); i.value = q; i.focus(); } }, q)))));
+    box.replaceChildren(welcomeView(current()));
   } else {
     box.replaceChildren(...list.map(recordView));
     // 최신 기록이 보이게 (오른쪽 참고 카드도 최신 답의 것)
@@ -304,7 +322,8 @@ async function compare(record, tools, btn) {
       el("ol", {}, list.map((e) => el("li", { class: both.has(e.id) ? "both" : null },
         el("span", { class: "source-stamp", "data-source": e.source_type }, e.source_label), " ", e.title))));
     tools.replaceWith(el("div", {},
-      el("p", { class: "pencil small" },
+      el("h4", {}, "검색 방식 비교"),
+      el("p", {},
         `겹치는 근거 ${r.shared}개 · 서로 다른 문서 수: 유사도 ${r.distinct_docs.similarity}개, MMR ${r.distinct_docs.mmr}개 (밑줄 = 양쪽 모두)`),
       el("div", { class: "compare" }, col("유사도 검색", r.similarity), col("MMR 검색", r.mmr))));
   } catch (e) {

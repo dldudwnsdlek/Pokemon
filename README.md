@@ -93,7 +93,7 @@ python -m scripts.compare_rag                # RAG 전후 비교 → docs/rag_co
 - **PokéAPI** — 무료 공개 API, 공정 이용 규칙(로컬 캐시) 준수
 - **한국어 위키백과** — CC BY-SA 4.0, 근거에 문서 제목과 원문 링크 표시
 - **포켓몬 그림** — PokéAPI sprites 저장소 주소로 불러옴(복사하지 않음). 저작권은 Nintendo·Creatures·GAME FREAK
-- **글꼴** — Galmuri11, Pretendard, Nanum Pen Script (모두 SIL Open Font License)
+- **글꼴** — Galmuri11·Galmuri14, Pretendard, Nanum Pen Script (모두 SIL Open Font License)
 
 > 포켓몬은 상업 IP입니다. 이 프로젝트는 **교육용으로만** 쓰고, 공개 배포·상업적 사용을 하지 않습니다.
 > 위험 도메인(건강·금융)이 아니어서 면책 문구 대신, 세대별 차이가 있는 답에는 "게임 버전에 따라 내용이 다를 수 있어요"를 붙입니다.

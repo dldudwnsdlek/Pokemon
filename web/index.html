@@ -21,8 +21,8 @@
     <header class="topbar">
       <button class="drawer-btn" id="drawerBtn" aria-controls="dex" aria-expanded="false">도감 색인</button>
       <h1 class="px22 title">이박사의 연구노트</h1>
-      <span class="label px11 current" id="currentLabel"></span>
-      <span class="label px11 status-tag" id="statusTag">연구노트를 펼치는 중…</span>
+      <span class="label px14 current" id="currentLabel"></span>
+      <span class="label px14 status-tag" id="statusTag">연구노트를 펼치는 중…</span>
     </header>
 
     <!-- 왼쪽: 도감 색인 -->
@@ -51,14 +51,14 @@
           <h2 class="px22 underlined">배틀 상성 코치</h2>
           <p class="pane-lead">선택한 포켓몬이 상대를 만나면 유리할까요? 타입 상성 자료를 근거로 판정해요.</p>
           <div class="form-row">
-            <label class="label px11" for="oppKind">상대</label>
+            <label class="label px14" for="oppKind">상대</label>
             <select id="oppKind">
               <option value="pokemon">포켓몬</option>
               <option value="type">타입</option>
             </select>
             <select id="oppPokemon" aria-label="상대 포켓몬"></select>
             <select id="oppType" aria-label="상대 타입" hidden></select>
-            <button id="battleBtn">상성 보기</button>
+            <button class="primary" id="battleBtn">상성 보기</button>
           </div>
         </section>
 
@@ -66,7 +66,7 @@
           <h2 class="px22 underlined">진화 안내</h2>
           <p class="pane-lead">레벨·진화의 돌·통신교환처럼 이름만으로는 알 수 없는 진화 조건을 자료에서 찾아 정리해요.</p>
           <div class="evo-strip" id="evoPreview"></div>
-          <button id="evoBtn">진화 보기</button>
+          <button class="primary" id="evoBtn">진화 보기</button>
         </section>
 
         <section class="pane" data-pane="find" role="tabpanel" hidden>
@@ -74,7 +74,7 @@
           <form class="form-row" id="findForm">
             <label class="sr-only" for="findInput">찾고 싶은 포켓몬의 조건</label>
             <input id="findInput" maxlength="500" placeholder="예: 물 타입인데 몸무게 100kg 넘는 포켓몬">
-            <button type="submit">찾아보기</button>
+            <button class="primary" type="submit">찾아보기</button>
           </form>
           <p class="pencil small" id="findFilters"></p>
           <div class="index-cards" id="findResults"></div>
@@ -84,7 +84,7 @@
       <form class="ask" id="askForm">
         <label class="sr-only" for="askInput">질문</label>
         <input id="askInput" maxlength="500" placeholder="궁금한 걸 적어 주세요" autocomplete="off">
-        <button type="submit" id="askBtn">기록하기</button>
+        <button class="primary" type="submit" id="askBtn">기록하기</button>
       </form>
 
       <!-- 색인 없음·키 없음 안내 카드 (노트 전체를 덮음) -->
@@ -98,7 +98,7 @@
 
     <!-- 오른쪽: 참고 카드 -->
     <aside class="refs" id="refs" aria-label="참고 카드">
-      <h2 class="label px11 refs-title">참고 카드</h2>
+      <h2 class="label px14 refs-title">참고 카드</h2>
       <div id="refCards"></div>
     </aside>
 
@@ -108,7 +108,7 @@
       <span class="hand meadow-note">오늘 풀숲에서 본 친구들</span>
       <div class="stage" id="stage"></div>
       <div class="grass-front" aria-hidden="true"></div>
-      <label class="meadow-pause label px11"><input type="checkbox" id="meadowPause"> 풀숲 멈추기</label>
+      <label class="meadow-pause label px14"><input type="checkbox" id="meadowPause"> 풀숲 멈추기</label>
     </footer>
   </div>
 
