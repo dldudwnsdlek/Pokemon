@@ -1,0 +1,44 @@
+# config.yaml — 숫자는 모두 여기서 바꾼다
+
+llm:
+  chat_model: "gpt-4.1-mini"
+  embedding_model: "text-embedding-3-small"
+  answer_temperature: 0.2      # 답변 생성
+  tool_temperature: 0          # 검색어 추출·선별 (같은 질문에 같은 결과)
+
+chunk:                         # 위키 문단이 짧아 1,000보다 작게 시작
+  size: 800
+  overlap: 150
+
+retrieval:
+  top_k: 5                     # 외부 문서에서 가져올 근거 수
+  search_type: similarity      # similarity | mmr
+  mmr_fetch_k: 30
+  mmr_lambda: 0.5
+  dedup_prefix_chars: 200      # 본문 앞 몇 글자가 같으면 중복으로 볼지
+
+collect:
+  max_queries: 4               # 프롬프트 1이 뽑을 검색어 최대 수
+  candidates_per_query: 5
+  max_docs_per_question: 4
+  min_doc_chars: 200
+  summary_chars: 300           # 선별용 요약 길이
+  offline: false               # true면 cache/wiki/ 에 받아 둔 문서만 사용
+
+finder:
+  candidates: 15               # 조건 탐색 후보 수
+
+http:
+  request_interval_sec: 1.0
+  max_retries: 3
+  timeout_sec: 15
+  user_agent: "PokemonRAGStudy/1.0 (SSAFY 교육 프로젝트; youngjoon4u@gmail.com)"
+
+store:
+  path: ./chroma_db
+  meta_collection: pokemon_meta
+  doc_collection: pokemon_docs
+
+scope:
+  dex_from: 1
+  dex_to: 151
