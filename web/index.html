@@ -136,9 +136,14 @@
 
     <!-- 아래: 풀숲 띠 -->
     <footer class="meadow" id="meadow" aria-label="오늘 풀숲에서 본 친구들">
+      <!-- 뒤에서 앞으로: 먼 숲 → 땅(세 띠 + 풀포기·꽃) → 뒤쪽 풀 → 햇빛 → 포켓몬 → 키 큰 풀 → 앞쪽 풀 -->
+      <div class="forest" aria-hidden="true"></div>
+      <div class="ground" aria-hidden="true"></div>
       <div class="grass-back" aria-hidden="true"></div>
+      <div class="sunlight" aria-hidden="true"></div>
       <span class="hand meadow-note">오늘 풀숲에서 본 친구들</span>
       <div class="stage" id="stage"></div>
+      <div class="grass-tall" aria-hidden="true"></div>
       <div class="grass-front" aria-hidden="true"></div>
       <label class="meadow-pause label px14"><input type="checkbox" id="meadowPause"> 풀숲 멈추기</label>
     </footer>

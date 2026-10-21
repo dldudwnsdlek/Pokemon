@@ -14,6 +14,10 @@
   --dex-red-dark: #A93824; /* 주요 버튼에 마우스를 올렸을 때 */
   --grass: #5E8C4A;       /* 풀숲, "유리" 도장 */
   --grass-dark: #3F6534;  /* 풀숲 그림자 */
+  /* 풀숲 땅의 세 띠 (먼 곳일수록 밝게). 픽셀 그림 assets/*.svg 도 같은 값 (scripts/make_meadow_art.py) */
+  --grass-far: #6A9653;
+  --grass-near: #527F40;
+  --grass-light: #A9CF7A;  /* 걸을 때 튀는 풀잎 조각 */
   --marker: #F2D65C;      /* 형광펜 */
   --tape: rgba(242, 214, 92, 0.55); /* 참고 카드 테이프 */
 
@@ -48,7 +52,7 @@
   /* 화면이 넓어지면 열과 글 폭도 함께 늘어난다 (전체 화면에서 빈 곳이 커지지 않게) */
   --dex-w: clamp(220px, 15vw, 300px);
   --refs-w: clamp(280px, 23vw, 440px);
-  --meadow-h: clamp(120px, 15vh, 180px);
+  --meadow-h: clamp(120px, 16vh, 190px);
   --note-max: clamp(640px, 50vw, 920px);
   --text: 16px;
 }

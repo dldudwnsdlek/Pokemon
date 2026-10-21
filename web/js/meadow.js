@@ -81,6 +81,8 @@ function randomTarget(c) {
 // ---------- 상태 바꾸기 ----------
 function setState(c, next, opts = {}) {
   c.state = next;
+  // 걷는 동안 발밑에서 풀잎 조각이 튄다 (CSS가 그림)
+  c.el.classList.toggle("walking", next === "walk" || next === "enter" || next === "leave");
   c.t = 0;
   c.dur = opts.dur ?? 0;
   c.bubble.hidden = true;
@@ -286,7 +288,8 @@ async function spawn(id, { entering = false, side = "right" } = {}) {
     class: `critter${persona.lane === 0 ? " back" : ""}`,
     type: "button",
     "aria-label": `No.${p.dex_no} ${p.name_ko} 선택하기`,
-  }, shadow, body, el("span", { class: "tag" }, `No.${p.dex_no} ${p.name_ko}`), bubble);
+  }, shadow, body, el("span", { class: "rustle", "aria-hidden": "true" }),
+  el("span", { class: "tag" }, `No.${p.dex_no} ${p.name_ko}`), bubble);
   node.style.zIndex = String(persona.lane + 1); // 앞 줄일수록 위에
 
   const fromLeft = entering && side === "left";
@@ -347,9 +350,12 @@ export const meadow = {
     stage = document.getElementById("stage");
     onPick = pickHandler;
     const toggle = document.getElementById("meadowPause");
+    const box = document.getElementById("meadow");
     toggle.checked = paused;
+    box.classList.toggle("paused", paused); // 햇빛·바람 같은 CSS 움직임도 함께 멈춤
     toggle.addEventListener("change", () => {
       paused = toggle.checked;
+      box.classList.toggle("paused", paused);
       storageSet(PAUSE_KEY, paused ? "1" : "0");
       startLoop();
     });

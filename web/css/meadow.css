@@ -1,24 +1,82 @@
-/* 풀숲 무대 (가이드 10-2). 뒤쪽 풀 → 포켓몬 → 앞쪽 풀 순서로 쌓아 발이 풀에 묻혀 보이게 한다. */
+/* 풀숲 무대 (가이드 10-2). 숲 가장자리를 옆에서 본 모습:
+   종이 하늘 → 먼 숲 → 땅(먼 띠·가운데 띠·가까운 띠) → 포켓몬 → 키 큰 풀 → 앞쪽 풀.
+   그림은 모두 포켓몬과 같은 픽셀 그림체 (assets/*.svg, scripts/make_meadow_art.py 로 생성).
+   픽셀이 뭉개지지 않게 그림 크기는 칸 수의 정수 배(2·3·4배)로만 늘린다. */
 .meadow {
+  --horizon: 40%;          /* 땅이 시작되는 높이 (위에서부터) */
   position: relative;
   overflow: hidden;
-  background: var(--grass);
+  background: var(--paper);
   border-top: var(--line);
 }
-.grass-back {
+.forest, .ground, .grass-back, .sunlight, .grass-tall, .grass-front {
   position: absolute;
-  left: 0; right: 0; top: 0;
-  height: 40px;
-  background: var(--paper) url("../assets/grass-back.svg") repeat-x left bottom / 120px 40px;
+  left: 0; right: 0;
+  pointer-events: none;
 }
+
+/* 먼 숲: 160x22칸 × 3배 */
+.forest {
+  top: 0;
+  height: var(--horizon);
+  background: url("../assets/forest.svg") repeat-x left bottom / 480px 66px;
+}
+
+/* 땅: 세 띠 + 띠 사이 바둑판 점무늬 + 풀포기·꽃 (크기가 다른 무늬를 겹쳐 반복이 덜 보이게) */
+.ground {
+  top: var(--horizon);
+  bottom: 0;
+  background:
+    url("../assets/ground-flowers.svg") 0 0 / 180px 60px repeat,
+    url("../assets/ground-tufts.svg") 13px 7px / 96px 48px repeat,
+    repeating-conic-gradient(var(--grass-far) 0 25%, var(--grass) 0 50%) 0 50% / 4px 4px repeat-x,
+    repeating-conic-gradient(var(--grass) 0 25%, var(--grass-near) 0 50%) 0 78% / 4px 4px repeat-x,
+    linear-gradient(var(--grass-far) 0 50%, var(--grass) 50% 78%, var(--grass-near) 78%);
+}
+
+/* 뒤쪽 풀 가장자리: 숲과 땅의 경계를 덮는다. 60x12칸 × 2배 */
+.grass-back {
+  top: calc(var(--horizon) - 22px);
+  height: 24px;
+  background: url("../assets/grass-back.svg") repeat-x left bottom / 120px 24px;
+}
+
+/* 나뭇잎 사이로 떨어지는 햇빛: 120x30칸 × 4배, 아주 천천히 흐름 */
+.sunlight {
+  top: var(--horizon);
+  bottom: 0;
+  background: url("../assets/sunlight.svg") 0 0 / 480px 120px repeat;
+  animation: sun-drift 90s linear infinite;
+}
+@keyframes sun-drift { to { background-position: 480px 0; } }
+
+/* 앞쪽 키 큰 풀 무더기: 140x20칸 × 2배. 가끔 바람에 한 번 흔들린다 */
+.grass-tall {
+  bottom: 0;
+  height: 40px;
+  z-index: 9;
+  background: url("../assets/grass-tall.svg") repeat-x 37px bottom / 280px 40px;
+  transform-origin: bottom;
+  animation: wind 7s steps(1, end) infinite;
+}
+@keyframes wind {
+  0%, 78%, 100% { transform: none; }
+  82% { transform: skewX(-6deg); }
+  87% { transform: skewX(4deg); }
+  92% { transform: skewX(-2deg); }
+}
+
+/* 앞쪽 풀 가장자리: 48x14칸 × 2배 */
 .grass-front {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
+  bottom: 0;
   height: 28px;
   z-index: 10;
-  pointer-events: none;
   background: url("../assets/grass-front.svg") repeat-x left bottom / 96px 28px;
 }
+
+/* "풀숲 멈추기"를 켜면 CSS 움직임도 함께 멈춘다 */
+.meadow.paused .sunlight, .meadow.paused .grass-tall,
+.meadow.paused .rustle::before, .meadow.paused .rustle::after { animation-play-state: paused; }
 .meadow-note { /* 풀숲 앞에 꽂아 둔 종이 쪽지 */
   position: absolute;
   top: var(--s1); left: var(--s4);
@@ -61,6 +119,28 @@
   background: var(--grass-dark);
   opacity: 0.35;
 }
+/* 걷는 동안 발밑에서 튀는 풀잎 조각 2개 (4px 픽셀). 앞쪽 풀 위로 보이게 높이 튄다 */
+.critter .rustle { position: absolute; left: 50%; bottom: 12px; display: none; }
+.critter.walking .rustle { display: block; }
+.critter .rustle::before, .critter .rustle::after {
+  content: "";
+  position: absolute;
+  width: 4px; height: 4px;
+  background: var(--grass-light);
+  animation: leaf-left 0.6s steps(4, end) infinite;
+}
+.critter .rustle::after { background: var(--grass-far); animation-name: leaf-right; animation-delay: 0.3s; }
+@keyframes leaf-left {
+  0% { transform: translate(-8px, 0); opacity: 1; }
+  50% { transform: translate(-16px, -18px); }
+  100% { transform: translate(-22px, -8px); opacity: 0; }
+}
+@keyframes leaf-right {
+  0% { transform: translate(8px, 0); opacity: 1; }
+  50% { transform: translate(15px, -16px); }
+  100% { transform: translate(20px, -6px); opacity: 0; }
+}
+
 .critter.selected .shadow { background: none; border: 2px dashed var(--dex-red); opacity: 1; }
 .critter .body {
   position: absolute;
@@ -101,4 +181,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .critter .bubble .dot { animation: none; opacity: 1; }
+  .sunlight, .grass-tall { animation: none; }
+  .critter .rustle { display: none !important; }
 }
