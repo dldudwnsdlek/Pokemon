@@ -67,8 +67,10 @@ def find_item_page(name_ko: str) -> tuple[dict | None, str]:
         page = pages.get(target)
         if not page or "disambiguation" in page.get("pageprops", {}):
             continue
-        if redirects.get(t, {}).get("tofragment"):  # 목록 문서의 한 칸으로 넘어감
-            continue
+        if redirects.get(t, {}).get("tofragment") or "포켓몬 목록" in target:
+            continue  # 표로만 된 목록 문서로 넘어감
+        if name_ko not in target:
+            continue  # 다른 포켓몬 문서로 넘어감 (예: 신뇽 → 망나뇽)
         if "포켓몬" not in summaries([page["pageid"]]).get(page["pageid"], "") + page["title"]:
             continue  # 같은 이름의 다른 주제 문서
         return {"pageid": page["pageid"], "title": page["title"]}, "found"

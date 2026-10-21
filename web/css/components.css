@@ -1,0 +1,257 @@
+/* 주요 부품 (가이드 9-6) */
+.small { font-size: 14px; }
+
+/* ---------- 도감 색인 ---------- */
+.dex-item button {
+  all: unset;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: center;
+  gap: var(--s2);
+  width: 100%;
+  padding: var(--s1) var(--s4);
+  border-left: 4px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+.dex-item button:hover { color: var(--dex-red); }
+.dex-item button:focus-visible { outline: 2px dashed var(--dex-red); outline-offset: -2px; }
+.dex-item.selected button { border-left-color: var(--dex-red); } /* 선택: 세로 줄만, 배경은 그대로 */
+.dex-item .dex-no { font-size: 11px; color: var(--ink-soft); }
+.dex-item .pencil-mark { width: 14px; height: 14px; }
+
+/* ---------- 탭: 노트 인덱스 탭처럼 종이 위로 튀어나옴 ---------- */
+.tabs { display: flex; gap: var(--s1); padding-left: var(--s4); margin-bottom: -1.5px; position: relative; z-index: 1; }
+.tab {
+  box-shadow: none;
+  border-bottom: none;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  background: var(--paper-deep);
+  padding: var(--s2) var(--s4) var(--s1);
+  transform: translateY(3px);
+}
+.tab[aria-selected="true"] { background: var(--paper); transform: none; padding-bottom: var(--s2); }
+.tab:active { transform: translateY(3px); box-shadow: none; }
+
+.pane-lead { color: var(--ink-soft); margin: var(--s3) 0 var(--s4); }
+.form-row { display: flex; flex-wrap: wrap; gap: var(--s3); align-items: center; margin: var(--s4) 0; }
+.form-row input { flex: 1; min-width: 200px; }
+
+/* ---------- 연구 기록 ---------- */
+.empty { padding: var(--s8) 0; }
+.empty p { margin: 0 0 var(--s4); }
+.examples { display: flex; flex-direction: column; gap: var(--s2); align-items: flex-start; }
+.examples button { font-family: var(--font-body); font-size: 15px; box-shadow: none; border-style: dashed; }
+
+.record { padding: var(--s4) 0 var(--s6); border-bottom: 1px solid var(--grid); }
+.record:last-child { border-bottom: none; }
+.record.active .a-label { text-decoration: underline var(--marker) 4px; }
+.date-rule { display: flex; align-items: center; gap: var(--s3); color: var(--pencil); font-size: 13px; margin-bottom: var(--s2); }
+.date-rule::before, .date-rule::after { content: ""; flex: 1; border-top: 1px solid var(--pencil); }
+.q, .a { display: grid; grid-template-columns: 28px 1fr; gap: var(--s2); }
+.q-label, .a-label { font-family: var(--font-label); font-size: 22px; line-height: 1.4; }
+.q-label { color: var(--dex-red); }
+.q-text { font-weight: 600; display: flex; gap: var(--s3); justify-content: space-between; }
+.q-time { color: var(--pencil); font-weight: 400; font-size: 13px; white-space: nowrap; }
+.kind { font-family: var(--font-label); font-size: 11px; color: var(--ink-soft); border: 1px solid var(--ink-soft); border-radius: var(--radius); padding: 0 var(--s1); margin-right: var(--s2); }
+.a-body { white-space: pre-wrap; margin-top: var(--s1); }
+.a-body p { margin: 0 0 var(--s2); }
+.version-note { color: var(--pencil); font-size: 13px; margin-top: var(--s2); }
+.record-tools { margin-top: var(--s3); display: flex; gap: var(--s2); flex-wrap: wrap; }
+.record-tools button { box-shadow: none; font-size: 11px; padding: 2px var(--s2); }
+.error-line { color: var(--dex-red); }
+
+/* 답변 속 [근거 n] → 작은 원 안의 숫자 */
+.cite {
+  display: inline-grid;
+  place-items: center;
+  width: 18px; height: 18px;
+  margin: 0 1px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  font-family: var(--font-label);
+  font-size: 11px;
+  line-height: 1;
+  vertical-align: 2px;
+  cursor: pointer;
+  background: var(--paper);
+}
+.cite:hover, .cite:focus-visible { background: var(--marker); }
+
+/* ---------- 참고 카드 ---------- */
+.ref-card {
+  position: relative;
+  margin: var(--s6) var(--s1) var(--s4);
+  padding: var(--s4) var(--s3) var(--s3);
+  background: var(--paper);
+  border: var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  transition: background 120ms;
+}
+/* 사람이 붙인 카드는 다시 봐도 같은 자리에 — 순서대로 같은 기울기 */
+.ref-card:nth-child(4n+1) { transform: rotate(-1.2deg); }
+.ref-card:nth-child(4n+2) { transform: rotate(0.6deg); }
+.ref-card:nth-child(4n+3) { transform: rotate(-0.4deg); }
+.ref-card:nth-child(4n+4) { transform: rotate(1deg); }
+.ref-card::before { /* 테이프 조각 */
+  content: "";
+  position: absolute;
+  top: -11px; left: 50%;
+  width: 72px; height: 20px;
+  margin-left: -36px;
+  background: var(--tape);
+  transform: rotate(-3deg);
+}
+.ref-card.marked { background: var(--marker); }
+.ref-head { display: flex; align-items: center; gap: var(--s2); margin-bottom: var(--s1); }
+.ref-no { font-family: var(--font-label); font-size: 11px; }
+.ref-title { font-weight: 600; font-size: 15px; line-height: 1.5; margin: 0 0 var(--s1); }
+.ref-snippet { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 var(--s2); }
+.ref-link { font-size: 13px; }
+
+/* 출처 종류 도장 */
+.source-stamp {
+  font-family: var(--font-label);
+  font-size: 11px;
+  padding: 0 var(--s1);
+  border: 1.5px solid currentColor;
+  border-radius: var(--radius);
+  transform: rotate(-2deg);
+}
+.source-stamp[data-source="meta"] { color: var(--dex-red); }
+.source-stamp[data-source="wikipedia"] { color: var(--ink); }
+.source-stamp[data-source="pokeapi"] { color: var(--grass-dark); }
+
+/* 근거 없음: 점선 = "아직 비어 있음" */
+.ref-empty {
+  margin: var(--s6) var(--s1);
+  padding: var(--s4);
+  border: 1.5px dashed var(--pencil);
+  border-radius: var(--radius-card);
+}
+.ref-empty .hand { font-size: 24px; }
+
+/* 좁은 화면: 답변 바로 아래에 참고 카드 */
+.inline-refs { display: none; }
+@media (max-width: 900px) {
+  .inline-refs { display: block; }
+}
+
+/* ---------- 타입 배지 ---------- */
+.type-badge {
+  display: inline-block;
+  font-family: var(--font-label);
+  font-size: 11px;
+  line-height: 1.6;
+  padding: 0 var(--s1);
+  margin-right: var(--s1);
+  color: var(--ink);
+  background: var(--badge, var(--paper-deep));
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+}
+
+/* ---------- 배틀 판정 도장 ---------- */
+.verdict {
+  display: inline-grid;
+  place-items: center;
+  width: 72px; height: 72px;
+  margin: var(--s2) 0 var(--s3);
+  border: 2px solid currentColor;
+  border-radius: 50%;  /* 원형 도장 (가이드 9-6이 정한 예외) */
+  font-family: var(--font-label);
+  font-size: 22px;
+  transform: rotate(-3deg);
+  animation: stamp 0.2s ease-out;
+}
+.verdict[data-v="유리"] { color: var(--grass); }
+.verdict[data-v="불리"] { color: var(--dex-red); }
+.verdict[data-v="비슷함"] { color: var(--pencil); }
+@keyframes stamp { from { transform: rotate(-3deg) scale(1.15); } to { transform: rotate(-3deg) scale(1); } }
+
+/* ---------- 진화 계통 그림 ---------- */
+.evo-strip { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); margin: var(--s3) 0 var(--s4); }
+.evo-branch { display: flex; flex-direction: column; gap: var(--s2); }
+.evo-row { display: flex; align-items: center; gap: var(--s2); }
+.evo-mon { display: flex; flex-direction: column; align-items: center; padding: var(--s1); border: 1.5px solid transparent; border-radius: var(--radius-card); min-width: 72px; }
+.evo-mon.current { border-color: var(--ink); box-shadow: var(--shadow); background: var(--paper); }
+.evo-mon.later { opacity: 0.55; }
+.evo-mon img { width: 48px; height: 48px; image-rendering: pixelated; }
+.evo-mon span { font-size: 13px; }
+.evo-arrow { font-size: 12px; color: var(--ink-soft); text-align: center; max-width: 120px; line-height: 1.3; }
+.evo-arrow::after { content: "→"; display: block; font-size: 16px; color: var(--ink); }
+
+/* ---------- 조건 탐색 결과: 도감 색인 카드 ---------- */
+.index-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--s4); }
+.index-card {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: var(--s3);
+  padding: var(--s3) var(--s3) var(--s3) var(--s8);
+  cursor: pointer;
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(transparent 0 23px, var(--grid) 23px 24px);
+  border: var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+}
+.index-card::before, .index-card::after { /* 펀칭 구멍 2개 */
+  content: "";
+  position: absolute;
+  left: 10px;
+  width: 10px; height: 10px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper-deep);
+}
+.index-card::before { top: 24%; }
+.index-card::after { bottom: 24%; }
+.index-card:hover { border-color: var(--dex-red); }
+.index-card:active { transform: translate(2px, 2px); box-shadow: var(--shadow-pressed); }
+.index-card:focus-visible { outline: 2px dashed var(--dex-red); outline-offset: 3px; }
+.index-card img { width: 64px; height: 64px; image-rendering: pixelated; }
+.index-card .name { font-weight: 600; }
+.index-card .reason { font-size: 14px; color: var(--ink-soft); line-height: 1.5; margin-top: var(--s1); }
+.index-card .unsure { color: var(--dex-red); font-size: 13px; }
+.index-card .src { font-size: 12px; color: var(--pencil); margin-top: var(--s1); }
+
+/* ---------- 유사도 / MMR 비교 ---------- */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin-top: var(--s3); font-size: 13px; }
+.compare h4 { font-family: var(--font-label); font-size: 11px; font-weight: 400; margin: 0 0 var(--s2); }
+.compare ol { margin: 0; padding-left: var(--s4); }
+.compare li { margin-bottom: var(--s1); }
+.compare .both { text-decoration: underline var(--grid) 2px; }
+
+/* ---------- 진행 기록: 연필로 한 줄씩 ---------- */
+.progress-log { max-width: var(--note-max); margin: 0 auto; color: var(--pencil); font-size: 14px; }
+.progress-log .line { animation: write 0.35s steps(14, end); white-space: nowrap; overflow: hidden; }
+.progress-log .folded { color: var(--pencil); }
+@keyframes write { from { max-width: 0; } to { max-width: 100%; } }
+
+/* ---------- 안내 카드 (노트 전체를 덮음) ---------- */
+.notice {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: var(--s6);
+  background: rgba(244, 238, 223, 0.92);
+}
+.notice[hidden] { display: none; }
+.notice-card {
+  max-width: 460px;
+  padding: var(--s6);
+  background: var(--paper);
+  border: var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  transform: rotate(-0.4deg);
+}
+.notice-card code { font-family: var(--font-label); font-size: 11px; background: var(--paper-deep); padding: 2px var(--s1); white-space: nowrap; }

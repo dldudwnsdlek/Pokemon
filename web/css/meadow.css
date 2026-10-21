@@ -1,0 +1,100 @@
+/* 풀숲 무대 (가이드 10-2). 뒤쪽 풀 → 포켓몬 → 앞쪽 풀 순서로 쌓아 발이 풀에 묻혀 보이게 한다. */
+.meadow {
+  position: relative;
+  overflow: hidden;
+  background: var(--grass);
+  border-top: var(--line);
+}
+.grass-back {
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 40px;
+  background: var(--paper) url("../assets/grass-back.svg") repeat-x left bottom / 120px 40px;
+}
+.grass-front {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 28px;
+  z-index: 10;
+  pointer-events: none;
+  background: url("../assets/grass-front.svg") repeat-x left bottom / 96px 28px;
+}
+.meadow-note {
+  position: absolute;
+  top: 2px; left: var(--s4);
+  z-index: 1;
+  font-size: 20px;
+  color: var(--ink-soft);
+}
+.meadow-pause {
+  position: absolute;
+  right: var(--s3); bottom: var(--s1);
+  z-index: 11;
+  color: var(--paper);
+  display: flex; align-items: center; gap: var(--s1);
+  cursor: pointer;
+}
+.meadow-pause input { accent-color: var(--paper); margin: 0; }
+
+.stage { position: absolute; inset: 0; }
+
+/* 포켓몬 1마리 = button.critter 안에 그림자 + 몸(그림) */
+.critter {
+  all: unset;
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 96px; height: 96px;
+  cursor: pointer;
+  will-change: transform;
+}
+.critter:focus-visible { outline: 2px dashed var(--paper); outline-offset: 2px; }
+.critter .shadow {
+  position: absolute;
+  left: 50%; bottom: 6px;
+  width: 44px; height: 10px;
+  margin-left: -22px;
+  border-radius: 50%; /* 그림자 타원은 둥근 모서리 예외 */
+  background: var(--grass-dark);
+  opacity: 0.35;
+}
+.critter.selected .shadow { background: none; border: 2px dashed var(--dex-red); opacity: 1; }
+.critter .body {
+  position: absolute;
+  left: 0; right: 0; bottom: 8px;
+  display: flex; justify-content: center; align-items: flex-end;
+  will-change: transform;
+}
+.critter img { image-rendering: pixelated; display: block; }
+.critter.back { filter: saturate(0.85); }
+.critter .placeholder {
+  display: grid; place-items: center;
+  width: 44px; height: 44px;
+  border: 1.5px dashed var(--paper);
+  border-radius: 50%;
+  font-family: var(--font-label); font-size: 11px; color: var(--paper);
+}
+
+/* 이름표와 말풍선 */
+.critter .tag, .critter .bubble {
+  position: absolute;
+  left: 50%; bottom: 100%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--font-label); font-size: 11px;
+  background: var(--paper);
+  border: var(--line);
+  border-radius: var(--radius);
+  padding: 0 var(--s1);
+  pointer-events: none;
+}
+.critter .tag { display: none; }
+.critter:hover .tag, .critter:focus-visible .tag { display: block; }
+.critter .bubble[hidden] { display: none; }
+.critter .bubble .dot { opacity: 0.25; animation: dot 1.2s infinite; }
+.critter .bubble .dot:nth-child(2) { animation-delay: 0.4s; }
+.critter .bubble .dot:nth-child(3) { animation-delay: 0.8s; }
+@keyframes dot { 0%, 100% { opacity: 0.25; } 33% { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .critter .bubble .dot { animation: none; opacity: 1; }
+}

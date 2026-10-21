@@ -1,0 +1,108 @@
+/* 화면 배치 (가이드 9-5): 상단 띠 / 도감 색인 · 노트 · 참고 카드 / 풀숲 */
+.app {
+  display: grid;
+  grid-template-columns: var(--dex-w) minmax(0, 1fr) var(--refs-w);
+  grid-template-rows: auto minmax(0, 1fr) var(--meadow-h);
+  grid-template-areas:
+    "top top top"
+    "dex note refs"
+    "meadow meadow meadow";
+  height: 100vh;
+  height: 100dvh;
+}
+
+.topbar {
+  grid-area: top;
+  display: flex;
+  align-items: baseline;
+  gap: var(--s4);
+  padding: var(--s3) var(--s6);
+  border-bottom: var(--line);
+  background: var(--paper);
+}
+.topbar .current { color: var(--ink-soft); }
+.topbar .status-tag {
+  margin-left: auto;
+  border: var(--line);
+  border-radius: var(--radius);
+  padding: 0 var(--s2);
+  background: var(--paper);
+  white-space: nowrap;
+}
+.drawer-btn { display: none; }
+
+.dex {
+  grid-area: dex;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--paper-deep);
+  border-right: var(--line);
+  padding: var(--s3) 0 0;
+}
+.dex input { margin: 0 var(--s4) var(--s2); }
+.dex-list { list-style: none; margin: 0; padding: 0 0 var(--s4); overflow-y: auto; flex: 1; }
+
+.notebook {
+  grid-area: note;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: var(--s6) var(--s6) 0;
+}
+.sheet {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  border: var(--line);
+  border-radius: 0 var(--radius-card) var(--radius-card) var(--radius-card);
+  background: rgba(244, 238, 223, 0.6);
+  padding: var(--s6);
+}
+.pane { max-width: var(--note-max); margin: 0 auto; }
+.ask {
+  display: flex;
+  gap: var(--s3);
+  align-items: end;
+  max-width: var(--note-max);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--s4) 0;
+}
+.ask input { flex: 1; font-size: 16px; }
+
+.refs {
+  grid-area: refs;
+  min-height: 0;
+  overflow-y: auto;
+  border-left: var(--line);
+  padding: var(--s4) var(--s4) var(--s8);
+}
+.refs-title { margin-bottom: var(--s4); color: var(--ink-soft); }
+
+.meadow { grid-area: meadow; }
+
+/* 900px 이하: 도감 색인은 서랍, 참고 카드는 답변 바로 아래로 */
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "top" "note" "meadow";
+  }
+  .topbar { padding: var(--s2) var(--s4); gap: var(--s2); flex-wrap: wrap; align-items: center; }
+  .topbar .current { display: none; }
+  .drawer-btn { display: inline-block; }
+  .dex {
+    position: fixed;
+    z-index: 30;
+    top: 0; bottom: 0; left: 0;
+    width: min(var(--dex-w), 82vw);
+    transform: translateX(-105%);
+    transition: transform 180ms ease-out;
+    box-shadow: var(--shadow);
+  }
+  .dex.open { transform: none; }
+  .refs { display: none; }
+  .notebook { padding: var(--s4) var(--s4) 0; }
+  .sheet { padding: var(--s4); }
+}

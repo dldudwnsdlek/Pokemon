@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 28" preserveAspectRatio="none">
+  <!-- 앞쪽 풀: 포켓몬 발을 살짝 가리는 낮은 풀 (가로로 반복) -->
+  <path fill="#3F6534" d="M0 28 V16 L3 6 L6 15 L9 3 L12 14 L16 8 L19 16 L23 2 L26 15 L30 9 L33 17 L37 4 L40 15 L44 10 L47 17 L51 1 L54 15 L58 7 L61 16 L65 3 L68 15 L72 9 L75 17 L79 5 L82 15 L86 8 L89 16 L93 4 L96 15 V28 Z"/>
+  <path fill="#5E8C4A" d="M0 28 V22 L5 13 L8 21 L13 11 L17 21 L22 14 L26 22 L31 12 L35 21 L40 15 L44 22 L49 10 L53 21 L58 14 L62 22 L67 12 L71 21 L76 15 L80 22 L85 11 L89 21 L94 15 L96 20 V28 Z"/>
+</svg>

@@ -1,0 +1,61 @@
+/* 디자인 토큰 (가이드 9-2). 색은 이 값 외에는 쓰지 않는다.
+   다크 모드는 만들지 않는다 — 종이 노트라는 세계관을 지키는 선택 (README 참고). */
+:root {
+  color-scheme: light;
+
+  --paper: #F4EEDF;       /* 노트 종이 바탕 */
+  --paper-deep: #EAE1CB;  /* 사이드바, 눌린 상태 */
+  --grid: #DCD2BA;        /* 모눈 선 (1px, 24px 간격) */
+  --ink: #1F2A36;         /* 본문 글자, 테두리 */
+  --ink-soft: #5B6470;    /* 보조 글자 */
+  --pencil: #8A8478;      /* 연필 메모, 비활성 */
+  --dex-red: #C8432F;     /* 강조색 — 한 화면에 한두 곳만 */
+  --grass: #5E8C4A;       /* 풀숲, "유리" 도장 */
+  --grass-dark: #3F6534;  /* 풀숲 그림자 */
+  --marker: #F2D65C;      /* 형광펜 */
+  --tape: rgba(242, 214, 92, 0.55); /* 참고 카드 테이프 */
+
+  /* 글꼴 (가이드 9-3) */
+  --font-label: "Galmuri11", "Pretendard", monospace;
+  --font-body: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-hand: "Nanum Pen Script", "Pretendard", cursive;
+
+  /* 모양 (가이드 9-4) */
+  --radius: 2px;
+  --radius-card: 4px;
+  --line: 1.5px solid var(--ink);
+  --shadow: 3px 3px 0 var(--ink);
+  --shadow-pressed: 1px 1px 0 var(--ink);
+
+  /* 여백 4px 단위 */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s6: 24px; --s8: 32px; --s12: 48px;
+
+  --dex-w: 260px;
+  --refs-w: 300px;
+  --meadow-h: 150px;
+  --note-max: 680px;
+}
+
+@media (max-width: 900px) {
+  :root { --meadow-h: 100px; }
+}
+
+/* 타입 배지 18색 — 원색 대신 채도를 낮춘 색. 글자는 모두 --ink (대비 확보) */
+.type-badge[data-type="노말"]   { --badge: #CFC8B2; }
+.type-badge[data-type="불꽃"]   { --badge: #E8A27C; }
+.type-badge[data-type="물"]     { --badge: #9DBBD9; }
+.type-badge[data-type="풀"]     { --badge: #A9C78F; }
+.type-badge[data-type="전기"]   { --badge: #EBD27A; }
+.type-badge[data-type="얼음"]   { --badge: #B0D9D6; }
+.type-badge[data-type="격투"]   { --badge: #D8A495; }
+.type-badge[data-type="독"]     { --badge: #C6A9CB; }
+.type-badge[data-type="땅"]     { --badge: #DCC492; }
+.type-badge[data-type="비행"]   { --badge: #BEC0E3; }
+.type-badge[data-type="에스퍼"] { --badge: #E9AEC2; }
+.type-badge[data-type="벌레"]   { --badge: #C6CF8A; }
+.type-badge[data-type="바위"]   { --badge: #CBBE95; }
+.type-badge[data-type="고스트"] { --badge: #B4A8C9; }
+.type-badge[data-type="드래곤"] { --badge: #ADA4DD; }
+.type-badge[data-type="악"]     { --badge: #B5AAA2; }
+.type-badge[data-type="강철"]   { --badge: #C2C7CE; }
+.type-badge[data-type="페어리"] { --badge: #EEC0D5; }
