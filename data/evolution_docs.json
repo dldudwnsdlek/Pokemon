@@ -1,0 +1,2822 @@
+[
+  {
+    "doc_id": "evo-1",
+    "chain_id": 1,
+    "title": "이상해씨 계통 진화",
+    "member_ids": [
+      1,
+      2,
+      3
+    ],
+    "related_names": [
+      "이상해씨",
+      "이상해풀",
+      "이상해꽃"
+    ],
+    "stages": [
+      {
+        "id": 1,
+        "name_ko": "이상해씨",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 2,
+        "name_ko": "이상해풀",
+        "from_id": 1,
+        "condition": "레벨 16",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 3,
+        "name_ko": "이상해꽃",
+        "from_id": 2,
+        "condition": "레벨 32",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 이상해씨 계통.\n이상해씨 → (레벨 16) 이상해풀 → (레벨 32) 이상해꽃\n단계별 설명:\n- 이상해씨: 계통의 첫 단계.\n- 이상해풀: 이상해씨에서 [레벨 16] 조건으로 진화 (1세대부터 있는 진화).\n- 이상해꽃: 이상해풀에서 [레벨 32] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/1/"
+  },
+  {
+    "doc_id": "evo-2",
+    "chain_id": 2,
+    "title": "파이리 계통 진화",
+    "member_ids": [
+      4,
+      5,
+      6
+    ],
+    "related_names": [
+      "파이리",
+      "리자드",
+      "리자몽"
+    ],
+    "stages": [
+      {
+        "id": 4,
+        "name_ko": "파이리",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 5,
+        "name_ko": "리자드",
+        "from_id": 4,
+        "condition": "레벨 16",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 6,
+        "name_ko": "리자몽",
+        "from_id": 5,
+        "condition": "레벨 36",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 파이리 계통.\n파이리 → (레벨 16) 리자드 → (레벨 36) 리자몽\n단계별 설명:\n- 파이리: 계통의 첫 단계.\n- 리자드: 파이리에서 [레벨 16] 조건으로 진화 (1세대부터 있는 진화).\n- 리자몽: 리자드에서 [레벨 36] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/2/"
+  },
+  {
+    "doc_id": "evo-3",
+    "chain_id": 3,
+    "title": "꼬부기 계통 진화",
+    "member_ids": [
+      7,
+      8,
+      9
+    ],
+    "related_names": [
+      "꼬부기",
+      "어니부기",
+      "거북왕"
+    ],
+    "stages": [
+      {
+        "id": 7,
+        "name_ko": "꼬부기",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 8,
+        "name_ko": "어니부기",
+        "from_id": 7,
+        "condition": "레벨 16",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 9,
+        "name_ko": "거북왕",
+        "from_id": 8,
+        "condition": "레벨 36",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 꼬부기 계통.\n꼬부기 → (레벨 16) 어니부기 → (레벨 36) 거북왕\n단계별 설명:\n- 꼬부기: 계통의 첫 단계.\n- 어니부기: 꼬부기에서 [레벨 16] 조건으로 진화 (1세대부터 있는 진화).\n- 거북왕: 어니부기에서 [레벨 36] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/3/"
+  },
+  {
+    "doc_id": "evo-4",
+    "chain_id": 4,
+    "title": "캐터피 계통 진화",
+    "member_ids": [
+      10,
+      11,
+      12
+    ],
+    "related_names": [
+      "캐터피",
+      "단데기",
+      "버터플"
+    ],
+    "stages": [
+      {
+        "id": 10,
+        "name_ko": "캐터피",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 11,
+        "name_ko": "단데기",
+        "from_id": 10,
+        "condition": "레벨 7",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 12,
+        "name_ko": "버터플",
+        "from_id": 11,
+        "condition": "레벨 10",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 캐터피 계통.\n캐터피 → (레벨 7) 단데기 → (레벨 10) 버터플\n단계별 설명:\n- 캐터피: 계통의 첫 단계.\n- 단데기: 캐터피에서 [레벨 7] 조건으로 진화 (1세대부터 있는 진화).\n- 버터플: 단데기에서 [레벨 10] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/4/"
+  },
+  {
+    "doc_id": "evo-5",
+    "chain_id": 5,
+    "title": "뿔충이 계통 진화",
+    "member_ids": [
+      13,
+      14,
+      15
+    ],
+    "related_names": [
+      "뿔충이",
+      "딱충이",
+      "독침붕"
+    ],
+    "stages": [
+      {
+        "id": 13,
+        "name_ko": "뿔충이",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 14,
+        "name_ko": "딱충이",
+        "from_id": 13,
+        "condition": "레벨 7",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 15,
+        "name_ko": "독침붕",
+        "from_id": 14,
+        "condition": "레벨 10",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 뿔충이 계통.\n뿔충이 → (레벨 7) 딱충이 → (레벨 10) 독침붕\n단계별 설명:\n- 뿔충이: 계통의 첫 단계.\n- 딱충이: 뿔충이에서 [레벨 7] 조건으로 진화 (1세대부터 있는 진화).\n- 독침붕: 딱충이에서 [레벨 10] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/5/"
+  },
+  {
+    "doc_id": "evo-6",
+    "chain_id": 6,
+    "title": "구구 계통 진화",
+    "member_ids": [
+      16,
+      17,
+      18
+    ],
+    "related_names": [
+      "구구",
+      "피죤",
+      "피죤투"
+    ],
+    "stages": [
+      {
+        "id": 16,
+        "name_ko": "구구",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 17,
+        "name_ko": "피죤",
+        "from_id": 16,
+        "condition": "레벨 18",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 18,
+        "name_ko": "피죤투",
+        "from_id": 17,
+        "condition": "레벨 36",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 구구 계통.\n구구 → (레벨 18) 피죤 → (레벨 36) 피죤투\n단계별 설명:\n- 구구: 계통의 첫 단계.\n- 피죤: 구구에서 [레벨 18] 조건으로 진화 (1세대부터 있는 진화).\n- 피죤투: 피죤에서 [레벨 36] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/6/"
+  },
+  {
+    "doc_id": "evo-7",
+    "chain_id": 7,
+    "title": "꼬렛 계통 진화",
+    "member_ids": [
+      19,
+      20
+    ],
+    "related_names": [
+      "꼬렛",
+      "레트라"
+    ],
+    "stages": [
+      {
+        "id": 19,
+        "name_ko": "꼬렛",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 20,
+        "name_ko": "레트라",
+        "from_id": 19,
+        "condition": "레벨 20",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 꼬렛 계통.\n꼬렛 → (레벨 20) 레트라\n단계별 설명:\n- 꼬렛: 계통의 첫 단계.\n- 레트라: 꼬렛에서 [레벨 20] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/7/"
+  },
+  {
+    "doc_id": "evo-8",
+    "chain_id": 8,
+    "title": "깨비참 계통 진화",
+    "member_ids": [
+      21,
+      22
+    ],
+    "related_names": [
+      "깨비참",
+      "깨비드릴조"
+    ],
+    "stages": [
+      {
+        "id": 21,
+        "name_ko": "깨비참",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 22,
+        "name_ko": "깨비드릴조",
+        "from_id": 21,
+        "condition": "레벨 20",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 깨비참 계통.\n깨비참 → (레벨 20) 깨비드릴조\n단계별 설명:\n- 깨비참: 계통의 첫 단계.\n- 깨비드릴조: 깨비참에서 [레벨 20] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/8/"
+  },
+  {
+    "doc_id": "evo-9",
+    "chain_id": 9,
+    "title": "아보 계통 진화",
+    "member_ids": [
+      23,
+      24
+    ],
+    "related_names": [
+      "아보",
+      "아보크"
+    ],
+    "stages": [
+      {
+        "id": 23,
+        "name_ko": "아보",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 24,
+        "name_ko": "아보크",
+        "from_id": 23,
+        "condition": "레벨 22",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 아보 계통.\n아보 → (레벨 22) 아보크\n단계별 설명:\n- 아보: 계통의 첫 단계.\n- 아보크: 아보에서 [레벨 22] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/9/"
+  },
+  {
+    "doc_id": "evo-10",
+    "chain_id": 10,
+    "title": "피츄 계통 진화",
+    "member_ids": [
+      25,
+      26
+    ],
+    "related_names": [
+      "피카츄",
+      "라이츄"
+    ],
+    "stages": [
+      {
+        "id": 172,
+        "name_ko": "피츄",
+        "from_id": null,
+        "condition": "",
+        "generation": 2,
+        "depth": 0
+      },
+      {
+        "id": 25,
+        "name_ko": "피카츄",
+        "from_id": 172,
+        "condition": "친밀도 220 이상",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 26,
+        "name_ko": "라이츄",
+        "from_id": 25,
+        "condition": "천둥의돌",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 피츄 계통.\n피츄(2세대에 추가) → (친밀도 220 이상) 피카츄 → (천둥의돌) 라이츄\n단계별 설명:\n- 피츄: 계통의 첫 단계.\n- 피카츄: 피츄에서 [친밀도 220 이상] 조건으로 진화 (1세대부터 있는 진화).\n- 라이츄: 피카츄에서 [천둥의돌] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/10/"
+  },
+  {
+    "doc_id": "evo-11",
+    "chain_id": 11,
+    "title": "모래두지 계통 진화",
+    "member_ids": [
+      27,
+      28
+    ],
+    "related_names": [
+      "모래두지",
+      "고지"
+    ],
+    "stages": [
+      {
+        "id": 27,
+        "name_ko": "모래두지",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 28,
+        "name_ko": "고지",
+        "from_id": 27,
+        "condition": "레벨 22",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 모래두지 계통.\n모래두지 → (레벨 22) 고지\n단계별 설명:\n- 모래두지: 계통의 첫 단계.\n- 고지: 모래두지에서 [레벨 22] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/11/"
+  },
+  {
+    "doc_id": "evo-12",
+    "chain_id": 12,
+    "title": "니드런♀ 계통 진화",
+    "member_ids": [
+      29,
+      30,
+      31
+    ],
+    "related_names": [
+      "니드런♀",
+      "니드리나",
+      "니드퀸"
+    ],
+    "stages": [
+      {
+        "id": 29,
+        "name_ko": "니드런♀",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 30,
+        "name_ko": "니드리나",
+        "from_id": 29,
+        "condition": "레벨 16",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 31,
+        "name_ko": "니드퀸",
+        "from_id": 30,
+        "condition": "달의돌",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 니드런♀ 계통.\n니드런♀ → (레벨 16) 니드리나 → (달의돌) 니드퀸\n단계별 설명:\n- 니드런♀: 계통의 첫 단계.\n- 니드리나: 니드런♀에서 [레벨 16] 조건으로 진화 (1세대부터 있는 진화).\n- 니드퀸: 니드리나에서 [달의돌] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/12/"
+  },
+  {
+    "doc_id": "evo-13",
+    "chain_id": 13,
+    "title": "니드런♂ 계통 진화",
+    "member_ids": [
+      32,
+      33,
+      34
+    ],
+    "related_names": [
+      "니드런♂",
+      "니드리노",
+      "니드킹"
+    ],
+    "stages": [
+      {
+        "id": 32,
+        "name_ko": "니드런♂",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 33,
+        "name_ko": "니드리노",
+        "from_id": 32,
+        "condition": "레벨 16",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 34,
+        "name_ko": "니드킹",
+        "from_id": 33,
+        "condition": "달의돌",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 니드런♂ 계통.\n니드런♂ → (레벨 16) 니드리노 → (달의돌) 니드킹\n단계별 설명:\n- 니드런♂: 계통의 첫 단계.\n- 니드리노: 니드런♂에서 [레벨 16] 조건으로 진화 (1세대부터 있는 진화).\n- 니드킹: 니드리노에서 [달의돌] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/13/"
+  },
+  {
+    "doc_id": "evo-14",
+    "chain_id": 14,
+    "title": "삐 계통 진화",
+    "member_ids": [
+      35,
+      36
+    ],
+    "related_names": [
+      "삐삐",
+      "픽시"
+    ],
+    "stages": [
+      {
+        "id": 173,
+        "name_ko": "삐",
+        "from_id": null,
+        "condition": "",
+        "generation": 2,
+        "depth": 0
+      },
+      {
+        "id": 35,
+        "name_ko": "삐삐",
+        "from_id": 173,
+        "condition": "친밀도 160 이상",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 36,
+        "name_ko": "픽시",
+        "from_id": 35,
+        "condition": "달의돌",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 삐 계통.\n삐(2세대에 추가) → (친밀도 160 이상) 삐삐 → (달의돌) 픽시\n단계별 설명:\n- 삐: 계통의 첫 단계.\n- 삐삐: 삐에서 [친밀도 160 이상] 조건으로 진화 (1세대부터 있는 진화).\n- 픽시: 삐삐에서 [달의돌] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/14/"
+  },
+  {
+    "doc_id": "evo-15",
+    "chain_id": 15,
+    "title": "식스테일 계통 진화",
+    "member_ids": [
+      37,
+      38
+    ],
+    "related_names": [
+      "식스테일",
+      "나인테일"
+    ],
+    "stages": [
+      {
+        "id": 37,
+        "name_ko": "식스테일",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 38,
+        "name_ko": "나인테일",
+        "from_id": 37,
+        "condition": "불꽃의돌",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 식스테일 계통.\n식스테일 → (불꽃의돌) 나인테일\n단계별 설명:\n- 식스테일: 계통의 첫 단계.\n- 나인테일: 식스테일에서 [불꽃의돌] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/15/"
+  },
+  {
+    "doc_id": "evo-16",
+    "chain_id": 16,
+    "title": "푸푸린 계통 진화",
+    "member_ids": [
+      39,
+      40
+    ],
+    "related_names": [
+      "푸린",
+      "푸크린"
+    ],
+    "stages": [
+      {
+        "id": 174,
+        "name_ko": "푸푸린",
+        "from_id": null,
+        "condition": "",
+        "generation": 2,
+        "depth": 0
+      },
+      {
+        "id": 39,
+        "name_ko": "푸린",
+        "from_id": 174,
+        "condition": "친밀도 160 이상",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 40,
+        "name_ko": "푸크린",
+        "from_id": 39,
+        "condition": "달의돌",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 푸푸린 계통.\n푸푸린(2세대에 추가) → (친밀도 160 이상) 푸린 → (달의돌) 푸크린\n단계별 설명:\n- 푸푸린: 계통의 첫 단계.\n- 푸린: 푸푸린에서 [친밀도 160 이상] 조건으로 진화 (1세대부터 있는 진화).\n- 푸크린: 푸린에서 [달의돌] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/16/"
+  },
+  {
+    "doc_id": "evo-17",
+    "chain_id": 17,
+    "title": "주뱃 계통 진화",
+    "member_ids": [
+      41,
+      42
+    ],
+    "related_names": [
+      "주뱃",
+      "골뱃"
+    ],
+    "stages": [
+      {
+        "id": 41,
+        "name_ko": "주뱃",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 42,
+        "name_ko": "골뱃",
+        "from_id": 41,
+        "condition": "레벨 22",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 169,
+        "name_ko": "크로뱃",
+        "from_id": 42,
+        "condition": "친밀도 160 이상",
+        "generation": 2,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 주뱃 계통.\n주뱃 → (레벨 22) 골뱃 → (친밀도 160 이상) 크로뱃(2세대에 추가)\n단계별 설명:\n- 주뱃: 계통의 첫 단계.\n- 골뱃: 주뱃에서 [레벨 22] 조건으로 진화 (1세대부터 있는 진화).\n- 크로뱃: 골뱃에서 [친밀도 160 이상] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/17/"
+  },
+  {
+    "doc_id": "evo-18",
+    "chain_id": 18,
+    "title": "뚜벅쵸 계통 진화",
+    "member_ids": [
+      43,
+      44,
+      45
+    ],
+    "related_names": [
+      "뚜벅쵸",
+      "냄새꼬",
+      "라플레시아"
+    ],
+    "stages": [
+      {
+        "id": 43,
+        "name_ko": "뚜벅쵸",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 44,
+        "name_ko": "냄새꼬",
+        "from_id": 43,
+        "condition": "레벨 21",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 45,
+        "name_ko": "라플레시아",
+        "from_id": 44,
+        "condition": "리프의돌",
+        "generation": 1,
+        "depth": 2
+      },
+      {
+        "id": 182,
+        "name_ko": "아르코",
+        "from_id": 44,
+        "condition": "태양의돌",
+        "generation": 2,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 뚜벅쵸 계통.\n뚜벅쵸 → (레벨 21) 냄새꼬 → (리프의돌) 라플레시아 / (태양의돌) 아르코(2세대에 추가)\n단계별 설명:\n- 뚜벅쵸: 계통의 첫 단계.\n- 냄새꼬: 뚜벅쵸에서 [레벨 21] 조건으로 진화 (1세대부터 있는 진화).\n- 라플레시아: 냄새꼬에서 [리프의돌] 조건으로 진화 (1세대부터 있는 진화).\n- 아르코: 냄새꼬에서 [태양의돌] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n냄새꼬은(는) 조건에 따라 여러 갈래로 진화하는 분기 진화를 한다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/18/"
+  },
+  {
+    "doc_id": "evo-19",
+    "chain_id": 19,
+    "title": "파라스 계통 진화",
+    "member_ids": [
+      46,
+      47
+    ],
+    "related_names": [
+      "파라스",
+      "파라섹트"
+    ],
+    "stages": [
+      {
+        "id": 46,
+        "name_ko": "파라스",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 47,
+        "name_ko": "파라섹트",
+        "from_id": 46,
+        "condition": "레벨 24",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 파라스 계통.\n파라스 → (레벨 24) 파라섹트\n단계별 설명:\n- 파라스: 계통의 첫 단계.\n- 파라섹트: 파라스에서 [레벨 24] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/19/"
+  },
+  {
+    "doc_id": "evo-20",
+    "chain_id": 20,
+    "title": "콘팡 계통 진화",
+    "member_ids": [
+      48,
+      49
+    ],
+    "related_names": [
+      "콘팡",
+      "도나리"
+    ],
+    "stages": [
+      {
+        "id": 48,
+        "name_ko": "콘팡",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 49,
+        "name_ko": "도나리",
+        "from_id": 48,
+        "condition": "레벨 31",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 콘팡 계통.\n콘팡 → (레벨 31) 도나리\n단계별 설명:\n- 콘팡: 계통의 첫 단계.\n- 도나리: 콘팡에서 [레벨 31] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/20/"
+  },
+  {
+    "doc_id": "evo-21",
+    "chain_id": 21,
+    "title": "디그다 계통 진화",
+    "member_ids": [
+      50,
+      51
+    ],
+    "related_names": [
+      "디그다",
+      "닥트리오"
+    ],
+    "stages": [
+      {
+        "id": 50,
+        "name_ko": "디그다",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 51,
+        "name_ko": "닥트리오",
+        "from_id": 50,
+        "condition": "레벨 26",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 디그다 계통.\n디그다 → (레벨 26) 닥트리오\n단계별 설명:\n- 디그다: 계통의 첫 단계.\n- 닥트리오: 디그다에서 [레벨 26] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/21/"
+  },
+  {
+    "doc_id": "evo-22",
+    "chain_id": 22,
+    "title": "나옹 계통 진화",
+    "member_ids": [
+      52,
+      53
+    ],
+    "related_names": [
+      "나옹",
+      "페르시온"
+    ],
+    "stages": [
+      {
+        "id": 52,
+        "name_ko": "나옹",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 53,
+        "name_ko": "페르시온",
+        "from_id": 52,
+        "condition": "레벨 28",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 863,
+        "name_ko": "나이킹",
+        "from_id": 52,
+        "condition": "레벨 28",
+        "generation": 8,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 나옹 계통.\n나옹 → (레벨 28) 페르시온 / (레벨 28) 나이킹(8세대에 추가)\n단계별 설명:\n- 나옹: 계통의 첫 단계.\n- 페르시온: 나옹에서 [레벨 28] 조건으로 진화 (1세대부터 있는 진화).\n- 나이킹: 나옹에서 [레벨 28] 조건으로 진화 (8세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n나옹은(는) 조건에 따라 여러 갈래로 진화하는 분기 진화를 한다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/22/"
+  },
+  {
+    "doc_id": "evo-23",
+    "chain_id": 23,
+    "title": "고라파덕 계통 진화",
+    "member_ids": [
+      54,
+      55
+    ],
+    "related_names": [
+      "고라파덕",
+      "골덕"
+    ],
+    "stages": [
+      {
+        "id": 54,
+        "name_ko": "고라파덕",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 55,
+        "name_ko": "골덕",
+        "from_id": 54,
+        "condition": "레벨 33",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 고라파덕 계통.\n고라파덕 → (레벨 33) 골덕\n단계별 설명:\n- 고라파덕: 계통의 첫 단계.\n- 골덕: 고라파덕에서 [레벨 33] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/23/"
+  },
+  {
+    "doc_id": "evo-24",
+    "chain_id": 24,
+    "title": "망키 계통 진화",
+    "member_ids": [
+      56,
+      57
+    ],
+    "related_names": [
+      "망키",
+      "성원숭"
+    ],
+    "stages": [
+      {
+        "id": 56,
+        "name_ko": "망키",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 57,
+        "name_ko": "성원숭",
+        "from_id": 56,
+        "condition": "레벨 28",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 979,
+        "name_ko": "저승갓숭",
+        "from_id": 57,
+        "condition": "use-move",
+        "generation": 9,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 망키 계통.\n망키 → (레벨 28) 성원숭 → (use-move) 저승갓숭(9세대에 추가)\n단계별 설명:\n- 망키: 계통의 첫 단계.\n- 성원숭: 망키에서 [레벨 28] 조건으로 진화 (1세대부터 있는 진화).\n- 저승갓숭: 성원숭에서 [use-move] 조건으로 진화 (9세대에 추가된 포켓몬이라 1세대 게임에는 없다).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/24/"
+  },
+  {
+    "doc_id": "evo-25",
+    "chain_id": 25,
+    "title": "가디 계통 진화",
+    "member_ids": [
+      58,
+      59
+    ],
+    "related_names": [
+      "가디",
+      "윈디"
+    ],
+    "stages": [
+      {
+        "id": 58,
+        "name_ko": "가디",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 59,
+        "name_ko": "윈디",
+        "from_id": 58,
+        "condition": "불꽃의돌",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 가디 계통.\n가디 → (불꽃의돌) 윈디\n단계별 설명:\n- 가디: 계통의 첫 단계.\n- 윈디: 가디에서 [불꽃의돌] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/25/"
+  },
+  {
+    "doc_id": "evo-26",
+    "chain_id": 26,
+    "title": "발챙이 계통 진화",
+    "member_ids": [
+      60,
+      61,
+      62
+    ],
+    "related_names": [
+      "발챙이",
+      "슈륙챙이",
+      "강챙이"
+    ],
+    "stages": [
+      {
+        "id": 60,
+        "name_ko": "발챙이",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 61,
+        "name_ko": "슈륙챙이",
+        "from_id": 60,
+        "condition": "레벨 25",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 62,
+        "name_ko": "강챙이",
+        "from_id": 61,
+        "condition": "물의돌",
+        "generation": 1,
+        "depth": 2
+      },
+      {
+        "id": 186,
+        "name_ko": "왕구리",
+        "from_id": 61,
+        "condition": "통신교환, 왕의징표석을(를) 지닌 채",
+        "generation": 2,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 발챙이 계통.\n발챙이 → (레벨 25) 슈륙챙이 → (물의돌) 강챙이 / (통신교환, 왕의징표석을(를) 지닌 채) 왕구리(2세대에 추가)\n단계별 설명:\n- 발챙이: 계통의 첫 단계.\n- 슈륙챙이: 발챙이에서 [레벨 25] 조건으로 진화 (1세대부터 있는 진화).\n- 강챙이: 슈륙챙이에서 [물의돌] 조건으로 진화 (1세대부터 있는 진화).\n- 왕구리: 슈륙챙이에서 [통신교환, 왕의징표석을(를) 지닌 채] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n통신교환으로 진화하는 단계: 왕구리.\n슈륙챙이은(는) 조건에 따라 여러 갈래로 진화하는 분기 진화를 한다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/26/"
+  },
+  {
+    "doc_id": "evo-27",
+    "chain_id": 27,
+    "title": "캐이시 계통 진화",
+    "member_ids": [
+      63,
+      64,
+      65
+    ],
+    "related_names": [
+      "캐이시",
+      "윤겔라",
+      "후딘"
+    ],
+    "stages": [
+      {
+        "id": 63,
+        "name_ko": "캐이시",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 64,
+        "name_ko": "윤겔라",
+        "from_id": 63,
+        "condition": "레벨 16",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 65,
+        "name_ko": "후딘",
+        "from_id": 64,
+        "condition": "통신교환",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 캐이시 계통.\n캐이시 → (레벨 16) 윤겔라 → (통신교환) 후딘\n단계별 설명:\n- 캐이시: 계통의 첫 단계.\n- 윤겔라: 캐이시에서 [레벨 16] 조건으로 진화 (1세대부터 있는 진화).\n- 후딘: 윤겔라에서 [통신교환] 조건으로 진화 (1세대부터 있는 진화).\n통신교환으로 진화하는 단계: 후딘.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/27/"
+  },
+  {
+    "doc_id": "evo-28",
+    "chain_id": 28,
+    "title": "알통몬 계통 진화",
+    "member_ids": [
+      66,
+      67,
+      68
+    ],
+    "related_names": [
+      "알통몬",
+      "근육몬",
+      "괴력몬"
+    ],
+    "stages": [
+      {
+        "id": 66,
+        "name_ko": "알통몬",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 67,
+        "name_ko": "근육몬",
+        "from_id": 66,
+        "condition": "레벨 28",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 68,
+        "name_ko": "괴력몬",
+        "from_id": 67,
+        "condition": "통신교환",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 알통몬 계통.\n알통몬 → (레벨 28) 근육몬 → (통신교환) 괴력몬\n단계별 설명:\n- 알통몬: 계통의 첫 단계.\n- 근육몬: 알통몬에서 [레벨 28] 조건으로 진화 (1세대부터 있는 진화).\n- 괴력몬: 근육몬에서 [통신교환] 조건으로 진화 (1세대부터 있는 진화).\n통신교환으로 진화하는 단계: 괴력몬.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/28/"
+  },
+  {
+    "doc_id": "evo-29",
+    "chain_id": 29,
+    "title": "모다피 계통 진화",
+    "member_ids": [
+      69,
+      70,
+      71
+    ],
+    "related_names": [
+      "모다피",
+      "우츠동",
+      "우츠보트"
+    ],
+    "stages": [
+      {
+        "id": 69,
+        "name_ko": "모다피",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 70,
+        "name_ko": "우츠동",
+        "from_id": 69,
+        "condition": "레벨 21",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 71,
+        "name_ko": "우츠보트",
+        "from_id": 70,
+        "condition": "리프의돌",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 모다피 계통.\n모다피 → (레벨 21) 우츠동 → (리프의돌) 우츠보트\n단계별 설명:\n- 모다피: 계통의 첫 단계.\n- 우츠동: 모다피에서 [레벨 21] 조건으로 진화 (1세대부터 있는 진화).\n- 우츠보트: 우츠동에서 [리프의돌] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/29/"
+  },
+  {
+    "doc_id": "evo-30",
+    "chain_id": 30,
+    "title": "왕눈해 계통 진화",
+    "member_ids": [
+      72,
+      73
+    ],
+    "related_names": [
+      "왕눈해",
+      "독파리"
+    ],
+    "stages": [
+      {
+        "id": 72,
+        "name_ko": "왕눈해",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 73,
+        "name_ko": "독파리",
+        "from_id": 72,
+        "condition": "레벨 30",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 왕눈해 계통.\n왕눈해 → (레벨 30) 독파리\n단계별 설명:\n- 왕눈해: 계통의 첫 단계.\n- 독파리: 왕눈해에서 [레벨 30] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/30/"
+  },
+  {
+    "doc_id": "evo-31",
+    "chain_id": 31,
+    "title": "꼬마돌 계통 진화",
+    "member_ids": [
+      74,
+      75,
+      76
+    ],
+    "related_names": [
+      "꼬마돌",
+      "데구리",
+      "딱구리"
+    ],
+    "stages": [
+      {
+        "id": 74,
+        "name_ko": "꼬마돌",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 75,
+        "name_ko": "데구리",
+        "from_id": 74,
+        "condition": "레벨 25",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 76,
+        "name_ko": "딱구리",
+        "from_id": 75,
+        "condition": "통신교환",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 꼬마돌 계통.\n꼬마돌 → (레벨 25) 데구리 → (통신교환) 딱구리\n단계별 설명:\n- 꼬마돌: 계통의 첫 단계.\n- 데구리: 꼬마돌에서 [레벨 25] 조건으로 진화 (1세대부터 있는 진화).\n- 딱구리: 데구리에서 [통신교환] 조건으로 진화 (1세대부터 있는 진화).\n통신교환으로 진화하는 단계: 딱구리.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/31/"
+  },
+  {
+    "doc_id": "evo-32",
+    "chain_id": 32,
+    "title": "포니타 계통 진화",
+    "member_ids": [
+      77,
+      78
+    ],
+    "related_names": [
+      "포니타",
+      "날쌩마"
+    ],
+    "stages": [
+      {
+        "id": 77,
+        "name_ko": "포니타",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 78,
+        "name_ko": "날쌩마",
+        "from_id": 77,
+        "condition": "레벨 40",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 포니타 계통.\n포니타 → (레벨 40) 날쌩마\n단계별 설명:\n- 포니타: 계통의 첫 단계.\n- 날쌩마: 포니타에서 [레벨 40] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/32/"
+  },
+  {
+    "doc_id": "evo-33",
+    "chain_id": 33,
+    "title": "야돈 계통 진화",
+    "member_ids": [
+      79,
+      80
+    ],
+    "related_names": [
+      "야돈",
+      "야도란"
+    ],
+    "stages": [
+      {
+        "id": 79,
+        "name_ko": "야돈",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 80,
+        "name_ko": "야도란",
+        "from_id": 79,
+        "condition": "레벨 37",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 199,
+        "name_ko": "야도킹",
+        "from_id": 79,
+        "condition": "통신교환, 왕의징표석을(를) 지닌 채",
+        "generation": 2,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 야돈 계통.\n야돈 → (레벨 37) 야도란 / (통신교환, 왕의징표석을(를) 지닌 채) 야도킹(2세대에 추가)\n단계별 설명:\n- 야돈: 계통의 첫 단계.\n- 야도란: 야돈에서 [레벨 37] 조건으로 진화 (1세대부터 있는 진화).\n- 야도킹: 야돈에서 [통신교환, 왕의징표석을(를) 지닌 채] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n통신교환으로 진화하는 단계: 야도킹.\n야돈은(는) 조건에 따라 여러 갈래로 진화하는 분기 진화를 한다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/33/"
+  },
+  {
+    "doc_id": "evo-34",
+    "chain_id": 34,
+    "title": "코일 계통 진화",
+    "member_ids": [
+      81,
+      82
+    ],
+    "related_names": [
+      "코일",
+      "레어코일"
+    ],
+    "stages": [
+      {
+        "id": 81,
+        "name_ko": "코일",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 82,
+        "name_ko": "레어코일",
+        "from_id": 81,
+        "condition": "레벨 30",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 462,
+        "name_ko": "자포코일",
+        "from_id": 82,
+        "condition": "특정 장소",
+        "generation": 4,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 코일 계통.\n코일 → (레벨 30) 레어코일 → (특정 장소) 자포코일(4세대에 추가)\n단계별 설명:\n- 코일: 계통의 첫 단계.\n- 레어코일: 코일에서 [레벨 30] 조건으로 진화 (1세대부터 있는 진화).\n- 자포코일: 레어코일에서 [특정 장소] 조건으로 진화 (4세대에 추가된 포켓몬이라 1세대 게임에는 없다).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/34/"
+  },
+  {
+    "doc_id": "evo-35",
+    "chain_id": 35,
+    "title": "파오리 계통 진화",
+    "member_ids": [
+      83
+    ],
+    "related_names": [
+      "파오리"
+    ],
+    "stages": [
+      {
+        "id": 83,
+        "name_ko": "파오리",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 865,
+        "name_ko": "창파나이트",
+        "from_id": 83,
+        "condition": "급소 3회",
+        "generation": 8,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 파오리 계통.\n파오리 → (급소 3회) 창파나이트(8세대에 추가)\n단계별 설명:\n- 파오리: 계통의 첫 단계.\n- 창파나이트: 파오리에서 [급소 3회] 조건으로 진화 (8세대에 추가된 포켓몬이라 1세대 게임에는 없다).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/35/"
+  },
+  {
+    "doc_id": "evo-36",
+    "chain_id": 36,
+    "title": "두두 계통 진화",
+    "member_ids": [
+      84,
+      85
+    ],
+    "related_names": [
+      "두두",
+      "두트리오"
+    ],
+    "stages": [
+      {
+        "id": 84,
+        "name_ko": "두두",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 85,
+        "name_ko": "두트리오",
+        "from_id": 84,
+        "condition": "레벨 31",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 두두 계통.\n두두 → (레벨 31) 두트리오\n단계별 설명:\n- 두두: 계통의 첫 단계.\n- 두트리오: 두두에서 [레벨 31] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/36/"
+  },
+  {
+    "doc_id": "evo-37",
+    "chain_id": 37,
+    "title": "쥬쥬 계통 진화",
+    "member_ids": [
+      86,
+      87
+    ],
+    "related_names": [
+      "쥬쥬",
+      "쥬레곤"
+    ],
+    "stages": [
+      {
+        "id": 86,
+        "name_ko": "쥬쥬",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 87,
+        "name_ko": "쥬레곤",
+        "from_id": 86,
+        "condition": "레벨 34",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 쥬쥬 계통.\n쥬쥬 → (레벨 34) 쥬레곤\n단계별 설명:\n- 쥬쥬: 계통의 첫 단계.\n- 쥬레곤: 쥬쥬에서 [레벨 34] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/37/"
+  },
+  {
+    "doc_id": "evo-38",
+    "chain_id": 38,
+    "title": "질퍽이 계통 진화",
+    "member_ids": [
+      88,
+      89
+    ],
+    "related_names": [
+      "질퍽이",
+      "질뻐기"
+    ],
+    "stages": [
+      {
+        "id": 88,
+        "name_ko": "질퍽이",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 89,
+        "name_ko": "질뻐기",
+        "from_id": 88,
+        "condition": "레벨 38",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 질퍽이 계통.\n질퍽이 → (레벨 38) 질뻐기\n단계별 설명:\n- 질퍽이: 계통의 첫 단계.\n- 질뻐기: 질퍽이에서 [레벨 38] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/38/"
+  },
+  {
+    "doc_id": "evo-39",
+    "chain_id": 39,
+    "title": "셀러 계통 진화",
+    "member_ids": [
+      90,
+      91
+    ],
+    "related_names": [
+      "셀러",
+      "파르셀"
+    ],
+    "stages": [
+      {
+        "id": 90,
+        "name_ko": "셀러",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 91,
+        "name_ko": "파르셀",
+        "from_id": 90,
+        "condition": "물의돌",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 셀러 계통.\n셀러 → (물의돌) 파르셀\n단계별 설명:\n- 셀러: 계통의 첫 단계.\n- 파르셀: 셀러에서 [물의돌] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/39/"
+  },
+  {
+    "doc_id": "evo-40",
+    "chain_id": 40,
+    "title": "고오스 계통 진화",
+    "member_ids": [
+      92,
+      93,
+      94
+    ],
+    "related_names": [
+      "고오스",
+      "고우스트",
+      "팬텀"
+    ],
+    "stages": [
+      {
+        "id": 92,
+        "name_ko": "고오스",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 93,
+        "name_ko": "고우스트",
+        "from_id": 92,
+        "condition": "레벨 25",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 94,
+        "name_ko": "팬텀",
+        "from_id": 93,
+        "condition": "통신교환",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 고오스 계통.\n고오스 → (레벨 25) 고우스트 → (통신교환) 팬텀\n단계별 설명:\n- 고오스: 계통의 첫 단계.\n- 고우스트: 고오스에서 [레벨 25] 조건으로 진화 (1세대부터 있는 진화).\n- 팬텀: 고우스트에서 [통신교환] 조건으로 진화 (1세대부터 있는 진화).\n통신교환으로 진화하는 단계: 팬텀.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/40/"
+  },
+  {
+    "doc_id": "evo-41",
+    "chain_id": 41,
+    "title": "롱스톤 계통 진화",
+    "member_ids": [
+      95
+    ],
+    "related_names": [
+      "롱스톤"
+    ],
+    "stages": [
+      {
+        "id": 95,
+        "name_ko": "롱스톤",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 208,
+        "name_ko": "강철톤",
+        "from_id": 95,
+        "condition": "통신교환, 금속코트을(를) 지닌 채",
+        "generation": 2,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 롱스톤 계통.\n롱스톤 → (통신교환, 금속코트을(를) 지닌 채) 강철톤(2세대에 추가)\n단계별 설명:\n- 롱스톤: 계통의 첫 단계.\n- 강철톤: 롱스톤에서 [통신교환, 금속코트을(를) 지닌 채] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n통신교환으로 진화하는 단계: 강철톤.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/41/"
+  },
+  {
+    "doc_id": "evo-42",
+    "chain_id": 42,
+    "title": "슬리프 계통 진화",
+    "member_ids": [
+      96,
+      97
+    ],
+    "related_names": [
+      "슬리프",
+      "슬리퍼"
+    ],
+    "stages": [
+      {
+        "id": 96,
+        "name_ko": "슬리프",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 97,
+        "name_ko": "슬리퍼",
+        "from_id": 96,
+        "condition": "레벨 26",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 슬리프 계통.\n슬리프 → (레벨 26) 슬리퍼\n단계별 설명:\n- 슬리프: 계통의 첫 단계.\n- 슬리퍼: 슬리프에서 [레벨 26] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/42/"
+  },
+  {
+    "doc_id": "evo-43",
+    "chain_id": 43,
+    "title": "크랩 계통 진화",
+    "member_ids": [
+      98,
+      99
+    ],
+    "related_names": [
+      "크랩",
+      "킹크랩"
+    ],
+    "stages": [
+      {
+        "id": 98,
+        "name_ko": "크랩",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 99,
+        "name_ko": "킹크랩",
+        "from_id": 98,
+        "condition": "레벨 28",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 크랩 계통.\n크랩 → (레벨 28) 킹크랩\n단계별 설명:\n- 크랩: 계통의 첫 단계.\n- 킹크랩: 크랩에서 [레벨 28] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/43/"
+  },
+  {
+    "doc_id": "evo-44",
+    "chain_id": 44,
+    "title": "찌리리공 계통 진화",
+    "member_ids": [
+      100,
+      101
+    ],
+    "related_names": [
+      "찌리리공",
+      "붐볼"
+    ],
+    "stages": [
+      {
+        "id": 100,
+        "name_ko": "찌리리공",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 101,
+        "name_ko": "붐볼",
+        "from_id": 100,
+        "condition": "레벨 30",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 찌리리공 계통.\n찌리리공 → (레벨 30) 붐볼\n단계별 설명:\n- 찌리리공: 계통의 첫 단계.\n- 붐볼: 찌리리공에서 [레벨 30] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/44/"
+  },
+  {
+    "doc_id": "evo-45",
+    "chain_id": 45,
+    "title": "아라리 계통 진화",
+    "member_ids": [
+      102,
+      103
+    ],
+    "related_names": [
+      "아라리",
+      "나시"
+    ],
+    "stages": [
+      {
+        "id": 102,
+        "name_ko": "아라리",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 103,
+        "name_ko": "나시",
+        "from_id": 102,
+        "condition": "리프의돌",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 아라리 계통.\n아라리 → (리프의돌) 나시\n단계별 설명:\n- 아라리: 계통의 첫 단계.\n- 나시: 아라리에서 [리프의돌] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/45/"
+  },
+  {
+    "doc_id": "evo-46",
+    "chain_id": 46,
+    "title": "탕구리 계통 진화",
+    "member_ids": [
+      104,
+      105
+    ],
+    "related_names": [
+      "탕구리",
+      "텅구리"
+    ],
+    "stages": [
+      {
+        "id": 104,
+        "name_ko": "탕구리",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 105,
+        "name_ko": "텅구리",
+        "from_id": 104,
+        "condition": "레벨 28",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 탕구리 계통.\n탕구리 → (레벨 28) 텅구리\n단계별 설명:\n- 탕구리: 계통의 첫 단계.\n- 텅구리: 탕구리에서 [레벨 28] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/46/"
+  },
+  {
+    "doc_id": "evo-47",
+    "chain_id": 47,
+    "title": "배루키 계통 진화",
+    "member_ids": [
+      106,
+      107
+    ],
+    "related_names": [
+      "시라소몬",
+      "홍수몬"
+    ],
+    "stages": [
+      {
+        "id": 236,
+        "name_ko": "배루키",
+        "from_id": null,
+        "condition": "",
+        "generation": 2,
+        "depth": 0
+      },
+      {
+        "id": 106,
+        "name_ko": "시라소몬",
+        "from_id": 236,
+        "condition": "레벨 20",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 107,
+        "name_ko": "홍수몬",
+        "from_id": 236,
+        "condition": "레벨 20",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 237,
+        "name_ko": "카포에라",
+        "from_id": 236,
+        "condition": "레벨 20",
+        "generation": 2,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 배루키 계통.\n배루키(2세대에 추가) → (레벨 20) 시라소몬 / (레벨 20) 홍수몬 / (레벨 20) 카포에라(2세대에 추가)\n단계별 설명:\n- 배루키: 계통의 첫 단계.\n- 시라소몬: 배루키에서 [레벨 20] 조건으로 진화 (1세대부터 있는 진화).\n- 홍수몬: 배루키에서 [레벨 20] 조건으로 진화 (1세대부터 있는 진화).\n- 카포에라: 배루키에서 [레벨 20] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n배루키은(는) 조건에 따라 여러 갈래로 진화하는 분기 진화를 한다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/47/"
+  },
+  {
+    "doc_id": "evo-48",
+    "chain_id": 48,
+    "title": "내루미 계통 진화",
+    "member_ids": [
+      108
+    ],
+    "related_names": [
+      "내루미"
+    ],
+    "stages": [
+      {
+        "id": 108,
+        "name_ko": "내루미",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 463,
+        "name_ko": "내룸벨트",
+        "from_id": 108,
+        "condition": "구르기 기술을 배운 상태",
+        "generation": 4,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 내루미 계통.\n내루미 → (구르기 기술을 배운 상태) 내룸벨트(4세대에 추가)\n단계별 설명:\n- 내루미: 계통의 첫 단계.\n- 내룸벨트: 내루미에서 [구르기 기술을 배운 상태] 조건으로 진화 (4세대에 추가된 포켓몬이라 1세대 게임에는 없다).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/48/"
+  },
+  {
+    "doc_id": "evo-49",
+    "chain_id": 49,
+    "title": "또가스 계통 진화",
+    "member_ids": [
+      109,
+      110
+    ],
+    "related_names": [
+      "또가스",
+      "또도가스"
+    ],
+    "stages": [
+      {
+        "id": 109,
+        "name_ko": "또가스",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 110,
+        "name_ko": "또도가스",
+        "from_id": 109,
+        "condition": "레벨 35",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 또가스 계통.\n또가스 → (레벨 35) 또도가스\n단계별 설명:\n- 또가스: 계통의 첫 단계.\n- 또도가스: 또가스에서 [레벨 35] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/49/"
+  },
+  {
+    "doc_id": "evo-50",
+    "chain_id": 50,
+    "title": "뿔카노 계통 진화",
+    "member_ids": [
+      111,
+      112
+    ],
+    "related_names": [
+      "뿔카노",
+      "코뿌리"
+    ],
+    "stages": [
+      {
+        "id": 111,
+        "name_ko": "뿔카노",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 112,
+        "name_ko": "코뿌리",
+        "from_id": 111,
+        "condition": "레벨 42",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 464,
+        "name_ko": "거대코뿌리",
+        "from_id": 112,
+        "condition": "통신교환, 프로텍터을(를) 지닌 채",
+        "generation": 4,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 뿔카노 계통.\n뿔카노 → (레벨 42) 코뿌리 → (통신교환, 프로텍터을(를) 지닌 채) 거대코뿌리(4세대에 추가)\n단계별 설명:\n- 뿔카노: 계통의 첫 단계.\n- 코뿌리: 뿔카노에서 [레벨 42] 조건으로 진화 (1세대부터 있는 진화).\n- 거대코뿌리: 코뿌리에서 [통신교환, 프로텍터을(를) 지닌 채] 조건으로 진화 (4세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n통신교환으로 진화하는 단계: 거대코뿌리.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/50/"
+  },
+  {
+    "doc_id": "evo-51",
+    "chain_id": 51,
+    "title": "핑복 계통 진화",
+    "member_ids": [
+      113
+    ],
+    "related_names": [
+      "럭키"
+    ],
+    "stages": [
+      {
+        "id": 440,
+        "name_ko": "핑복",
+        "from_id": null,
+        "condition": "",
+        "generation": 4,
+        "depth": 0
+      },
+      {
+        "id": 113,
+        "name_ko": "럭키",
+        "from_id": 440,
+        "condition": "동글동글돌을(를) 지닌 채, 낮",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 242,
+        "name_ko": "해피너스",
+        "from_id": 113,
+        "condition": "친밀도 160 이상",
+        "generation": 2,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 핑복 계통.\n핑복(4세대에 추가) → (동글동글돌을(를) 지닌 채, 낮) 럭키 → (친밀도 160 이상) 해피너스(2세대에 추가)\n단계별 설명:\n- 핑복: 계통의 첫 단계.\n- 럭키: 핑복에서 [동글동글돌을(를) 지닌 채, 낮] 조건으로 진화 (1세대부터 있는 진화).\n- 해피너스: 럭키에서 [친밀도 160 이상] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/51/"
+  },
+  {
+    "doc_id": "evo-52",
+    "chain_id": 52,
+    "title": "덩쿠리 계통 진화",
+    "member_ids": [
+      114
+    ],
+    "related_names": [
+      "덩쿠리"
+    ],
+    "stages": [
+      {
+        "id": 114,
+        "name_ko": "덩쿠리",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 465,
+        "name_ko": "덩쿠림보",
+        "from_id": 114,
+        "condition": "원시의힘 기술을 배운 상태",
+        "generation": 4,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 덩쿠리 계통.\n덩쿠리 → (원시의힘 기술을 배운 상태) 덩쿠림보(4세대에 추가)\n단계별 설명:\n- 덩쿠리: 계통의 첫 단계.\n- 덩쿠림보: 덩쿠리에서 [원시의힘 기술을 배운 상태] 조건으로 진화 (4세대에 추가된 포켓몬이라 1세대 게임에는 없다).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/52/"
+  },
+  {
+    "doc_id": "evo-53",
+    "chain_id": 53,
+    "title": "캥카 계통 진화",
+    "member_ids": [
+      115
+    ],
+    "related_names": [
+      "캥카"
+    ],
+    "stages": [
+      {
+        "id": 115,
+        "name_ko": "캥카",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      }
+    ],
+    "text": "[진화] 캥카 계통.\n캥카 (진화하지 않음)\n단계별 설명:\n- 캥카: 진화하지 않는 포켓몬이다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/53/"
+  },
+  {
+    "doc_id": "evo-54",
+    "chain_id": 54,
+    "title": "쏘드라 계통 진화",
+    "member_ids": [
+      116,
+      117
+    ],
+    "related_names": [
+      "쏘드라",
+      "시드라"
+    ],
+    "stages": [
+      {
+        "id": 116,
+        "name_ko": "쏘드라",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 117,
+        "name_ko": "시드라",
+        "from_id": 116,
+        "condition": "레벨 32",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 230,
+        "name_ko": "킹드라",
+        "from_id": 117,
+        "condition": "통신교환, 용의비늘을(를) 지닌 채",
+        "generation": 2,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 쏘드라 계통.\n쏘드라 → (레벨 32) 시드라 → (통신교환, 용의비늘을(를) 지닌 채) 킹드라(2세대에 추가)\n단계별 설명:\n- 쏘드라: 계통의 첫 단계.\n- 시드라: 쏘드라에서 [레벨 32] 조건으로 진화 (1세대부터 있는 진화).\n- 킹드라: 시드라에서 [통신교환, 용의비늘을(를) 지닌 채] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n통신교환으로 진화하는 단계: 킹드라.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/54/"
+  },
+  {
+    "doc_id": "evo-55",
+    "chain_id": 55,
+    "title": "콘치 계통 진화",
+    "member_ids": [
+      118,
+      119
+    ],
+    "related_names": [
+      "콘치",
+      "왕콘치"
+    ],
+    "stages": [
+      {
+        "id": 118,
+        "name_ko": "콘치",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 119,
+        "name_ko": "왕콘치",
+        "from_id": 118,
+        "condition": "레벨 33",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 콘치 계통.\n콘치 → (레벨 33) 왕콘치\n단계별 설명:\n- 콘치: 계통의 첫 단계.\n- 왕콘치: 콘치에서 [레벨 33] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/55/"
+  },
+  {
+    "doc_id": "evo-56",
+    "chain_id": 56,
+    "title": "별가사리 계통 진화",
+    "member_ids": [
+      120,
+      121
+    ],
+    "related_names": [
+      "별가사리",
+      "아쿠스타"
+    ],
+    "stages": [
+      {
+        "id": 120,
+        "name_ko": "별가사리",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 121,
+        "name_ko": "아쿠스타",
+        "from_id": 120,
+        "condition": "물의돌",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 별가사리 계통.\n별가사리 → (물의돌) 아쿠스타\n단계별 설명:\n- 별가사리: 계통의 첫 단계.\n- 아쿠스타: 별가사리에서 [물의돌] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/56/"
+  },
+  {
+    "doc_id": "evo-57",
+    "chain_id": 57,
+    "title": "흉내내 계통 진화",
+    "member_ids": [
+      122
+    ],
+    "related_names": [
+      "마임맨"
+    ],
+    "stages": [
+      {
+        "id": 439,
+        "name_ko": "흉내내",
+        "from_id": null,
+        "condition": "",
+        "generation": 4,
+        "depth": 0
+      },
+      {
+        "id": 122,
+        "name_ko": "마임맨",
+        "from_id": 439,
+        "condition": "흉내내기 기술을 배운 상태",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 866,
+        "name_ko": "마임꽁꽁",
+        "from_id": 122,
+        "condition": "레벨 42",
+        "generation": 8,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 흉내내 계통.\n흉내내(4세대에 추가) → (흉내내기 기술을 배운 상태) 마임맨 → (레벨 42) 마임꽁꽁(8세대에 추가)\n단계별 설명:\n- 흉내내: 계통의 첫 단계.\n- 마임맨: 흉내내에서 [흉내내기 기술을 배운 상태] 조건으로 진화 (1세대부터 있는 진화).\n- 마임꽁꽁: 마임맨에서 [레벨 42] 조건으로 진화 (8세대에 추가된 포켓몬이라 1세대 게임에는 없다).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/57/"
+  },
+  {
+    "doc_id": "evo-58",
+    "chain_id": 58,
+    "title": "스라크 계통 진화",
+    "member_ids": [
+      123
+    ],
+    "related_names": [
+      "스라크"
+    ],
+    "stages": [
+      {
+        "id": 123,
+        "name_ko": "스라크",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 212,
+        "name_ko": "핫삼",
+        "from_id": 123,
+        "condition": "통신교환, 금속코트을(를) 지닌 채",
+        "generation": 2,
+        "depth": 1
+      },
+      {
+        "id": 900,
+        "name_ko": "사마자르",
+        "from_id": 123,
+        "condition": "검은휘석",
+        "generation": 8,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 스라크 계통.\n스라크 → (통신교환, 금속코트을(를) 지닌 채) 핫삼(2세대에 추가) / (검은휘석) 사마자르(8세대에 추가)\n단계별 설명:\n- 스라크: 계통의 첫 단계.\n- 핫삼: 스라크에서 [통신교환, 금속코트을(를) 지닌 채] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n- 사마자르: 스라크에서 [검은휘석] 조건으로 진화 (8세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n통신교환으로 진화하는 단계: 핫삼.\n스라크은(는) 조건에 따라 여러 갈래로 진화하는 분기 진화를 한다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/58/"
+  },
+  {
+    "doc_id": "evo-59",
+    "chain_id": 59,
+    "title": "뽀뽀라 계통 진화",
+    "member_ids": [
+      124
+    ],
+    "related_names": [
+      "루주라"
+    ],
+    "stages": [
+      {
+        "id": 238,
+        "name_ko": "뽀뽀라",
+        "from_id": null,
+        "condition": "",
+        "generation": 2,
+        "depth": 0
+      },
+      {
+        "id": 124,
+        "name_ko": "루주라",
+        "from_id": 238,
+        "condition": "레벨 30",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 뽀뽀라 계통.\n뽀뽀라(2세대에 추가) → (레벨 30) 루주라\n단계별 설명:\n- 뽀뽀라: 계통의 첫 단계.\n- 루주라: 뽀뽀라에서 [레벨 30] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/59/"
+  },
+  {
+    "doc_id": "evo-60",
+    "chain_id": 60,
+    "title": "에레키드 계통 진화",
+    "member_ids": [
+      125
+    ],
+    "related_names": [
+      "에레브"
+    ],
+    "stages": [
+      {
+        "id": 239,
+        "name_ko": "에레키드",
+        "from_id": null,
+        "condition": "",
+        "generation": 2,
+        "depth": 0
+      },
+      {
+        "id": 125,
+        "name_ko": "에레브",
+        "from_id": 239,
+        "condition": "레벨 30",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 466,
+        "name_ko": "에레키블",
+        "from_id": 125,
+        "condition": "통신교환, 에레키부스터을(를) 지닌 채",
+        "generation": 4,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 에레키드 계통.\n에레키드(2세대에 추가) → (레벨 30) 에레브 → (통신교환, 에레키부스터을(를) 지닌 채) 에레키블(4세대에 추가)\n단계별 설명:\n- 에레키드: 계통의 첫 단계.\n- 에레브: 에레키드에서 [레벨 30] 조건으로 진화 (1세대부터 있는 진화).\n- 에레키블: 에레브에서 [통신교환, 에레키부스터을(를) 지닌 채] 조건으로 진화 (4세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n통신교환으로 진화하는 단계: 에레키블.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/60/"
+  },
+  {
+    "doc_id": "evo-61",
+    "chain_id": 61,
+    "title": "마그비 계통 진화",
+    "member_ids": [
+      126
+    ],
+    "related_names": [
+      "마그마"
+    ],
+    "stages": [
+      {
+        "id": 240,
+        "name_ko": "마그비",
+        "from_id": null,
+        "condition": "",
+        "generation": 2,
+        "depth": 0
+      },
+      {
+        "id": 126,
+        "name_ko": "마그마",
+        "from_id": 240,
+        "condition": "레벨 30",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 467,
+        "name_ko": "마그마번",
+        "from_id": 126,
+        "condition": "통신교환, 마그마부스터을(를) 지닌 채",
+        "generation": 4,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 마그비 계통.\n마그비(2세대에 추가) → (레벨 30) 마그마 → (통신교환, 마그마부스터을(를) 지닌 채) 마그마번(4세대에 추가)\n단계별 설명:\n- 마그비: 계통의 첫 단계.\n- 마그마: 마그비에서 [레벨 30] 조건으로 진화 (1세대부터 있는 진화).\n- 마그마번: 마그마에서 [통신교환, 마그마부스터을(를) 지닌 채] 조건으로 진화 (4세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n통신교환으로 진화하는 단계: 마그마번.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/61/"
+  },
+  {
+    "doc_id": "evo-62",
+    "chain_id": 62,
+    "title": "쁘사이저 계통 진화",
+    "member_ids": [
+      127
+    ],
+    "related_names": [
+      "쁘사이저"
+    ],
+    "stages": [
+      {
+        "id": 127,
+        "name_ko": "쁘사이저",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      }
+    ],
+    "text": "[진화] 쁘사이저 계통.\n쁘사이저 (진화하지 않음)\n단계별 설명:\n- 쁘사이저: 진화하지 않는 포켓몬이다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/62/"
+  },
+  {
+    "doc_id": "evo-63",
+    "chain_id": 63,
+    "title": "켄타로스 계통 진화",
+    "member_ids": [
+      128
+    ],
+    "related_names": [
+      "켄타로스"
+    ],
+    "stages": [
+      {
+        "id": 128,
+        "name_ko": "켄타로스",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      }
+    ],
+    "text": "[진화] 켄타로스 계통.\n켄타로스 (진화하지 않음)\n단계별 설명:\n- 켄타로스: 진화하지 않는 포켓몬이다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/63/"
+  },
+  {
+    "doc_id": "evo-64",
+    "chain_id": 64,
+    "title": "잉어킹 계통 진화",
+    "member_ids": [
+      129,
+      130
+    ],
+    "related_names": [
+      "잉어킹",
+      "갸라도스"
+    ],
+    "stages": [
+      {
+        "id": 129,
+        "name_ko": "잉어킹",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 130,
+        "name_ko": "갸라도스",
+        "from_id": 129,
+        "condition": "레벨 20",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 잉어킹 계통.\n잉어킹 → (레벨 20) 갸라도스\n단계별 설명:\n- 잉어킹: 계통의 첫 단계.\n- 갸라도스: 잉어킹에서 [레벨 20] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/64/"
+  },
+  {
+    "doc_id": "evo-65",
+    "chain_id": 65,
+    "title": "라프라스 계통 진화",
+    "member_ids": [
+      131
+    ],
+    "related_names": [
+      "라프라스"
+    ],
+    "stages": [
+      {
+        "id": 131,
+        "name_ko": "라프라스",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      }
+    ],
+    "text": "[진화] 라프라스 계통.\n라프라스 (진화하지 않음)\n단계별 설명:\n- 라프라스: 진화하지 않는 포켓몬이다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/65/"
+  },
+  {
+    "doc_id": "evo-66",
+    "chain_id": 66,
+    "title": "메타몽 계통 진화",
+    "member_ids": [
+      132
+    ],
+    "related_names": [
+      "메타몽"
+    ],
+    "stages": [
+      {
+        "id": 132,
+        "name_ko": "메타몽",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      }
+    ],
+    "text": "[진화] 메타몽 계통.\n메타몽 (진화하지 않음)\n단계별 설명:\n- 메타몽: 진화하지 않는 포켓몬이다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/66/"
+  },
+  {
+    "doc_id": "evo-67",
+    "chain_id": 67,
+    "title": "이브이 계통 진화",
+    "member_ids": [
+      133,
+      134,
+      135,
+      136
+    ],
+    "related_names": [
+      "이브이",
+      "샤미드",
+      "쥬피썬더",
+      "부스터"
+    ],
+    "stages": [
+      {
+        "id": 133,
+        "name_ko": "이브이",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 134,
+        "name_ko": "샤미드",
+        "from_id": 133,
+        "condition": "물의돌",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 135,
+        "name_ko": "쥬피썬더",
+        "from_id": 133,
+        "condition": "천둥의돌",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 136,
+        "name_ko": "부스터",
+        "from_id": 133,
+        "condition": "불꽃의돌",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 196,
+        "name_ko": "에브이",
+        "from_id": 133,
+        "condition": "친밀도 160 이상, 낮",
+        "generation": 2,
+        "depth": 1
+      },
+      {
+        "id": 197,
+        "name_ko": "블래키",
+        "from_id": 133,
+        "condition": "친밀도 160 이상, 밤",
+        "generation": 2,
+        "depth": 1
+      },
+      {
+        "id": 470,
+        "name_ko": "리피아",
+        "from_id": 133,
+        "condition": "특정 장소",
+        "generation": 4,
+        "depth": 1
+      },
+      {
+        "id": 471,
+        "name_ko": "글레이시아",
+        "from_id": 133,
+        "condition": "특정 장소",
+        "generation": 4,
+        "depth": 1
+      },
+      {
+        "id": 700,
+        "name_ko": "님피아",
+        "from_id": 133,
+        "condition": "친밀도(우정) 높음, 페어리 타입 기술을 배운 상태",
+        "generation": 6,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 이브이 계통.\n이브이 → (물의돌) 샤미드 / (천둥의돌) 쥬피썬더 / (불꽃의돌) 부스터 / (친밀도 160 이상, 낮) 에브이(2세대에 추가) / (친밀도 160 이상, 밤) 블래키(2세대에 추가) / (특정 장소) 리피아(4세대에 추가) / (특정 장소) 글레이시아(4세대에 추가) / (친밀도(우정) 높음, 페어리 타입 기술을 배운 상태) 님피아(6세대에 추가)\n단계별 설명:\n- 이브이: 계통의 첫 단계.\n- 샤미드: 이브이에서 [물의돌] 조건으로 진화 (1세대부터 있는 진화).\n- 쥬피썬더: 이브이에서 [천둥의돌] 조건으로 진화 (1세대부터 있는 진화).\n- 부스터: 이브이에서 [불꽃의돌] 조건으로 진화 (1세대부터 있는 진화).\n- 에브이: 이브이에서 [친밀도 160 이상, 낮] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n- 블래키: 이브이에서 [친밀도 160 이상, 밤] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n- 리피아: 이브이에서 [특정 장소] 조건으로 진화 (4세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n- 글레이시아: 이브이에서 [특정 장소] 조건으로 진화 (4세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n- 님피아: 이브이에서 [친밀도(우정) 높음, 페어리 타입 기술을 배운 상태] 조건으로 진화 (6세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n이브이은(는) 조건에 따라 여러 갈래로 진화하는 분기 진화를 한다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/67/"
+  },
+  {
+    "doc_id": "evo-68",
+    "chain_id": 68,
+    "title": "폴리곤 계통 진화",
+    "member_ids": [
+      137
+    ],
+    "related_names": [
+      "폴리곤"
+    ],
+    "stages": [
+      {
+        "id": 137,
+        "name_ko": "폴리곤",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 233,
+        "name_ko": "폴리곤2",
+        "from_id": 137,
+        "condition": "통신교환, 업그레이드을(를) 지닌 채",
+        "generation": 2,
+        "depth": 1
+      },
+      {
+        "id": 474,
+        "name_ko": "폴리곤Z",
+        "from_id": 233,
+        "condition": "통신교환, 괴상한패치을(를) 지닌 채",
+        "generation": 4,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 폴리곤 계통.\n폴리곤 → (통신교환, 업그레이드을(를) 지닌 채) 폴리곤2(2세대에 추가) → (통신교환, 괴상한패치을(를) 지닌 채) 폴리곤Z(4세대에 추가)\n단계별 설명:\n- 폴리곤: 계통의 첫 단계.\n- 폴리곤2: 폴리곤에서 [통신교환, 업그레이드을(를) 지닌 채] 조건으로 진화 (2세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n- 폴리곤Z: 폴리곤2에서 [통신교환, 괴상한패치을(를) 지닌 채] 조건으로 진화 (4세대에 추가된 포켓몬이라 1세대 게임에는 없다).\n통신교환으로 진화하는 단계: 폴리곤2, 폴리곤Z.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/68/"
+  },
+  {
+    "doc_id": "evo-69",
+    "chain_id": 69,
+    "title": "암나이트 계통 진화",
+    "member_ids": [
+      138,
+      139
+    ],
+    "related_names": [
+      "암나이트",
+      "암스타"
+    ],
+    "stages": [
+      {
+        "id": 138,
+        "name_ko": "암나이트",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 139,
+        "name_ko": "암스타",
+        "from_id": 138,
+        "condition": "레벨 40",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 암나이트 계통.\n암나이트 → (레벨 40) 암스타\n단계별 설명:\n- 암나이트: 계통의 첫 단계.\n- 암스타: 암나이트에서 [레벨 40] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/69/"
+  },
+  {
+    "doc_id": "evo-70",
+    "chain_id": 70,
+    "title": "투구 계통 진화",
+    "member_ids": [
+      140,
+      141
+    ],
+    "related_names": [
+      "투구",
+      "투구푸스"
+    ],
+    "stages": [
+      {
+        "id": 140,
+        "name_ko": "투구",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 141,
+        "name_ko": "투구푸스",
+        "from_id": 140,
+        "condition": "레벨 40",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 투구 계통.\n투구 → (레벨 40) 투구푸스\n단계별 설명:\n- 투구: 계통의 첫 단계.\n- 투구푸스: 투구에서 [레벨 40] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/70/"
+  },
+  {
+    "doc_id": "evo-71",
+    "chain_id": 71,
+    "title": "프테라 계통 진화",
+    "member_ids": [
+      142
+    ],
+    "related_names": [
+      "프테라"
+    ],
+    "stages": [
+      {
+        "id": 142,
+        "name_ko": "프테라",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      }
+    ],
+    "text": "[진화] 프테라 계통.\n프테라 (진화하지 않음)\n단계별 설명:\n- 프테라: 진화하지 않는 포켓몬이다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/71/"
+  },
+  {
+    "doc_id": "evo-72",
+    "chain_id": 72,
+    "title": "먹고자 계통 진화",
+    "member_ids": [
+      143
+    ],
+    "related_names": [
+      "잠만보"
+    ],
+    "stages": [
+      {
+        "id": 446,
+        "name_ko": "먹고자",
+        "from_id": null,
+        "condition": "",
+        "generation": 4,
+        "depth": 0
+      },
+      {
+        "id": 143,
+        "name_ko": "잠만보",
+        "from_id": 446,
+        "condition": "친밀도 160 이상",
+        "generation": 1,
+        "depth": 1
+      }
+    ],
+    "text": "[진화] 먹고자 계통.\n먹고자(4세대에 추가) → (친밀도 160 이상) 잠만보\n단계별 설명:\n- 먹고자: 계통의 첫 단계.\n- 잠만보: 먹고자에서 [친밀도 160 이상] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/72/"
+  },
+  {
+    "doc_id": "evo-73",
+    "chain_id": 73,
+    "title": "프리져 계통 진화",
+    "member_ids": [
+      144
+    ],
+    "related_names": [
+      "프리져"
+    ],
+    "stages": [
+      {
+        "id": 144,
+        "name_ko": "프리져",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      }
+    ],
+    "text": "[진화] 프리져 계통.\n프리져 (진화하지 않음)\n단계별 설명:\n- 프리져: 진화하지 않는 포켓몬이다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/73/"
+  },
+  {
+    "doc_id": "evo-74",
+    "chain_id": 74,
+    "title": "썬더 계통 진화",
+    "member_ids": [
+      145
+    ],
+    "related_names": [
+      "썬더"
+    ],
+    "stages": [
+      {
+        "id": 145,
+        "name_ko": "썬더",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      }
+    ],
+    "text": "[진화] 썬더 계통.\n썬더 (진화하지 않음)\n단계별 설명:\n- 썬더: 진화하지 않는 포켓몬이다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/74/"
+  },
+  {
+    "doc_id": "evo-75",
+    "chain_id": 75,
+    "title": "파이어 계통 진화",
+    "member_ids": [
+      146
+    ],
+    "related_names": [
+      "파이어"
+    ],
+    "stages": [
+      {
+        "id": 146,
+        "name_ko": "파이어",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      }
+    ],
+    "text": "[진화] 파이어 계통.\n파이어 (진화하지 않음)\n단계별 설명:\n- 파이어: 진화하지 않는 포켓몬이다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/75/"
+  },
+  {
+    "doc_id": "evo-76",
+    "chain_id": 76,
+    "title": "미뇽 계통 진화",
+    "member_ids": [
+      147,
+      148,
+      149
+    ],
+    "related_names": [
+      "미뇽",
+      "신뇽",
+      "망나뇽"
+    ],
+    "stages": [
+      {
+        "id": 147,
+        "name_ko": "미뇽",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      },
+      {
+        "id": 148,
+        "name_ko": "신뇽",
+        "from_id": 147,
+        "condition": "레벨 30",
+        "generation": 1,
+        "depth": 1
+      },
+      {
+        "id": 149,
+        "name_ko": "망나뇽",
+        "from_id": 148,
+        "condition": "레벨 55",
+        "generation": 1,
+        "depth": 2
+      }
+    ],
+    "text": "[진화] 미뇽 계통.\n미뇽 → (레벨 30) 신뇽 → (레벨 55) 망나뇽\n단계별 설명:\n- 미뇽: 계통의 첫 단계.\n- 신뇽: 미뇽에서 [레벨 30] 조건으로 진화 (1세대부터 있는 진화).\n- 망나뇽: 신뇽에서 [레벨 55] 조건으로 진화 (1세대부터 있는 진화).",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/76/"
+  },
+  {
+    "doc_id": "evo-77",
+    "chain_id": 77,
+    "title": "뮤츠 계통 진화",
+    "member_ids": [
+      150
+    ],
+    "related_names": [
+      "뮤츠"
+    ],
+    "stages": [
+      {
+        "id": 150,
+        "name_ko": "뮤츠",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      }
+    ],
+    "text": "[진화] 뮤츠 계통.\n뮤츠 (진화하지 않음)\n단계별 설명:\n- 뮤츠: 진화하지 않는 포켓몬이다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/77/"
+  },
+  {
+    "doc_id": "evo-78",
+    "chain_id": 78,
+    "title": "뮤 계통 진화",
+    "member_ids": [
+      151
+    ],
+    "related_names": [
+      "뮤"
+    ],
+    "stages": [
+      {
+        "id": 151,
+        "name_ko": "뮤",
+        "from_id": null,
+        "condition": "",
+        "generation": 1,
+        "depth": 0
+      }
+    ],
+    "text": "[진화] 뮤 계통.\n뮤 (진화하지 않음)\n단계별 설명:\n- 뮤: 진화하지 않는 포켓몬이다.",
+    "source_url": "https://pokeapi.co/api/v2/evolution-chain/78/"
+  }
+]

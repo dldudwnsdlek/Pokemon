@@ -1,0 +1,5194 @@
+[
+  {
+    "id": 1,
+    "dex_no": "001",
+    "name_ko": "이상해씨",
+    "name_en": "bulbasaur",
+    "genus_ko": "씨앗포켓몬",
+    "types": [
+      "풀",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "심록",
+      "엽록소(숨겨진 특성)"
+    ],
+    "height_m": 0.7,
+    "weight_kg": 6.9,
+    "stats": {
+      "hp": 45,
+      "attack": 49,
+      "defense": 49,
+      "sp_attack": 65,
+      "sp_defense": 65,
+      "speed": 45
+    },
+    "evolution": "이상해씨 → (레벨 16) 이상해풀 → (레벨 32) 이상해꽃",
+    "evolution_chain_id": 1,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "태어나서 얼마 동안 등의 씨앗에 담긴 영양을 섭취하며 자란다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/1/"
+  },
+  {
+    "id": 2,
+    "dex_no": "002",
+    "name_ko": "이상해풀",
+    "name_en": "ivysaur",
+    "genus_ko": "씨앗포켓몬",
+    "types": [
+      "풀",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "심록",
+      "엽록소(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 13.0,
+    "stats": {
+      "hp": 60,
+      "attack": 62,
+      "defense": 63,
+      "sp_attack": 80,
+      "sp_defense": 80,
+      "speed": 60
+    },
+    "evolution": "이상해씨 → (레벨 16) 이상해풀 → (레벨 32) 이상해꽃",
+    "evolution_chain_id": 1,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "햇빛을 받을수록 몸에 힘이 솟아나 등의 꽃봉오리가 자라난다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/2/"
+  },
+  {
+    "id": 3,
+    "dex_no": "003",
+    "name_ko": "이상해꽃",
+    "name_en": "venusaur",
+    "genus_ko": "씨앗포켓몬",
+    "types": [
+      "풀",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "심록",
+      "엽록소(숨겨진 특성)"
+    ],
+    "height_m": 2.0,
+    "weight_kg": 100.0,
+    "stats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 83,
+      "sp_attack": 100,
+      "sp_defense": 100,
+      "speed": 80
+    },
+    "evolution": "이상해씨 → (레벨 16) 이상해풀 → (레벨 32) 이상해꽃",
+    "evolution_chain_id": 1,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "꽃에서 황홀한 향기가 퍼져 나와 싸우는 자의 기분을 달래준다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/3/"
+  },
+  {
+    "id": 4,
+    "dex_no": "004",
+    "name_ko": "파이리",
+    "name_en": "charmander",
+    "genus_ko": "도롱뇽포켓몬",
+    "types": [
+      "불꽃"
+    ],
+    "past_types": [],
+    "abilities": [
+      "맹화",
+      "선파워(숨겨진 특성)"
+    ],
+    "height_m": 0.6,
+    "weight_kg": 8.5,
+    "stats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "sp_attack": 60,
+      "sp_defense": 50,
+      "speed": 65
+    },
+    "evolution": "파이리 → (레벨 16) 리자드 → (레벨 36) 리자몽",
+    "evolution_chain_id": 2,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "태어날 때부터 꼬리에 불꽃이 타오르고 있다. 불꽃이 꺼지면 생명도 다하고 만다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/4/"
+  },
+  {
+    "id": 5,
+    "dex_no": "005",
+    "name_ko": "리자드",
+    "name_en": "charmeleon",
+    "genus_ko": "화염포켓몬",
+    "types": [
+      "불꽃"
+    ],
+    "past_types": [],
+    "abilities": [
+      "맹화",
+      "선파워(숨겨진 특성)"
+    ],
+    "height_m": 1.1,
+    "weight_kg": 19.0,
+    "stats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "sp_attack": 80,
+      "sp_defense": 65,
+      "speed": 80
+    },
+    "evolution": "파이리 → (레벨 16) 리자드 → (레벨 36) 리자몽",
+    "evolution_chain_id": 2,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "싸움으로 기분이 고조되면 작열하는 불꽃을 뿜으며 주변을 태워버린다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/5/"
+  },
+  {
+    "id": 6,
+    "dex_no": "006",
+    "name_ko": "리자몽",
+    "name_en": "charizard",
+    "genus_ko": "화염포켓몬",
+    "types": [
+      "불꽃",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "맹화",
+      "선파워(숨겨진 특성)"
+    ],
+    "height_m": 1.7,
+    "weight_kg": 90.5,
+    "stats": {
+      "hp": 78,
+      "attack": 84,
+      "defense": 78,
+      "sp_attack": 109,
+      "sp_defense": 85,
+      "speed": 100
+    },
+    "evolution": "파이리 → (레벨 16) 리자드 → (레벨 36) 리자몽",
+    "evolution_chain_id": 2,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "지상 1400m까지 날개를 사용해 날 수 있다. 고열의 불꽃을 내뿜는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/6/"
+  },
+  {
+    "id": 7,
+    "dex_no": "007",
+    "name_ko": "꼬부기",
+    "name_en": "squirtle",
+    "genus_ko": "꼬마거북포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "급류",
+      "젖은접시(숨겨진 특성)"
+    ],
+    "height_m": 0.5,
+    "weight_kg": 9.0,
+    "stats": {
+      "hp": 44,
+      "attack": 48,
+      "defense": 65,
+      "sp_attack": 50,
+      "sp_defense": 64,
+      "speed": 43
+    },
+    "evolution": "꼬부기 → (레벨 16) 어니부기 → (레벨 36) 거북왕",
+    "evolution_chain_id": 3,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "위험해지면 등껍질에 손발을 감추고 몸을 지키면서 입에서 물을 내뿜는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/7/"
+  },
+  {
+    "id": 8,
+    "dex_no": "008",
+    "name_ko": "어니부기",
+    "name_en": "wartortle",
+    "genus_ko": "거북포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "급류",
+      "젖은접시(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 22.5,
+    "stats": {
+      "hp": 59,
+      "attack": 63,
+      "defense": 80,
+      "sp_attack": 65,
+      "sp_defense": 80,
+      "speed": 58
+    },
+    "evolution": "꼬부기 → (레벨 16) 어니부기 → (레벨 36) 거북왕",
+    "evolution_chain_id": 3,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "탐스러운 귀와 꼬리를 능숙하게 다뤄서 수중에서의 밸런스를 유지한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/8/"
+  },
+  {
+    "id": 9,
+    "dex_no": "009",
+    "name_ko": "거북왕",
+    "name_en": "blastoise",
+    "genus_ko": "껍질포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "급류",
+      "젖은접시(숨겨진 특성)"
+    ],
+    "height_m": 1.6,
+    "weight_kg": 85.5,
+    "stats": {
+      "hp": 79,
+      "attack": 83,
+      "defense": 100,
+      "sp_attack": 85,
+      "sp_defense": 105,
+      "speed": 78
+    },
+    "evolution": "꼬부기 → (레벨 16) 어니부기 → (레벨 36) 거북왕",
+    "evolution_chain_id": 3,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "등껍질의 로켓포에서 뿜어져 나오는 제트 수류는 두꺼운 철판도 뚫는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/9/"
+  },
+  {
+    "id": 10,
+    "dex_no": "010",
+    "name_ko": "캐터피",
+    "name_en": "caterpie",
+    "genus_ko": "애벌레포켓몬",
+    "types": [
+      "벌레"
+    ],
+    "past_types": [],
+    "abilities": [
+      "인분",
+      "도주(숨겨진 특성)"
+    ],
+    "height_m": 0.3,
+    "weight_kg": 2.9,
+    "stats": {
+      "hp": 45,
+      "attack": 30,
+      "defense": 35,
+      "sp_attack": 20,
+      "sp_defense": 20,
+      "speed": 45
+    },
+    "evolution": "캐터피 → (레벨 7) 단데기 → (레벨 10) 버터플",
+    "evolution_chain_id": 4,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "다리는 짧지만 빨판으로 되어 있어 비탈길이나 벽에서도 지치지 않고 나아간다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/10/"
+  },
+  {
+    "id": 11,
+    "dex_no": "011",
+    "name_ko": "단데기",
+    "name_en": "metapod",
+    "genus_ko": "번데기포켓몬",
+    "types": [
+      "벌레"
+    ],
+    "past_types": [],
+    "abilities": [
+      "탈피"
+    ],
+    "height_m": 0.7,
+    "weight_kg": 9.9,
+    "stats": {
+      "hp": 50,
+      "attack": 20,
+      "defense": 55,
+      "sp_attack": 25,
+      "sp_defense": 25,
+      "speed": 30
+    },
+    "evolution": "캐터피 → (레벨 7) 단데기 → (레벨 10) 버터플",
+    "evolution_chain_id": 4,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 120,
+    "flavor_ko": "단단한 껍질로 둘러싸여 있지만 안은 부드럽기 때문에 강한 공격에는 버티지 못한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/11/"
+  },
+  {
+    "id": 12,
+    "dex_no": "012",
+    "name_ko": "버터플",
+    "name_en": "butterfree",
+    "genus_ko": "나비포켓몬",
+    "types": [
+      "벌레",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "복안",
+      "색안경(숨겨진 특성)"
+    ],
+    "height_m": 1.1,
+    "weight_kg": 32.0,
+    "stats": {
+      "hp": 60,
+      "attack": 45,
+      "defense": 50,
+      "sp_attack": 90,
+      "sp_defense": 80,
+      "speed": 70
+    },
+    "evolution": "캐터피 → (레벨 7) 단데기 → (레벨 10) 버터플",
+    "evolution_chain_id": 4,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "매일 꿀을 모으러 다닌다. 다리의 솜털에 꿀을 발라 둥지로 가지고 가는 습성이 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/12/"
+  },
+  {
+    "id": 13,
+    "dex_no": "013",
+    "name_ko": "뿔충이",
+    "name_en": "weedle",
+    "genus_ko": "송충이포켓몬",
+    "types": [
+      "벌레",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "인분",
+      "도주(숨겨진 특성)"
+    ],
+    "height_m": 0.3,
+    "weight_kg": 3.2,
+    "stats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "sp_attack": 20,
+      "sp_defense": 20,
+      "speed": 50
+    },
+    "evolution": "뿔충이 → (레벨 7) 딱충이 → (레벨 10) 독침붕",
+    "evolution_chain_id": 5,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "머리에 날카로운 침을 지니고 있다. 우거진 숲이나 풀밭에 숨어 끊임없이 풀잎을 먹고 있다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/13/"
+  },
+  {
+    "id": 14,
+    "dex_no": "014",
+    "name_ko": "딱충이",
+    "name_en": "kakuna",
+    "genus_ko": "번데기포켓몬",
+    "types": [
+      "벌레",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "탈피"
+    ],
+    "height_m": 0.6,
+    "weight_kg": 10.0,
+    "stats": {
+      "hp": 45,
+      "attack": 25,
+      "defense": 50,
+      "sp_attack": 25,
+      "sp_defense": 25,
+      "speed": 35
+    },
+    "evolution": "뿔충이 → (레벨 7) 딱충이 → (레벨 10) 독침붕",
+    "evolution_chain_id": 5,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 120,
+    "flavor_ko": "스스로는 거의 움직일 수 없지만 위험해지면 침을 세워서 독을 뿜을 때도 있는 듯하다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/14/"
+  },
+  {
+    "id": 15,
+    "dex_no": "015",
+    "name_ko": "독침붕",
+    "name_en": "beedrill",
+    "genus_ko": "독벌포켓몬",
+    "types": [
+      "벌레",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "벌레의알림",
+      "스나이퍼(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 29.5,
+    "stats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 40,
+      "sp_attack": 45,
+      "sp_defense": 80,
+      "speed": 75
+    },
+    "evolution": "뿔충이 → (레벨 7) 딱충이 → (레벨 10) 독침붕",
+    "evolution_chain_id": 5,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "양손과 엉덩이에 있는 3개의 독침으로 상대를 찌르고 찌르고 또 찌르며 공격한다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/15/"
+  },
+  {
+    "id": 16,
+    "dex_no": "016",
+    "name_ko": "구구",
+    "name_en": "pidgey",
+    "genus_ko": "아기새포켓몬",
+    "types": [
+      "노말",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "날카로운눈",
+      "갈지자걸음",
+      "부풀린가슴(숨겨진 특성)"
+    ],
+    "height_m": 0.3,
+    "weight_kg": 1.8,
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 40,
+      "sp_attack": 35,
+      "sp_defense": 35,
+      "speed": 56
+    },
+    "evolution": "구구 → (레벨 18) 피죤 → (레벨 36) 피죤투",
+    "evolution_chain_id": 6,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "얌전한 성격이라 습격당해도 반격하지 않고 모래를 뿌려서 몸을 지키는 경우가 많다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/16/"
+  },
+  {
+    "id": 17,
+    "dex_no": "017",
+    "name_ko": "피죤",
+    "name_en": "pidgeotto",
+    "genus_ko": "새포켓몬",
+    "types": [
+      "노말",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "날카로운눈",
+      "갈지자걸음",
+      "부풀린가슴(숨겨진 특성)"
+    ],
+    "height_m": 1.1,
+    "weight_kg": 30.0,
+    "stats": {
+      "hp": 63,
+      "attack": 60,
+      "defense": 55,
+      "sp_attack": 50,
+      "sp_defense": 50,
+      "speed": 71
+    },
+    "evolution": "구구 → (레벨 18) 피죤 → (레벨 36) 피죤투",
+    "evolution_chain_id": 6,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 120,
+    "flavor_ko": "어마어마한 체력의 소유자로 넓은 영역을 날아다니며 먼 곳까지 먹이를 찾으러 간다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/17/"
+  },
+  {
+    "id": 18,
+    "dex_no": "018",
+    "name_ko": "피죤투",
+    "name_en": "pidgeot",
+    "genus_ko": "새포켓몬",
+    "types": [
+      "노말",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "날카로운눈",
+      "갈지자걸음",
+      "부풀린가슴(숨겨진 특성)"
+    ],
+    "height_m": 1.5,
+    "weight_kg": 39.5,
+    "stats": {
+      "hp": 83,
+      "attack": 80,
+      "defense": 75,
+      "sp_attack": 70,
+      "sp_defense": 70,
+      "speed": 101
+    },
+    "evolution": "구구 → (레벨 18) 피죤 → (레벨 36) 피죤투",
+    "evolution_chain_id": 6,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "마하2의 속도로 비행하여 먹이를 찾는다. 그 커다란 발톱은 무기로서도 두려움의 대상이다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/18/"
+  },
+  {
+    "id": 19,
+    "dex_no": "019",
+    "name_ko": "꼬렛",
+    "name_en": "rattata",
+    "genus_ko": "쥐포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "도주",
+      "근성",
+      "의욕(숨겨진 특성)"
+    ],
+    "height_m": 0.3,
+    "weight_kg": 3.5,
+    "stats": {
+      "hp": 30,
+      "attack": 56,
+      "defense": 35,
+      "sp_attack": 25,
+      "sp_defense": 35,
+      "speed": 72
+    },
+    "evolution": "꼬렛 → (레벨 20) 레트라",
+    "evolution_chain_id": 7,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "2개의 이빨로 뭐든지 일단 갉고 본다. 1마리를 발견했다면 그곳에 40마리는 살고 있을 것이다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/19/"
+  },
+  {
+    "id": 20,
+    "dex_no": "020",
+    "name_ko": "레트라",
+    "name_en": "raticate",
+    "genus_ko": "쥐포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "도주",
+      "근성",
+      "의욕(숨겨진 특성)"
+    ],
+    "height_m": 0.7,
+    "weight_kg": 18.5,
+    "stats": {
+      "hp": 55,
+      "attack": 81,
+      "defense": 60,
+      "sp_attack": 50,
+      "sp_defense": 70,
+      "speed": 97
+    },
+    "evolution": "꼬렛 → (레벨 20) 레트라",
+    "evolution_chain_id": 7,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 127,
+    "flavor_ko": "뒷다리에 달린 작은 물갈퀴로 강을 헤엄치는 이유는 물속에 있는 먹이를 잡기 위해서다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/20/"
+  },
+  {
+    "id": 21,
+    "dex_no": "021",
+    "name_ko": "깨비참",
+    "name_en": "spearow",
+    "genus_ko": "아기새포켓몬",
+    "types": [
+      "노말",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "날카로운눈",
+      "스나이퍼(숨겨진 특성)"
+    ],
+    "height_m": 0.3,
+    "weight_kg": 2.0,
+    "stats": {
+      "hp": 40,
+      "attack": 60,
+      "defense": 30,
+      "sp_attack": 31,
+      "sp_defense": 31,
+      "speed": 70
+    },
+    "evolution": "깨비참 → (레벨 20) 깨비드릴조",
+    "evolution_chain_id": 8,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "높이 나는 것에 서투르다. 영역을 지키기 위해 맹렬한 스피드로 날아다닌다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/21/"
+  },
+  {
+    "id": 22,
+    "dex_no": "022",
+    "name_ko": "깨비드릴조",
+    "name_en": "fearow",
+    "genus_ko": "부리포켓몬",
+    "types": [
+      "노말",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "날카로운눈",
+      "스나이퍼(숨겨진 특성)"
+    ],
+    "height_m": 1.2,
+    "weight_kg": 38.0,
+    "stats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 65,
+      "sp_attack": 61,
+      "sp_defense": 61,
+      "speed": 100
+    },
+    "evolution": "깨비참 → (레벨 20) 깨비드릴조",
+    "evolution_chain_id": 8,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 90,
+    "flavor_ko": "옛날부터 살고 있는 포켓몬. 조금이라도 위험을 감지하면 하늘 높이 날아가 버린다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/22/"
+  },
+  {
+    "id": 23,
+    "dex_no": "023",
+    "name_ko": "아보",
+    "name_en": "ekans",
+    "genus_ko": "뱀포켓몬",
+    "types": [
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "위협",
+      "탈피",
+      "긴장감(숨겨진 특성)"
+    ],
+    "height_m": 2.0,
+    "weight_kg": 6.9,
+    "stats": {
+      "hp": 35,
+      "attack": 60,
+      "defense": 44,
+      "sp_attack": 40,
+      "sp_defense": 54,
+      "speed": 55
+    },
+    "evolution": "아보 → (레벨 22) 아보크",
+    "evolution_chain_id": 9,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "성장할수록 점점 길어진다. 밤에는 나뭇가지에 몸을 돌돌 말고 쉰다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/23/"
+  },
+  {
+    "id": 24,
+    "dex_no": "024",
+    "name_ko": "아보크",
+    "name_en": "arbok",
+    "genus_ko": "코브라포켓몬",
+    "types": [
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "위협",
+      "탈피",
+      "긴장감(숨겨진 특성)"
+    ],
+    "height_m": 3.5,
+    "weight_kg": 65.0,
+    "stats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 69,
+      "sp_attack": 65,
+      "sp_defense": 79,
+      "speed": 80
+    },
+    "evolution": "아보 → (레벨 22) 아보크",
+    "evolution_chain_id": 9,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 90,
+    "flavor_ko": "무서워 보이는 배의 무늬는 연구 결과 6종류 정도의 패턴이 확인되었다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/24/"
+  },
+  {
+    "id": 25,
+    "dex_no": "025",
+    "name_ko": "피카츄",
+    "name_en": "pikachu",
+    "genus_ko": "쥐포켓몬",
+    "types": [
+      "전기"
+    ],
+    "past_types": [],
+    "abilities": [
+      "정전기",
+      "피뢰침(숨겨진 특성)"
+    ],
+    "height_m": 0.4,
+    "weight_kg": 6.0,
+    "stats": {
+      "hp": 35,
+      "attack": 55,
+      "defense": 40,
+      "sp_attack": 50,
+      "sp_defense": 50,
+      "speed": 90
+    },
+    "evolution": "피츄(2세대에 추가) → (친밀도 220 이상) 피카츄 → (천둥의돌) 라이츄",
+    "evolution_chain_id": 10,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "서로의 꼬리를 붙여서 전기를 흐르게 하는 게 피카츄 사이의 인사법이다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/25/"
+  },
+  {
+    "id": 26,
+    "dex_no": "026",
+    "name_ko": "라이츄",
+    "name_en": "raichu",
+    "genus_ko": "쥐포켓몬",
+    "types": [
+      "전기"
+    ],
+    "past_types": [],
+    "abilities": [
+      "정전기",
+      "피뢰침(숨겨진 특성)"
+    ],
+    "height_m": 0.8,
+    "weight_kg": 30.0,
+    "stats": {
+      "hp": 60,
+      "attack": 90,
+      "defense": 55,
+      "sp_attack": 90,
+      "sp_defense": 80,
+      "speed": 110
+    },
+    "evolution": "피츄(2세대에 추가) → (친밀도 220 이상) 피카츄 → (천둥의돌) 라이츄",
+    "evolution_chain_id": 10,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "전기 주머니가 텅 비면 꼬리를 똑바로 세워서 공기 중의 전기를 모은다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/26/"
+  },
+  {
+    "id": 27,
+    "dex_no": "027",
+    "name_ko": "모래두지",
+    "name_en": "sandshrew",
+    "genus_ko": "쥐포켓몬",
+    "types": [
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "모래숨기",
+      "모래헤치기(숨겨진 특성)"
+    ],
+    "height_m": 0.6,
+    "weight_kg": 12.0,
+    "stats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 85,
+      "sp_attack": 20,
+      "sp_defense": 30,
+      "speed": 40
+    },
+    "evolution": "모래두지 → (레벨 22) 고지",
+    "evolution_chain_id": 11,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "땅을 파서 굴을 만든다. 땅속의 단단한 바위도 날카로운 발톱으로 부수며 파고들어 간다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/27/"
+  },
+  {
+    "id": 28,
+    "dex_no": "028",
+    "name_ko": "고지",
+    "name_en": "sandslash",
+    "genus_ko": "쥐포켓몬",
+    "types": [
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "모래숨기",
+      "모래헤치기(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 29.5,
+    "stats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 110,
+      "sp_attack": 45,
+      "sp_defense": 55,
+      "speed": 65
+    },
+    "evolution": "모래두지 → (레벨 22) 고지",
+    "evolution_chain_id": 11,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 90,
+    "flavor_ko": "날카로운 발톱으로 찍으며 나무에 오른다. 아래에서 기다리는 모래두지들에게 나무열매를 떨어뜨려 나눠준다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/28/"
+  },
+  {
+    "id": 29,
+    "dex_no": "029",
+    "name_ko": "니드런♀",
+    "name_en": "nidoran-f",
+    "genus_ko": "독침포켓몬",
+    "types": [
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "독가시",
+      "투쟁심",
+      "의욕(숨겨진 특성)"
+    ],
+    "height_m": 0.4,
+    "weight_kg": 7.0,
+    "stats": {
+      "hp": 55,
+      "attack": 47,
+      "defense": 52,
+      "sp_attack": 40,
+      "sp_defense": 40,
+      "speed": 41
+    },
+    "evolution": "니드런♀ → (레벨 16) 니드리나 → (달의돌) 니드퀸",
+    "evolution_chain_id": 12,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 235,
+    "flavor_ko": "단단한 앞니로 나무열매를 깨물어 먹는다. 뿔의 끝은 수컷보다 조금 둥그스름하다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/29/"
+  },
+  {
+    "id": 30,
+    "dex_no": "030",
+    "name_ko": "니드리나",
+    "name_en": "nidorina",
+    "genus_ko": "독침포켓몬",
+    "types": [
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "독가시",
+      "투쟁심",
+      "의욕(숨겨진 특성)"
+    ],
+    "height_m": 0.8,
+    "weight_kg": 20.0,
+    "stats": {
+      "hp": 70,
+      "attack": 62,
+      "defense": 67,
+      "sp_attack": 55,
+      "sp_defense": 55,
+      "speed": 56
+    },
+    "evolution": "니드런♀ → (레벨 16) 니드리나 → (달의돌) 니드퀸",
+    "evolution_chain_id": 12,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 120,
+    "flavor_ko": "무리에 위험이 닥치면 동료와 결속하여 초음파로 크게 합창한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/30/"
+  },
+  {
+    "id": 31,
+    "dex_no": "031",
+    "name_ko": "니드퀸",
+    "name_en": "nidoqueen",
+    "genus_ko": "드릴포켓몬",
+    "types": [
+      "독",
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "독가시",
+      "투쟁심",
+      "우격다짐(숨겨진 특성)"
+    ],
+    "height_m": 1.3,
+    "weight_kg": 60.0,
+    "stats": {
+      "hp": 90,
+      "attack": 92,
+      "defense": 87,
+      "sp_attack": 75,
+      "sp_defense": 85,
+      "speed": 76
+    },
+    "evolution": "니드런♀ → (레벨 16) 니드리나 → (달의돌) 니드퀸",
+    "evolution_chain_id": 12,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "등의 가시 틈에 새끼를 태우고 달랜다. 이때는 독이 절대 나오지 않는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/31/"
+  },
+  {
+    "id": 32,
+    "dex_no": "032",
+    "name_ko": "니드런♂",
+    "name_en": "nidoran-m",
+    "genus_ko": "독침포켓몬",
+    "types": [
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "독가시",
+      "투쟁심",
+      "의욕(숨겨진 특성)"
+    ],
+    "height_m": 0.5,
+    "weight_kg": 9.0,
+    "stats": {
+      "hp": 46,
+      "attack": 57,
+      "defense": 40,
+      "sp_attack": 40,
+      "sp_defense": 40,
+      "speed": 50
+    },
+    "evolution": "니드런♂ → (레벨 16) 니드리노 → (달의돌) 니드킹",
+    "evolution_chain_id": 13,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 235,
+    "flavor_ko": "몸집은 작지만 용맹한 성질을 지녔다. 친한 암컷을 지키기 위해 몸을 던져 과감히 싸운다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/32/"
+  },
+  {
+    "id": 33,
+    "dex_no": "033",
+    "name_ko": "니드리노",
+    "name_en": "nidorino",
+    "genus_ko": "독침포켓몬",
+    "types": [
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "독가시",
+      "투쟁심",
+      "의욕(숨겨진 특성)"
+    ],
+    "height_m": 0.9,
+    "weight_kg": 19.5,
+    "stats": {
+      "hp": 61,
+      "attack": 72,
+      "defense": 57,
+      "sp_attack": 55,
+      "sp_defense": 55,
+      "speed": 65
+    },
+    "evolution": "니드런♂ → (레벨 16) 니드리노 → (달의돌) 니드킹",
+    "evolution_chain_id": 13,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 120,
+    "flavor_ko": "신경질적이고 호전적이다. 체내의 아드레날린이 증가하면 독소의 농도도 높아진다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/33/"
+  },
+  {
+    "id": 34,
+    "dex_no": "034",
+    "name_ko": "니드킹",
+    "name_en": "nidoking",
+    "genus_ko": "드릴포켓몬",
+    "types": [
+      "독",
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "독가시",
+      "투쟁심",
+      "우격다짐(숨겨진 특성)"
+    ],
+    "height_m": 1.4,
+    "weight_kg": 62.0,
+    "stats": {
+      "hp": 81,
+      "attack": 102,
+      "defense": 77,
+      "sp_attack": 85,
+      "sp_defense": 75,
+      "speed": 85
+    },
+    "evolution": "니드런♂ → (레벨 16) 니드리노 → (달의돌) 니드킹",
+    "evolution_chain_id": 13,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "힘이 센 포켓몬이다. 굵은 꼬리와 다이아몬드도 부수는 뿔로 호쾌하게 싸운다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/34/"
+  },
+  {
+    "id": 35,
+    "dex_no": "035",
+    "name_ko": "삐삐",
+    "name_en": "clefairy",
+    "genus_ko": "요정포켓몬",
+    "types": [
+      "페어리"
+    ],
+    "past_types": [
+      {
+        "until_generation": 5,
+        "types": [
+          "노말"
+        ]
+      }
+    ],
+    "abilities": [
+      "헤롱헤롱바디",
+      "매직가드",
+      "프렌드가드(숨겨진 특성)"
+    ],
+    "height_m": 0.6,
+    "weight_kg": 7.5,
+    "stats": {
+      "hp": 70,
+      "attack": 45,
+      "defense": 48,
+      "sp_attack": 60,
+      "sp_defense": 65,
+      "speed": 35
+    },
+    "evolution": "삐(2세대에 추가) → (친밀도 160 이상) 삐삐 → (달의돌) 픽시",
+    "evolution_chain_id": 14,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 150,
+    "flavor_ko": "애교 있는 몸동작과 울음소리로 귀엽다고 많은 인기를 누리는 포켓몬. 그러나 좀처럼 눈에 띄지 않는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/35/"
+  },
+  {
+    "id": 36,
+    "dex_no": "036",
+    "name_ko": "픽시",
+    "name_en": "clefable",
+    "genus_ko": "요정포켓몬",
+    "types": [
+      "페어리"
+    ],
+    "past_types": [
+      {
+        "until_generation": 5,
+        "types": [
+          "노말"
+        ]
+      }
+    ],
+    "abilities": [
+      "헤롱헤롱바디",
+      "매직가드",
+      "천진(숨겨진 특성)"
+    ],
+    "height_m": 1.3,
+    "weight_kg": 40.0,
+    "stats": {
+      "hp": 95,
+      "attack": 70,
+      "defense": 73,
+      "sp_attack": 95,
+      "sp_defense": 90,
+      "speed": 60
+    },
+    "evolution": "삐(2세대에 추가) → (친밀도 160 이상) 삐삐 → (달의돌) 픽시",
+    "evolution_chain_id": 14,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 25,
+    "flavor_ko": "1km 앞에 떨어진 바늘 소리가 들릴 정도로 귀가 좋아 평소에는 조용한 곳에서 지낸다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/36/"
+  },
+  {
+    "id": 37,
+    "dex_no": "037",
+    "name_ko": "식스테일",
+    "name_en": "vulpix",
+    "genus_ko": "여우포켓몬",
+    "types": [
+      "불꽃"
+    ],
+    "past_types": [],
+    "abilities": [
+      "타오르는불꽃",
+      "가뭄(숨겨진 특성)"
+    ],
+    "height_m": 0.6,
+    "weight_kg": 9.9,
+    "stats": {
+      "hp": 38,
+      "attack": 41,
+      "defense": 40,
+      "sp_attack": 50,
+      "sp_defense": 65,
+      "speed": 65
+    },
+    "evolution": "식스테일 → (불꽃의돌) 나인테일",
+    "evolution_chain_id": 15,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "6개의 꼬리는 자라면서 털의 결이 좋아지며 아름다워진다. 안으면 살짝 따듯하다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/37/"
+  },
+  {
+    "id": 38,
+    "dex_no": "038",
+    "name_ko": "나인테일",
+    "name_en": "ninetales",
+    "genus_ko": "여우포켓몬",
+    "types": [
+      "불꽃"
+    ],
+    "past_types": [],
+    "abilities": [
+      "타오르는불꽃",
+      "가뭄(숨겨진 특성)"
+    ],
+    "height_m": 1.1,
+    "weight_kg": 19.9,
+    "stats": {
+      "hp": 73,
+      "attack": 76,
+      "defense": 75,
+      "sp_attack": 81,
+      "sp_defense": 100,
+      "speed": 100
+    },
+    "evolution": "식스테일 → (불꽃의돌) 나인테일",
+    "evolution_chain_id": 15,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "머리가 좋고 집념이 강하다. 장난으로 꼬리를 잡으면 1000년 동안 화를 입는다고 한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/38/"
+  },
+  {
+    "id": 39,
+    "dex_no": "039",
+    "name_ko": "푸린",
+    "name_en": "jigglypuff",
+    "genus_ko": "풍선포켓몬",
+    "types": [
+      "노말",
+      "페어리"
+    ],
+    "past_types": [
+      {
+        "until_generation": 5,
+        "types": [
+          "노말"
+        ]
+      }
+    ],
+    "abilities": [
+      "헤롱헤롱바디",
+      "승기",
+      "프렌드가드(숨겨진 특성)"
+    ],
+    "height_m": 0.5,
+    "weight_kg": 5.5,
+    "stats": {
+      "hp": 115,
+      "attack": 45,
+      "defense": 20,
+      "sp_attack": 45,
+      "sp_defense": 25,
+      "speed": 20
+    },
+    "evolution": "푸푸린(2세대에 추가) → (친밀도 160 이상) 푸린 → (달의돌) 푸크린",
+    "evolution_chain_id": 16,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 170,
+    "flavor_ko": "목소리 파장을 자유자재로 바꾸어 들으면 반드시 잠드는 신비한 멜로디를 노래한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/39/"
+  },
+  {
+    "id": 40,
+    "dex_no": "040",
+    "name_ko": "푸크린",
+    "name_en": "wigglytuff",
+    "genus_ko": "풍선포켓몬",
+    "types": [
+      "노말",
+      "페어리"
+    ],
+    "past_types": [
+      {
+        "until_generation": 5,
+        "types": [
+          "노말"
+        ]
+      }
+    ],
+    "abilities": [
+      "헤롱헤롱바디",
+      "승기",
+      "통찰(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 12.0,
+    "stats": {
+      "hp": 140,
+      "attack": 70,
+      "defense": 45,
+      "sp_attack": 85,
+      "sp_defense": 50,
+      "speed": 45
+    },
+    "evolution": "푸푸린(2세대에 추가) → (친밀도 160 이상) 푸린 → (달의돌) 푸크린",
+    "evolution_chain_id": 16,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 50,
+    "flavor_ko": "얇고 고운 털을 가졌다. 특히 이마에 동그랗게 말린 털은 하늘을 날 듯한 최고의 감촉을 지녔다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/40/"
+  },
+  {
+    "id": 41,
+    "dex_no": "041",
+    "name_ko": "주뱃",
+    "name_en": "zubat",
+    "genus_ko": "박쥐포켓몬",
+    "types": [
+      "독",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "정신력",
+      "틈새포착(숨겨진 특성)"
+    ],
+    "height_m": 0.8,
+    "weight_kg": 7.5,
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 35,
+      "sp_attack": 30,
+      "sp_defense": 40,
+      "speed": 55
+    },
+    "evolution": "주뱃 → (레벨 22) 골뱃 → (친밀도 160 이상) 크로뱃(2세대에 추가)",
+    "evolution_chain_id": 17,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "볕이 들지 않는 동굴에 산다. 아침이 되면 동료들끼리 모여 서로의 온기를 나누면서 잔다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/41/"
+  },
+  {
+    "id": 42,
+    "dex_no": "042",
+    "name_ko": "골뱃",
+    "name_en": "golbat",
+    "genus_ko": "박쥐포켓몬",
+    "types": [
+      "독",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "정신력",
+      "틈새포착(숨겨진 특성)"
+    ],
+    "height_m": 1.6,
+    "weight_kg": 55.0,
+    "stats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 70,
+      "sp_attack": 65,
+      "sp_defense": 75,
+      "speed": 90
+    },
+    "evolution": "주뱃 → (레벨 22) 골뱃 → (친밀도 160 이상) 크로뱃(2세대에 추가)",
+    "evolution_chain_id": 17,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 90,
+    "flavor_ko": "작은 다리로 능숙하게 걷는다. 자고 있는 먹이에게 살며시 다가가 이빨을 꽂아 피를 빨아먹는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/42/"
+  },
+  {
+    "id": 43,
+    "dex_no": "043",
+    "name_ko": "뚜벅쵸",
+    "name_en": "oddish",
+    "genus_ko": "잡초포켓몬",
+    "types": [
+      "풀",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "엽록소",
+      "도주(숨겨진 특성)"
+    ],
+    "height_m": 0.5,
+    "weight_kg": 5.4,
+    "stats": {
+      "hp": 45,
+      "attack": 50,
+      "defense": 55,
+      "sp_attack": 75,
+      "sp_defense": 65,
+      "speed": 30
+    },
+    "evolution": "뚜벅쵸 → (레벨 21) 냄새꼬 → (리프의돌) 라플레시아 / (태양의돌) 아르코(2세대에 추가)",
+    "evolution_chain_id": 18,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "낮에는 태양을 피하기 위해 차가운 땅속에 들어가 있다. 달빛을 쬐어 성장한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/43/"
+  },
+  {
+    "id": 44,
+    "dex_no": "044",
+    "name_ko": "냄새꼬",
+    "name_en": "gloom",
+    "genus_ko": "잡초포켓몬",
+    "types": [
+      "풀",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "엽록소",
+      "악취(숨겨진 특성)"
+    ],
+    "height_m": 0.8,
+    "weight_kg": 8.6,
+    "stats": {
+      "hp": 60,
+      "attack": 65,
+      "defense": 70,
+      "sp_attack": 85,
+      "sp_defense": 75,
+      "speed": 40
+    },
+    "evolution": "뚜벅쵸 → (레벨 21) 냄새꼬 → (리프의돌) 라플레시아 / (태양의돌) 아르코(2세대에 추가)",
+    "evolution_chain_id": 18,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 120,
+    "flavor_ko": "침처럼 보이는 달콤한 꿀은 매우 끈적거려서 묻으면 좀처럼 떨어지지 않는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/44/"
+  },
+  {
+    "id": 45,
+    "dex_no": "045",
+    "name_ko": "라플레시아",
+    "name_en": "vileplume",
+    "genus_ko": "꽃포켓몬",
+    "types": [
+      "풀",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "엽록소",
+      "포자(숨겨진 특성)"
+    ],
+    "height_m": 1.2,
+    "weight_kg": 18.6,
+    "stats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 85,
+      "sp_attack": 110,
+      "sp_defense": 90,
+      "speed": 50
+    },
+    "evolution": "뚜벅쵸 → (레벨 21) 냄새꼬 → (리프의돌) 라플레시아 / (태양의돌) 아르코(2세대에 추가)",
+    "evolution_chain_id": 18,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "꽃잎이 클수록 많은 꽃가루를 만들어 내지만 머리가 무거워서 지쳐버린다고 한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/45/"
+  },
+  {
+    "id": 46,
+    "dex_no": "046",
+    "name_ko": "파라스",
+    "name_en": "paras",
+    "genus_ko": "버섯포켓몬",
+    "types": [
+      "벌레",
+      "풀"
+    ],
+    "past_types": [],
+    "abilities": [
+      "포자",
+      "건조피부",
+      "습기(숨겨진 특성)"
+    ],
+    "height_m": 0.3,
+    "weight_kg": 5.4,
+    "stats": {
+      "hp": 35,
+      "attack": 70,
+      "defense": 55,
+      "sp_attack": 45,
+      "sp_defense": 55,
+      "speed": 25
+    },
+    "evolution": "파라스 → (레벨 24) 파라섹트",
+    "evolution_chain_id": 19,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "구멍을 파서 나무뿌리로부터 영양을 섭취하지만 대부분은 등에 있는 버섯에게 빼앗긴다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/46/"
+  },
+  {
+    "id": 47,
+    "dex_no": "047",
+    "name_ko": "파라섹트",
+    "name_en": "parasect",
+    "genus_ko": "버섯포켓몬",
+    "types": [
+      "벌레",
+      "풀"
+    ],
+    "past_types": [],
+    "abilities": [
+      "포자",
+      "건조피부",
+      "습기(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 29.5,
+    "stats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 80,
+      "sp_attack": 60,
+      "sp_defense": 80,
+      "speed": 30
+    },
+    "evolution": "파라스 → (레벨 24) 파라섹트",
+    "evolution_chain_id": 19,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "계속 진액을 빨아 먹혀서 이제는 벌레가 아니라 등에 있는 버섯이 생각하고 있는 듯하다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/47/"
+  },
+  {
+    "id": 48,
+    "dex_no": "048",
+    "name_ko": "콘팡",
+    "name_en": "venonat",
+    "genus_ko": "곤충포켓몬",
+    "types": [
+      "벌레",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "복안",
+      "색안경",
+      "도주(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 30.0,
+    "stats": {
+      "hp": 60,
+      "attack": 55,
+      "defense": 50,
+      "sp_attack": 40,
+      "sp_defense": 55,
+      "speed": 45
+    },
+    "evolution": "콘팡 → (레벨 31) 도나리",
+    "evolution_chain_id": 20,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "레이더 역할을 하는 큰 눈은 밝은 곳에서 보면 작은 눈이 모여서 이루어진 것임을 알 수 있다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/48/"
+  },
+  {
+    "id": 49,
+    "dex_no": "049",
+    "name_ko": "도나리",
+    "name_en": "venomoth",
+    "genus_ko": "독나방포켓몬",
+    "types": [
+      "벌레",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "인분",
+      "색안경",
+      "미라클스킨(숨겨진 특성)"
+    ],
+    "height_m": 1.5,
+    "weight_kg": 12.5,
+    "stats": {
+      "hp": 70,
+      "attack": 65,
+      "defense": 60,
+      "sp_attack": 90,
+      "sp_defense": 75,
+      "speed": 90
+    },
+    "evolution": "콘팡 → (레벨 31) 도나리",
+    "evolution_chain_id": 20,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "날개의 인분은 몸에 묻으면 좀처럼 떨어지지 않는다. 게다가 거기에서 독성분이 스며든다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/49/"
+  },
+  {
+    "id": 50,
+    "dex_no": "050",
+    "name_ko": "디그다",
+    "name_en": "diglett",
+    "genus_ko": "두더지포켓몬",
+    "types": [
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "모래숨기",
+      "개미지옥",
+      "모래의힘(숨겨진 특성)"
+    ],
+    "height_m": 0.2,
+    "weight_kg": 0.8,
+    "stats": {
+      "hp": 10,
+      "attack": 55,
+      "defense": 25,
+      "sp_attack": 35,
+      "sp_defense": 45,
+      "speed": 95
+    },
+    "evolution": "디그다 → (레벨 26) 닥트리오",
+    "evolution_chain_id": 21,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "얕은 땅속을 이동한다. 굴을 파며 다닌 곳은 지면이 솟아 있기 때문에 바로 알 수 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/50/"
+  },
+  {
+    "id": 51,
+    "dex_no": "051",
+    "name_ko": "닥트리오",
+    "name_en": "dugtrio",
+    "genus_ko": "두더지포켓몬",
+    "types": [
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "모래숨기",
+      "개미지옥",
+      "모래의힘(숨겨진 특성)"
+    ],
+    "height_m": 0.7,
+    "weight_kg": 33.3,
+    "stats": {
+      "hp": 35,
+      "attack": 100,
+      "defense": 50,
+      "sp_attack": 50,
+      "sp_defense": 70,
+      "speed": 120
+    },
+    "evolution": "디그다 → (레벨 26) 닥트리오",
+    "evolution_chain_id": 21,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 50,
+    "flavor_ko": "지하 100km까지 파고들 수 있는 파워를 간직한 세쌍둥이 디그다. 땅 밑은 아무도 모른다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/51/"
+  },
+  {
+    "id": 52,
+    "dex_no": "052",
+    "name_ko": "나옹",
+    "name_en": "meowth",
+    "genus_ko": "요괴고양이포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "픽업",
+      "테크니션",
+      "긴장감(숨겨진 특성)"
+    ],
+    "height_m": 0.4,
+    "weight_kg": 4.2,
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 35,
+      "sp_attack": 40,
+      "sp_defense": 40,
+      "speed": 90
+    },
+    "evolution": "나옹 → (레벨 28) 페르시온 / (레벨 28) 나이킹(8세대에 추가)",
+    "evolution_chain_id": 22,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "이마의 금화가 더러워지지 않도록 바지런히 얼굴을 씻는다. 가라르의 나옹과는 사이가 나쁘다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/52/"
+  },
+  {
+    "id": 53,
+    "dex_no": "053",
+    "name_ko": "페르시온",
+    "name_en": "persian",
+    "genus_ko": "샴고양이포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "유연",
+      "테크니션",
+      "긴장감(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 32.0,
+    "stats": {
+      "hp": 65,
+      "attack": 70,
+      "defense": 60,
+      "sp_attack": 65,
+      "sp_defense": 65,
+      "speed": 115
+    },
+    "evolution": "나옹 → (레벨 28) 페르시온 / (레벨 28) 나이킹(8세대에 추가)",
+    "evolution_chain_id": 22,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 90,
+    "flavor_ko": "움직임은 우아하고 품위 있다. 야만스러운 나이킹과는 잘 맞지 않아 서로를 멸시한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/53/"
+  },
+  {
+    "id": 54,
+    "dex_no": "054",
+    "name_ko": "고라파덕",
+    "name_en": "psyduck",
+    "genus_ko": "오리포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "습기",
+      "날씨부정",
+      "쓱쓱(숨겨진 특성)"
+    ],
+    "height_m": 0.8,
+    "weight_kg": 19.6,
+    "stats": {
+      "hp": 50,
+      "attack": 52,
+      "defense": 48,
+      "sp_attack": 65,
+      "sp_defense": 50,
+      "speed": 55
+    },
+    "evolution": "고라파덕 → (레벨 33) 골덕",
+    "evolution_chain_id": 23,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "스트레스가 쌓이면 두통이 심해진다. 강력한 염동력으로 주위를 압도한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/54/"
+  },
+  {
+    "id": 55,
+    "dex_no": "055",
+    "name_ko": "골덕",
+    "name_en": "golduck",
+    "genus_ko": "오리포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "습기",
+      "날씨부정",
+      "쓱쓱(숨겨진 특성)"
+    ],
+    "height_m": 1.7,
+    "weight_kg": 76.6,
+    "stats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 78,
+      "sp_attack": 95,
+      "sp_defense": 80,
+      "speed": 85
+    },
+    "evolution": "고라파덕 → (레벨 33) 골덕",
+    "evolution_chain_id": 23,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "강을 더럽힌 사람을 물속으로 끌어들여 데려간다는 옛날이야기가 전해져 오고 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/55/"
+  },
+  {
+    "id": 56,
+    "dex_no": "056",
+    "name_ko": "망키",
+    "name_en": "mankey",
+    "genus_ko": "돈숭이포켓몬",
+    "types": [
+      "격투"
+    ],
+    "past_types": [],
+    "abilities": [
+      "의기양양",
+      "분노의경혈",
+      "오기(숨겨진 특성)"
+    ],
+    "height_m": 0.5,
+    "weight_kg": 28.0,
+    "stats": {
+      "hp": 40,
+      "attack": 80,
+      "defense": 35,
+      "sp_attack": 35,
+      "sp_defense": 45,
+      "speed": 70
+    },
+    "evolution": "망키 → (레벨 28) 성원숭 → (use-move) 저승갓숭(9세대에 추가)",
+    "evolution_chain_id": 24,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "몸이 가벼워 나무 위에서 생활한다. 사소한 일로 기분이 나빠져 주변에 있는 것에 덤벼든다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/56/"
+  },
+  {
+    "id": 57,
+    "dex_no": "057",
+    "name_ko": "성원숭",
+    "name_en": "primeape",
+    "genus_ko": "돈숭이포켓몬",
+    "types": [
+      "격투"
+    ],
+    "past_types": [],
+    "abilities": [
+      "의기양양",
+      "분노의경혈",
+      "오기(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 32.0,
+    "stats": {
+      "hp": 65,
+      "attack": 105,
+      "defense": 60,
+      "sp_attack": 60,
+      "sp_defense": 70,
+      "speed": 95
+    },
+    "evolution": "망키 → (레벨 28) 성원숭 → (use-move) 저승갓숭(9세대에 추가)",
+    "evolution_chain_id": 24,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "주위에 아무도 없을 때만은 화를 내지 않고 있다. 그러나 그 모습을 보기가 어렵다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/57/"
+  },
+  {
+    "id": 58,
+    "dex_no": "058",
+    "name_ko": "가디",
+    "name_en": "growlithe",
+    "genus_ko": "강아지포켓몬",
+    "types": [
+      "불꽃"
+    ],
+    "past_types": [],
+    "abilities": [
+      "위협",
+      "타오르는불꽃",
+      "정의의마음(숨겨진 특성)"
+    ],
+    "height_m": 0.7,
+    "weight_kg": 19.0,
+    "stats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 45,
+      "sp_attack": 70,
+      "sp_defense": 50,
+      "speed": 60
+    },
+    "evolution": "가디 → (불꽃의돌) 윈디",
+    "evolution_chain_id": 25,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "충직한 성격으로 자신의 트레이너를 지키기 위해 필사적으로 상대방에게 짖어댄다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/58/"
+  },
+  {
+    "id": 59,
+    "dex_no": "059",
+    "name_ko": "윈디",
+    "name_en": "arcanine",
+    "genus_ko": "전설포켓몬",
+    "types": [
+      "불꽃"
+    ],
+    "past_types": [],
+    "abilities": [
+      "위협",
+      "타오르는불꽃",
+      "정의의마음(숨겨진 특성)"
+    ],
+    "height_m": 1.9,
+    "weight_kg": 155.0,
+    "stats": {
+      "hp": 90,
+      "attack": 110,
+      "defense": 80,
+      "sp_attack": 100,
+      "sp_defense": 80,
+      "speed": 95
+    },
+    "evolution": "가디 → (불꽃의돌) 윈디",
+    "evolution_chain_id": 25,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "옛날부터 많은 사람의 마음을 사로잡은 아름다운 포켓몬이다. 마치 나는 것처럼 경쾌하게 달린다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/59/"
+  },
+  {
+    "id": 60,
+    "dex_no": "060",
+    "name_ko": "발챙이",
+    "name_en": "poliwag",
+    "genus_ko": "올챙이포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "저수",
+      "습기",
+      "쓱쓱(숨겨진 특성)"
+    ],
+    "height_m": 0.6,
+    "weight_kg": 12.4,
+    "stats": {
+      "hp": 40,
+      "attack": 50,
+      "defense": 40,
+      "sp_attack": 40,
+      "sp_defense": 40,
+      "speed": 90
+    },
+    "evolution": "발챙이 → (레벨 25) 슈륙챙이 → (물의돌) 강챙이 / (통신교환, 왕의징표석을(를) 지닌 채) 왕구리(2세대에 추가)",
+    "evolution_chain_id": 26,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "유속이 빠른 강에서는 두꺼운 입술을 흡반처럼 사용해 바위에 달라붙는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/60/"
+  },
+  {
+    "id": 61,
+    "dex_no": "061",
+    "name_ko": "슈륙챙이",
+    "name_en": "poliwhirl",
+    "genus_ko": "올챙이포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "저수",
+      "습기",
+      "쓱쓱(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 20.0,
+    "stats": {
+      "hp": 65,
+      "attack": 65,
+      "defense": 65,
+      "sp_attack": 50,
+      "sp_defense": 50,
+      "speed": 90
+    },
+    "evolution": "발챙이 → (레벨 25) 슈륙챙이 → (물의돌) 강챙이 / (통신교환, 왕의징표석을(를) 지닌 채) 왕구리(2세대에 추가)",
+    "evolution_chain_id": 26,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 120,
+    "flavor_ko": "미끈미끈한 점액 형태의 땀을 흘린다. 적에게 붙잡혀도 스르륵 빠져나와 도망친다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/61/"
+  },
+  {
+    "id": 62,
+    "dex_no": "062",
+    "name_ko": "강챙이",
+    "name_en": "poliwrath",
+    "genus_ko": "올챙이포켓몬",
+    "types": [
+      "물",
+      "격투"
+    ],
+    "past_types": [],
+    "abilities": [
+      "저수",
+      "습기",
+      "쓱쓱(숨겨진 특성)"
+    ],
+    "height_m": 1.3,
+    "weight_kg": 54.0,
+    "stats": {
+      "hp": 90,
+      "attack": 95,
+      "defense": 95,
+      "sp_attack": 70,
+      "sp_defense": 90,
+      "speed": 70
+    },
+    "evolution": "발챙이 → (레벨 25) 슈륙챙이 → (물의돌) 강챙이 / (통신교환, 왕의징표석을(를) 지닌 채) 왕구리(2세대에 추가)",
+    "evolution_chain_id": 26,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "헤엄뿐만 아니라 격투기도 특기다. 단련한 팔로 호쾌하게 펀치를 날린다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/62/"
+  },
+  {
+    "id": 63,
+    "dex_no": "063",
+    "name_ko": "캐이시",
+    "name_en": "abra",
+    "genus_ko": "초능력포켓몬",
+    "types": [
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "싱크로",
+      "정신력",
+      "매직가드(숨겨진 특성)"
+    ],
+    "height_m": 0.9,
+    "weight_kg": 19.5,
+    "stats": {
+      "hp": 25,
+      "attack": 20,
+      "defense": 15,
+      "sp_attack": 105,
+      "sp_defense": 55,
+      "speed": 90
+    },
+    "evolution": "캐이시 → (레벨 16) 윤겔라 → (통신교환) 후딘",
+    "evolution_chain_id": 27,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 200,
+    "flavor_ko": "잠이 든 상태에서 순간이동이 가능하다. 깊이 잠들수록 먼 곳으로 이동한다고 한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/63/"
+  },
+  {
+    "id": 64,
+    "dex_no": "064",
+    "name_ko": "윤겔라",
+    "name_en": "kadabra",
+    "genus_ko": "초능력포켓몬",
+    "types": [
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "싱크로",
+      "정신력",
+      "매직가드(숨겨진 특성)"
+    ],
+    "height_m": 1.3,
+    "weight_kg": 56.5,
+    "stats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "sp_attack": 120,
+      "sp_defense": 70,
+      "speed": 105
+    },
+    "evolution": "캐이시 → (레벨 16) 윤겔라 → (통신교환) 후딘",
+    "evolution_chain_id": 27,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 100,
+    "flavor_ko": "염동력의 위력은 절대적이다. 진화에 대비하여 이마에 있는 별에 사이코 파워를 비축하고 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/64/"
+  },
+  {
+    "id": 65,
+    "dex_no": "065",
+    "name_ko": "후딘",
+    "name_en": "alakazam",
+    "genus_ko": "초능력포켓몬",
+    "types": [
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "싱크로",
+      "정신력",
+      "매직가드(숨겨진 특성)"
+    ],
+    "height_m": 1.5,
+    "weight_kg": 48.0,
+    "stats": {
+      "hp": 55,
+      "attack": 50,
+      "defense": 45,
+      "sp_attack": 135,
+      "sp_defense": 95,
+      "speed": 120
+    },
+    "evolution": "캐이시 → (레벨 16) 윤겔라 → (통신교환) 후딘",
+    "evolution_chain_id": 27,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 50,
+    "flavor_ko": "강력한 초능력을 구사한다. 양손에 든 숟가락은 그 힘으로 만들어낸 것이라고 한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/65/"
+  },
+  {
+    "id": 66,
+    "dex_no": "066",
+    "name_ko": "알통몬",
+    "name_en": "machop",
+    "genus_ko": "괴력포켓몬",
+    "types": [
+      "격투"
+    ],
+    "past_types": [],
+    "abilities": [
+      "근성",
+      "노가드",
+      "불굴의마음(숨겨진 특성)"
+    ],
+    "height_m": 0.8,
+    "weight_kg": 19.5,
+    "stats": {
+      "hp": 70,
+      "attack": 80,
+      "defense": 50,
+      "sp_attack": 35,
+      "sp_defense": 35,
+      "speed": 35
+    },
+    "evolution": "알통몬 → (레벨 28) 근육몬 → (통신교환) 괴력몬",
+    "evolution_chain_id": 28,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 180,
+    "flavor_ko": "언제나 파워풀하다. 체력이 남아돌기 때문에 심심풀이로 바위를 들어 올리며 더 강해진다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/66/"
+  },
+  {
+    "id": 67,
+    "dex_no": "067",
+    "name_ko": "근육몬",
+    "name_en": "machoke",
+    "genus_ko": "괴력포켓몬",
+    "types": [
+      "격투"
+    ],
+    "past_types": [],
+    "abilities": [
+      "근성",
+      "노가드",
+      "불굴의마음(숨겨진 특성)"
+    ],
+    "height_m": 1.5,
+    "weight_kg": 70.5,
+    "stats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 70,
+      "sp_attack": 50,
+      "sp_defense": 60,
+      "speed": 45
+    },
+    "evolution": "알통몬 → (레벨 28) 근육몬 → (통신교환) 괴력몬",
+    "evolution_chain_id": 28,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 90,
+    "flavor_ko": "지치지 않는 강인한 육체를 가졌다. 무거운 물건을 옮기는 등의 일을 돕는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/67/"
+  },
+  {
+    "id": 68,
+    "dex_no": "068",
+    "name_ko": "괴력몬",
+    "name_en": "machamp",
+    "genus_ko": "괴력포켓몬",
+    "types": [
+      "격투"
+    ],
+    "past_types": [],
+    "abilities": [
+      "근성",
+      "노가드",
+      "불굴의마음(숨겨진 특성)"
+    ],
+    "height_m": 1.6,
+    "weight_kg": 130.0,
+    "stats": {
+      "hp": 90,
+      "attack": 130,
+      "defense": 80,
+      "sp_attack": 65,
+      "sp_defense": 85,
+      "speed": 55
+    },
+    "evolution": "알통몬 → (레벨 28) 근육몬 → (통신교환) 괴력몬",
+    "evolution_chain_id": 28,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "4개의 팔은 생각하는 것보다 빠르게 반사적으로 움직이며 여러 발의 펀치를 날린다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/68/"
+  },
+  {
+    "id": 69,
+    "dex_no": "069",
+    "name_ko": "모다피",
+    "name_en": "bellsprout",
+    "genus_ko": "꽃포켓몬",
+    "types": [
+      "풀",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "엽록소",
+      "먹보(숨겨진 특성)"
+    ],
+    "height_m": 0.7,
+    "weight_kg": 4.0,
+    "stats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 35,
+      "sp_attack": 70,
+      "sp_defense": 30,
+      "speed": 40
+    },
+    "evolution": "모다피 → (레벨 21) 우츠동 → (리프의돌) 우츠보트",
+    "evolution_chain_id": 29,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "온도가 높고 습기가 있는 장소를 좋아한다. 덩굴을 사용해 작은 벌레를 잡아먹는다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/69/"
+  },
+  {
+    "id": 70,
+    "dex_no": "070",
+    "name_ko": "우츠동",
+    "name_en": "weepinbell",
+    "genus_ko": "파리잡이포켓몬",
+    "types": [
+      "풀",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "엽록소",
+      "먹보(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 6.4,
+    "stats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 50,
+      "sp_attack": 85,
+      "sp_defense": 45,
+      "speed": 55
+    },
+    "evolution": "모다피 → (레벨 21) 우츠동 → (리프의돌) 우츠보트",
+    "evolution_chain_id": 29,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 120,
+    "flavor_ko": "배가 고프면 움직이는 것을 닥치는 대로 삼킨 다음 용해액으로 마무리한다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/70/"
+  },
+  {
+    "id": 71,
+    "dex_no": "071",
+    "name_ko": "우츠보트",
+    "name_en": "victreebel",
+    "genus_ko": "파리잡이포켓몬",
+    "types": [
+      "풀",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "엽록소",
+      "먹보(숨겨진 특성)"
+    ],
+    "height_m": 1.7,
+    "weight_kg": 15.5,
+    "stats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 65,
+      "sp_attack": 100,
+      "sp_defense": 70,
+      "speed": 70
+    },
+    "evolution": "모다피 → (레벨 21) 우츠동 → (리프의돌) 우츠보트",
+    "evolution_chain_id": 29,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "꿀 냄새로 먹이를 끌어들인다. 입안에 넣은 것은 하루 만에 뼈까지 녹여버린다고 한다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/71/"
+  },
+  {
+    "id": 72,
+    "dex_no": "072",
+    "name_ko": "왕눈해",
+    "name_en": "tentacool",
+    "genus_ko": "해파리포켓몬",
+    "types": [
+      "물",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "클리어바디",
+      "해감액",
+      "젖은접시(숨겨진 특성)"
+    ],
+    "height_m": 0.9,
+    "weight_kg": 45.5,
+    "stats": {
+      "hp": 40,
+      "attack": 40,
+      "defense": 35,
+      "sp_attack": 50,
+      "sp_defense": 100,
+      "speed": 70
+    },
+    "evolution": "왕눈해 → (레벨 30) 독파리",
+    "evolution_chain_id": 30,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "몸의 대부분이 수분이어서 바닷속에서는 물과 동화되어 매우 구분하기 힘들다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/72/"
+  },
+  {
+    "id": 73,
+    "dex_no": "073",
+    "name_ko": "독파리",
+    "name_en": "tentacruel",
+    "genus_ko": "해파리포켓몬",
+    "types": [
+      "물",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "클리어바디",
+      "해감액",
+      "젖은접시(숨겨진 특성)"
+    ],
+    "height_m": 1.6,
+    "weight_kg": 55.0,
+    "stats": {
+      "hp": 80,
+      "attack": 70,
+      "defense": 65,
+      "sp_attack": 80,
+      "sp_defense": 120,
+      "speed": 100
+    },
+    "evolution": "왕눈해 → (레벨 30) 독파리",
+    "evolution_chain_id": 30,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 60,
+    "flavor_ko": "80개의 촉수는 자유롭게 늘어났다가 줄어든다. 그물처럼 펼쳐서 먹이를 잡고 독바늘로 찌른다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/73/"
+  },
+  {
+    "id": 74,
+    "dex_no": "074",
+    "name_ko": "꼬마돌",
+    "name_en": "geodude",
+    "genus_ko": "암석포켓몬",
+    "types": [
+      "바위",
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "돌머리",
+      "옹골참",
+      "모래숨기(숨겨진 특성)"
+    ],
+    "height_m": 0.4,
+    "weight_kg": 20.0,
+    "stats": {
+      "hp": 40,
+      "attack": 80,
+      "defense": 100,
+      "sp_attack": 30,
+      "sp_defense": 30,
+      "speed": 20
+    },
+    "evolution": "꼬마돌 → (레벨 25) 데구리 → (통신교환) 딱구리",
+    "evolution_chain_id": 31,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "산길 등에 많이 서식한다. 실수로 밟으면 화를 내므로 주의가 필요하다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/74/"
+  },
+  {
+    "id": 75,
+    "dex_no": "075",
+    "name_ko": "데구리",
+    "name_en": "graveler",
+    "genus_ko": "암석포켓몬",
+    "types": [
+      "바위",
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "돌머리",
+      "옹골참",
+      "모래숨기(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 105.0,
+    "stats": {
+      "hp": 55,
+      "attack": 95,
+      "defense": 115,
+      "sp_attack": 45,
+      "sp_defense": 45,
+      "speed": 35
+    },
+    "evolution": "꼬마돌 → (레벨 25) 데구리 → (통신교환) 딱구리",
+    "evolution_chain_id": 31,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 120,
+    "flavor_ko": "산길에서 자주 굴러다닌다. 가는 길에 무엇이 있든 전혀 신경 쓰지 않는다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/75/"
+  },
+  {
+    "id": 76,
+    "dex_no": "076",
+    "name_ko": "딱구리",
+    "name_en": "golem",
+    "genus_ko": "메가톤포켓몬",
+    "types": [
+      "바위",
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "돌머리",
+      "옹골참",
+      "모래숨기(숨겨진 특성)"
+    ],
+    "height_m": 1.4,
+    "weight_kg": 300.0,
+    "stats": {
+      "hp": 80,
+      "attack": 120,
+      "defense": 130,
+      "sp_attack": 55,
+      "sp_defense": 65,
+      "speed": 45
+    },
+    "evolution": "꼬마돌 → (레벨 25) 데구리 → (통신교환) 딱구리",
+    "evolution_chain_id": 31,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "탈피한 직후에는 전체가 하얗고 부드럽지만 금방 공기와 접촉해서 단단해진다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/76/"
+  },
+  {
+    "id": 77,
+    "dex_no": "077",
+    "name_ko": "포니타",
+    "name_en": "ponyta",
+    "genus_ko": "불의말포켓몬",
+    "types": [
+      "불꽃"
+    ],
+    "past_types": [],
+    "abilities": [
+      "도주",
+      "타오르는불꽃",
+      "불꽃몸(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 30.0,
+    "stats": {
+      "hp": 50,
+      "attack": 85,
+      "defense": 55,
+      "sp_attack": 65,
+      "sp_defense": 65,
+      "speed": 90
+    },
+    "evolution": "포니타 → (레벨 40) 날쌩마",
+    "evolution_chain_id": 32,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "포니타에게 인정받으면 타오르는 갈기를 만져도 뜨거움을 느끼지 않게 된다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/77/"
+  },
+  {
+    "id": 78,
+    "dex_no": "078",
+    "name_ko": "날쌩마",
+    "name_en": "rapidash",
+    "genus_ko": "불의말포켓몬",
+    "types": [
+      "불꽃"
+    ],
+    "past_types": [],
+    "abilities": [
+      "도주",
+      "타오르는불꽃",
+      "불꽃몸(숨겨진 특성)"
+    ],
+    "height_m": 1.7,
+    "weight_kg": 95.0,
+    "stats": {
+      "hp": 65,
+      "attack": 100,
+      "defense": 70,
+      "sp_attack": 80,
+      "sp_defense": 80,
+      "speed": 105
+    },
+    "evolution": "포니타 → (레벨 40) 날쌩마",
+    "evolution_chain_id": 32,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 60,
+    "flavor_ko": "가장 발이 빠른 날쌩마가 리더가 되어 무리가 갈 장소나 달리는 속도를 정한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/78/"
+  },
+  {
+    "id": 79,
+    "dex_no": "079",
+    "name_ko": "야돈",
+    "name_en": "slowpoke",
+    "genus_ko": "얼간이포켓몬",
+    "types": [
+      "물",
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "둔감",
+      "마이페이스",
+      "재생력(숨겨진 특성)"
+    ],
+    "height_m": 1.2,
+    "weight_kg": 36.0,
+    "stats": {
+      "hp": 90,
+      "attack": 65,
+      "defense": 65,
+      "sp_attack": 40,
+      "sp_defense": 40,
+      "speed": 15
+    },
+    "evolution": "야돈 → (레벨 37) 야도란 / (통신교환, 왕의징표석을(를) 지닌 채) 야도킹(2세대에 추가)",
+    "evolution_chain_id": 33,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "꼬리를 물에 담가두면 단맛이 배어 나오기 때문에 이를 미끼로 포켓몬을 유인해서 낚는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/79/"
+  },
+  {
+    "id": 80,
+    "dex_no": "080",
+    "name_ko": "야도란",
+    "name_en": "slowbro",
+    "genus_ko": "기생포켓몬",
+    "types": [
+      "물",
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "둔감",
+      "마이페이스",
+      "재생력(숨겨진 특성)"
+    ],
+    "height_m": 1.6,
+    "weight_kg": 78.5,
+    "stats": {
+      "hp": 95,
+      "attack": 75,
+      "defense": 110,
+      "sp_attack": 100,
+      "sp_defense": 80,
+      "speed": 30
+    },
+    "evolution": "야돈 → (레벨 37) 야도란 / (통신교환, 왕의징표석을(를) 지닌 채) 야도킹(2세대에 추가)",
+    "evolution_chain_id": 33,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "셀러에게 물린 충격으로 두 발로 걸을 수 있게 되었다. 셀러가 떨어지면 야돈으로 돌아간다고 한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/80/"
+  },
+  {
+    "id": 81,
+    "dex_no": "081",
+    "name_ko": "코일",
+    "name_en": "magnemite",
+    "genus_ko": "자석포켓몬",
+    "types": [
+      "전기",
+      "강철"
+    ],
+    "past_types": [
+      {
+        "until_generation": 1,
+        "types": [
+          "전기"
+        ]
+      }
+    ],
+    "abilities": [
+      "자력",
+      "옹골참",
+      "애널라이즈(숨겨진 특성)"
+    ],
+    "height_m": 0.3,
+    "weight_kg": 6.0,
+    "stats": {
+      "hp": 25,
+      "attack": 35,
+      "defense": 70,
+      "sp_attack": 95,
+      "sp_defense": 55,
+      "speed": 45
+    },
+    "evolution": "코일 → (레벨 30) 레어코일 → (특정 장소) 자포코일(4세대에 추가)",
+    "evolution_chain_id": 34,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "전기를 먹으며 살아간다. 좌우의 유닛에서 전기자석파를 방사하며 하늘을 난다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/81/"
+  },
+  {
+    "id": 82,
+    "dex_no": "082",
+    "name_ko": "레어코일",
+    "name_en": "magneton",
+    "genus_ko": "자석포켓몬",
+    "types": [
+      "전기",
+      "강철"
+    ],
+    "past_types": [
+      {
+        "until_generation": 1,
+        "types": [
+          "전기"
+        ]
+      }
+    ],
+    "abilities": [
+      "자력",
+      "옹골참",
+      "애널라이즈(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 60.0,
+    "stats": {
+      "hp": 50,
+      "attack": 60,
+      "defense": 95,
+      "sp_attack": 120,
+      "sp_defense": 70,
+      "speed": 70
+    },
+    "evolution": "코일 → (레벨 30) 레어코일 → (특정 장소) 자포코일(4세대에 추가)",
+    "evolution_chain_id": 34,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 60,
+    "flavor_ko": "강한 자력을 끊임없이 발산한다. 레어코일이 접근하면 대부분의 컴퓨터에 이상 현상이 발생한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/82/"
+  },
+  {
+    "id": 83,
+    "dex_no": "083",
+    "name_ko": "파오리",
+    "name_en": "farfetchd",
+    "genus_ko": "청둥오리포켓몬",
+    "types": [
+      "노말",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "날카로운눈",
+      "정신력",
+      "오기(숨겨진 특성)"
+    ],
+    "height_m": 0.8,
+    "weight_kg": 15.0,
+    "stats": {
+      "hp": 52,
+      "attack": 90,
+      "defense": 55,
+      "sp_attack": 58,
+      "sp_defense": 62,
+      "speed": 60
+    },
+    "evolution": "파오리 → (급소 3회) 창파나이트(8세대에 추가)",
+    "evolution_chain_id": 35,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "식물의 줄기로 싸운다. 줄기를 휘두르는 방식에 따라 몇 종류의 유파가 있는 듯하다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/83/"
+  },
+  {
+    "id": 84,
+    "dex_no": "084",
+    "name_ko": "두두",
+    "name_en": "doduo",
+    "genus_ko": "쌍둥이새포켓몬",
+    "types": [
+      "노말",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "도주",
+      "일찍기상",
+      "갈지자걸음(숨겨진 특성)"
+    ],
+    "height_m": 1.4,
+    "weight_kg": 39.2,
+    "stats": {
+      "hp": 35,
+      "attack": 85,
+      "defense": 45,
+      "sp_attack": 35,
+      "sp_defense": 35,
+      "speed": 75
+    },
+    "evolution": "두두 → (레벨 31) 두트리오",
+    "evolution_chain_id": 36,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "날개가 짧아서 하늘을 나는 것은 서투르지만 대신 발달한 다리로 빠르게 달릴 수 있다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/84/"
+  },
+  {
+    "id": 85,
+    "dex_no": "085",
+    "name_ko": "두트리오",
+    "name_en": "dodrio",
+    "genus_ko": "세쌍둥이새포켓몬",
+    "types": [
+      "노말",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "도주",
+      "일찍기상",
+      "갈지자걸음(숨겨진 특성)"
+    ],
+    "height_m": 1.8,
+    "weight_kg": 85.2,
+    "stats": {
+      "hp": 60,
+      "attack": 110,
+      "defense": 70,
+      "sp_attack": 60,
+      "sp_defense": 60,
+      "speed": 110
+    },
+    "evolution": "두두 → (레벨 31) 두트리오",
+    "evolution_chain_id": 36,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "두두의 머리 중 한 쪽이 분열한 변종. 초원을 시속 60km로 달린다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/85/"
+  },
+  {
+    "id": 86,
+    "dex_no": "086",
+    "name_ko": "쥬쥬",
+    "name_en": "seel",
+    "genus_ko": "강치포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "두꺼운지방",
+      "촉촉바디",
+      "아이스바디(숨겨진 특성)"
+    ],
+    "height_m": 1.1,
+    "weight_kg": 90.0,
+    "stats": {
+      "hp": 65,
+      "attack": 45,
+      "defense": 55,
+      "sp_attack": 45,
+      "sp_defense": 70,
+      "speed": 45
+    },
+    "evolution": "쥬쥬 → (레벨 34) 쥬레곤",
+    "evolution_chain_id": 37,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "얼어붙을 정도로 추운 곳을 좋아한다. 영하 10도 정도의 물속에서 기분 좋게 헤엄친다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/86/"
+  },
+  {
+    "id": 87,
+    "dex_no": "087",
+    "name_ko": "쥬레곤",
+    "name_en": "dewgong",
+    "genus_ko": "강치포켓몬",
+    "types": [
+      "물",
+      "얼음"
+    ],
+    "past_types": [],
+    "abilities": [
+      "두꺼운지방",
+      "촉촉바디",
+      "아이스바디(숨겨진 특성)"
+    ],
+    "height_m": 1.7,
+    "weight_kg": 120.0,
+    "stats": {
+      "hp": 90,
+      "attack": 70,
+      "defense": 80,
+      "sp_attack": 70,
+      "sp_defense": 95,
+      "speed": 70
+    },
+    "evolution": "쥬쥬 → (레벨 34) 쥬레곤",
+    "evolution_chain_id": 37,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "온몸이 눈처럼 새하얗다. 추위에 강해 얼음이 떠 있는 바다도 기운차게 헤엄쳐 다닌다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/87/"
+  },
+  {
+    "id": 88,
+    "dex_no": "088",
+    "name_ko": "질퍽이",
+    "name_en": "grimer",
+    "genus_ko": "진흙포켓몬",
+    "types": [
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "악취",
+      "점착",
+      "독수(숨겨진 특성)"
+    ],
+    "height_m": 0.9,
+    "weight_kg": 30.0,
+    "stats": {
+      "hp": 80,
+      "attack": 80,
+      "defense": 50,
+      "sp_attack": 40,
+      "sp_defense": 50,
+      "speed": 25
+    },
+    "evolution": "질퍽이 → (레벨 38) 질뻐기",
+    "evolution_chain_id": 38,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "진흙이 뭉쳐져서 태어났다. 악취 때문에 건드릴 엄두가 안 나고 지나간 자리에는 풀 한 포기 나지 않는다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/88/"
+  },
+  {
+    "id": 89,
+    "dex_no": "089",
+    "name_ko": "질뻐기",
+    "name_en": "muk",
+    "genus_ko": "진흙포켓몬",
+    "types": [
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "악취",
+      "점착",
+      "독수(숨겨진 특성)"
+    ],
+    "height_m": 1.2,
+    "weight_kg": 30.0,
+    "stats": {
+      "hp": 105,
+      "attack": 105,
+      "defense": 75,
+      "sp_attack": 65,
+      "sp_defense": 100,
+      "speed": 50
+    },
+    "evolution": "질퍽이 → (레벨 38) 질뻐기",
+    "evolution_chain_id": 38,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "악취가 심하다! 기절할 정도로 강렬하지만 질뻐기는 코가 퇴화해서 냄새를 맡지 못한다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/89/"
+  },
+  {
+    "id": 90,
+    "dex_no": "090",
+    "name_ko": "셀러",
+    "name_en": "shellder",
+    "genus_ko": "두조개포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "조가비갑옷",
+      "스킬링크",
+      "방진(숨겨진 특성)"
+    ],
+    "height_m": 0.3,
+    "weight_kg": 4.0,
+    "stats": {
+      "hp": 30,
+      "attack": 65,
+      "defense": 100,
+      "sp_attack": 45,
+      "sp_defense": 25,
+      "speed": 40
+    },
+    "evolution": "셀러 → (물의돌) 파르셀",
+    "evolution_chain_id": 39,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "단단한 껍데기는 어떤 공격도 튕겨낸다. 껍데기를 열었을 때 안쪽을 공격당하는 것에는 약하다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/90/"
+  },
+  {
+    "id": 91,
+    "dex_no": "091",
+    "name_ko": "파르셀",
+    "name_en": "cloyster",
+    "genus_ko": "두조개포켓몬",
+    "types": [
+      "물",
+      "얼음"
+    ],
+    "past_types": [],
+    "abilities": [
+      "조가비갑옷",
+      "스킬링크",
+      "방진(숨겨진 특성)"
+    ],
+    "height_m": 1.5,
+    "weight_kg": 132.5,
+    "stats": {
+      "hp": 50,
+      "attack": 95,
+      "defense": 180,
+      "sp_attack": 85,
+      "sp_defense": 45,
+      "speed": 70
+    },
+    "evolution": "셀러 → (물의돌) 파르셀",
+    "evolution_chain_id": 39,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 60,
+    "flavor_ko": "한번 껍질을 닫아버리면 어떤 괴력의 소유자도 여는 것은 불가능하다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/91/"
+  },
+  {
+    "id": 92,
+    "dex_no": "092",
+    "name_ko": "고오스",
+    "name_en": "gastly",
+    "genus_ko": "가스포켓몬",
+    "types": [
+      "고스트",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "부유"
+    ],
+    "height_m": 1.3,
+    "weight_kg": 0.1,
+    "stats": {
+      "hp": 30,
+      "attack": 35,
+      "defense": 30,
+      "sp_attack": 100,
+      "sp_defense": 35,
+      "speed": 80
+    },
+    "evolution": "고오스 → (레벨 25) 고우스트 → (통신교환) 팬텀",
+    "evolution_chain_id": 40,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "몸은 옅은 가스로 되어 있어 어디든지 숨어들어 가지만 바람이 불면 날아가 버린다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/92/"
+  },
+  {
+    "id": 93,
+    "dex_no": "093",
+    "name_ko": "고우스트",
+    "name_en": "haunter",
+    "genus_ko": "가스포켓몬",
+    "types": [
+      "고스트",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "부유"
+    ],
+    "height_m": 1.6,
+    "weight_kg": 0.1,
+    "stats": {
+      "hp": 45,
+      "attack": 50,
+      "defense": 45,
+      "sp_attack": 115,
+      "sp_defense": 55,
+      "speed": 95
+    },
+    "evolution": "고오스 → (레벨 25) 고우스트 → (통신교환) 팬텀",
+    "evolution_chain_id": 40,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 90,
+    "flavor_ko": "어둠 속에서 아무도 없는데도 누군가가 보고 있다는 느낌이 들면 그곳에 고우스트가 있는 것이다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/93/"
+  },
+  {
+    "id": 94,
+    "dex_no": "094",
+    "name_ko": "팬텀",
+    "name_en": "gengar",
+    "genus_ko": "그림자포켓몬",
+    "types": [
+      "고스트",
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "저주받은바디"
+    ],
+    "height_m": 1.5,
+    "weight_kg": 40.5,
+    "stats": {
+      "hp": 60,
+      "attack": 65,
+      "defense": 60,
+      "sp_attack": 130,
+      "sp_defense": 75,
+      "speed": 110
+    },
+    "evolution": "고오스 → (레벨 25) 고우스트 → (통신교환) 팬텀",
+    "evolution_chain_id": 40,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "산에서 조난하면 목숨을 빼앗기 위해 어둠 속에서 나타난다고 한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/94/"
+  },
+  {
+    "id": 95,
+    "dex_no": "095",
+    "name_ko": "롱스톤",
+    "name_en": "onix",
+    "genus_ko": "돌뱀포켓몬",
+    "types": [
+      "바위",
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "돌머리",
+      "옹골참",
+      "깨어진갑옷(숨겨진 특성)"
+    ],
+    "height_m": 8.8,
+    "weight_kg": 210.0,
+    "stats": {
+      "hp": 35,
+      "attack": 45,
+      "defense": 160,
+      "sp_attack": 30,
+      "sp_defense": 45,
+      "speed": 70
+    },
+    "evolution": "롱스톤 → (통신교환, 금속코트을(를) 지닌 채) 강철톤(2세대에 추가)",
+    "evolution_chain_id": 41,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "크고 튼튼한 몸을 뒤틀고 꼬아서 시속 80km로 힘차게 땅을 파나간다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/95/"
+  },
+  {
+    "id": 96,
+    "dex_no": "096",
+    "name_ko": "슬리프",
+    "name_en": "drowzee",
+    "genus_ko": "최면포켓몬",
+    "types": [
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "불면",
+      "예지몽",
+      "정신력(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 32.4,
+    "stats": {
+      "hp": 60,
+      "attack": 48,
+      "defense": 45,
+      "sp_attack": 43,
+      "sp_defense": 90,
+      "speed": 42
+    },
+    "evolution": "슬리프 → (레벨 26) 슬리퍼",
+    "evolution_chain_id": 42,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "언제나 함께 잠들다 보면 가끔 옛날에 먹었던 꿈을 보여줄 때가 있다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/96/"
+  },
+  {
+    "id": 97,
+    "dex_no": "097",
+    "name_ko": "슬리퍼",
+    "name_en": "hypno",
+    "genus_ko": "최면포켓몬",
+    "types": [
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "불면",
+      "예지몽",
+      "정신력(숨겨진 특성)"
+    ],
+    "height_m": 1.6,
+    "weight_kg": 75.6,
+    "stats": {
+      "hp": 85,
+      "attack": 73,
+      "defense": 70,
+      "sp_attack": 73,
+      "sp_defense": 115,
+      "speed": 67
+    },
+    "evolution": "슬리프 → (레벨 26) 슬리퍼",
+    "evolution_chain_id": 42,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "우연히 마주쳤을 때 다른 곳으로 눈을 돌리지 않으면 위험하다. 손에 든 추로 잠재워 버린다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/97/"
+  },
+  {
+    "id": 98,
+    "dex_no": "098",
+    "name_ko": "크랩",
+    "name_en": "krabby",
+    "genus_ko": "게포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "괴력집게",
+      "조가비갑옷",
+      "우격다짐(숨겨진 특성)"
+    ],
+    "height_m": 0.4,
+    "weight_kg": 6.5,
+    "stats": {
+      "hp": 30,
+      "attack": 105,
+      "defense": 90,
+      "sp_attack": 25,
+      "sp_defense": 25,
+      "speed": 50
+    },
+    "evolution": "크랩 → (레벨 28) 킹크랩",
+    "evolution_chain_id": 43,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 225,
+    "flavor_ko": "위험이 닥치면 입에서 뿜어내는 거품으로 전신을 감싸서 몸을 크게 보이려고 한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/98/"
+  },
+  {
+    "id": 99,
+    "dex_no": "099",
+    "name_ko": "킹크랩",
+    "name_en": "kingler",
+    "genus_ko": "집게포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "괴력집게",
+      "조가비갑옷",
+      "우격다짐(숨겨진 특성)"
+    ],
+    "height_m": 1.3,
+    "weight_kg": 60.0,
+    "stats": {
+      "hp": 55,
+      "attack": 130,
+      "defense": 115,
+      "sp_attack": 50,
+      "sp_defense": 50,
+      "speed": 75
+    },
+    "evolution": "크랩 → (레벨 28) 킹크랩",
+    "evolution_chain_id": 43,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 60,
+    "flavor_ko": "큰 집게는 뛰어난 파괴력을 지녔지만 너무 무거워서 싸우지 않을 때는 거추장스럽다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/99/"
+  },
+  {
+    "id": 100,
+    "dex_no": "100",
+    "name_ko": "찌리리공",
+    "name_en": "voltorb",
+    "genus_ko": "볼포켓몬",
+    "types": [
+      "전기"
+    ],
+    "past_types": [],
+    "abilities": [
+      "방음",
+      "정전기",
+      "유폭(숨겨진 특성)"
+    ],
+    "height_m": 0.5,
+    "weight_kg": 10.4,
+    "stats": {
+      "hp": 40,
+      "attack": 30,
+      "defense": 50,
+      "sp_attack": 55,
+      "sp_defense": 55,
+      "speed": 100
+    },
+    "evolution": "찌리리공 → (레벨 30) 붐볼",
+    "evolution_chain_id": 44,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "몬스터볼과 닮은 것은 보호색으로 위장하기 위해서라고 전해지나 의외로 쉽게 자폭한다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/100/"
+  },
+  {
+    "id": 101,
+    "dex_no": "101",
+    "name_ko": "붐볼",
+    "name_en": "electrode",
+    "genus_ko": "볼포켓몬",
+    "types": [
+      "전기"
+    ],
+    "past_types": [],
+    "abilities": [
+      "방음",
+      "정전기",
+      "유폭(숨겨진 특성)"
+    ],
+    "height_m": 1.2,
+    "weight_kg": 66.6,
+    "stats": {
+      "hp": 60,
+      "attack": 50,
+      "defense": 70,
+      "sp_attack": 80,
+      "sp_defense": 80,
+      "speed": 150
+    },
+    "evolution": "찌리리공 → (레벨 30) 붐볼",
+    "evolution_chain_id": 44,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 60,
+    "flavor_ko": "조금이라도 충격을 주면 체내에 있는 전기 에너지가 넘쳐서 폭발해버린다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/101/"
+  },
+  {
+    "id": 102,
+    "dex_no": "102",
+    "name_ko": "아라리",
+    "name_en": "exeggcute",
+    "genus_ko": "알포켓몬",
+    "types": [
+      "풀",
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "엽록소",
+      "수확(숨겨진 특성)"
+    ],
+    "height_m": 0.4,
+    "weight_kg": 2.5,
+    "stats": {
+      "hp": 60,
+      "attack": 40,
+      "defense": 80,
+      "sp_attack": 60,
+      "sp_defense": 45,
+      "speed": 40
+    },
+    "evolution": "아라리 → (리프의돌) 나시",
+    "evolution_chain_id": 45,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 90,
+    "flavor_ko": "6마리가 아니면 진정하지 못한다. 1마리라도 없어지면 바로 도망태세가 된다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/102/"
+  },
+  {
+    "id": 103,
+    "dex_no": "103",
+    "name_ko": "나시",
+    "name_en": "exeggutor",
+    "genus_ko": "야자열매포켓몬",
+    "types": [
+      "풀",
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "엽록소",
+      "수확(숨겨진 특성)"
+    ],
+    "height_m": 2.0,
+    "weight_kg": 120.0,
+    "stats": {
+      "hp": 95,
+      "attack": 95,
+      "defense": 85,
+      "sp_attack": 125,
+      "sp_defense": 75,
+      "speed": 55
+    },
+    "evolution": "아라리 → (리프의돌) 나시",
+    "evolution_chain_id": 45,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "3개의 머리가 똘똘 뭉쳐서 쏘는 사이코 파워는 강력하다. 날씨가 흐리면 움직임이 둔하다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/103/"
+  },
+  {
+    "id": 104,
+    "dex_no": "104",
+    "name_ko": "탕구리",
+    "name_en": "cubone",
+    "genus_ko": "고독포켓몬",
+    "types": [
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "돌머리",
+      "피뢰침",
+      "전투무장(숨겨진 특성)"
+    ],
+    "height_m": 0.4,
+    "weight_kg": 6.5,
+    "stats": {
+      "hp": 50,
+      "attack": 50,
+      "defense": 95,
+      "sp_attack": 40,
+      "sp_defense": 50,
+      "speed": 35
+    },
+    "evolution": "탕구리 → (레벨 28) 텅구리",
+    "evolution_chain_id": 46,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "죽은 어미의 뼈를 머리에 쓰고 있다. 어미의 꿈을 꾸고 울기도 하지만 눈물을 흘릴 때마다 강해진다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/104/"
+  },
+  {
+    "id": 105,
+    "dex_no": "105",
+    "name_ko": "텅구리",
+    "name_en": "marowak",
+    "genus_ko": "뼈다귀포켓몬",
+    "types": [
+      "땅"
+    ],
+    "past_types": [],
+    "abilities": [
+      "돌머리",
+      "피뢰침",
+      "전투무장(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 45.0,
+    "stats": {
+      "hp": 60,
+      "attack": 80,
+      "defense": 110,
+      "sp_attack": 50,
+      "sp_defense": 80,
+      "speed": 45
+    },
+    "evolution": "탕구리 → (레벨 28) 텅구리",
+    "evolution_chain_id": 46,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "진화로 인해 쓰고 있던 어미의 뼈는 일체화되었고 성격은 더욱 난폭해졌다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/105/"
+  },
+  {
+    "id": 106,
+    "dex_no": "106",
+    "name_ko": "시라소몬",
+    "name_en": "hitmonlee",
+    "genus_ko": "킥포켓몬",
+    "types": [
+      "격투"
+    ],
+    "past_types": [],
+    "abilities": [
+      "유연",
+      "이판사판",
+      "곡예(숨겨진 특성)"
+    ],
+    "height_m": 1.5,
+    "weight_kg": 49.8,
+    "stats": {
+      "hp": 50,
+      "attack": 120,
+      "defense": 53,
+      "sp_attack": 35,
+      "sp_defense": 110,
+      "speed": 87
+    },
+    "evolution": "배루키(2세대에 추가) → (레벨 20) 시라소몬 / (레벨 20) 홍수몬 / (레벨 20) 카포에라(2세대에 추가)",
+    "evolution_chain_id": 47,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "다리를 자유자재로 늘이고 줄인다. 상대가 멀리 떨어져 있어도 다리를 늘여서 차올릴 수 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/106/"
+  },
+  {
+    "id": 107,
+    "dex_no": "107",
+    "name_ko": "홍수몬",
+    "name_en": "hitmonchan",
+    "genus_ko": "펀치포켓몬",
+    "types": [
+      "격투"
+    ],
+    "past_types": [],
+    "abilities": [
+      "날카로운눈",
+      "철주먹",
+      "정신력(숨겨진 특성)"
+    ],
+    "height_m": 1.4,
+    "weight_kg": 50.2,
+    "stats": {
+      "hp": 50,
+      "attack": 105,
+      "defense": 79,
+      "sp_attack": 35,
+      "sp_defense": 110,
+      "speed": 76
+    },
+    "evolution": "배루키(2세대에 추가) → (레벨 20) 시라소몬 / (레벨 20) 홍수몬 / (레벨 20) 카포에라(2세대에 추가)",
+    "evolution_chain_id": 47,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "공기마저 베어 가르는 펀치. 하지만 3분간 공격하면 잠시 쉬고 싶어하는 것 같다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/107/"
+  },
+  {
+    "id": 108,
+    "dex_no": "108",
+    "name_ko": "내루미",
+    "name_en": "lickitung",
+    "genus_ko": "핥기포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "마이페이스",
+      "둔감",
+      "날씨부정(숨겨진 특성)"
+    ],
+    "height_m": 1.2,
+    "weight_kg": 65.5,
+    "stats": {
+      "hp": 90,
+      "attack": 55,
+      "defense": 75,
+      "sp_attack": 60,
+      "sp_defense": 75,
+      "speed": 30
+    },
+    "evolution": "내루미 → (구르기 기술을 배운 상태) 내룸벨트(4세대에 추가)",
+    "evolution_chain_id": 48,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "벌레포켓몬이 주된 먹이다. 긴 혀로 상대를 핥아 마비시킨 후 통째로 삼킨다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/108/"
+  },
+  {
+    "id": 109,
+    "dex_no": "109",
+    "name_ko": "또가스",
+    "name_en": "koffing",
+    "genus_ko": "독가스포켓몬",
+    "types": [
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "부유",
+      "화학변화가스",
+      "악취(숨겨진 특성)"
+    ],
+    "height_m": 0.6,
+    "weight_kg": 1.0,
+    "stats": {
+      "hp": 40,
+      "attack": 65,
+      "defense": 95,
+      "sp_attack": 60,
+      "sp_defense": 45,
+      "speed": 35
+    },
+    "evolution": "또가스 → (레벨 35) 또도가스",
+    "evolution_chain_id": 49,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 190,
+    "flavor_ko": "오염된 공기를 좋아한다. 옛날 가라르지방에는 지금보다 많은 또가스가 있었다고 한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/109/"
+  },
+  {
+    "id": 110,
+    "dex_no": "110",
+    "name_ko": "또도가스",
+    "name_en": "weezing",
+    "genus_ko": "독가스포켓몬",
+    "types": [
+      "독"
+    ],
+    "past_types": [],
+    "abilities": [
+      "부유",
+      "화학변화가스",
+      "악취(숨겨진 특성)"
+    ],
+    "height_m": 1.2,
+    "weight_kg": 9.5,
+    "stats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 120,
+      "sp_attack": 85,
+      "sp_defense": 70,
+      "speed": 60
+    },
+    "evolution": "또가스 → (레벨 35) 또도가스",
+    "evolution_chain_id": 49,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 60,
+    "flavor_ko": "가라르의 또도가스보다 공기를 흡입하는 힘은 조금 약하지만 내뿜는 독소는 강력하다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/110/"
+  },
+  {
+    "id": 111,
+    "dex_no": "111",
+    "name_ko": "뿔카노",
+    "name_en": "rhyhorn",
+    "genus_ko": "뿔포켓몬",
+    "types": [
+      "땅",
+      "바위"
+    ],
+    "past_types": [],
+    "abilities": [
+      "피뢰침",
+      "돌머리",
+      "이판사판(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 115.0,
+    "stats": {
+      "hp": 80,
+      "attack": 85,
+      "defense": 95,
+      "sp_attack": 30,
+      "sp_defense": 30,
+      "speed": 25
+    },
+    "evolution": "뿔카노 → (레벨 42) 코뿌리 → (통신교환, 프로텍터을(를) 지닌 채) 거대코뿌리(4세대에 추가)",
+    "evolution_chain_id": 50,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 120,
+    "flavor_ko": "한 가지만 기억할 수 있다. 돌진하기 시작하면 이유가 무엇이었든 금방 잊어버린다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/111/"
+  },
+  {
+    "id": 112,
+    "dex_no": "112",
+    "name_ko": "코뿌리",
+    "name_en": "rhydon",
+    "genus_ko": "드릴포켓몬",
+    "types": [
+      "땅",
+      "바위"
+    ],
+    "past_types": [],
+    "abilities": [
+      "피뢰침",
+      "돌머리",
+      "이판사판(숨겨진 특성)"
+    ],
+    "height_m": 1.9,
+    "weight_kg": 120.0,
+    "stats": {
+      "hp": 105,
+      "attack": 130,
+      "defense": 120,
+      "sp_attack": 45,
+      "sp_defense": 45,
+      "speed": 40
+    },
+    "evolution": "뿔카노 → (레벨 42) 코뿌리 → (통신교환, 프로텍터을(를) 지닌 채) 거대코뿌리(4세대에 추가)",
+    "evolution_chain_id": 50,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 60,
+    "flavor_ko": "전신을 갑옷 같은 피부로 보호하고 있다. 2000도의 마그마 속에서도 살 수 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/112/"
+  },
+  {
+    "id": 113,
+    "dex_no": "113",
+    "name_ko": "럭키",
+    "name_en": "chansey",
+    "genus_ko": "알포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "자연회복",
+      "하늘의은총",
+      "치유의마음(숨겨진 특성)"
+    ],
+    "height_m": 1.1,
+    "weight_kg": 34.6,
+    "stats": {
+      "hp": 250,
+      "attack": 5,
+      "defense": 5,
+      "sp_attack": 35,
+      "sp_defense": 105,
+      "speed": 50
+    },
+    "evolution": "핑복(4세대에 추가) → (동글동글돌을(를) 지닌 채, 낮) 럭키 → (친밀도 160 이상) 해피너스(2세대에 추가)",
+    "evolution_chain_id": 51,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 30,
+    "flavor_ko": "원래 움직임이 둔했지만 알을 노리는 자들로부터 지켜내기 위해 도주 속도가 빨라졌다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/113/"
+  },
+  {
+    "id": 114,
+    "dex_no": "114",
+    "name_ko": "덩쿠리",
+    "name_en": "tangela",
+    "genus_ko": "넝쿨포켓몬",
+    "types": [
+      "풀"
+    ],
+    "past_types": [],
+    "abilities": [
+      "엽록소",
+      "리프가드",
+      "재생력(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 35.0,
+    "stats": {
+      "hp": 65,
+      "attack": 55,
+      "defense": 115,
+      "sp_attack": 100,
+      "sp_defense": 40,
+      "speed": 60
+    },
+    "evolution": "덩쿠리 → (원시의힘 기술을 배운 상태) 덩쿠림보(4세대에 추가)",
+    "evolution_chain_id": 52,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "덩굴은 독특한 향이 난다. 가라르 일부 지역에서는 허브로 사용되고 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/114/"
+  },
+  {
+    "id": 115,
+    "dex_no": "115",
+    "name_ko": "캥카",
+    "name_en": "kangaskhan",
+    "genus_ko": "가족포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "일찍기상",
+      "배짱",
+      "정신력(숨겨진 특성)"
+    ],
+    "height_m": 2.2,
+    "weight_kg": 80.0,
+    "stats": {
+      "hp": 105,
+      "attack": 95,
+      "defense": 80,
+      "sp_attack": 40,
+      "sp_defense": 80,
+      "speed": 90
+    },
+    "evolution": "캥카 (진화하지 않음)",
+    "evolution_chain_id": 53,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "새끼가 없는 캥카가 조난한 사람의 아이를 길렀다는 기록이 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/115/"
+  },
+  {
+    "id": 116,
+    "dex_no": "116",
+    "name_ko": "쏘드라",
+    "name_en": "horsea",
+    "genus_ko": "드래곤포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "쓱쓱",
+      "스나이퍼",
+      "습기(숨겨진 특성)"
+    ],
+    "height_m": 0.4,
+    "weight_kg": 8.0,
+    "stats": {
+      "hp": 30,
+      "attack": 40,
+      "defense": 70,
+      "sp_attack": 70,
+      "sp_defense": 25,
+      "speed": 60
+    },
+    "evolution": "쏘드라 → (레벨 32) 시드라 → (통신교환, 용의비늘을(를) 지닌 채) 킹드라(2세대에 추가)",
+    "evolution_chain_id": 54,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 225,
+    "flavor_ko": "물속에서 춤추듯이 헤엄쳐 소용돌이를 만든다. 동료와 소용돌이의 크기를 겨루며 논다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/116/"
+  },
+  {
+    "id": 117,
+    "dex_no": "117",
+    "name_ko": "시드라",
+    "name_en": "seadra",
+    "genus_ko": "드래곤포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "독가시",
+      "스나이퍼",
+      "습기(숨겨진 특성)"
+    ],
+    "height_m": 1.2,
+    "weight_kg": 25.0,
+    "stats": {
+      "hp": 55,
+      "attack": 65,
+      "defense": 95,
+      "sp_attack": 95,
+      "sp_defense": 45,
+      "speed": 85
+    },
+    "evolution": "쏘드라 → (레벨 32) 시드라 → (통신교환, 용의비늘을(를) 지닌 채) 킹드라(2세대에 추가)",
+    "evolution_chain_id": 54,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 75,
+    "flavor_ko": "입은 가늘지만 흡인력은 강하다. 입보다 큰 먹이도 순식간에 빨아들여 먹는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/117/"
+  },
+  {
+    "id": 118,
+    "dex_no": "118",
+    "name_ko": "콘치",
+    "name_en": "goldeen",
+    "genus_ko": "금붕어포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "쓱쓱",
+      "수의베일",
+      "피뢰침(숨겨진 특성)"
+    ],
+    "height_m": 0.6,
+    "weight_kg": 15.0,
+    "stats": {
+      "hp": 45,
+      "attack": 67,
+      "defense": 60,
+      "sp_attack": 35,
+      "sp_defense": 50,
+      "speed": 63
+    },
+    "evolution": "콘치 → (레벨 33) 왕콘치",
+    "evolution_chain_id": 55,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 225,
+    "flavor_ko": "등지느러미와 가슴지느러미가 근육처럼 발달하여 물속을 5노트의 속도로 헤엄친다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/118/"
+  },
+  {
+    "id": 119,
+    "dex_no": "119",
+    "name_ko": "왕콘치",
+    "name_en": "seaking",
+    "genus_ko": "금붕어포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "쓱쓱",
+      "수의베일",
+      "피뢰침(숨겨진 특성)"
+    ],
+    "height_m": 1.3,
+    "weight_kg": 39.0,
+    "stats": {
+      "hp": 80,
+      "attack": 92,
+      "defense": 65,
+      "sp_attack": 65,
+      "sp_defense": 80,
+      "speed": 68
+    },
+    "evolution": "콘치 → (레벨 33) 왕콘치",
+    "evolution_chain_id": 55,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 60,
+    "flavor_ko": "뿔로 강바닥의 바위를 파헤쳐 둥지를 만드는 이유는 낳은 알이 떠내려가지 않도록 하기 위함이다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/119/"
+  },
+  {
+    "id": 120,
+    "dex_no": "120",
+    "name_ko": "별가사리",
+    "name_en": "staryu",
+    "genus_ko": "별포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "발광",
+      "자연회복",
+      "애널라이즈(숨겨진 특성)"
+    ],
+    "height_m": 0.8,
+    "weight_kg": 34.5,
+    "stats": {
+      "hp": 30,
+      "attack": 45,
+      "defense": 55,
+      "sp_attack": 70,
+      "sp_defense": 55,
+      "speed": 85
+    },
+    "evolution": "별가사리 → (물의돌) 아쿠스타",
+    "evolution_chain_id": 56,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 225,
+    "flavor_ko": "물고기포켓몬에게 물리곤 하지만 몸이 찢겨도 금방 재생되기 때문에 신경 쓰지 않는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/120/"
+  },
+  {
+    "id": 121,
+    "dex_no": "121",
+    "name_ko": "아쿠스타",
+    "name_en": "starmie",
+    "genus_ko": "수수께끼포켓몬",
+    "types": [
+      "물",
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "발광",
+      "자연회복",
+      "애널라이즈(숨겨진 특성)"
+    ],
+    "height_m": 1.1,
+    "weight_kg": 80.0,
+    "stats": {
+      "hp": 60,
+      "attack": 75,
+      "defense": 85,
+      "sp_attack": 100,
+      "sp_defense": 85,
+      "speed": 115
+    },
+    "evolution": "별가사리 → (물의돌) 아쿠스타",
+    "evolution_chain_id": 56,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 60,
+    "flavor_ko": "몸을 고속으로 회전시켜 바다를 헤엄치며 작은 플랑크톤을 흡수한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/121/"
+  },
+  {
+    "id": 122,
+    "dex_no": "122",
+    "name_ko": "마임맨",
+    "name_en": "mr-mime",
+    "genus_ko": "배리어포켓몬",
+    "types": [
+      "에스퍼",
+      "페어리"
+    ],
+    "past_types": [
+      {
+        "until_generation": 5,
+        "types": [
+          "에스퍼"
+        ]
+      }
+    ],
+    "abilities": [
+      "방음",
+      "필터",
+      "테크니션(숨겨진 특성)"
+    ],
+    "height_m": 1.3,
+    "weight_kg": 54.5,
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 65,
+      "sp_attack": 100,
+      "sp_defense": 120,
+      "speed": 90
+    },
+    "evolution": "흉내내(4세대에 추가) → (흉내내기 기술을 배운 상태) 마임맨 → (레벨 42) 마임꽁꽁(8세대에 추가)",
+    "evolution_chain_id": 57,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "팬터마임이 특기다. 손가락에서 내보내는 파동으로 벽을 만들어 갖은 공격으로부터 몸을 지킨다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/122/"
+  },
+  {
+    "id": 123,
+    "dex_no": "123",
+    "name_ko": "스라크",
+    "name_en": "scyther",
+    "genus_ko": "버마재비포켓몬",
+    "types": [
+      "벌레",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "벌레의알림",
+      "테크니션",
+      "불굴의마음(숨겨진 특성)"
+    ],
+    "height_m": 1.5,
+    "weight_kg": 56.0,
+    "stats": {
+      "hp": 70,
+      "attack": 110,
+      "defense": 80,
+      "sp_attack": 55,
+      "sp_defense": 80,
+      "speed": 105
+    },
+    "evolution": "스라크 → (통신교환, 금속코트을(를) 지닌 채) 핫삼(2세대에 추가) / (검은휘석) 사마자르(8세대에 추가)",
+    "evolution_chain_id": 58,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "숲속에서 많은 나무가 베인 채 쓰러져 있는 장소를 발견했다면 그곳은 스라크의 영역이다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/123/"
+  },
+  {
+    "id": 124,
+    "dex_no": "124",
+    "name_ko": "루주라",
+    "name_en": "jynx",
+    "genus_ko": "인간형태포켓몬",
+    "types": [
+      "얼음",
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "둔감",
+      "예지몽",
+      "건조피부(숨겨진 특성)"
+    ],
+    "height_m": 1.4,
+    "weight_kg": 40.6,
+    "stats": {
+      "hp": 65,
+      "attack": 50,
+      "defense": 35,
+      "sp_attack": 115,
+      "sp_defense": 95,
+      "speed": 95
+    },
+    "evolution": "뽀뽀라(2세대에 추가) → (레벨 30) 루주라",
+    "evolution_chain_id": 59,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "가라르에는 아름답고 섬세한 울음소리를 가진 루주라가 많아서 팬도 있을 정도다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/124/"
+  },
+  {
+    "id": 125,
+    "dex_no": "125",
+    "name_ko": "에레브",
+    "name_en": "electabuzz",
+    "genus_ko": "전기포켓몬",
+    "types": [
+      "전기"
+    ],
+    "past_types": [],
+    "abilities": [
+      "정전기",
+      "의기양양(숨겨진 특성)"
+    ],
+    "height_m": 1.1,
+    "weight_kg": 30.0,
+    "stats": {
+      "hp": 65,
+      "attack": 83,
+      "defense": 57,
+      "sp_attack": 95,
+      "sp_defense": 85,
+      "speed": 105
+    },
+    "evolution": "에레키드(2세대에 추가) → (레벨 30) 에레브 → (통신교환, 에레키부스터을(를) 지닌 채) 에레키블(4세대에 추가)",
+    "evolution_chain_id": 60,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "폭풍이 치면 높은 나무 주위에 모여 번개가 떨어지기를 가만히 기다린다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/125/"
+  },
+  {
+    "id": 126,
+    "dex_no": "126",
+    "name_ko": "마그마",
+    "name_en": "magmar",
+    "genus_ko": "불뿜기포켓몬",
+    "types": [
+      "불꽃"
+    ],
+    "past_types": [],
+    "abilities": [
+      "불꽃몸",
+      "의기양양(숨겨진 특성)"
+    ],
+    "height_m": 1.3,
+    "weight_kg": 44.5,
+    "stats": {
+      "hp": 65,
+      "attack": 95,
+      "defense": 57,
+      "sp_attack": 100,
+      "sp_defense": 85,
+      "speed": 93
+    },
+    "evolution": "마그비(2세대에 추가) → (레벨 30) 마그마 → (통신교환, 마그마부스터을(를) 지닌 채) 마그마번(4세대에 추가)",
+    "evolution_chain_id": 61,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "온몸이 늘 불타고 있다. 화재를 일으키는 원인 중 하나로 두려움의 대상이 되고 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/126/"
+  },
+  {
+    "id": 127,
+    "dex_no": "127",
+    "name_ko": "쁘사이저",
+    "name_en": "pinsir",
+    "genus_ko": "뿔집게포켓몬",
+    "types": [
+      "벌레"
+    ],
+    "past_types": [],
+    "abilities": [
+      "괴력집게",
+      "틀깨기",
+      "자기과신(숨겨진 특성)"
+    ],
+    "height_m": 1.5,
+    "weight_kg": 55.0,
+    "stats": {
+      "hp": 65,
+      "attack": 125,
+      "defense": 100,
+      "sp_attack": 55,
+      "sp_defense": 70,
+      "speed": 85
+    },
+    "evolution": "쁘사이저 (진화하지 않음)",
+    "evolution_chain_id": 62,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "뿔로 먹이를 찔러 넣어 그대로 두 동강으로 만들거나 강제로 던져버린다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/127/"
+  },
+  {
+    "id": 128,
+    "dex_no": "128",
+    "name_ko": "켄타로스",
+    "name_en": "tauros",
+    "genus_ko": "성난소포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "위협",
+      "분노의경혈",
+      "우격다짐(숨겨진 특성)"
+    ],
+    "height_m": 1.4,
+    "weight_kg": 88.4,
+    "stats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 95,
+      "sp_attack": 40,
+      "sp_defense": 70,
+      "speed": 110
+    },
+    "evolution": "켄타로스 (진화하지 않음)",
+    "evolution_chain_id": 63,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "가라르에 서식하는 켄타로스는 기질이 거칠어서 사람이 등에 올라타는 것을 허용하지 않는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/128/"
+  },
+  {
+    "id": 129,
+    "dex_no": "129",
+    "name_ko": "잉어킹",
+    "name_en": "magikarp",
+    "genus_ko": "물고기포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "쓱쓱",
+      "주눅(숨겨진 특성)"
+    ],
+    "height_m": 0.9,
+    "weight_kg": 10.0,
+    "stats": {
+      "hp": 20,
+      "attack": 10,
+      "defense": 55,
+      "sp_attack": 15,
+      "sp_defense": 20,
+      "speed": 80
+    },
+    "evolution": "잉어킹 → (레벨 20) 갸라도스",
+    "evolution_chain_id": 64,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 255,
+    "flavor_ko": "유속이 빠른 곳에서는 그저 떠내려갈 뿐인 약하고 한심한 포켓몬이다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/129/"
+  },
+  {
+    "id": 130,
+    "dex_no": "130",
+    "name_ko": "갸라도스",
+    "name_en": "gyarados",
+    "genus_ko": "흉악포켓몬",
+    "types": [
+      "물",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "위협",
+      "자기과신(숨겨진 특성)"
+    ],
+    "height_m": 6.5,
+    "weight_kg": 235.0,
+    "stats": {
+      "hp": 95,
+      "attack": 125,
+      "defense": 79,
+      "sp_attack": 60,
+      "sp_defense": 100,
+      "speed": 81
+    },
+    "evolution": "잉어킹 → (레벨 20) 갸라도스",
+    "evolution_chain_id": 64,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "한번 난동부리기 시작한 갸라도스는 태풍이 사납게 휘몰아쳐도 모든 것을 다 태워버린다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/130/"
+  },
+  {
+    "id": 131,
+    "dex_no": "131",
+    "name_ko": "라프라스",
+    "name_en": "lapras",
+    "genus_ko": "탈것포켓몬",
+    "types": [
+      "물",
+      "얼음"
+    ],
+    "past_types": [],
+    "abilities": [
+      "저수",
+      "조가비갑옷",
+      "촉촉바디(숨겨진 특성)"
+    ],
+    "height_m": 2.5,
+    "weight_kg": 220.0,
+    "stats": {
+      "hp": 130,
+      "attack": 85,
+      "defense": 80,
+      "sp_attack": 85,
+      "sp_defense": 95,
+      "speed": 60
+    },
+    "evolution": "라프라스 (진화하지 않음)",
+    "evolution_chain_id": 65,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "추위에 강해서 얼음 바다에서도 끄떡없다. 피부는 매끈매끈하고 조금 차갑다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/131/"
+  },
+  {
+    "id": 132,
+    "dex_no": "132",
+    "name_ko": "메타몽",
+    "name_en": "ditto",
+    "genus_ko": "변신포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "유연",
+      "괴짜(숨겨진 특성)"
+    ],
+    "height_m": 0.3,
+    "weight_kg": 4.0,
+    "stats": {
+      "hp": 48,
+      "attack": 48,
+      "defense": 48,
+      "sp_attack": 48,
+      "sp_defense": 48,
+      "speed": 48
+    },
+    "evolution": "메타몽 (진화하지 않음)",
+    "evolution_chain_id": 66,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 35,
+    "flavor_ko": "메타몽끼리 만나게 되면 상대와 똑같은 모습이 되기 위해 평소보다 격렬하게 움직인다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/132/"
+  },
+  {
+    "id": 133,
+    "dex_no": "133",
+    "name_ko": "이브이",
+    "name_en": "eevee",
+    "genus_ko": "진화포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "도주",
+      "적응력",
+      "위험예지(숨겨진 특성)"
+    ],
+    "height_m": 0.3,
+    "weight_kg": 6.5,
+    "stats": {
+      "hp": 55,
+      "attack": 55,
+      "defense": 50,
+      "sp_attack": 45,
+      "sp_defense": 65,
+      "speed": 55
+    },
+    "evolution": "이브이 → (물의돌) 샤미드 / (천둥의돌) 쥬피썬더 / (불꽃의돌) 부스터 / (친밀도 160 이상, 낮) 에브이(2세대에 추가) / (친밀도 160 이상, 밤) 블래키(2세대에 추가) / (특정 장소) 리피아(4세대에 추가) / (특정 장소) 글레이시아(4세대에 추가) / (친밀도(우정) 높음, 페어리 타입 기술을 배운 상태) 님피아(6세대에 추가)",
+    "evolution_chain_id": 67,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "불안정한 유전자 덕분에 여러 가지 진화의 가능성을 가지고 있는 특수한 포켓몬.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/133/"
+  },
+  {
+    "id": 134,
+    "dex_no": "134",
+    "name_ko": "샤미드",
+    "name_en": "vaporeon",
+    "genus_ko": "거품뿜기포켓몬",
+    "types": [
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "저수",
+      "촉촉바디(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 29.0,
+    "stats": {
+      "hp": 130,
+      "attack": 65,
+      "defense": 60,
+      "sp_attack": 110,
+      "sp_defense": 95,
+      "speed": 65
+    },
+    "evolution": "이브이 → (물의돌) 샤미드 / (천둥의돌) 쥬피썬더 / (불꽃의돌) 부스터 / (친밀도 160 이상, 낮) 에브이(2세대에 추가) / (친밀도 160 이상, 밤) 블래키(2세대에 추가) / (특정 장소) 리피아(4세대에 추가) / (특정 장소) 글레이시아(4세대에 추가) / (친밀도(우정) 높음, 페어리 타입 기술을 배운 상태) 님피아(6세대에 추가)",
+    "evolution_chain_id": 67,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "몸의 세포 구조가 물 분자와 닮았다. 물에 녹으면 보이지 않는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/134/"
+  },
+  {
+    "id": 135,
+    "dex_no": "135",
+    "name_ko": "쥬피썬더",
+    "name_en": "jolteon",
+    "genus_ko": "번개포켓몬",
+    "types": [
+      "전기"
+    ],
+    "past_types": [],
+    "abilities": [
+      "축전",
+      "속보(숨겨진 특성)"
+    ],
+    "height_m": 0.8,
+    "weight_kg": 24.5,
+    "stats": {
+      "hp": 65,
+      "attack": 65,
+      "defense": 60,
+      "sp_attack": 110,
+      "sp_defense": 95,
+      "speed": 130
+    },
+    "evolution": "이브이 → (물의돌) 샤미드 / (천둥의돌) 쥬피썬더 / (불꽃의돌) 부스터 / (친밀도 160 이상, 낮) 에브이(2세대에 추가) / (친밀도 160 이상, 밤) 블래키(2세대에 추가) / (특정 장소) 리피아(4세대에 추가) / (특정 장소) 글레이시아(4세대에 추가) / (친밀도(우정) 높음, 페어리 타입 기술을 배운 상태) 님피아(6세대에 추가)",
+    "evolution_chain_id": 67,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "공기 중의 마이너스 이온을 빨아들여 약 10000볼트의 전기를 내뱉을 수 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/135/"
+  },
+  {
+    "id": 136,
+    "dex_no": "136",
+    "name_ko": "부스터",
+    "name_en": "flareon",
+    "genus_ko": "불꽃포켓몬",
+    "types": [
+      "불꽃"
+    ],
+    "past_types": [],
+    "abilities": [
+      "타오르는불꽃",
+      "근성(숨겨진 특성)"
+    ],
+    "height_m": 0.9,
+    "weight_kg": 25.0,
+    "stats": {
+      "hp": 65,
+      "attack": 130,
+      "defense": 60,
+      "sp_attack": 95,
+      "sp_defense": 110,
+      "speed": 65
+    },
+    "evolution": "이브이 → (물의돌) 샤미드 / (천둥의돌) 쥬피썬더 / (불꽃의돌) 부스터 / (친밀도 160 이상, 낮) 에브이(2세대에 추가) / (친밀도 160 이상, 밤) 블래키(2세대에 추가) / (특정 장소) 리피아(4세대에 추가) / (특정 장소) 글레이시아(4세대에 추가) / (친밀도(우정) 높음, 페어리 타입 기술을 배운 상태) 님피아(6세대에 추가)",
+    "evolution_chain_id": 67,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "들이마신 공기 중 일부는 체내의 불꽃 주머니로 보내져 1700도의 불꽃이 된다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/136/"
+  },
+  {
+    "id": 137,
+    "dex_no": "137",
+    "name_ko": "폴리곤",
+    "name_en": "porygon",
+    "genus_ko": "가상포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "트레이스",
+      "다운로드",
+      "애널라이즈(숨겨진 특성)"
+    ],
+    "height_m": 0.8,
+    "weight_kg": 36.5,
+    "stats": {
+      "hp": 65,
+      "attack": 60,
+      "defense": 70,
+      "sp_attack": 85,
+      "sp_defense": 75,
+      "speed": 40
+    },
+    "evolution": "폴리곤 → (통신교환, 업그레이드을(를) 지닌 채) 폴리곤2(2세대에 추가) → (통신교환, 괴상한패치을(를) 지닌 채) 폴리곤Z(4세대에 추가)",
+    "evolution_chain_id": 68,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "근래에는 컴퓨터 공간에서 대활약한다. 수상한 데이터가 없는지 체크하며 돌아다닌다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/137/"
+  },
+  {
+    "id": 138,
+    "dex_no": "138",
+    "name_ko": "암나이트",
+    "name_en": "omanyte",
+    "genus_ko": "소용돌이포켓몬",
+    "types": [
+      "바위",
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "쓱쓱",
+      "조가비갑옷",
+      "깨어진갑옷(숨겨진 특성)"
+    ],
+    "height_m": 0.4,
+    "weight_kg": 7.5,
+    "stats": {
+      "hp": 35,
+      "attack": 40,
+      "defense": 100,
+      "sp_attack": 90,
+      "sp_defense": 55,
+      "speed": 35
+    },
+    "evolution": "암나이트 → (레벨 40) 암스타",
+    "evolution_chain_id": 69,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "멸종한 고대의 포켓몬이다. 10개의 다리로 물을 가르며 떠다니듯 헤엄친다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/138/"
+  },
+  {
+    "id": 139,
+    "dex_no": "139",
+    "name_ko": "암스타",
+    "name_en": "omastar",
+    "genus_ko": "소용돌이포켓몬",
+    "types": [
+      "바위",
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "쓱쓱",
+      "조가비갑옷",
+      "깨어진갑옷(숨겨진 특성)"
+    ],
+    "height_m": 1.0,
+    "weight_kg": 35.0,
+    "stats": {
+      "hp": 70,
+      "attack": 60,
+      "defense": 125,
+      "sp_attack": 115,
+      "sp_defense": 70,
+      "speed": 55
+    },
+    "evolution": "암나이트 → (레벨 40) 암스타",
+    "evolution_chain_id": 69,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "날카로운 이빨은 바위도 부수지만 촉수가 닿는 범위 안의 먹이만 공격할 수 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/139/"
+  },
+  {
+    "id": 140,
+    "dex_no": "140",
+    "name_ko": "투구",
+    "name_en": "kabuto",
+    "genus_ko": "껍질포켓몬",
+    "types": [
+      "바위",
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "쓱쓱",
+      "전투무장",
+      "깨어진갑옷(숨겨진 특성)"
+    ],
+    "height_m": 0.5,
+    "weight_kg": 11.5,
+    "stats": {
+      "hp": 30,
+      "attack": 80,
+      "defense": 90,
+      "sp_attack": 55,
+      "sp_defense": 45,
+      "speed": 55
+    },
+    "evolution": "투구 → (레벨 40) 투구푸스",
+    "evolution_chain_id": 70,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "멸종되었다는 이야기가 있지만 일부 지역에서는 제법 많이 목격되는 듯하다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/140/"
+  },
+  {
+    "id": 141,
+    "dex_no": "141",
+    "name_ko": "투구푸스",
+    "name_en": "kabutops",
+    "genus_ko": "껍질포켓몬",
+    "types": [
+      "바위",
+      "물"
+    ],
+    "past_types": [],
+    "abilities": [
+      "쓱쓱",
+      "전투무장",
+      "깨어진갑옷(숨겨진 특성)"
+    ],
+    "height_m": 1.3,
+    "weight_kg": 40.5,
+    "stats": {
+      "hp": 60,
+      "attack": 115,
+      "defense": 105,
+      "sp_attack": 65,
+      "sp_defense": 70,
+      "speed": 80
+    },
+    "evolution": "투구 → (레벨 40) 투구푸스",
+    "evolution_chain_id": 70,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "멸종한 이유는 불명확하다. 따듯한 바다에 살고 있던 난폭한 고대의 포켓몬이다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/141/"
+  },
+  {
+    "id": 142,
+    "dex_no": "142",
+    "name_ko": "프테라",
+    "name_en": "aerodactyl",
+    "genus_ko": "화석포켓몬",
+    "types": [
+      "바위",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "돌머리",
+      "프레셔",
+      "긴장감(숨겨진 특성)"
+    ],
+    "height_m": 1.8,
+    "weight_kg": 59.0,
+    "stats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 65,
+      "sp_attack": 60,
+      "sp_defense": 75,
+      "speed": 130
+    },
+    "evolution": "프테라 (진화하지 않음)",
+    "evolution_chain_id": 71,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "톱 같은 이빨은 강철포켓몬의 피부도 갈기갈기 베어 가른다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/142/"
+  },
+  {
+    "id": 143,
+    "dex_no": "143",
+    "name_ko": "잠만보",
+    "name_en": "snorlax",
+    "genus_ko": "졸음포켓몬",
+    "types": [
+      "노말"
+    ],
+    "past_types": [],
+    "abilities": [
+      "면역",
+      "두꺼운지방",
+      "먹보(숨겨진 특성)"
+    ],
+    "height_m": 2.1,
+    "weight_kg": 460.0,
+    "stats": {
+      "hp": 160,
+      "attack": 110,
+      "defense": 65,
+      "sp_attack": 65,
+      "sp_defense": 110,
+      "speed": 30
+    },
+    "evolution": "먹고자(4세대에 추가) → (친밀도 160 이상) 잠만보",
+    "evolution_chain_id": 72,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 25,
+    "flavor_ko": "위장이 튼튼해서 곰팡이가 피거나 썩은 것을 먹어도 배탈이 나지 않는다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/143/"
+  },
+  {
+    "id": 144,
+    "dex_no": "144",
+    "name_ko": "프리져",
+    "name_en": "articuno",
+    "genus_ko": "냉동포켓몬",
+    "types": [
+      "얼음",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "프레셔",
+      "눈숨기(숨겨진 특성)"
+    ],
+    "height_m": 1.7,
+    "weight_kg": 55.4,
+    "stats": {
+      "hp": 90,
+      "attack": 85,
+      "defense": 100,
+      "sp_attack": 95,
+      "sp_defense": 125,
+      "speed": 85
+    },
+    "evolution": "프리져 (진화하지 않음)",
+    "evolution_chain_id": 73,
+    "is_legendary": true,
+    "is_mythical": false,
+    "capture_rate": 3,
+    "flavor_ko": "얼음을 자유자재로 조종하는 힘을 가졌다. 영구 동토의 설산에 살고 있다고 한다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/144/"
+  },
+  {
+    "id": 145,
+    "dex_no": "145",
+    "name_ko": "썬더",
+    "name_en": "zapdos",
+    "genus_ko": "전기포켓몬",
+    "types": [
+      "전기",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "프레셔",
+      "정전기(숨겨진 특성)"
+    ],
+    "height_m": 1.6,
+    "weight_kg": 52.6,
+    "stats": {
+      "hp": 90,
+      "attack": 90,
+      "defense": 85,
+      "sp_attack": 125,
+      "sp_defense": 90,
+      "speed": 100
+    },
+    "evolution": "썬더 (진화하지 않음)",
+    "evolution_chain_id": 74,
+    "is_legendary": true,
+    "is_mythical": false,
+    "capture_rate": 3,
+    "flavor_ko": "날개를 비비대면 바로 천둥이 친다고 전해지는 전설의 새포켓몬이다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/145/"
+  },
+  {
+    "id": 146,
+    "dex_no": "146",
+    "name_ko": "파이어",
+    "name_en": "moltres",
+    "genus_ko": "화염포켓몬",
+    "types": [
+      "불꽃",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "프레셔",
+      "불꽃몸(숨겨진 특성)"
+    ],
+    "height_m": 2.0,
+    "weight_kg": 60.0,
+    "stats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 90,
+      "sp_attack": 125,
+      "sp_defense": 85,
+      "speed": 90
+    },
+    "evolution": "파이어 (진화하지 않음)",
+    "evolution_chain_id": 75,
+    "is_legendary": true,
+    "is_mythical": false,
+    "capture_rate": 3,
+    "flavor_ko": "아름답게 타오르는 날개로 산길을 비춰 조난자를 도왔다고 전해져 오고 있다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/146/"
+  },
+  {
+    "id": 147,
+    "dex_no": "147",
+    "name_ko": "미뇽",
+    "name_en": "dratini",
+    "genus_ko": "드래곤포켓몬",
+    "types": [
+      "드래곤"
+    ],
+    "past_types": [],
+    "abilities": [
+      "탈피",
+      "이상한비늘(숨겨진 특성)"
+    ],
+    "height_m": 1.8,
+    "weight_kg": 3.3,
+    "stats": {
+      "hp": 41,
+      "attack": 64,
+      "defense": 45,
+      "sp_attack": 50,
+      "sp_defense": 50,
+      "speed": 50
+    },
+    "evolution": "미뇽 → (레벨 30) 신뇽 → (레벨 55) 망나뇽",
+    "evolution_chain_id": 76,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "오랫동안 환상이라고 불렸다. 이마에 있는 작은 돌기는 성장하고 있는 뿔이다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/147/"
+  },
+  {
+    "id": 148,
+    "dex_no": "148",
+    "name_ko": "신뇽",
+    "name_en": "dragonair",
+    "genus_ko": "드래곤포켓몬",
+    "types": [
+      "드래곤"
+    ],
+    "past_types": [],
+    "abilities": [
+      "탈피",
+      "이상한비늘(숨겨진 특성)"
+    ],
+    "height_m": 4.0,
+    "weight_kg": 16.5,
+    "stats": {
+      "hp": 61,
+      "attack": 84,
+      "defense": 65,
+      "sp_attack": 70,
+      "sp_defense": 70,
+      "speed": 70
+    },
+    "evolution": "미뇽 → (레벨 30) 신뇽 → (레벨 55) 망나뇽",
+    "evolution_chain_id": 76,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "꼬리의 구슬에 힘을 모아 날씨를 조종한다. 오라에 둘러싸인 모습은 신비롭다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/148/"
+  },
+  {
+    "id": 149,
+    "dex_no": "149",
+    "name_ko": "망나뇽",
+    "name_en": "dragonite",
+    "genus_ko": "드래곤포켓몬",
+    "types": [
+      "드래곤",
+      "비행"
+    ],
+    "past_types": [],
+    "abilities": [
+      "정신력",
+      "멀티스케일(숨겨진 특성)"
+    ],
+    "height_m": 2.2,
+    "weight_kg": 210.0,
+    "stats": {
+      "hp": 91,
+      "attack": 134,
+      "defense": 95,
+      "sp_attack": 100,
+      "sp_defense": 100,
+      "speed": 80
+    },
+    "evolution": "미뇽 → (레벨 30) 신뇽 → (레벨 55) 망나뇽",
+    "evolution_chain_id": 76,
+    "is_legendary": false,
+    "is_mythical": false,
+    "capture_rate": 45,
+    "flavor_ko": "바다의 화신이라고 불린다. 망나뇽 형태의 조각상을 뱃머리에 두는 배도 많다.",
+    "flavor_version": "실드",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/149/"
+  },
+  {
+    "id": 150,
+    "dex_no": "150",
+    "name_ko": "뮤츠",
+    "name_en": "mewtwo",
+    "genus_ko": "유전포켓몬",
+    "types": [
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "프레셔",
+      "긴장감(숨겨진 특성)"
+    ],
+    "height_m": 2.0,
+    "weight_kg": 122.0,
+    "stats": {
+      "hp": 106,
+      "attack": 110,
+      "defense": 90,
+      "sp_attack": 154,
+      "sp_defense": 90,
+      "speed": 130
+    },
+    "evolution": "뮤츠 (진화하지 않음)",
+    "evolution_chain_id": 77,
+    "is_legendary": true,
+    "is_mythical": false,
+    "capture_rate": 3,
+    "flavor_ko": "뮤의 유전자와 거의 같다. 하지만 크기도 성격도 무서울 정도로 다르다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/150/"
+  },
+  {
+    "id": 151,
+    "dex_no": "151",
+    "name_ko": "뮤",
+    "name_en": "mew",
+    "genus_ko": "신종포켓몬",
+    "types": [
+      "에스퍼"
+    ],
+    "past_types": [],
+    "abilities": [
+      "싱크로"
+    ],
+    "height_m": 0.4,
+    "weight_kg": 4.0,
+    "stats": {
+      "hp": 100,
+      "attack": 100,
+      "defense": 100,
+      "sp_attack": 100,
+      "sp_defense": 100,
+      "speed": 100
+    },
+    "evolution": "뮤 (진화하지 않음)",
+    "evolution_chain_id": 78,
+    "is_legendary": false,
+    "is_mythical": true,
+    "capture_rate": 45,
+    "flavor_ko": "현미경으로 관찰하면 매우 짧고 가는 털이 촘촘하게 나 있다.",
+    "flavor_version": "레츠고! 이브이",
+    "source_url": "https://pokeapi.co/api/v2/pokemon-species/151/"
+  }
+]

@@ -56,12 +56,16 @@ def cache_name(url: str, params: dict | None = None) -> str:
     return hashlib.sha1(key.encode("utf-8")).hexdigest() + ".json"
 
 
-def get_json(url: str, params: dict | None = None, cache_dir: Path | None = None) -> Any:
-    """JSON을 받아 온다. cache_dir이 있으면 먼저 저장본을 찾고, 없을 때만 호출해서 저장한다."""
+def get_json(url: str, params: dict | None = None, cache_dir: Path | None = None,
+             offline: bool = False) -> Any:
+    """JSON을 받아 온다. cache_dir이 있으면 먼저 저장본을 찾고, 없을 때만 호출해서 저장한다.
+    offline=True면 저장본만 쓰고 바깥으로는 호출하지 않는다."""
     global call_count
     cache_file = cache_dir / cache_name(url, params) if cache_dir else None
     if cache_file and cache_file.exists():
         return json.loads(cache_file.read_text(encoding="utf-8"))
+    if offline:
+        raise UpstreamError(f"오프라인 모드인데 저장본이 없음: {url}")
 
     def _call():
         _wait_interval()

@@ -32,7 +32,8 @@ http:
   request_interval_sec: 1.0
   max_retries: 3
   timeout_sec: 15
-  user_agent: "PokemonRAGStudy/1.0 (SSAFY 교육 프로젝트; youngjoon4u@gmail.com)"
+  # HTTP 헤더는 영문(ASCII)만 허용되므로 "SSAFY 교육 프로젝트"를 영문으로 적는다
+  user_agent: "PokemonRAGStudy/1.0 (SSAFY education project; youngjoon4u@gmail.com)"
 
 store:
   path: ./chroma_db
