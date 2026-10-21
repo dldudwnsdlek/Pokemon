@@ -6,7 +6,9 @@ import json
 from datetime import datetime
 
 from features import battle_coach, evolution_guide, finder
+from rag.collector import load_registry
 from rag.graph import run
+from rag.retriever import retrieve
 from services.config import settings
 
 QUESTIONS = [
@@ -73,6 +75,25 @@ def main() -> None:
     w("\n## V14 특화 기능 ② 진화 안내 — 이브이")
     e = evolution_guide.guide(133)
     show(e)
+
+    w("\n## V19 자유 질문 — 포켓몬을 고르지 않고 묻기")
+    for q, truth in [("1세대에서 가장 무거운 포켓몬은?", "잠만보 460kg"),
+                     ("고스트 타입 기술은 에스퍼 타입에게 효과가 어때?", "현재 2배, 1세대 0배"),
+                     ("피카츄와 꼬부기 중 누가 더 빨라?", "피카츄(스피드 90) > 꼬부기(43)")]:
+        w(f"\n### {q}  (데이터 기준 정답: {truth})")
+        r = run(None, q)
+        w(f"- 질문에서 찾은 포켓몬: {[m['name_ko'] for m in r['matched']] if r['matched'] else '없음 → 범위 제한 없이 검색'}")
+        show(r)
+
+    w("\n## V20 자유 질문 문서가 포켓몬별 검색에 섞이지 않음")
+    reg_free = load_registry()["docs"].get("free", {})
+    leaks = 0
+    for pid in (1, 6, 25, 94, 133, 143, 150):
+        for st in ("similarity", "mmr"):
+            for q in [d["title"] for d in reg_free.values()][:3] or ["포켓몬"]:
+                ids = [e["id"] for e in retrieve(pid, q, top_k=8, search_type=st)]
+                leaks += sum(1 for i in ids if i.split(":")[0] not in (str(pid), "shared", "pkm"))
+    w(f"- 자유 질문 문서 {len(reg_free)}개의 제목으로 포켓몬 7마리 × 유사도·MMR 검색 → 다른 칸 문서가 섞인 수: {leaks}")
 
     w("\n## V18 처리 시간 (NF2001) — 첫 질문 / 재질문 (ms)")
     w("| 질문 | 첫 질문 | 재질문 |")

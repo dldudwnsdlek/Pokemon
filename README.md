@@ -47,6 +47,7 @@ streamlit run streamlit_app.py      # 필수 기능 확인용 간단 화면
 | F2007 | LangGraph `retrieve → generate` 두 노드, 근거만으로 답 (프롬프트 3) | `rag/graph.py` |
 | F2008 | 답변 속 `[근거 n]`을 찾아 실제 인용된 근거만 표시, 없으면 안내 | `rag/citations.py` |
 | F2009 | 포켓몬 선택 + 포켓몬별로 따로 저장되는 대화 기록 | `web/js/state.js`, `streamlit_app.py` |
+| F2009-1 | **자유 질문**: 포켓몬을 고르지 않고도 질문. 질문에 포켓몬 이름이 있으면 그 포켓몬의 자료로 답함 (화면을 열면 자유 질문으로 시작) | `rag/graph.py`, `data_prep/name_match.py` |
 | F2010 | 특화 기능 2개: **배틀 상성 코치**, **진화 안내** | `features/battle_coach.py`, `features/evolution_guide.py` |
 | F2011 | 조건 기반 탐색 ("물 타입인데 100kg 넘는 포켓몬") | `features/finder.py`, `data_prep/finder_terms.py` |
 | F2012 | 진행 상태 표시, 색인 없음·키 없음·결과 없음 안내 | `web/js/ui.js`, `services/errors.py` |
@@ -58,7 +59,7 @@ streamlit run streamlit_app.py      # 필수 기능 확인용 간단 화면
 | F2013 | 직접 만든 화면 | 순수 HTML·CSS·JavaScript(`web/`) + FastAPI 서버(`api/server.py`). 요청·응답 형식은 `docs/rag_design.md` 8장 |
 | F2014 | MMR 검색 | `config.yaml`의 `retrieval.search_type: mmr`로 전환. 화면의 "근거 비교: 유사도 · MMR" 버튼, `scripts/compare_search.py` |
 | F2015 | RAG 전후 비교 | `python -m scripts.compare_rag` → `docs/rag_comparison.md` |
-| F2016 | 여러 종류 출처 결합 | 위키백과(서술형) + PokéAPI 구조화 문서(타입 상성 18개·진화 계통 78개). 근거마다 출처 종류 도장 표시 |
+| F2016 | 여러 종류 출처 결합 | 위키백과(서술형) + PokéAPI 구조화 문서(타입 상성 18개·진화 계통 78개·1세대 순위 9개). 근거마다 출처 종류 도장 표시 |
 
 ## 3. 데이터 준비와 색인 절차
 
@@ -68,7 +69,7 @@ streamlit run streamlit_app.py      # 필수 기능 확인용 간단 화면
    키는 ÷10 해서 m, 몸무게는 ÷10 해서 kg로 바꿉니다.
 2. **구조화 문서 만들기** — 같은 스크립트가 타입 상성 18개(`data/type_docs.json`), 진화 계통 78개(`data/evolution_docs.json`)를 문장으로 바꿔 저장합니다. 1세대 때 상성(예: 고스트 → 에스퍼 "효과 없음")도 함께 적습니다.
 3. **색인** — `python -m scripts.build_index`
-   `pokemon_meta`에 151청크(포켓몬 1마리 = 1청크, ID `pkm:6`), `pokemon_docs`에 구조화 문서 96청크(ID `shared:type-ghost:0`)를 넣습니다.
+   `pokemon_meta`에 151청크(포켓몬 1마리 = 1청크, ID `pkm:6`), `pokemon_docs`에 구조화 문서 105청크(타입 18 + 진화 78 + 순위 9, ID `shared:type-ghost:0`)를 넣습니다.
 4. **위키백과는 질문할 때 모읍니다.** 질문마다 검색어를 뽑고, 필요한 문서만 골라 `pokemon_docs`에 더합니다(ID `133:2514891:0`).
 5. 청크 크기를 바꿔 다시 색인: `config.yaml` 수정 → `python -m scripts.build_index --reset-docs` (바꾸기 전·후 청크 수 출력)
 
@@ -101,7 +102,8 @@ python -m scripts.compare_rag                # RAG 전후 비교 → docs/rag_co
 
 - 컨셉은 **"관동지방 포켓몬 연구소 책상 위에 펼쳐진 연구노트"**입니다. 대화는 연구 기록, 근거는 테이프로 붙인 참고 카드, 조건 탐색 결과는 도감 색인 카드입니다.
 - **다크 모드는 만들지 않았습니다.** 종이 노트라는 세계관을 지키기 위한 선택입니다.
-- 운영체제의 "동작 줄이기"를 켜면 풀숲 포켓몬이 걷지 않고 제자리에 서 있습니다. "풀숲 멈추기" 버튼으로도 멈출 수 있습니다.
+- 풀숲 포켓몬은 열 때마다 무작위로 나오고, 20~40초마다 1마리씩 화면 끝으로 나가면 새 친구가 반대쪽이나 같은 쪽 끝에서 들어옵니다. 같은 줄에서 마주치면 가끔 멈춰 "!" 하고 지나갑니다. 전설·환상의 포켓몬은 직접 골랐을 때만 나옵니다.
+- 운영체제의 "동작 줄이기"를 켜면 풀숲 포켓몬이 걷지 않고 제자리에 서 있고, 교대도 하지 않습니다. "풀숲 멈추기" 버튼으로도 멈출 수 있습니다.
 
 ## 6. 폴더 구조
 

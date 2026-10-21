@@ -22,7 +22,9 @@ QUESTIONS = [
     ("Q7", 25, "피카츄의 꼬리 길이는 몇 cm야?", "자료에 없음 → 확인되지 않는다고 답해야 함"),
 ]
 
-UNKNOWN_MARKERS = ["확인되지 않", "알 수 없", "모르", "자료에 없", "정보가 없"]
+STALE_NOTE = "> ⚠ 아래 판정은 이전 실행 기준입니다. 위 표의 새 답변과 다시 대조해 고쳐 주세요."
+
+UNKNOWN_MARKERS =["확인되지 않", "알 수 없", "모르", "자료에 없", "정보가 없"]
 
 
 def says_unknown(text: str) -> str:
@@ -70,7 +72,15 @@ def main() -> None:
         "- RAG로도 부족했던 점과 원인:",
     ]
     out = settings.path("docs", "rag_comparison.md")
-    out.write_text("\n".join(doc) + "\n", encoding="utf-8")
+    # 사람이 쓴 '정리' 판정은 다시 실행해도 지우지 않는다. 대신 새 답변과 다시 대조하라고 표시한다.
+    old = out.read_text(encoding="utf-8") if out.exists() else ""
+    marker = "## 정리"
+    if marker in old and "(사람이 작성)" not in old.split(marker, 1)[1].splitlines()[0]:
+        kept = old.split(marker, 1)[1]
+        kept = kept.replace(STALE_NOTE + "\n\n", "")
+        doc = doc[:doc.index("## 정리 (사람이 작성)")] + [marker + kept.split("\n", 1)[0], "",
+                                                       STALE_NOTE, "", kept.split("\n", 1)[1].lstrip("\n")]
+    out.write_text("\n".join(doc).rstrip() + "\n", encoding="utf-8")
     print(f"저장: docs/{out.name}")
 
 
