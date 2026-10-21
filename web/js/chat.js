@@ -161,6 +161,9 @@ export function renderRecords() {
         el("button", { type: "button", onclick: () => { const i = document.getElementById("askInput"); i.value = q; i.focus(); } }, q)))));
   } else {
     box.replaceChildren(...list.map(recordView));
+    // 최신 기록이 보이게 (오른쪽 참고 카드도 최신 답의 것)
+    const sheet = box.closest(".sheet");
+    requestAnimationFrame(() => { sheet.scrollTop = sheet.scrollHeight; });
   }
   renderRefs();
 }

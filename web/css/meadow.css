@@ -19,12 +19,16 @@
   pointer-events: none;
   background: url("../assets/grass-front.svg") repeat-x left bottom / 96px 28px;
 }
-.meadow-note {
+.meadow-note { /* 풀숲 앞에 꽂아 둔 종이 쪽지 */
   position: absolute;
-  top: 2px; left: var(--s4);
+  top: var(--s1); left: var(--s4);
   z-index: 1;
   font-size: 20px;
   color: var(--ink-soft);
+  background: var(--paper);
+  border: 1px solid var(--pencil);
+  padding: 0 var(--s2);
+  transform: rotate(-1.5deg);
 }
 .meadow-pause {
   position: absolute;

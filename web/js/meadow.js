@@ -208,7 +208,9 @@ function startLoop() {
 
 // ---------- 포켓몬 만들기·없애기 ----------
 function personality(id) {
-  const r = mulberry32(id * 9973 + 7);
+  // 번호가 가까워도 개성이 비슷해지지 않도록 씨앗을 잘 섞는다
+  const r = mulberry32(Math.imul(id, 2654435761) ^ 0x5bd1e995);
+  r();
   return {
     speed: between(r, 28, 55),
     breath: 2.4 * between(r, 0.8, 1.2),
