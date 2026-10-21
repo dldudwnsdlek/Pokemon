@@ -1,0 +1,171 @@
+/* 도감 기계 (B안): 노트 옆에 놓인 빨간 도감의 왼쪽 판.
+   사진을 붙이지 않고 모양·색만 CSS로 다시 그린다 (공식 그림 저작권). */
+.pokedex {
+  flex: none;
+  margin: 0 var(--s3) var(--s3);
+  padding: var(--s3) var(--s3) var(--s3);
+  background: var(--dex-red);
+  border: 2px solid var(--ink);
+  border-radius: 10px 10px 10px 18px; /* 기계 몸체는 둥근 모서리 예외 */
+  box-shadow: var(--shadow);
+}
+
+/* ---------- 윗부분: 큰 렌즈 + 불 3개 ---------- */
+.pd-top { display: flex; align-items: flex-start; gap: var(--s3); }
+.pd-lens {
+  flex: none;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: radial-gradient(circle at 34% 32%, #fff 0 12%, var(--lens-light) 13% 26%, var(--lens) 27%);
+  box-shadow: 0 0 0 4px var(--bezel), 0 0 0 6px var(--ink);
+  margin: 6px 0 0 6px;
+}
+.pd-lens.thinking { animation: lens-think 1.2s ease-in-out infinite; }
+.pd-lens.flash { animation: lens-flash 0.6s ease-out; }
+@keyframes lens-think {
+  50% { background: radial-gradient(circle at 34% 32%, #fff 0 16%, var(--lens-light) 17% 60%, var(--lens) 61%);
+        box-shadow: 0 0 0 4px var(--bezel), 0 0 0 6px var(--ink), 0 0 14px 8px var(--lens-light); }
+}
+@keyframes lens-flash {
+  30% { box-shadow: 0 0 0 4px var(--bezel), 0 0 0 6px var(--ink), 0 0 18px 10px #fff; }
+}
+
+.pd-leds { display: flex; gap: 6px; margin-top: 4px; }
+.led {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  background: var(--led-off);
+}
+.led.on[data-led="server"] { background: var(--led-red); }
+.led.on[data-led="index"] { background: var(--led-yellow); }
+.led.on[data-led="key"] { background: var(--led-green); }
+.led.on { box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.55); }
+.led.warn { animation: led-warn 1s steps(2, jump-none) infinite; }
+@keyframes led-warn { 50% { background: var(--paper); } }
+
+/* 렌즈 아래 계단 모양 홈 선 (사진의 검은 선) */
+.pd-groove { display: block; width: 100%; height: 12px; margin: var(--s2) 0; }
+.pd-groove polyline { fill: none; stroke: var(--ink); stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+
+/* ---------- 흰 테두리 화면 ---------- */
+.pd-bezel {
+  position: relative;
+  padding: 14px 14px 12px;
+  background: var(--bezel);
+  border: 2px solid var(--ink);
+  border-radius: 4px 4px 4px 18px;
+}
+.pd-bezel-dots { /* 화면 위 작은 빨간 점 두 개 */
+  position: absolute;
+  top: 4px; left: 50%;
+  width: 4px; height: 4px; margin-left: -6px;
+  border-radius: 50%;
+  background: var(--dex-red);
+  box-shadow: 8px 0 0 var(--dex-red);
+}
+.pd-screen {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+  height: clamp(108px, 14vh, 140px);
+  padding: var(--s1);
+  background: var(--screen);
+  border: 2px solid var(--ink);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.pd-screen img { image-rendering: pixelated; display: block; max-width: 100%; max-height: 100%; }
+.pd-screen .placeholder { font-family: var(--font-label); font-size: 11px; }
+.pd-sprite { display: grid; place-items: end center; min-height: 0; height: 100%; width: 100%; }
+.pd-types { display: flex; justify-content: center; min-height: 18px; }
+.pd-types .type-badge { margin: 0 2px; }
+.pd-unknown { /* 자유 질문: 물음표 실루엣 */
+  font-family: var(--font-label);
+  font-size: 44px;
+  line-height: 1;
+  color: var(--pencil);
+  align-self: center;
+}
+.pd-screen.swap .pd-sprite { animation: pd-swap 0.25s steps(3, end); }
+/* 화면이 바뀔 때 잠깐 밝게 번쩍 (투명도로 하면 멈췄을 때 그림이 사라지므로 밝기로) */
+@keyframes pd-swap { from { filter: brightness(1.9); } }
+
+/* ---------- 아랫부분: 초록 작은 화면 + 십자키 ---------- */
+.pd-bottom { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin-top: var(--s3); }
+.pd-lcd {
+  flex: 1;
+  min-width: 0;
+  padding: 2px var(--s2);
+  background: var(--lcd);
+  color: var(--lcd-ink);
+  border: 2px solid var(--ink);
+  border-radius: 3px;
+  font-family: var(--font-label-14);
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 액정 가로줄 */
+  background-image: repeating-linear-gradient(transparent 0 2px, rgba(30, 51, 22, 0.08) 2px 3px);
+}
+.pd-lcd small { display: block; font-size: 14px; line-height: 1.3; opacity: 0.7; }
+
+.pd-dpad {
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(3, 16px);
+  grid-template-rows: repeat(3, 16px);
+  grid-template-areas: ". up ." "left hub right" ". down .";
+}
+.pd-dpad button {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  background: var(--ink);
+  cursor: pointer;
+}
+.pd-dpad .up { grid-area: up; border-radius: 3px 3px 0 0; }
+.pd-dpad .down { grid-area: down; border-radius: 0 0 3px 3px; }
+.pd-dpad .left { grid-area: left; border-radius: 3px 0 0 3px; }
+.pd-dpad .right { grid-area: right; border-radius: 0 3px 3px 0; }
+.pd-dpad .hub { grid-area: hub; background: var(--ink); }
+.pd-dpad button::before { /* 작은 세모 */
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  border: 4px solid transparent;
+  transform: translate(-50%, -50%);
+}
+.pd-dpad .up::before { border-bottom-color: var(--pencil); margin-top: -2px; }
+.pd-dpad .down::before { border-top-color: var(--pencil); margin-top: 2px; }
+.pd-dpad .left::before { border-right-color: var(--pencil); margin-left: -2px; }
+.pd-dpad .right::before { border-left-color: var(--pencil); margin-left: 2px; }
+.pd-dpad button:hover::before, .pd-dpad button:active::before { filter: brightness(1.8); }
+.pd-dpad button:active { transform: translateY(1px); }
+.pd-dpad button:focus-visible { outline: 2px dashed var(--paper); outline-offset: 1px; }
+
+/* 상단 띠의 작은 불 3개: 도감 기계가 서랍에 숨는 좁은 화면에서만 */
+.pd-leds.mini { display: none; margin: 0; gap: 4px; align-self: center; }
+.pd-leds.mini .led { width: 10px; height: 10px; }
+
+/* 키가 낮은 화면: 목록이 너무 좁아지지 않게 기계를 줄인다 */
+@media (max-height: 760px) {
+  .pokedex { padding: var(--s2); }
+  .pd-lens { width: 28px; height: 28px; margin: 4px 0 0 4px; }
+  .pd-groove { margin: var(--s1) 0; }
+  .pd-screen { height: 92px; }
+}
+@media (max-width: 900px) {
+  .pd-leds.mini { display: flex; margin-left: auto; }
+  .topbar .status-tag { margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* 동작 줄이기: 깜빡임 없이 색만 바꾼다 */
+  .pd-lens.thinking, .pd-lens.flash, .led.warn, .pd-screen.swap .pd-sprite { animation: none; }
+  .pd-lens.thinking { background: radial-gradient(circle at 34% 32%, #fff 0 16%, var(--lens-light) 17%); }
+  .led.warn { background: var(--paper); }
+}

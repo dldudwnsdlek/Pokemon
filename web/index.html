@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/meadow.css">
+  <link rel="stylesheet" href="css/pokedex.css">
 </head>
 <body>
   <div class="app">
@@ -22,11 +23,42 @@
       <button class="drawer-btn" id="drawerBtn" aria-controls="dex" aria-expanded="false">도감 색인</button>
       <h1 class="px22 title">이박사의 연구노트</h1>
       <span class="label px14 current" id="currentLabel"></span>
+      <span class="pd-leds mini" aria-hidden="true">
+        <span class="led" data-led="server"></span><span class="led" data-led="index"></span><span class="led" data-led="key"></span>
+      </span>
       <span class="label px14 status-tag" id="statusTag">연구노트를 펼치는 중…</span>
     </header>
 
     <!-- 왼쪽: 도감 색인 -->
     <aside class="dex" id="dex" aria-label="도감 색인">
+      <!-- 도감 기계: 고른 포켓몬 화면, 상태 불 3개, 생각 중 렌즈, 십자키 (그림 파일 없이 CSS로 그림) -->
+      <section class="pokedex" aria-label="도감 기계">
+        <div class="pd-top">
+          <span class="pd-lens" id="pdLens" aria-hidden="true"></span>
+          <span class="pd-leds" id="pdLeds" role="img" aria-label="연구소 상태 확인 중">
+            <span class="led" data-led="server" title="서버 연결"></span>
+            <span class="led" data-led="index" title="도감 색인"></span>
+            <span class="led" data-led="key" title="연구소 열쇠(API 키)"></span>
+          </span>
+        </div>
+        <svg class="pd-groove" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true">
+          <polyline points="0,10 52,10 66,2 100,2" />
+        </svg>
+        <div class="pd-bezel">
+          <span class="pd-bezel-dots" aria-hidden="true"></span>
+          <div class="pd-screen" id="pdScreen"></div>
+        </div>
+        <div class="pd-bottom">
+          <div class="pd-lcd" id="pdLcd" aria-live="polite"></div>
+          <div class="pd-dpad" role="group" aria-label="앞뒤 번호 포켓몬으로 넘기기">
+            <button type="button" class="up" data-step="-1" aria-label="이전 번호 포켓몬"></button>
+            <button type="button" class="left" data-step="-1" aria-label="이전 번호 포켓몬" tabindex="-1"></button>
+            <span class="hub" aria-hidden="true"></span>
+            <button type="button" class="right" data-step="1" aria-label="다음 번호 포켓몬" tabindex="-1"></button>
+            <button type="button" class="down" data-step="1" aria-label="다음 번호 포켓몬"></button>
+          </div>
+        </div>
+      </section>
       <label class="sr-only" for="dexSearch">포켓몬 이름이나 번호로 찾기</label>
       <input id="dexSearch" type="search" placeholder="이름·번호로 찾기" autocomplete="off">
       <ol class="dex-list" id="dexList"></ol>

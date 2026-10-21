@@ -3,6 +3,7 @@ import { api } from "./api.js";
 import { chainStrip, renderRecords, setAfterJob, setupPanes, showTab, updatePaneLocks } from "./chat.js";
 import { setupFinder } from "./finder.js";
 import { meadow } from "./meadow.js";
+import { pokedex } from "./pokedex.js";
 import { current, hasRecords, onSelect, selectPokemon, state } from "./state.js";
 import { el, hideNotice, showNotice, TEXT } from "./ui.js";
 
@@ -12,12 +13,14 @@ async function refreshStatus() {
   try {
     const s = await api.status();
     tag.textContent = `도감 ${s.meta_count} · 문서 ${s.collected_docs}`;
+    pokedex.status(s);
     if (s.meta_count === 0) showNotice("도감이 비어 있어요", TEXT.INDEX_EMPTY);
     else if (!s.api_key) showNotice("열쇠가 없어요", TEXT.API_KEY_MISSING);
     else hideNotice();
     return s;
   } catch (_) {
     tag.textContent = "서버 연결 없음";
+    pokedex.status(null);
     showNotice("서버가 꺼져 있어요", TEXT.serverDown);
     return null;
   }
@@ -98,6 +101,7 @@ async function main() {
 
   onSelect((id, changed) => {
     renderHeader();
+    if (changed || id === null) pokedex.show();
     renderDex(document.getElementById("dexSearch").value);
     renderRecords();
     renderEvoPreview();
@@ -120,6 +124,7 @@ async function main() {
   });
 
   meadow.init((id) => pick(id));
+  pokedex.init();
   selectPokemon(null); // 처음에는 포켓몬을 고르지 않은 자유 질문으로 시작
   showTab("chat");
 }

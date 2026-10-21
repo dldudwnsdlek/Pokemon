@@ -47,6 +47,7 @@
   align-items: center;
   padding: clamp(8px, 4vh, 48px) 0;
 }
+.welcome.solo { grid-template-columns: minmax(0, 1fr); }
 .welcome-mon { display: flex; flex-direction: column; align-items: center; gap: var(--s1); }
 .welcome-mon img, .welcome-mon .placeholder { width: clamp(140px, 14vw, 240px); height: auto; aspect-ratio: 1; image-rendering: pixelated; }
 .welcome-mon .placeholder { display: grid; place-items: center; border: 1.5px dashed var(--pencil); border-radius: 50%; }

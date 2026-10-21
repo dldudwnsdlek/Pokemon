@@ -1,6 +1,7 @@
 // 연구 기록(대화), 참고 카드, 배틀·진화 실행 (F2008~F2010, F2012, F2014)
 import { api, ApiError } from "./api.js";
 import { meadow } from "./meadow.js";
+import { pokedex } from "./pokedex.js";
 import { current, records, saveChats, selectPokemon, state } from "./state.js";
 import { el, errorText, formatTime, progressLog, showNotice, spriteImg, TEXT } from "./ui.js";
 
@@ -205,12 +206,13 @@ export function updatePaneLocks() {
 
 // 첫 화면: 대표 포켓몬 한 마리 + 짧은 시작 안내 + 예시 질문
 function welcomeView(p) {
-  const mon = p || state.byId.get(WELCOME_ID);
+  // 포켓몬을 골랐으면 그림은 왼쪽 도감 기계 화면에 있으므로 여기서는 빼서 겹치지 않게
+  const mon = p ? null : state.byId.get(WELCOME_ID);
   const fill = (q) => { const i = document.getElementById("askInput"); i.value = q; i.focus(); };
-  return el("div", { class: "welcome" },
+  return el("div", { class: `welcome${mon ? "" : " solo"}` },
     mon ? el("div", { class: "welcome-mon" },
       spriteImg(mon, { animated: false, size: 192 }),
-      el("span", { class: "pencil" }, `No.${mon.dex_no} ${mon.name_ko}`)) : el("span", {}),
+      el("span", { class: "pencil" }, `No.${mon.dex_no} ${mon.name_ko}`)) : null,
     el("div", {},
       el("h2", { class: "px22 underlined" }, p ? `${p.name_ko} 연구 노트` : TEXT.welcomeTitle),
       el("p", { class: "lead" }, p ? TEXT.emptyRecord : TEXT.freeEmpty),
@@ -247,6 +249,7 @@ async function runJob(kind, label, call, retryInfo) {
   renderRecords();
   progressLog.start();
   meadow.think(pokemonId);
+  pokedex.think();
 
   try {
     const result = await call((p) => progressLog.write(p.message));
@@ -257,6 +260,7 @@ async function runJob(kind, label, call, retryInfo) {
     });
     progressLog.fold(result.collected.indexed.length + result.collected.cached.length, result.elapsed_ms);
     meadow.greet(pokemonId);
+    pokedex.done(true);
     state.activeRecord = record;
   } catch (e) {
     const code = e instanceof ApiError ? e.code : "INTERNAL";
@@ -267,6 +271,7 @@ async function runJob(kind, label, call, retryInfo) {
     record.retry = retryInfo;
     progressLog.clear();
     meadow.droop(pokemonId);
+    pokedex.done(false);
   } finally {
     delete record.pending;
     state.busy = false;
