@@ -6,6 +6,10 @@ import { el } from "./ui.js";
 const PAUSE_KEY = "oak-meadow-paused";
 const EDGE = 24;          // 무대 양끝 여백
 const SPRITE_W = 96;      // 버튼 폭
+const ROTATE_EVERY = [20, 40];  // 몇 초마다 1마리가 나가고 새 친구가 들어오는지 (무작위 범위)
+const RECENT_MAX = 10;          // 최근 나간 포켓몬은 이만큼 다시 뽑지 않는다
+const MEET_CHANCE = 0.3;        // 같은 줄에서 마주쳤을 때 멈춰서 "!" 할 확률
+const MEET_COOLDOWN = 8;        // 한 번 만난 뒤 다시 만날 수 있기까지 (초)
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const narrow = window.matchMedia("(max-width: 900px)");
 
@@ -17,6 +21,8 @@ let visible = !document.hidden;
 let onScreen = true;
 let paused = storageGet(PAUSE_KEY) === "1";
 let onPick = () => {};
+let rotateIn = 0;         // 다음 교대까지 남은 시간 (애니메이션 루프 안에서 줄어든다 → 멈추면 같이 멈춤)
+const recent = [];        // 최근 풀숲을 떠난 포켓몬 번호
 
 // ---------- 고정 난수 (같은 씨앗이면 같은 결과) ----------
 function mulberry32(seed) {
@@ -33,15 +39,17 @@ function mulberry32(seed) {
 const between = (r, lo, hi) => lo + r() * (hi - lo);
 const rand = Math.random;
 
-// "오늘의 풀숲": 날짜를 씨앗으로 고른다. 전설·환상은 무작위로 나오지 않는다.
-function todaysFriends(count) {
-  const d = new Date();
-  const seed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
-  const r = mulberry32(seed);
-  const pool = state.pokemon.filter((p) => !p.is_legendary && !p.is_mythical).map((p) => p.id);
+// 새 친구 뽑기: 지금 풀숲에 있거나 최근 떠난 포켓몬은 빼고 무작위로. 전설·환상은 무작위로 나오지 않는다.
+function pickNewFriends(count) {
+  const taken = new Set([...critters.map((c) => c.id), ...recent]);
+  const pool = state.pokemon.filter((p) => !p.is_legendary && !p.is_mythical && !taken.has(p.id)).map((p) => p.id);
   const picked = [];
-  while (picked.length < count && pool.length) picked.push(pool.splice(Math.floor(r() * pool.length), 1)[0]);
+  while (picked.length < count && pool.length) picked.push(pool.splice(Math.floor(rand() * pool.length), 1)[0]);
   return picked;
+}
+
+function resetRotation() {
+  rotateIn = between(rand, ...ROTATE_EVERY);
 }
 
 function capacity() {
@@ -89,6 +97,7 @@ function setState(c, next, opts = {}) {
   if (next === "turn") { c.dir *= -1; c.dur = 0.3; }
   if (next === "greet") { c.dur = 0.8; showBubble(c, "!"); }
   if (next === "think") showBubble(c, "think");
+  if (next === "meet") { c.dur = 0.9; showBubble(c, "!"); }
   if (next === "enter" || next === "leave") {
     c.target = opts.target;
     c.dir = c.target > c.x ? 1 : -1;
@@ -111,12 +120,22 @@ function nextAfterIdle(c) {
   return "walk";
 }
 
-// 두 포켓몬이 같은 줄에서 40px 안으로 다가오면 늦게 출발한 쪽이 돌아선다
+// 두 포켓몬이 같은 줄에서 40px 안으로 다가오면 늦게 출발한 쪽이 돌아선다.
+// 서로 마주 보고 걸어오던 중이면 가끔 둘 다 멈춰 "!" 하고 반대로 걸어간다 (만남).
 function checkBump(c) {
   for (const o of critters) {
     if (o === c || o.lane !== c.lane || o.state === "leave" || o.state === "enter") continue;
     const dx = o.x - c.x;
     if (Math.abs(dx) < 40 && Math.sign(dx) === c.dir) {
+      const facing = o.state === "walk" && o.dir === -c.dir;
+      if (facing && !c.meetCooldown && !o.meetCooldown && !o.hovered && rand() < MEET_CHANCE) {
+        for (const x of [c, o]) {
+          x.dir = x === c ? Math.sign(dx) : -Math.sign(dx); // 서로 마주 보기
+          x.meetCooldown = MEET_COOLDOWN;
+          setState(x, "meet");
+        }
+        return true;
+      }
       if (o.state !== "walk" || (c.walkStarted || 0) >= (o.walkStarted || 0)) {
         setState(c, "turn");
         return true;
@@ -169,10 +188,15 @@ function updateCritter(c, dt) {
       break;
     case "think":
       break; // 답이 올 때까지 멈춰서 "…"
+    case "meet":
+      // 마주 보고 멈춤 → 상대 반대쪽으로 걸어감
+      if (c.t >= c.dur) setState(c, "walk", { target: c.x - c.dir * between(rand, 80, 200) });
+      break;
     default:
       break;
   }
   if (c.droop > 0) c.droop = Math.max(0, c.droop - dt);
+  if (c.meetCooldown) c.meetCooldown = Math.max(0, c.meetCooldown - dt);
   // 목표가 무대 밖으로 밀렸을 때(창 크기 변경) 안쪽으로
   if (c.state === "walk") c.target = Math.min(Math.max(c.target, EDGE), Math.max(EDGE, width() - EDGE - SPRITE_W));
 }
@@ -193,7 +217,22 @@ function tick(now) {
     updateCritter(c, dt);
     if (critters.includes(c)) renderCritter(c);
   }
+  if (!reduceMotion.matches) { // 동작 줄이기 설정이면 교대하지 않는다
+    rotateIn -= dt;
+    if (rotateIn <= 0) { rotate(); resetRotation(); }
+  }
   rafId = running() ? requestAnimationFrame(tick) : 0;
+}
+
+// 교대: 1마리가 가까운 쪽 끝으로 걸어 나가고, 새 친구 1마리가 왼쪽이나 오른쪽 끝에서 들어온다
+function rotate() {
+  const canLeave = critters.filter((c) => ["idle", "walk", "hop"].includes(c.state)
+    && c.id !== state.selectedId && !c.hovered);
+  if (!canLeave.length) return;
+  const leaver = canLeave[Math.floor(rand() * canLeave.length)];
+  setState(leaver, "leave", { target: leaver.x < width() / 2 ? -SPRITE_W - 20 : width() + 20 });
+  const [next] = pickNewFriends(1);
+  if (next) spawn(next, { entering: true, side: rand() < 0.5 ? "left" : "right" });
 }
 
 function running() {
@@ -233,7 +272,7 @@ function loadSprite(p) {
   });
 }
 
-async function spawn(id, { entering = false } = {}) {
+async function spawn(id, { entering = false, side = "right" } = {}) {
   const p = state.byId.get(id);
   if (!p || critters.some((c) => c.id === id)) return null;
   const img = await loadSprite(p);
@@ -250,10 +289,12 @@ async function spawn(id, { entering = false } = {}) {
   }, shadow, body, el("span", { class: "tag" }, `No.${p.dex_no} ${p.name_ko}`), bubble);
   node.style.zIndex = String(persona.lane + 1); // 앞 줄일수록 위에
 
+  const fromLeft = entering && side === "left";
+  const startX = !entering ? between(rand, EDGE, Math.max(EDGE + 1, width() - EDGE - SPRITE_W))
+    : fromLeft ? -SPRITE_W - 10 : width() + 10;
   const c = {
     id, el: node, body, shadow, bubble, ...persona,
-    x: entering ? width() + 10 : between(rand, EDGE, Math.max(EDGE + 1, width() - EDGE - SPRITE_W)),
-    dir: -1, state: "idle", t: 0, dur: 0, stride: 0, lift: 0, droop: 0, bornAt: performance.now(),
+    x: startX, dir: -1, state: "idle", t: 0, dur: 0, stride: 0, lift: 0, droop: 0, bornAt: performance.now(),
   };
   node.addEventListener("mouseenter", () => { c.hovered = true; });
   node.addEventListener("mouseleave", () => { c.hovered = false; });
@@ -264,10 +305,13 @@ async function spawn(id, { entering = false } = {}) {
   });
   critters.push(c);
   stage.append(node);
+  // 들어온 쪽 절반 안의 한 곳까지 걸어 들어온다
+  const landing = fromLeft ? between(rand, EDGE, width() * 0.45)
+    : between(rand, width() * 0.55, Math.max(width() * 0.55 + 1, width() - EDGE - SPRITE_W));
   if (entering && !reduceMotion.matches && !paused) {
-    setState(c, "enter", { target: between(rand, width() * 0.55, width() - EDGE - SPRITE_W) });
+    setState(c, "enter", { target: landing });
   } else {
-    if (entering) c.x = between(rand, width() * 0.55, Math.max(width() * 0.55 + 1, width() - EDGE - SPRITE_W));
+    if (entering) c.x = landing;
     setState(c, "idle");
   }
   renderCritter(c);
@@ -278,6 +322,8 @@ async function spawn(id, { entering = false } = {}) {
 function remove(c) {
   c.el.remove();
   critters.splice(critters.indexOf(c), 1);
+  recent.push(c.id); // 방금 떠난 친구는 한동안 다시 뽑지 않는다
+  if (recent.length > RECENT_MAX) recent.shift();
 }
 
 function find(id) {
@@ -310,7 +356,8 @@ export const meadow = {
     document.addEventListener("visibilitychange", () => { visible = !document.hidden; startLoop(); });
     new IntersectionObserver(([entry]) => { onScreen = entry.isIntersecting; startLoop(); })
       .observe(document.getElementById("meadow"));
-    for (const id of todaysFriends(capacity())) spawn(id);
+    for (const id of pickNewFriends(capacity())) spawn(id); // 열 때마다 무작위로
+    resetRotation();
   },
 
   // 도감 색인이나 탐색 카드에서 고르면: 오른쪽 끝에서 걸어 들어온다 (이미 있으면 그 자리에서 깡충)
