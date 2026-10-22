@@ -5,7 +5,7 @@ import { setupFinder } from "./finder.js";
 import { meadow } from "./meadow.js";
 import { pokedex } from "./pokedex.js";
 import { current, hasRecords, onSelect, selectPokemon, state } from "./state.js";
-import { el, errorText, hideNotice, showNotice, TEXT } from "./ui.js";
+import { el, errorText, hideNotice, progressLog, showNotice, TEXT } from "./ui.js";
 
 // 상단 오른쪽 라벨: "도감 151 · 문서 12" (F2002)
 async function refreshStatus() {
@@ -106,6 +106,8 @@ async function main() {
 
   onSelect((id, changed) => {
     renderHeader();
+    // 이전 포켓몬의 "문서 n개 참고 · n초" 줄이 새 노트에 남지 않게 (답을 찾는 중이면 그대로)
+    if (changed && !state.busy) progressLog.clear();
     if (changed || id === null) pokedex.show();
     renderDex(document.getElementById("dexSearch").value);
     renderRecords();

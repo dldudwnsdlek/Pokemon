@@ -18,6 +18,7 @@ export function showTab(name) {
   for (const t of document.querySelectorAll(".tab")) t.setAttribute("aria-selected", String(t.dataset.tab === name));
   for (const p of document.querySelectorAll(".pane")) p.hidden = p.dataset.pane !== name;
   document.getElementById("askForm").hidden = name !== "chat";
+  renderRefs();
 }
 
 // ---------- 답변 본문: [근거 n] → 작은 원 안의 숫자 ----------
@@ -76,6 +77,11 @@ function markCard(record, no, on) {
 
 export function renderRefs() {
   const box = document.getElementById("refCards");
+  // 찾기 탭에서는 이전 답의 근거가 탐색 결과의 근거처럼 보이지 않게 안내만
+  if (!document.querySelector('.pane[data-pane="find"]').hidden) {
+    box.replaceChildren(el("p", { class: "pencil small" }, TEXT.findRefs));
+    return;
+  }
   const list = records().filter((r) => r.answer);
   const rec = state.activeRecord && list.includes(state.activeRecord) ? state.activeRecord : list.at(-1);
   state.activeRecord = rec || null;
