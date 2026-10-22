@@ -29,6 +29,11 @@ collect:
 finder:
   candidates: 15               # 조건 탐색 후보 수
 
+play:                          # 연구소 놀이터 (대화하기·성격 테스트)
+  talk_temperature: 0.8        # 포켓몬 말투는 조금 자유롭게
+  talk_history_turns: 8        # 대화하기에서 AI에게 다시 보여줄 최근 말 수
+  persona_temperature: 0.7     # 같은 답에도 결과가 조금씩 달라지게
+
 http:
   request_interval_sec: 1.0
   max_retries: 3

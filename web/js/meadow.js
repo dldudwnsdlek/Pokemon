@@ -1,7 +1,8 @@
 // 돌아다니는 포켓몬 (가이드 10장). 장식이 아니라 포켓몬을 고르는 또 하나의 방법이다.
 // 포켓몬 1마리 = <button class="critter"> 안에 <img> 1개. 위치는 transform으로만 바꾼다.
+import { catchChance, collection } from "./collection.js";
 import { state, storageGet, storageSet } from "./state.js";
-import { el } from "./ui.js";
+import { el, josa } from "./ui.js";
 
 const PAUSE_KEY = "oak-meadow-paused";
 const EDGE = 24;          // 무대 양끝 여백
@@ -23,6 +24,9 @@ let paused = storageGet(PAUSE_KEY) === "1";
 let onPick = () => {};
 let rotateIn = 0;         // 다음 교대까지 남은 시간 (애니메이션 루프 안에서 줄어든다 → 멈추면 같이 멈춤)
 const recent = [];        // 최근 풀숲을 떠난 포켓몬 번호
+let catching = false;     // 몬스터볼 모드: 포켓몬을 누르면 고르는 대신 볼을 던진다
+let throwing = false;     // 볼이 날아가는 동안에는 한 번만
+let toastTimer = 0;
 
 // ---------- 고정 난수 (같은 씨앗이면 같은 결과) ----------
 function mulberry32(seed) {
@@ -190,6 +194,8 @@ function updateCritter(c, dt) {
       break;
     case "think":
       break; // 답이 올 때까지 멈춰서 "…"
+    case "caught":
+      break; // 볼 안에 들어가 결과를 기다리는 중
     case "meet":
       // 마주 보고 멈춤 → 상대 반대쪽으로 걸어감
       if (c.t >= c.dur) setState(c, "walk", { target: c.x - c.dir * between(rand, 80, 200) });
@@ -287,7 +293,7 @@ async function spawn(id, { entering = false, side = "right" } = {}) {
   const node = el("button", {
     class: `critter${persona.lane === 0 ? " back" : ""}`,
     type: "button",
-    "aria-label": `No.${p.dex_no} ${p.name_ko} 선택하기`,
+    "aria-label": critterLabel(p),
   }, shadow, body, el("span", { class: "rustle", "aria-hidden": "true" }),
   el("span", { class: "tag" }, `No.${p.dex_no} ${p.name_ko}`), bubble);
   node.style.zIndex = String(persona.lane + 1); // 앞 줄일수록 위에
@@ -302,6 +308,7 @@ async function spawn(id, { entering = false, side = "right" } = {}) {
   node.addEventListener("mouseenter", () => { c.hovered = true; });
   node.addEventListener("mouseleave", () => { c.hovered = false; });
   node.addEventListener("click", () => {
+    if (catching) { throwBall(c); return; }
     if (c.state !== "think") setState(c, "greet");
     renderCritter(c);
     onPick(id);
@@ -330,18 +337,112 @@ function remove(c) {
 }
 
 function find(id) {
-  return critters.find((c) => c.id === id && c.state !== "leave");
+  return critters.find((c) => c.id === id && c.state !== "leave" && c.state !== "caught");
 }
 
 // 가장 오래 머문 1마리가 반대쪽(왼쪽) 끝으로 걸어 나가 수를 유지한다
 function keepCount(exceptId) {
   const staying = critters.filter((c) => c.state !== "leave");
   if (staying.length <= capacity()) return;
-  const oldest = staying.filter((c) => c.id !== exceptId && c.id !== state.selectedId)
+  const oldest = staying.filter((c) => c.id !== exceptId && c.id !== state.selectedId && c.state !== "caught")
     .sort((a, b) => a.bornAt - b.bornAt)[0];
   if (!oldest) return;
   if (reduceMotion.matches || paused) remove(oldest);
   else setState(oldest, "leave", { target: -SPRITE_W - 20 });
+}
+
+// ---------- 몬스터볼 (잡기) ----------
+function critterLabel(p) {
+  return `No.${p.dex_no} ${p.name_ko} ${catching ? "잡기" : "선택하기"}`;
+}
+
+function setCatching(on) {
+  catching = on;
+  const btn = document.getElementById("ballBtn");
+  btn.setAttribute("aria-pressed", String(on));
+  btn.querySelector(".ball-text").textContent = on ? "그만 던지기" : "몬스터볼";
+  document.getElementById("meadow").classList.toggle("catching", on);
+  document.getElementById("meadowNote").textContent = on ? "잡고 싶은 친구를 눌러요!" : "오늘 풀숲에서 본 친구들";
+  for (const c of critters) c.el.setAttribute("aria-label", critterLabel(state.byId.get(c.id)));
+}
+
+function toast(text) {
+  const box = document.getElementById("meadowToast");
+  box.textContent = text;
+  box.classList.add("show"); // 화면 읽기 프로그램이 읽도록 칸은 늘 두고 글자만 바꾼다
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { box.classList.remove("show"); box.textContent = ""; }, 3200);
+}
+
+const play = (node, frames, opts) => node.animate(frames, { fill: "forwards", ...opts }).finished;
+const wait = (ms) => new Promise((r) => { setTimeout(r, ms); });
+
+// 볼이 날아가 포켓몬을 빨아들이고 → 땅에 떨어져 흔들리고 → 찰칵 또는 펑
+async function ballFlight(c, wobbles, success) {
+  const ball = el("span", { class: "ball", "aria-hidden": "true" });
+  stage.append(ball);
+  const x0 = width() / 2 - 12;
+  const x1 = c.x + SPRITE_W / 2 - 12;
+  const top = laneY(c.lane) - 44;   // 포켓몬 몸 가운데쯤
+  const ground = laneY(c.lane) - 8; // 그림자 자리
+  const at = (x, y, deg = 0) => `translate(${x}px, ${y}px) rotate(${deg}deg)`;
+  try {
+    await play(ball, [{ transform: at(x0, 40) }, { transform: at((x0 + x1) / 2, top - 70, 360) },
+      { transform: at(x1, top, 720) }], { duration: 600, easing: "ease-out" });
+    ball.classList.add("open");
+    await play(c.body, [{ opacity: 1 }, { opacity: 0, transform: "translateY(-30px) scale(0.1)" }], { duration: 260 });
+    c.body.style.visibility = "hidden";
+    ball.classList.remove("open");
+    await play(ball, [{ transform: at(x1, top) }, { transform: at(x1, ground) }, { transform: at(x1, ground - 10) },
+      { transform: at(x1, ground) }], { duration: 420, easing: "ease-in" });
+    for (let i = 0; i < wobbles; i += 1) {
+      await wait(280);
+      await play(ball, [{ transform: at(x1, ground) }, { transform: at(x1, ground, -22) }, { transform: at(x1, ground, 16) },
+        { transform: at(x1, ground) }], { duration: 520, easing: "ease-in-out" });
+    }
+    await wait(300);
+    if (success) {
+      ball.append(el("span", { class: "ball-click" }, "찰칵!"));
+      await wait(900);
+      await play(ball, [{ opacity: 1 }, { opacity: 0 }], { duration: 300 });
+    } else {
+      ball.classList.add("open");
+      c.body.style.visibility = "";
+      c.body.getAnimations().forEach((a) => a.cancel());
+      await play(ball, [{ opacity: 1 }, { opacity: 0, transform: `${at(x1, ground)} scale(1.5)` }], { duration: 220 });
+    }
+  } finally {
+    ball.remove();
+  }
+}
+
+async function throwBall(c) {
+  if (throwing || ["leave", "enter", "caught", "think"].includes(c.state)) return; // 답을 찾는 중인 친구는 못 잡는다
+  const p = state.byId.get(c.id);
+  const success = rand() < catchChance(p);
+  const wobbles = success ? 3 : Math.floor(rand() * 3); // 놓칠 때는 0~2번 흔들리다 튀어나온다
+  throwing = true;
+  setState(c, "caught");
+  renderCritter(c);
+  try {
+    // 동작 줄이기·풀숲 멈추기에서는 볼이 날아가지 않고 결과만 알려 준다
+    if (!reduceMotion.matches && !paused) await ballFlight(c, wobbles, success);
+  } finally {
+    throwing = false;
+  }
+  const name = p.name_ko;
+  if (success) {
+    remove(c);
+    const first = collection.add(c.id);
+    toast(first ? `신난다! ${josa(name, "을/를")} 잡았다! 내 도감에 등록했어요.` : `${josa(name, "을/를")} 또 잡았다! (이미 내 도감에 있어요)`);
+    const [next] = pickNewFriends(1); // 빈자리에는 새 친구가 들어온다
+    if (next) spawn(next, { entering: true, side: rand() < 0.5 ? "left" : "right" });
+  } else {
+    c.body.style.visibility = "";
+    setState(c, "greet");
+    toast(`앗! ${josa(name, "이/가")} 볼에서 나와 버렸다!`);
+  }
+  startLoop();
 }
 
 // ---------- 밖에서 부르는 함수들 ----------
@@ -362,6 +463,8 @@ export const meadow = {
     document.addEventListener("visibilitychange", () => { visible = !document.hidden; startLoop(); });
     new IntersectionObserver(([entry]) => { onScreen = entry.isIntersecting; startLoop(); })
       .observe(document.getElementById("meadow"));
+    document.getElementById("ballBtn").addEventListener("click", () => setCatching(!catching));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && catching) setCatching(false); });
     for (const id of pickNewFriends(capacity())) spawn(id); // 열 때마다 무작위로
     resetRotation();
   },
@@ -379,6 +482,11 @@ export const meadow = {
     const c = await spawn(id, { entering: true });
     if (c) c.el.classList.add("selected");
     keepCount(id);
+  },
+
+  // 놀이터 「내 도감」에서 "풀숲에서 잡기"를 누르면 몬스터볼 모드로
+  startCatching() {
+    setCatching(true);
   },
 
   think(id) {

@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/meadow.css">
   <link rel="stylesheet" href="css/pokedex.css">
+  <link rel="stylesheet" href="css/playground.css">
 </head>
 <body>
   <div class="app">
@@ -26,6 +27,7 @@
       <span class="pd-leds mini" aria-hidden="true">
         <span class="led" data-led="server"></span><span class="led" data-led="index"></span><span class="led" data-led="key"></span>
       </span>
+      <button type="button" class="play-jump" id="playJump">놀이터 ↓</button>
       <span class="label px14 status-tag" id="statusTag">연구노트를 펼치는 중…</span>
     </header>
 
@@ -98,7 +100,10 @@
           <h2 class="px22 underlined">진화 안내</h2>
           <p class="pane-lead">레벨·진화의 돌·통신교환처럼 이름만으로는 알 수 없는 진화 조건을 자료에서 찾아 정리해요.</p>
           <div class="evo-strip" id="evoPreview"></div>
-          <button class="primary" id="evoBtn">진화 보기</button>
+          <div class="form-row">
+            <button class="primary" id="evoBtn">진화 보기</button>
+            <button type="button" id="evoShowBtn">진화 장면 보기</button>
+          </div>
         </section>
 
         <section class="pane" data-pane="find" role="tabpanel" hidden>
@@ -141,13 +146,93 @@
       <div class="ground" aria-hidden="true"></div>
       <div class="grass-back" aria-hidden="true"></div>
       <div class="sunlight" aria-hidden="true"></div>
-      <span class="hand meadow-note">오늘 풀숲에서 본 친구들</span>
+      <span class="hand meadow-note" id="meadowNote">오늘 풀숲에서 본 친구들</span>
       <div class="stage" id="stage"></div>
       <div class="grass-tall" aria-hidden="true"></div>
       <div class="grass-front" aria-hidden="true"></div>
+      <button type="button" class="ball-btn" id="ballBtn" aria-pressed="false"><span class="ball-icon" aria-hidden="true"></span><span class="ball-text">몬스터볼</span></button>
+      <p class="meadow-toast" id="meadowToast" role="status"></p>
       <label class="meadow-pause label px14"><input type="checkbox" id="meadowPause"> 풀숲 멈추기</label>
     </footer>
   </div>
+
+  <!-- 첫 화면 아래: 연구소 놀이터 (아래로 내리거나 상단의 「놀이터 ↓」) -->
+  <section class="playground" id="playground" aria-labelledby="playTitle">
+    <header class="play-head">
+      <div>
+        <h2 class="px33" id="playTitle">연구소 놀이터</h2>
+        <p class="lead">연구는 잠깐 쉬고, 포켓몬과 놀아 볼까요?</p>
+      </div>
+      <nav class="play-nav" aria-label="놀이터 바로 가기">
+        <a href="#playDex">내 도감</a>
+        <a href="#playQuiz">실루엣 퀴즈</a>
+        <a href="#playTalk">이야기하기</a>
+        <a href="#playPersona">성격 테스트</a>
+        <a href="#playEvo">진화 극장</a>
+      </nav>
+      <button type="button" class="back-to-note" id="backToNote">↑ 연구노트로</button>
+    </header>
+
+    <div class="play-grid">
+      <section class="play-card play-dex" id="playDex" aria-labelledby="playDexTitle">
+        <div class="play-card-head">
+          <h3 class="px22 underlined" id="playDexTitle">내 도감</h3>
+          <span class="label px14" id="myDexCount"></span>
+          <span class="dex-tools">
+            <button type="button" id="goCatch"><span class="ball-icon" aria-hidden="true"></span>풀숲에서 잡기</button>
+            <button type="button" class="reset-dex" id="resetDex">도감 비우기</button>
+          </span>
+        </div>
+        <span class="progress" id="myDexBar" aria-hidden="true"></span>
+        <p class="pane-lead">풀숲의 「몬스터볼」을 누른 뒤 포켓몬을 누르면 볼을 던져요. 잘 잡히는 정도는 포켓몬마다 달라요. 잡은 친구를 누르면 그 포켓몬의 노트가 열려요.</p>
+        <ol class="dex-grid" id="myDexGrid" aria-label="내 도감 151칸"></ol>
+      </section>
+
+      <section class="play-card" id="playQuiz" aria-labelledby="playQuizTitle">
+        <div class="play-card-head">
+          <h3 class="px22 underlined" id="playQuizTitle">누굴까? 실루엣 퀴즈</h3>
+          <span class="label px14 pencil" id="quizScore"></span>
+        </div>
+        <div class="quiz-stage" id="quizStage"></div>
+        <button type="button" class="quiz-cry" id="quizCry">♪ 울음소리 듣기</button>
+        <div class="quiz-choices" id="quizChoices"></div>
+        <p class="quiz-result" id="quizResult" aria-live="polite"></p>
+        <button type="button" class="quiz-next" id="quizNext" hidden>다음 문제 →</button>
+      </section>
+
+      <section class="play-card" id="playTalk" aria-labelledby="playTalkTitle">
+        <h3 class="px22 underlined" id="playTalkTitle">포켓몬과 이야기하기</h3>
+        <div class="talk-pick">
+          <label class="label px14" for="talkPick">누구와</label>
+          <select id="talkPick"></select>
+          <button type="button" id="talkRandom">아무나</button>
+        </div>
+        <div class="talk-log" id="talkLog" aria-live="polite"></div>
+        <form class="talk-form" id="talkForm">
+          <label class="sr-only" for="talkInput">포켓몬에게 할 말</label>
+          <input id="talkInput" maxlength="300" autocomplete="off" placeholder="하고 싶은 말을 적어요">
+          <button type="submit" id="talkSend">말 걸기</button>
+        </form>
+        <p class="pencil small">도감 자료만 보고 포켓몬처럼 대답해요. 근거 번호가 붙는 정확한 답은 위쪽 연구노트에 물어보세요.</p>
+      </section>
+
+      <section class="play-card" id="playPersona" aria-labelledby="playPersonaTitle">
+        <h3 class="px22 underlined" id="playPersonaTitle">나는 어떤 포켓몬일까?</h3>
+        <div class="persona" id="personaBox" aria-live="polite"></div>
+      </section>
+
+      <section class="play-card" id="playEvo" aria-labelledby="playEvoTitle">
+        <h3 class="px22 underlined" id="playEvoTitle">진화 극장</h3>
+        <p class="pane-lead">진화하는 순간을 게임처럼 다시 보여 드려요. 도중에 「그만!」을 누르면 진화가 멈춰요.</p>
+        <div class="evo-pick-face" id="evoPickFace"></div>
+        <div class="talk-pick">
+          <label class="label px14" for="evoPick">누가</label>
+          <select id="evoPick"></select>
+          <button type="button" id="evoGo">진화 시작!</button>
+        </div>
+      </section>
+    </div>
+  </section>
 
   <script type="module" src="js/main.js"></script>
 </body>

@@ -1,0 +1,310 @@
+/* 연구소 놀이터 (첫 화면 아래) + 몬스터볼 + 진화 극장.
+   색은 tokens.css 값만, 카드는 무늬 없는 종이 + 잉크 테두리 (장식 그림자는 쓰지 않음) */
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* 상단 띠의 「놀이터 ↓」: 상태 라벨 바로 왼쪽 */
+.topbar .play-jump { margin-left: auto; white-space: nowrap; }
+.topbar .play-jump + .status-tag { margin-left: 0; }
+@media (max-width: 900px) {
+  .topbar .play-jump { margin-left: 0; }
+}
+
+/* ---------- 몬스터볼 (그림 파일 없이 CSS로) ---------- */
+.ball-icon, .ball {
+  display: inline-block;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%; /* 공은 둥근 모서리 예외 */
+  background: linear-gradient(var(--dex-red) 0 42%, var(--ink) 42% 58%, var(--paper) 58%);
+  position: relative;
+}
+.ball-icon::after, .ball::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 40%; height: 40%;
+  transform: translate(-50%, -50%);
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper);
+}
+.ball-icon { width: 14px; height: 14px; vertical-align: -2px; margin-right: var(--s1); }
+
+/* 풀숲 오른쪽 위 「몬스터볼」 단추. 누르면 잡기 모드 (노란 형광펜) */
+.ball-btn {
+  position: absolute;
+  top: var(--s1); right: var(--s3);
+  z-index: 11;
+  display: flex; align-items: center;
+}
+.ball-btn[aria-pressed="true"] { background: var(--marker); }
+.meadow.catching .critter { cursor: crosshair; }
+
+/* 던진 볼: 무대 왼쪽 아래 기준, 위치는 JS가 transform으로 */
+.ball {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 24px; height: 24px;
+  z-index: 11; /* 앞 줄 포켓몬 자리에 떨어져도 앞쪽 풀(10)에 가리지 않게 */
+  transform-origin: 50% 100%;
+  pointer-events: none;
+}
+.ball.open { box-shadow: 0 0 0 4px var(--marker); }
+.ball-click {
+  position: absolute;
+  left: 50%; bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--font-label); font-size: 11px;
+  background: var(--paper);
+  border: var(--line);
+  border-radius: var(--radius);
+  padding: 0 var(--s1);
+}
+
+/* 잡기 결과 쪽지: 풀숲 위 가운데 */
+.meadow-toast {
+  position: absolute;
+  top: var(--s1); left: 50%;
+  z-index: 12;
+  max-width: min(520px, 70%);
+  margin: 0;
+  transform: translateX(-50%);
+  padding: 0 var(--s3);
+  background: var(--paper);
+  border: var(--line);
+  border-radius: var(--radius);
+  font-size: var(--fs-sm);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms;
+}
+.meadow-toast.show { opacity: 1; }
+@media (max-width: 600px) {
+  .meadow-toast { left: var(--s2); max-width: calc(100% - 140px); transform: none; }
+}
+
+/* ---------- 놀이터 바탕 ---------- */
+.playground {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: var(--s12) clamp(16px, 3vw, 48px) var(--s12);
+}
+.play-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--s4) var(--s6);
+  margin-bottom: var(--s6);
+}
+.play-head .lead { margin: var(--s1) 0 0; color: var(--ink-soft); }
+.play-nav { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.play-nav a {
+  font-family: var(--font-label-14); font-size: 14px;
+  text-decoration: none;
+  background: var(--paper);
+  border: 1.5px dashed var(--ink);
+  border-radius: var(--radius);
+  padding: 0 var(--s2);
+}
+.play-nav a:hover { color: var(--ink); background: var(--marker); }
+.back-to-note { margin-left: auto; }
+
+.play-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s6);
+  align-items: start;
+}
+.play-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  padding: clamp(16px, 2vw, 28px);
+  background: var(--paper);
+  border: var(--line);
+  border-radius: var(--radius-card);
+  scroll-margin-top: var(--s6);
+}
+.play-card .pane-lead { margin: 0; }
+.play-card-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2) var(--s4); }
+.dex-tools { margin-left: auto; display: flex; flex-wrap: wrap; gap: var(--s2); }
+.dex-tools #goCatch { display: flex; align-items: center; }
+.reset-dex { border-style: dashed; color: var(--ink-soft); }
+.reset-dex:not(:disabled):hover { color: var(--dex-red); border-color: var(--dex-red); }
+.play-dex { grid-column: 1 / -1; }
+.talk-pick { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
+.talk-pick select { min-width: 0; max-width: 100%; }
+
+/* 진행 막대 (내 도감, 성격 테스트) */
+.progress { display: block; height: 12px; border: 1px solid var(--ink); border-radius: var(--radius); }
+.progress::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: calc(var(--v, 0) * 100%);
+  background: var(--grass);
+  transition: width 300ms;
+}
+
+/* ---------- 내 도감: 151칸 ---------- */
+.dex-grid {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+  gap: var(--s1);
+}
+.dex-cell {
+  position: relative;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--rule);
+  border-radius: var(--radius);
+}
+.dex-cell .no { font-family: var(--font-label); font-size: 11px; color: var(--pencil); }
+.dex-cell.caught { border: 1px solid var(--ink); background: var(--screen); }
+.dex-cell button {
+  all: unset;
+  box-sizing: border-box;
+  width: 100%; height: 100%;
+  display: grid; place-items: center;
+  cursor: pointer;
+}
+.dex-cell button:hover { background: var(--marker); }
+.dex-cell button:focus-visible { outline: 2px dashed var(--dex-red); outline-offset: 1px; }
+.dex-cell img { width: 48px; height: 48px; image-rendering: pixelated; }
+.dex-cell.caught .no { position: absolute; left: 3px; top: 0; color: var(--ink-soft); }
+@media (max-width: 600px) {
+  .dex-grid { max-height: 380px; overflow-y: auto; }
+}
+
+/* ---------- 실루엣 퀴즈 ---------- */
+.quiz-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 232px;
+  background: var(--screen);
+  border: var(--line);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+.quiz-stage img { width: 192px; height: 192px; image-rendering: pixelated; transition: filter 500ms; }
+.quiz-stage img.silhouette { filter: brightness(0); }
+.quiz-cry, .quiz-next { align-self: flex-start; }
+.quiz-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s2); }
+.quiz-choices button { font-family: var(--font-body); font-size: var(--fs-body); padding: var(--s2); }
+.quiz-choices button.right, .quiz-choices button.right:disabled { color: var(--paper); background: var(--grass); border-color: var(--ink); }
+.quiz-choices button.wrong, .quiz-choices button.wrong:disabled { color: var(--dex-red); border-color: var(--dex-red); text-decoration: line-through; }
+.quiz-result { margin: 0; min-height: 1.7em; font-weight: var(--fw-strong); }
+
+/* ---------- 성격 테스트 ---------- */
+.persona { display: flex; flex-direction: column; gap: var(--s3); }
+.persona > p { margin: 0; }
+.persona-q { font-weight: var(--fw-strong); font-size: calc(var(--text) + 2px); }
+.persona-options { display: grid; gap: var(--s2); }
+.persona-options button { font-family: var(--font-body); font-size: var(--fs-body); text-align: left; padding: var(--s2) var(--s3); }
+.persona-back { align-self: flex-start; border-style: dashed; }
+.persona-start { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); }
+.persona-wait .dots { display: inline-block; animation: dot 1.2s infinite; }
+.persona-result { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--s4); align-items: center; }
+.persona-result img { width: 192px; height: 192px; image-rendering: pixelated; background: var(--screen); border: var(--line); border-radius: var(--radius-card); }
+.persona-result p { margin: 0 0 var(--s1); }
+.persona-name { font-family: var(--font-label); font-size: 22px; line-height: 1.4; }
+.persona-reason { color: var(--ink-soft); }
+@media (max-width: 600px) {
+  .persona-result { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+}
+
+/* ---------- 포켓몬과 이야기하기 ---------- */
+.talk-log {
+  height: 340px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s3);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-card);
+}
+.talk-intro { margin: auto; display: flex; flex-direction: column; align-items: center; gap: var(--s2); text-align: center; color: var(--ink-soft); }
+.talk-intro p { margin: 0; }
+.talk-intro img { image-rendering: pixelated; transform: scale(2); margin: 24px 0; }
+.talk-row { display: flex; align-items: flex-end; gap: var(--s2); }
+.talk-row.user { justify-content: flex-end; }
+.talk-row img { flex: none; width: 48px; height: 48px; image-rendering: pixelated; }
+.talk-bubble {
+  margin: 0;
+  max-width: 78%;
+  padding: var(--s1) var(--s3);
+  background: var(--paper);
+  border: var(--line);
+  border-radius: var(--radius-card);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+.talk-row.user .talk-bubble { background: var(--paper-deep); }
+.talk-row.error .talk-bubble { color: var(--dex-red); border-color: var(--dex-red); }
+.talk-bubble.typing .dot { opacity: 0.25; animation: dot 1.2s infinite; }
+.talk-bubble.typing .dot:nth-child(2) { animation-delay: 0.4s; }
+.talk-bubble.typing .dot:nth-child(3) { animation-delay: 0.8s; }
+.talk-form { display: flex; gap: var(--s2); align-items: end; }
+.talk-form input { flex: 1; min-width: 0; }
+.play-card > .pencil.small { margin: 0; }
+
+/* ---------- 진화 극장 카드 ---------- */
+.evo-pick-face { display: flex; align-items: center; justify-content: center; gap: var(--s4); padding: var(--s3); background: var(--screen); border: var(--line); border-radius: var(--radius-card); }
+.evo-pick-face img { width: 96px; height: 96px; image-rendering: pixelated; }
+.evo-pick-arrow { font-size: 22px; }
+.evo-pick-q { font-family: var(--font-label); font-size: 33px; color: var(--ink-soft); width: 96px; text-align: center; }
+
+/* 도감 페이지의 「놀이터에서」 줄 */
+.play-title { margin-top: var(--s4); }
+
+/* ---------- 진화 장면 창 ---------- */
+.evo-show {
+  width: min(520px, calc(100vw - 32px));
+  padding: var(--s6);
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--line);
+  border-radius: var(--radius-card);
+}
+.evo-show::backdrop { background: rgba(31, 42, 54, 0.6); } /* --ink 60% */
+.evo-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 240px;
+  margin: var(--s4) 0;
+  background: var(--ink);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+.evo-mons img { display: block; width: 192px; height: 192px; image-rendering: pixelated; transition: filter 600ms; }
+.evo-mons img[hidden] { display: none; }
+.evo-stage.glowing img { filter: brightness(0) invert(1); } /* 하얗게 빛나는 그림자 */
+.evo-flash { position: absolute; inset: 0; background: var(--paper); opacity: 0; pointer-events: none; transition: opacity 250ms; }
+.evo-flash.on { opacity: 1; }
+.evo-line { margin: 0 0 var(--s4); min-height: 3.4em; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--s1); text-align: center; }
+.evo-line small { font-size: var(--fs-xs); }
+.evo-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s2); }
+.evo-choices { width: 100%; display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: var(--s2); max-height: 280px; overflow-y: auto; }
+.evo-choices button { display: flex; flex-direction: column; align-items: center; font-family: var(--font-body); font-size: var(--fs-sm); padding: var(--s1); }
+.evo-choices img { width: 64px; height: 64px; }
+.evo-choices small { font-size: var(--fs-xs); }
+
+@media (max-width: 900px) {
+  .play-grid { grid-template-columns: minmax(0, 1fr); }
+  .playground { padding: var(--s8) var(--s4); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-stage img, .evo-mons img, .evo-flash, .progress::before, .meadow-toast { transition: none; }
+  .talk-bubble.typing .dot, .persona-wait .dots { animation: none; opacity: 1; }
+}

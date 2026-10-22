@@ -79,4 +79,8 @@ export const api = {
   evolution: (pokemonId, onProgress) => postStream("/api/evolution", { pokemon_id: pokemonId }, onProgress),
   find: (condition) => postJson("/api/find", { condition }),
   compareSearch: (pokemonId, question) => postJson("/api/compare-search", { pokemon_id: pokemonId, question }),
+  // 연구소 놀이터
+  talk: (pokemonId, message, history) => postJson("/api/talk", { pokemon_id: pokemonId, message, history }),
+  persona: (answers) => postJson("/api/persona", { answers }),
+  evolutionNext: (id) => getJson(`/api/evolution/${id}/next`),
 };

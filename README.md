@@ -72,6 +72,18 @@ streamlit run streamlit_app.py      # 필수 기능 확인용 간단 화면
 | F2015 | RAG 전후 비교 | `python -m scripts.compare_rag` → `docs/rag_comparison.md` |
 | F2016 | 여러 종류 출처 결합 | 위키백과(서술형) + PokéAPI 구조화 문서(타입 상성 18개·진화 계통 78개·1세대 순위 9개). 근거마다 출처 종류 도장 표시 |
 
+### 연구소 놀이터 (추가 기능)
+
+첫 화면(연구노트) 아래로 스크롤하거나 상단의 「놀이터 ↓」를 누르면 나옵니다. 근거 번호가 붙는 RAG 답변이 아니라 놀이용이에요.
+
+| 기능 | 하는 일 | 어디서 |
+|---|---|---|
+| 잡기 + 내 도감 | 풀숲의 「몬스터볼」을 누르고 포켓몬을 누르면 볼을 던짐. 잡힐 확률은 도감의 잡기 쉬움(capture_rate)으로 10~90%. 잡은 친구는 「내 도감」 151칸에 채워짐 (브라우저에만 저장) | `web/js/meadow.js`, `web/js/collection.js` |
+| 실루엣 퀴즈 | 까만 그림자 + 울음소리를 보고 4지선다로 맞히기. 연속 정답·최고 기록 | `web/js/playground.js` |
+| 포켓몬과 이야기하기 | 고른 포켓몬이 자기 도감 자료만 보고 1인칭으로 대답 (AI 호출 1번, 위키 검색 없음) | `features/playground.py`, `/api/talk` |
+| 진화 극장 | 게임처럼 하얗게 빛나며 모습이 바뀌는 진화 장면. 갈래가 여럿이면 고르고, 「그만!」으로 멈춤 (AI 호출 없음) | `web/js/evoshow.js`, `/api/evolution/{id}/next` |
+| 나는 어떤 포켓몬일까? | 질문 8개 → 이박사가 151마리 중 닮은 포켓몬과 이유를 알려 줌 (AI 호출 1번) | `features/playground.py`, `/api/persona` |
+
 ## 3. 데이터 준비와 색인 절차
 
 1. **PokéAPI 수집** — `python -m data_prep.fetch_pokeapi`
@@ -125,7 +137,7 @@ data_prep/   도메인(포켓몬)에 묶인 코드: PokéAPI·위키백과 수�
 services/    설정, 외부 호출 공용 함수(재시도·간격·User-Agent), LLM, 오류 문구, 로그
 store/       Vector DB 컬렉션, 청킹·색인
 rag/         프롬프트, 수집기, 검색·병합, LangGraph, 근거 정리
-features/    조건 탐색, 배틀 상성 코치, 진화 안내
+features/    조건 탐색, 배틀 상성 코치, 진화 안내, 놀이터(대화하기·성격 테스트)
 scripts/     색인, RAG 전후 비교, 검색 설정 비교, 위키 문서 조사
 api/         FastAPI 서버
 web/         직접 만든 화면 (HTML·CSS·JS)

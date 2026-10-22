@@ -9,3 +9,11 @@ def sprite_urls(pokemon_id: int) -> dict:
         "animated": f"{BASE}/versions/generation-v/black-white/animated/{pokemon_id}.gif",
         "static": f"{BASE}/{pokemon_id}.png",
     }
+
+
+CRIES = "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon"
+
+
+def cry_urls(pokemon_id: int) -> list[str]:
+    """울음소리 주소. 옛 게임의 8비트 소리를 먼저, 없으면 요즘 소리 (실루엣 퀴즈)."""
+    return [f"{CRIES}/legacy/{pokemon_id}.ogg", f"{CRIES}/latest/{pokemon_id}.ogg"]

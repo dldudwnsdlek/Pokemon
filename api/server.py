@@ -7,7 +7,7 @@ import mimetypes
 import queue
 import threading
 from contextlib import asynccontextmanager
-from typing import Callable
+from typing import Callable, Literal
 
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
@@ -17,8 +17,8 @@ from pydantic import BaseModel, Field
 
 from data_prep.build_item_text import load_pokemon, pokemon_by_id
 from data_prep.finder_terms import type_names
-from data_prep.sprites import sprite_urls
-from features import battle_coach, evolution_guide, finder
+from data_prep.sprites import cry_urls, sprite_urls
+from features import battle_coach, evolution_guide, finder, playground
 from rag.collector import collected_titles, load_registry
 from rag.graph import check_ready, match_question, run
 from rag.retriever import retrieve
@@ -90,6 +90,26 @@ class FindRequest(BaseModel):
     condition: str = Field(min_length=1, max_length=500)
 
 
+class TalkTurn(BaseModel):
+    role: Literal["user", "pokemon"]
+    text: str = Field(min_length=1, max_length=500)
+
+
+class TalkRequest(BaseModel):
+    pokemon_id: int = Field(ge=1)
+    message: str = Field(min_length=1, max_length=300)
+    history: list[TalkTurn] = Field(default_factory=list, max_length=40)
+
+
+class PersonaAnswer(BaseModel):
+    q: str = Field(min_length=1, max_length=100)
+    a: str = Field(min_length=1, max_length=100)
+
+
+class PersonaRequest(BaseModel):
+    answers: list[PersonaAnswer] = Field(min_length=1, max_length=12)
+
+
 class CompareRequest(BaseModel):
     pokemon_id: int | None = Field(default=None, ge=1)  # 없으면 자유 질문
     question: str = Field(min_length=1, max_length=500)
@@ -157,7 +177,10 @@ def stream(job: Callable[[Callable], dict]) -> StreamingResponse:
 
 def _summary(p: dict) -> dict:
     return {"id": p["id"], "dex_no": p["dex_no"], "name_ko": p["name_ko"], "types": p["types"],
-            "is_legendary": p["is_legendary"], "is_mythical": p["is_mythical"], "sprite": sprite_urls(p["id"])}
+            "is_legendary": p["is_legendary"], "is_mythical": p["is_mythical"], "sprite": sprite_urls(p["id"]),
+            # 놀이터용: 잡기 확률(3~255, 클수록 잘 잡힘), 울음소리, 진화할 수 있는지
+            "capture_rate": p["capture_rate"], "cry": cry_urls(p["id"]),
+            "evolves": bool(evolution_guide.next_stages(p["id"]))}
 
 
 def _get_pokemon(pid: int) -> dict:
@@ -249,6 +272,31 @@ def compare_search(req: CompareRequest):
         "shared": len(sim_ids & mmr_ids),
         "distinct_docs": {"similarity": len({e["title"] for e in sim}), "mmr": len({e["title"] for e in mmr})},
     }
+
+
+# ---------- 연구소 놀이터 (AI를 부르지만 위키 검색은 하지 않아 색인 없이도 동작) ----------
+@app.post("/api/talk")
+def talk(req: TalkRequest):
+    _get_pokemon(req.pokemon_id)
+    history = [h.model_dump() for h in req.history]
+    try:
+        return playground.talk(req.pokemon_id, req.message.strip(), history)
+    except Exception as e:  # noqa: BLE001
+        raise _as_service_error(e) from e
+
+
+@app.post("/api/persona")
+def persona(req: PersonaRequest):
+    try:
+        return playground.persona([a.model_dump() for a in req.answers])
+    except Exception as e:  # noqa: BLE001
+        raise _as_service_error(e) from e
+
+
+@app.get("/api/evolution/{pid}/next")  # 진화 극장: 바로 다음 모습들 (AI 호출 없음)
+def evolution_next(pid: int):
+    p = _get_pokemon(pid)
+    return {"from": _summary(p), "next": evolution_guide.next_stages(pid)}
 
 
 # web/ 파일 내려주기 (API 주소들 뒤에 둔다).

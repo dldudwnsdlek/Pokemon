@@ -1,9 +1,11 @@
 // 연구 기록(대화), 참고 카드, 배틀·진화 실행 (F2008~F2010, F2012, F2014)
 import { api, ApiError } from "./api.js";
+import { playEvolution } from "./evoshow.js";
 import { meadow } from "./meadow.js";
+import { openTalk } from "./playground.js";
 import { pokedex } from "./pokedex.js";
 import { current, records, saveChats, selectPokemon, state } from "./state.js";
-import { el, errorText, formatTime, progressLog, showNotice, spriteImg, TEXT, typeBadges } from "./ui.js";
+import { el, errorText, formatTime, josa, progressLog, showNotice, spriteImg, TEXT, typeBadges } from "./ui.js";
 
 const CITE = /\[근거\s*(\d+)\]/g;
 const WELCOME_ID = 25; // 첫 화면 대표 포켓몬: 피카츄
@@ -255,6 +257,11 @@ function dexPage(p) {
     el("p", { class: "examples-title px14" }, "이렇게 물어보세요"),
     el("div", { class: "examples" }, examples(p).map((q) =>
       el("button", { type: "button", onclick: () => fill(q) }, q))),
+    // 아래 놀이터로 바로 가는 버튼 (AI 근거 답변이 아닌 놀이)
+    el("p", { class: "examples-title px14 play-title" }, "놀이터에서"),
+    el("div", { class: "examples play-links" },
+      el("button", { type: "button", onclick: () => openTalk(p.id) }, `${josa(p.name_ko, "과/와")} 이야기하기`),
+      p.evolves ? el("button", { type: "button", onclick: () => playEvolution(p.id) }, "진화 장면 보기") : null),
     facts);
 }
 
@@ -369,6 +376,8 @@ function setBusy(on) {
   const locked = state.selectedId === null; // 배틀·진화는 포켓몬이 있어야 함
   document.getElementById("askBtn").disabled = on;
   for (const id of ["battleBtn", "evoBtn"]) document.getElementById(id).disabled = on || locked;
+  // 진화 장면은 AI를 부르지 않아 답을 찾는 중에도 볼 수 있다. 진화하지 않는 포켓몬이면 잠금
+  document.getElementById("evoShowBtn").disabled = !current()?.evolves;
 }
 
 function retry(record) {
@@ -435,6 +444,7 @@ export function setupPanes() {
     battle(kind.value === "pokemon" ? { opponent_id: Number(oppPokemon.value) } : { opponent_type: oppType.value });
   });
   document.getElementById("evoBtn").addEventListener("click", () => evolution());
+  document.getElementById("evoShowBtn").addEventListener("click", () => playEvolution(state.selectedId));
 
   document.getElementById("askForm").addEventListener("submit", (e) => {
     e.preventDefault();

@@ -5,6 +5,8 @@
 화면 캡처는 `docs/screenshots/`에 있습니다 (2026-10-22, 실제 키로 켠 서버를 크롬으로 조작해 찍음. 터미널 그림은 명령 출력을 그대로 옮김. V06·V07은 다시 실행하면 색인이 바뀌어 기록 파일을 그림으로 옮김).
 추가 캡처: `F2009_first_screen.png`(첫 화면), `F2012_progress.png`(답을 찾는 중 진행 상태), `F2013_mobile_390.png`(좁은 화면), `F2009_dex_page.png`(기록이 없는 포켓몬의 도감 페이지). V12 두 장은 도감 페이지를 넣은 뒤 다시 찍음.
 
+연구소 놀이터(F2017, 2026-10-22) 캡처: `F2017_first_screen.png`(상단 「놀이터 ↓」·풀숲 「몬스터볼」), `F2017_catch_throw.png`·`F2017_catch_result.png`(볼이 흔들림 → 잡음), `F2017_playground_my_dex.png`(내 도감 151칸·도감 비우기), `F2017_quiz_silhouette.png`·`F2017_quiz_answer_and_talk.png`(실루엣 퀴즈, 잠만보와 이야기하기 — 몸무게를 도감 값 460kg 그대로 말함), `F2017_persona_question.png`·`F2017_persona_result.png`(성격 테스트), `F2017_evolution_glow.png`·`F2017_evolution_done.png`·`F2017_evolution_choose.png`(진화 극장, 이브이 갈래 고르기), `F2017_dex_page_play_buttons.png`(도감 페이지의 「놀이터에서」 버튼), `F2017_mobile_390_playground.png`(좁은 화면).
+
 검증 환경: 2026-10-21 · gpt-4.1-mini / text-embedding-3-small · 청크 800/150 · Top-k 5 · similarity
 
 ## 1. 검증 항목 (V01 ~ V20)
@@ -93,7 +95,7 @@ V19·V20은 "자유 질문" 추가 뒤 새로 넣은 항목입니다. V06·V07·
 | 같은 크기 카드 3개 기능 소개 | ✅ 없음 | |
 | Inter·Roboto·시스템 글꼴만 사용 | ✅ 아님 | Galmuri11 + Pretendard + Nanum Pen Script |
 | Tailwind 기본 색 | ✅ 아님 | Tailwind 미사용, 색은 `tokens.css` 변수만 |
-| 의미 없이 움직이는 장식 | ✅ 없음 | 움직임은 풀숲 포켓몬(선택 수단)과 "…" 말풍선(기다리는 중)뿐 |
+| 의미 없이 움직이는 장식 | ✅ 없음 | 움직임은 풀숲 포켓몬(선택 수단), "…" 말풍선(기다리는 중), 몬스터볼·진화 장면(놀이터 기능 자체)뿐. 모두 동작 줄이기 설정에서 멈춤 |
 
 ## 4. 제출 전 점검 (가이드 13-6)
 

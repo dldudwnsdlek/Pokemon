@@ -35,6 +35,17 @@ export const TEXT = {
   kind: { chat: "기록", battle: "배틀", evolution: "진화" },
 };
 
+// 받침에 맞는 조사 붙이기: josa("피카츄", "을/를") → "피카츄를", josa("이상해풀", "으로/로") → "이상해풀로"
+export function josa(word, pair) {
+  const [withFinal, without] = pair.split("/");
+  const code = word.charCodeAt(word.length - 1) - 0xac00;
+  if (code < 0 || code > 11171) return `${word}${without}`; // 한글이 아니면 받침 없는 쪽
+  const final = code % 28;
+  // "으로/로"는 ㄹ 받침(8)도 "로"
+  const useFinal = final !== 0 && !(withFinal === "으로" && final === 8);
+  return `${word}${useFinal ? withFinal : without}`;
+}
+
 // 오류 코드 → 문구. 모르는 코드는 일반 안내로.
 export function errorText(code) {
   return TEXT[code] || TEXT.INTERNAL;

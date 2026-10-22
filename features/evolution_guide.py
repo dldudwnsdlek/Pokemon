@@ -25,6 +25,11 @@ def chain_for(pokemon_id: int) -> list[dict]:
     return [{**s, "sprite": sprite_urls(s["id"]), "current": s["id"] == pokemon_id} for s in doc["stages"]]
 
 
+def next_stages(pokemon_id: int) -> list[dict]:
+    """이 포켓몬이 바로 다음에 진화할 수 있는 모습들 (놀이터 진화 극장). 없으면 빈 목록."""
+    return [s for s in chain_for(pokemon_id) if s["from_id"] == pokemon_id]
+
+
 def guide(pokemon_id: int, on_progress: Progress = _noop) -> dict:
     """선택한 포켓몬의 진화 계통을 설명한다."""
     name = pokemon_by_id(pokemon_id)["name_ko"]

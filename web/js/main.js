@@ -1,8 +1,10 @@
 // 시작점: 서버 상태 확인 → 도감 색인 → 선택·기록·풀숲 연결
 import { api } from "./api.js";
 import { chainStrip, loadDetail, renderRecords, setAfterJob, setupPanes, showTab, updatePaneLocks } from "./chat.js";
+import { setOpenNote } from "./evoshow.js";
 import { setupFinder } from "./finder.js";
 import { meadow } from "./meadow.js";
+import { playground } from "./playground.js";
 import { pokedex } from "./pokedex.js";
 import { current, hasRecords, onSelect, selectPokemon, state } from "./state.js";
 import { el, errorText, hideNotice, progressLog, showNotice, TEXT } from "./ui.js";
@@ -114,6 +116,7 @@ async function main() {
     renderEvoPreview();
     updatePaneLocks();
     meadow.bringIn(id);
+    playground.follow(id);
     if (changed && id !== null) document.querySelector(`.dex-item[data-id="${id}"]`)?.scrollIntoView({ block: "nearest" });
   });
 
@@ -132,6 +135,13 @@ async function main() {
 
   meadow.init((id) => pick(id));
   pokedex.init();
+  // 놀이터·진화 극장에서 "노트 열기": 그 포켓몬을 고르고 맨 위 연구노트로 올라간다
+  const openNote = (id) => {
+    pick(id);
+    window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  };
+  playground.init(openNote);
+  setOpenNote(openNote);
   selectPokemon(null); // 처음에는 포켓몬을 고르지 않은 자유 질문으로 시작
   showTab("chat");
 }
