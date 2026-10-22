@@ -1,5 +1,5 @@
 /* 주요 부품 (가이드 9-6) */
-.small { font-size: 14px; }
+.small { font-size: var(--fs-sm); }
 
 /* ---------- 도감 색인 ---------- */
 .dex-item button {
@@ -14,7 +14,7 @@
   border-left: 4px solid transparent;
   cursor: pointer;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: var(--fs-sm);
 }
 .dex-item button:hover { color: var(--dex-red); }
 .dex-item button:focus-visible { outline: 2px dashed var(--dex-red); outline-offset: -2px; }
@@ -65,7 +65,7 @@
 }
 .examples-title { margin: 0 0 var(--s2); color: var(--ink-soft); }
 .examples { display: flex; flex-wrap: wrap; gap: var(--s2); }
-.examples button { font-family: var(--font-body); font-size: calc(var(--text) - 1px); border-style: dashed; padding: var(--s1) var(--s3); }
+.examples button { font-family: var(--font-body); font-size: var(--fs-sm); border-style: dashed; padding: var(--s1) var(--s3); }
 /* 키가 낮은 화면(가로 휴대폰): 그림을 위에 붙여 아래로 밀려 잘리지 않게 */
 @media (max-height: 480px) {
   .welcome { align-items: start; padding: var(--s2) 0; }
@@ -82,16 +82,16 @@
 .dex-page .lead { margin: 0 0 var(--s4); color: var(--ink-soft); }
 .dex-page-facts { margin-top: var(--s8); padding-top: var(--s6); border-top: 1px solid var(--rule); }
 .dex-page-facts:empty { display: none; }
-.dex-page-facts h3 { margin: 0 0 var(--s3); font-weight: normal; color: var(--ink-soft); }
+.dex-page-facts h3 { margin: 0 0 var(--s3); font-weight: var(--fw-regular); color: var(--ink-soft); }
 .dex-page-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--s6) clamp(24px, 3vw, 56px);
   margin-bottom: var(--s6);
 }
-.dex-genus { margin: 0 0 var(--s3); }
+.dex-genus { margin: 0 0 var(--s3); font-weight: var(--fw-strong); }
 .dex-info { display: grid; grid-template-columns: auto 1fr; gap: var(--s1) var(--s4); margin: 0 0 var(--s4); }
-.dex-info dt { color: var(--ink-soft); }
+.dex-info dt { font-size: var(--fs-sm); color: var(--ink-soft); }
 .dex-info dd { margin: 0; }
 .dex-flavor {
   margin: 0;
@@ -101,7 +101,7 @@
   color: var(--ink-soft);
 }
 .stat-bars { display: grid; grid-template-columns: auto 1fr; gap: var(--s2) var(--s3); align-items: center; margin: 0; }
-.stat-bars dt { font-size: 14px; color: var(--ink-soft); }
+.stat-bars dt { font-size: var(--fs-sm); color: var(--ink-soft); }
 .stat-bars dd { display: flex; align-items: center; gap: var(--s2); margin: 0; }
 .stat-bars .bar { flex: 1; height: 10px; border: 1px solid var(--ink); border-radius: var(--radius); }
 .stat-bars .bar::before {
@@ -112,7 +112,7 @@
   background: var(--badge, var(--grass));
   border-right: 1px solid var(--ink); /* 연한 타입 색도 끝이 또렷하게 */
 }
-.stat-bars .num { width: 3ch; text-align: right; font-variant-numeric: tabular-nums; }
+.stat-bars .num { width: 3ch; font-size: var(--fs-body); text-align: right; font-variant-numeric: tabular-nums; }
 .dex-page-facts .dex-source { margin-top: var(--s1); }
 
 /* ---------- 연구 기록 ---------- */
@@ -120,27 +120,27 @@
 .record { padding: var(--s4) 0 var(--s6); border-bottom: 1px solid var(--rule); }
 .record:last-child { border-bottom: none; }
 .record.active .a-label { text-decoration: underline var(--marker) 4px; }
-.date-rule { display: flex; align-items: center; gap: var(--s3); color: var(--pencil); font-size: 13px; margin-bottom: var(--s2); }
+.date-rule { display: flex; align-items: center; gap: var(--s3); color: var(--pencil); font-size: var(--fs-xs); margin-bottom: var(--s2); }
 .date-rule::before, .date-rule::after { content: ""; flex: 1; border-top: 1px solid var(--pencil); }
 .q, .a { display: grid; grid-template-columns: 28px 1fr; gap: var(--s2); }
 .q-label, .a-label { font-family: var(--font-label); font-size: 22px; line-height: 1.4; }
 .q-label { color: var(--dex-red); }
-.q-text { font-weight: 600; display: flex; gap: var(--s3); justify-content: space-between; }
-.q-time { color: var(--pencil); font-weight: 400; font-size: 13px; white-space: nowrap; }
+.q-text { font-weight: var(--fw-strong); display: flex; gap: var(--s3); justify-content: space-between; }
+.q-time { color: var(--pencil); font-weight: var(--fw-regular); font-size: var(--fs-xs); white-space: nowrap; }
 .kind { font-family: var(--font-label-14); font-size: 14px; color: var(--ink-soft); border: 1px solid var(--ink-soft); border-radius: var(--radius); padding: 0 var(--s1); margin-right: var(--s2); }
 .a-body { white-space: pre-wrap; margin-top: var(--s1); }
 .a-body p { margin: 0 0 var(--s2); }
-.version-note { color: var(--pencil); font-size: 13px; margin-top: var(--s2); }
+.version-note { color: var(--pencil); font-size: var(--fs-xs); margin-top: var(--s2); }
 .record-tools { margin-top: var(--s3); display: flex; gap: var(--s2); flex-wrap: wrap; }
 .record-tools button { padding: 2px var(--s2); }
 .error-line { color: var(--dex-red); }
 .dex-free button { border-bottom: 1px dashed var(--pencil); }
 /* 답변 아래 부가 정보는 "자세히 보기" 한 곳에 접어 둔다 */
 .more { margin-top: var(--s3); }
-.more > summary { cursor: pointer; color: var(--pencil); font-size: 14px; width: fit-content; }
+.more > summary { cursor: pointer; color: var(--pencil); font-size: var(--fs-sm); width: fit-content; }
 .more > summary:hover { color: var(--ink); }
 .more[open] > summary { margin-bottom: var(--s2); }
-.more-body { padding-left: var(--s3); border-left: 2px solid var(--rule); font-size: 14px; color: var(--ink-soft); }
+.more-body { padding-left: var(--s3); border-left: 2px solid var(--rule); font-size: var(--fs-sm); color: var(--ink-soft); }
 .more-body p { margin: 0 0 var(--s2); }
 .more-body h4 { font-family: var(--font-label-14); font-size: 14px; font-weight: 400; color: var(--ink); margin: var(--s3) 0 var(--s1); }
 .more-body ul { margin: 0; padding-left: var(--s4); line-height: 1.6; }
@@ -196,9 +196,9 @@
 .ref-card.saved .ref-title { margin: 0; }
 .ref-head { display: flex; align-items: center; gap: var(--s2); margin-bottom: var(--s1); }
 .ref-no { font-family: var(--font-label-14); font-size: 14px; }
-.ref-title { font-weight: 600; font-size: calc(var(--text) - 1px); line-height: 1.5; margin: 0 0 var(--s1); }
-.ref-snippet { font-size: calc(var(--text) - 3px); color: var(--ink-soft); line-height: 1.6; margin: 0 0 var(--s2); }
-.ref-link { font-size: calc(var(--text) - 3px); }
+.ref-title { font-weight: var(--fw-strong); font-size: var(--fs-body); line-height: 1.5; margin: 0 0 var(--s1); }
+.ref-snippet { font-size: var(--fs-xs); color: var(--ink-soft); line-height: 1.6; margin: 0 0 var(--s2); }
+.ref-link { font-size: var(--fs-xs); }
 
 /* 출처 종류 도장 */
 .source-stamp {
@@ -268,9 +268,40 @@
 .evo-mon.current { border-color: var(--ink); box-shadow: var(--shadow); background: var(--paper); }
 .evo-mon.later { opacity: 0.55; }
 .evo-mon img { width: 48px; height: 48px; image-rendering: pixelated; }
-.evo-mon span { font-size: 13px; }
-.evo-arrow { font-size: 12px; color: var(--ink-soft); text-align: center; max-width: 120px; line-height: 1.3; }
+.evo-mon span { font-size: var(--fs-xs); }
+.evo-arrow { font-size: var(--fs-xs); color: var(--ink-soft); text-align: center; max-width: 120px; line-height: 1.3; }
 .evo-arrow::after { content: "→"; display: block; font-size: 16px; color: var(--ink); }
+
+/* 도감 페이지의 진화 계통: 노트 폭에 맞춰 단계를 고르게 펼치고, 그림도 화면에 따라 키운다.
+   (진화 탭·답변 속 작은 계통 그림은 위의 기본 크기 그대로) */
+.dex-page-facts .evo-strip {
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: clamp(4px, 1.5vw, 24px);
+  padding: clamp(12px, 2vw, 28px) clamp(8px, 2vw, 32px);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-card);
+}
+.dex-page-facts .evo-branch {
+  flex: 1 1 0;
+  min-width: 0;
+  display: grid;
+  /* 한 줄에 최대 4마리 (이브이 8갈래 → 4×2로 고르게) */
+  grid-template-columns: repeat(auto-fit, minmax(max(min(100%, 104px), calc(25% - var(--s2))), 1fr)); /* 칸 사이 간격(--s2)만큼 뺌 */
+  align-content: center;
+  justify-items: center;
+}
+/* 갈래가 많은 단계(이브이 → 8갈래)는 폭을 더 받아 여러 줄 격자로 펼친다 */
+.dex-page-facts .evo-branch:has(> .evo-mon:nth-child(3)) { flex-grow: 3; }
+.dex-page-facts .evo-arrow { flex: 0 0 auto; align-self: center; }
+.dex-page-facts .evo-arrow::after { font-size: clamp(18px, 2vw, 28px); }
+.dex-page-facts .evo-mon { width: 100%; max-width: 200px; min-width: 0; padding: var(--s2) var(--s1); gap: var(--s1); }
+.dex-page-facts .evo-mon img { width: clamp(56px, 7vw, 120px); height: auto; aspect-ratio: 1; }
+.dex-page-facts .evo-mon span { font-size: var(--fs-sm); text-align: center; }
+.dex-page-facts .evo-mon small { font-size: var(--fs-xs); text-align: center; }
+@media (max-width: 600px) {
+  .dex-page-facts .evo-branch { grid-template-columns: repeat(auto-fit, minmax(min(100%, 76px), 1fr)); }
+}
 
 /* ---------- 조건 탐색 결과: 도감 색인 카드 ---------- */
 .index-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--s4); }
@@ -304,20 +335,20 @@
 .index-card:active { transform: translate(2px, 2px); box-shadow: var(--shadow-pressed); }
 .index-card:focus-visible { outline: 2px dashed var(--dex-red); outline-offset: 3px; }
 .index-card img { width: 64px; height: 64px; image-rendering: pixelated; }
-.index-card .name { font-weight: 600; }
-.index-card .reason { font-size: 14px; color: var(--ink-soft); line-height: 1.5; margin-top: var(--s1); }
-.index-card .unsure { color: var(--dex-red); font-size: 13px; }
-.index-card .src { font-size: 12px; color: var(--pencil); margin-top: var(--s1); }
+.index-card .name { font-weight: var(--fw-strong); }
+.index-card .reason { font-size: var(--fs-sm); color: var(--ink-soft); line-height: 1.5; margin-top: var(--s1); }
+.index-card .unsure { color: var(--dex-red); font-size: var(--fs-xs); }
+.index-card .src { font-size: var(--fs-xs); color: var(--pencil); margin-top: var(--s1); }
 
 /* ---------- 유사도 / MMR 비교 ---------- */
-.compare { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin-top: var(--s3); font-size: 13px; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin-top: var(--s3); font-size: var(--fs-xs); }
 .compare h4 { font-family: var(--font-label-14); font-size: 14px; font-weight: 400; margin: 0 0 var(--s2); }
 .compare ol { margin: 0; padding-left: var(--s4); }
 .compare li { margin-bottom: var(--s1); }
 .compare .both { text-decoration: underline var(--marker) 3px; }
 
 /* ---------- 진행 기록: 연필로 한 줄씩 ---------- */
-.progress-log { max-width: var(--note-max); margin: 0 auto; color: var(--pencil); font-size: 14px; }
+.progress-log { max-width: var(--note-max); margin: 0 auto; color: var(--pencil); font-size: var(--fs-sm); }
 .progress-log .line { animation: write 0.35s steps(14, end); white-space: nowrap; overflow: hidden; }
 .progress-log .folded { color: var(--pencil); }
 @keyframes write { from { max-width: 0; } to { max-width: 100%; } }

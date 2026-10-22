@@ -70,7 +70,7 @@
   margin: 0 auto;
   padding: var(--s4) 0;
 }
-.ask input { flex: 1; font-size: 16px; }
+.ask input { flex: 1; font-size: var(--fs-body); }
 
 .refs {
   grid-area: refs;

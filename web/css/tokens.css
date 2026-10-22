@@ -55,6 +55,14 @@
   --meadow-h: clamp(120px, 16vh, 190px);
   --note-max: clamp(640px, 50vw, 920px);
   --text: 16px;
+
+  /* 본문 글자(Pretendard) 위계 — 세 단계만 쓰고, 화면이 커지면 --text 를 따라 함께 커진다.
+     픽셀 글꼴(Galmuri) 라벨은 또렷함을 위해 11·14·22·33px 고정 (.px11 .px14 .px22 .px33) */
+  --fs-body: var(--text);              /* 읽는 글: 답변, 질문, 값 */
+  --fs-sm: calc(var(--text) - 2px);    /* 보조: 목록 이름, 이름표, 설명 */
+  --fs-xs: calc(var(--text) - 3px);    /* 메모: 날짜, 출처, 조건 */
+  --fw-regular: 400;
+  --fw-strong: 600;                    /* 제목 역할만: 질문, 카드 제목, 이름 */
 }
 
 @media (min-width: 1600px) {
