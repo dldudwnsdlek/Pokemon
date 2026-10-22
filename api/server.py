@@ -256,4 +256,17 @@ def compare_search(req: CompareRequest):
 mimetypes.add_type("text/javascript", ".js")
 mimetypes.add_type("text/css", ".css")
 mimetypes.add_type("image/svg+xml", ".svg")
-app.mount("/", StaticFiles(directory=str(settings.path("web")), html=True), name="web")
+
+
+class FreshStaticFiles(StaticFiles):
+    """화면 파일을 쓸 때마다 새 버전인지 확인하게 한다 (no-cache).
+    안 그러면 브라우저가 예전 CSS를 기억해 새 JS와 섞여 화면이 깨지거나, 배포해도 바뀐 게 안 보인다.
+    바뀌지 않은 파일은 짧은 "그대로예요"(304) 답만 오가서 느려지지 않는다."""
+
+    async def get_response(self, path, scope):
+        response = await super().get_response(path, scope)
+        response.headers["Cache-Control"] = "no-cache"
+        return response
+
+
+app.mount("/", FreshStaticFiles(directory=str(settings.path("web")), html=True), name="web")
