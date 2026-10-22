@@ -1,6 +1,6 @@
 // 시작점: 서버 상태 확인 → 도감 색인 → 선택·기록·풀숲 연결
 import { api } from "./api.js";
-import { chainStrip, renderRecords, setAfterJob, setupPanes, showTab, updatePaneLocks } from "./chat.js";
+import { chainStrip, loadDetail, renderRecords, setAfterJob, setupPanes, showTab, updatePaneLocks } from "./chat.js";
 import { setupFinder } from "./finder.js";
 import { meadow } from "./meadow.js";
 import { pokedex } from "./pokedex.js";
@@ -87,7 +87,7 @@ async function renderEvoPreview() {
   box.replaceChildren();
   if (id === null) return;  // 자유 질문에서는 그릴 계통이 없다
   try {
-    const detail = await api.pokemon(id);
+    const detail = await loadDetail(id);
     if (state.selectedId === id) box.replaceChildren(chainStrip(detail.chain));
   } catch (_) { /* 그림이 없어도 기능은 동작 */ }
 }

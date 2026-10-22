@@ -3,11 +3,18 @@ import { api, ApiError } from "./api.js";
 import { meadow } from "./meadow.js";
 import { pokedex } from "./pokedex.js";
 import { current, records, saveChats, selectPokemon, state } from "./state.js";
-import { el, errorText, formatTime, progressLog, showNotice, spriteImg, TEXT } from "./ui.js";
+import { el, errorText, formatTime, progressLog, showNotice, spriteImg, TEXT, typeBadges } from "./ui.js";
 
 const CITE = /\[근거\s*(\d+)\]/g;
 const WELCOME_ID = 25; // 첫 화면 대표 포켓몬: 피카츄
 let onDone = () => {};
+
+// 포켓몬 상세(도감 페이지·진화 그림·모아 둔 자료)는 한 번 받으면 다시 쓰고, 기록이 생기면 새로 받는다
+const details = new Map();
+export function loadDetail(id) {
+  if (!details.has(id)) details.set(id, api.pokemon(id).catch((e) => { details.delete(id); throw e; }));
+  return details.get(id);
+}
 
 export function setAfterJob(fn) {
   onDone = fn;
@@ -87,9 +94,30 @@ export function renderRefs() {
   state.activeRecord = rec || null;
   if (!rec) {
     box.replaceChildren(el("p", { class: "pencil small" }, TEXT.noRefsYet));
+    const id = state.selectedId;
+    if (id !== null) {
+      loadDetail(id).then((d) => {
+        if (state.selectedId === id && !state.activeRecord && document.querySelector('.pane[data-pane="find"]').hidden) {
+          box.replaceChildren(...savedRefs(d).flat().filter(Boolean));
+        }
+      }).catch(() => { /* 안내 문구만 남김 */ });
+    }
     return;
   }
   box.replaceChildren(...(rec.no_citation ? [emptyRefCard()] : rec.citations.map((c) => refCard(c))));
+}
+
+// 아직 답이 없을 때: 질문하면 근거로 쓰일 자료를 미리 보여준다 (도감 데이터 + 예전에 모은 위키 문서)
+function savedRefs(d) {
+  const card = (source, label, title) => el("div", { class: "ref-card saved" },
+    el("div", { class: "ref-head" }, el("span", { class: "source-stamp", "data-source": source }, label)),
+    el("p", { class: "ref-title" }, title));
+  return [
+    el("p", { class: "pencil small" }, TEXT.savedRefs),
+    card("meta", "도감 데이터", `${d.name_ko} · PokéAPI 도감`),
+    d.collected_titles.map((t) => card("wikipedia", "위키백과", t)),
+    d.collected_titles.length ? null : el("p", { class: "pencil small" }, TEXT.noSavedDocs),
+  ];
 }
 
 // ---------- 진화 계통 그림 (데이터로 그림, 설명 글은 답변) ----------
@@ -210,21 +238,69 @@ export function updatePaneLocks() {
   setBusy(state.busy);
 }
 
-// 첫 화면: 대표 포켓몬 한 마리 + 짧은 시작 안내 + 예시 질문
+const STAT_LABELS = [["hp", "HP"], ["attack", "공격"], ["defense", "방어"],
+  ["sp_attack", "특수공격"], ["sp_defense", "특수방어"], ["speed", "스피드"]];
+const STAT_MAX = 255; // 능력치가 가질 수 있는 최댓값
+
+// 아직 기록이 없는 포켓몬: 빈 종이 대신 도감 데이터로 한 쪽을 채운다 (AI를 부르지 않음)
+function dexPage(p) {
+  const facts = el("div", { class: "dex-page-facts" });
+  const fill = (q) => { const i = document.getElementById("askInput"); i.value = q; i.focus(); };
+  loadDetail(p.id).then((d) => {
+    if (state.selectedId === p.id && facts.isConnected) facts.replaceChildren(...dexFacts(d).filter(Boolean));
+  }).catch(() => { /* 도감 페이지가 없어도 질문은 할 수 있다 */ });
+  return el("div", { class: "dex-page" },
+    el("h2", { class: "px22 underlined" }, `${p.name_ko} 연구 노트`),
+    el("p", { class: "lead" }, TEXT.emptyRecord),
+    el("p", { class: "examples-title px14" }, "이렇게 물어보세요"),
+    el("div", { class: "examples" }, examples(p).map((q) =>
+      el("button", { type: "button", onclick: () => fill(q) }, q))),
+    facts);
+}
+
+function dexFacts(d) {
+  const total = Object.values(d.stats).reduce((a, b) => a + b, 0);
+  const evolves = d.chain.length > 1;
+  return [
+    el("div", { class: "dex-page-grid" },
+      el("section", {},
+        el("h3", { class: "px14" }, "기본 정보"),
+        el("p", { class: "dex-genus" }, typeBadges(d.types), d.genus_ko),
+        el("dl", { class: "dex-info" },
+          el("dt", {}, "키"), el("dd", {}, `${d.height_m}m`),
+          el("dt", {}, "몸무게"), el("dd", {}, `${d.weight_kg}kg`),
+          el("dt", {}, "특성"), el("dd", {}, d.abilities.join(", "))),
+        el("blockquote", { class: "dex-flavor" }, d.flavor_ko)),
+      el("section", {},
+        el("h3", { class: "px14" }, `능력치 (합계 ${total})`),
+        // 막대 색은 첫 번째 타입 색 (타입 배지와 같은 색)
+        el("dl", { class: "stat-bars", "data-type": d.types[0] }, STAT_LABELS.flatMap(([key, label]) => [
+          el("dt", {}, label),
+          el("dd", {},
+            el("span", { class: "bar", style: `--v: ${Math.min(d.stats[key] / STAT_MAX, 1)}` }),
+            el("span", { class: "num" }, d.stats[key]))])))),
+    evolves ? el("section", {}, el("h3", { class: "px14" }, "진화"), chainStrip(d.chain)) : null,
+    el("p", { class: "pencil small" }, TEXT.weakNote),
+    el("p", { class: "pencil small dex-source" }, TEXT.dexSource),
+  ];
+}
+
+// 첫 화면(자유 질문): 대표 포켓몬 한 마리 + 짧은 시작 안내 + 예시 질문.
+// 포켓몬을 골랐으면 그 포켓몬의 도감 페이지 (그림은 왼쪽 도감 기계 화면에 있어서 여기서는 뺀다)
 function welcomeView(p) {
-  // 포켓몬을 골랐으면 그림은 왼쪽 도감 기계 화면에 있으므로 여기서는 빼서 겹치지 않게
-  const mon = p ? null : state.byId.get(WELCOME_ID);
+  if (p) return dexPage(p);
+  const mon = state.byId.get(WELCOME_ID);
   const fill = (q) => { const i = document.getElementById("askInput"); i.value = q; i.focus(); };
   return el("div", { class: `welcome${mon ? "" : " solo"}` },
     mon ? el("div", { class: "welcome-mon" },
       spriteImg(mon, { animated: false, size: 192 }),
       el("span", { class: "pencil" }, `No.${mon.dex_no} ${mon.name_ko}`)) : null,
     el("div", {},
-      el("h2", { class: "px22 underlined" }, p ? `${p.name_ko} 연구 노트` : TEXT.welcomeTitle),
-      el("p", { class: "lead" }, p ? TEXT.emptyRecord : TEXT.freeEmpty),
-      p ? null : el("ol", { class: "steps" }, TEXT.welcomeSteps.map((t) => el("li", {}, t))),
+      el("h2", { class: "px22 underlined" }, TEXT.welcomeTitle),
+      el("p", { class: "lead" }, TEXT.freeEmpty),
+      el("ol", { class: "steps" }, TEXT.welcomeSteps.map((t) => el("li", {}, t))),
       el("p", { class: "examples-title px14" }, "이렇게 물어보세요"),
-      el("div", { class: "examples" }, examples(p).map((q) =>
+      el("div", { class: "examples" }, examples(null).map((q) =>
         el("button", { type: "button", onclick: () => fill(q) }, q)))));
 }
 
@@ -279,6 +355,7 @@ async function runJob(kind, label, call, retryInfo) {
     meadow.droop(pokemonId);
     pokedex.done(false);
   } finally {
+    if (pokemonId !== null) details.delete(pokemonId); // 새로 모은 문서가 "모아 둔 자료"에 보이게
     delete record.pending;
     state.busy = false;
     setBusy(false);

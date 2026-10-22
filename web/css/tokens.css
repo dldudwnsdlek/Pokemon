@@ -60,6 +60,19 @@
 @media (min-width: 1600px) {
   :root { --text: 17px; }
 }
+/* 큰 모니터: 본문 글자와 열 폭을 한 단계씩 키운다. 픽셀 글꼴(Galmuri) 라벨은 정해진 크기에서만
+   또렷해서 그대로 두고, 본문(Pretendard)과 폭만 키운다 */
+@media (min-width: 1920px) {
+  :root {
+    --text: 18px;
+    --dex-w: clamp(220px, 14vw, 340px);
+    --refs-w: clamp(280px, 21vw, 520px);
+    --note-max: clamp(640px, 52vw, 1120px);
+  }
+}
+@media (min-width: 2400px) {
+  :root { --text: 19px; --note-max: 1280px; }
+}
 @media (max-width: 900px) {
   :root { --meadow-h: 100px; }
 }
@@ -67,22 +80,23 @@
   :root { --meadow-h: 0px; } /* 풀숲을 숨김 (meadow.css) */
 }
 
-/* 타입 배지 18색 — 원색 대신 채도를 낮춘 색. 글자는 모두 --ink (대비 확보) */
-.type-badge[data-type="노말"]   { --badge: #CFC8B2; }
-.type-badge[data-type="불꽃"]   { --badge: #E8A27C; }
-.type-badge[data-type="물"]     { --badge: #9DBBD9; }
-.type-badge[data-type="풀"]     { --badge: #A9C78F; }
-.type-badge[data-type="전기"]   { --badge: #EBD27A; }
-.type-badge[data-type="얼음"]   { --badge: #B0D9D6; }
-.type-badge[data-type="격투"]   { --badge: #D8A495; }
-.type-badge[data-type="독"]     { --badge: #C6A9CB; }
-.type-badge[data-type="땅"]     { --badge: #DCC492; }
-.type-badge[data-type="비행"]   { --badge: #BEC0E3; }
-.type-badge[data-type="에스퍼"] { --badge: #E9AEC2; }
-.type-badge[data-type="벌레"]   { --badge: #C6CF8A; }
-.type-badge[data-type="바위"]   { --badge: #CBBE95; }
-.type-badge[data-type="고스트"] { --badge: #B4A8C9; }
-.type-badge[data-type="드래곤"] { --badge: #ADA4DD; }
-.type-badge[data-type="악"]     { --badge: #B5AAA2; }
-.type-badge[data-type="강철"]   { --badge: #C2C7CE; }
-.type-badge[data-type="페어리"] { --badge: #EEC0D5; }
+/* 타입 18색 — 원색 대신 채도를 낮춘 색. 글자는 모두 --ink (대비 확보).
+   타입 배지와 도감 페이지 능력치 막대가 함께 쓴다 (data-type 이 붙은 요소) */
+[data-type="노말"]   { --badge: #CFC8B2; }
+[data-type="불꽃"]   { --badge: #E8A27C; }
+[data-type="물"]     { --badge: #9DBBD9; }
+[data-type="풀"]     { --badge: #A9C78F; }
+[data-type="전기"]   { --badge: #EBD27A; }
+[data-type="얼음"]   { --badge: #B0D9D6; }
+[data-type="격투"]   { --badge: #D8A495; }
+[data-type="독"]     { --badge: #C6A9CB; }
+[data-type="땅"]     { --badge: #DCC492; }
+[data-type="비행"]   { --badge: #BEC0E3; }
+[data-type="에스퍼"] { --badge: #E9AEC2; }
+[data-type="벌레"]   { --badge: #C6CF8A; }
+[data-type="바위"]   { --badge: #CBBE95; }
+[data-type="고스트"] { --badge: #B4A8C9; }
+[data-type="드래곤"] { --badge: #ADA4DD; }
+[data-type="악"]     { --badge: #B5AAA2; }
+[data-type="강철"]   { --badge: #C2C7CE; }
+[data-type="페어리"] { --badge: #EEC0D5; }

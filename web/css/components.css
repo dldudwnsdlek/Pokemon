@@ -65,7 +65,7 @@
 }
 .examples-title { margin: 0 0 var(--s2); color: var(--ink-soft); }
 .examples { display: flex; flex-wrap: wrap; gap: var(--s2); }
-.examples button { font-family: var(--font-body); font-size: 15px; border-style: dashed; padding: var(--s1) var(--s3); }
+.examples button { font-family: var(--font-body); font-size: calc(var(--text) - 1px); border-style: dashed; padding: var(--s1) var(--s3); }
 /* 키가 낮은 화면(가로 휴대폰): 그림을 위에 붙여 아래로 밀려 잘리지 않게 */
 @media (max-height: 480px) {
   .welcome { align-items: start; padding: var(--s2) 0; }
@@ -75,6 +75,45 @@
   .welcome-mon { flex-direction: row; }
   .welcome-mon img, .welcome-mon .placeholder { width: 96px; }
 }
+
+/* ---------- 도감 페이지: 아직 기록이 없는 포켓몬 (큰 화면의 빈 종이를 도감 데이터로 채움) ---------- */
+.dex-page { padding: clamp(8px, 3vh, 40px) 0; }
+.dex-page h2 { margin-bottom: var(--s3); }
+.dex-page .lead { margin: 0 0 var(--s4); color: var(--ink-soft); }
+.dex-page-facts { margin-top: var(--s8); padding-top: var(--s6); border-top: 1px solid var(--rule); }
+.dex-page-facts:empty { display: none; }
+.dex-page-facts h3 { margin: 0 0 var(--s3); font-weight: normal; color: var(--ink-soft); }
+.dex-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--s6) clamp(24px, 3vw, 56px);
+  margin-bottom: var(--s6);
+}
+.dex-genus { margin: 0 0 var(--s3); }
+.dex-info { display: grid; grid-template-columns: auto 1fr; gap: var(--s1) var(--s4); margin: 0 0 var(--s4); }
+.dex-info dt { color: var(--ink-soft); }
+.dex-info dd { margin: 0; }
+.dex-flavor {
+  margin: 0;
+  padding-left: var(--s3);
+  border-left: 3px solid var(--marker);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.stat-bars { display: grid; grid-template-columns: auto 1fr; gap: var(--s2) var(--s3); align-items: center; margin: 0; }
+.stat-bars dt { font-size: 14px; color: var(--ink-soft); }
+.stat-bars dd { display: flex; align-items: center; gap: var(--s2); margin: 0; }
+.stat-bars .bar { flex: 1; height: 10px; border: 1px solid var(--ink); border-radius: var(--radius); }
+.stat-bars .bar::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: calc(var(--v) * 100%);
+  background: var(--badge, var(--grass));
+  border-right: 1px solid var(--ink); /* 연한 타입 색도 끝이 또렷하게 */
+}
+.stat-bars .num { width: 3ch; text-align: right; font-variant-numeric: tabular-nums; }
+.dex-page-facts .dex-source { margin-top: var(--s1); }
 
 /* ---------- 연구 기록 ---------- */
 
@@ -152,11 +191,14 @@
   transform: rotate(-3deg);
 }
 .ref-card.marked { background: var(--marker); border: var(--line); box-shadow: var(--shadow); }
+/* 아직 답이 없을 때 미리 보여주는 자료: 점선 = "아직 붙이지 않음" */
+.ref-card.saved { border: 1.5px dashed var(--pencil); }
+.ref-card.saved .ref-title { margin: 0; }
 .ref-head { display: flex; align-items: center; gap: var(--s2); margin-bottom: var(--s1); }
 .ref-no { font-family: var(--font-label-14); font-size: 14px; }
-.ref-title { font-weight: 600; font-size: 15px; line-height: 1.5; margin: 0 0 var(--s1); }
-.ref-snippet { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 var(--s2); }
-.ref-link { font-size: 13px; }
+.ref-title { font-weight: 600; font-size: calc(var(--text) - 1px); line-height: 1.5; margin: 0 0 var(--s1); }
+.ref-snippet { font-size: calc(var(--text) - 3px); color: var(--ink-soft); line-height: 1.6; margin: 0 0 var(--s2); }
+.ref-link { font-size: calc(var(--text) - 3px); }
 
 /* 출처 종류 도장 */
 .source-stamp {
