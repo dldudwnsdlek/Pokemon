@@ -3,7 +3,7 @@
 상태: ✅ 통과 · ❌ 실패 · ⬜ 미확인.
 실행 기록 원본은 `docs/evidence/`에 있습니다 (`checks.md`는 `python -m scripts.run_checks`로 다시 만들 수 있음).
 화면 캡처는 `docs/screenshots/`에 있습니다 (2026-10-22, 실제 키로 켠 서버를 크롬으로 조작해 찍음. 터미널 그림은 명령 출력을 그대로 옮김. V06·V07은 다시 실행하면 색인이 바뀌어 기록 파일을 그림으로 옮김).
-추가 캡처: `F2009_first_screen.png`(첫 화면), `F2012_progress.png`(답을 찾는 중 진행 상태), `F2013_mobile_390.png`(좁은 화면).
+추가 캡처: `F2009_first_screen.png`(첫 화면), `F2012_progress.png`(답을 찾는 중 진행 상태), `F2013_mobile_390.png`(좁은 화면), `F2009_dex_page.png`(기록이 없는 포켓몬의 도감 페이지). V12 두 장은 도감 페이지를 넣은 뒤 다시 찍음.
 
 검증 환경: 2026-10-21 · gpt-4.1-mini / text-embedding-3-small · 청크 800/150 · Top-k 5 · similarity
 
