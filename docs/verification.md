@@ -1,8 +1,9 @@
 # 검증 결과 (명세서 4장 · 가이드 13장)
 
-상태: ✅ 통과 · ❌ 실패 · ⬜ 미확인(사람이 화면 캡처 필요).
+상태: ✅ 통과 · ❌ 실패 · ⬜ 미확인.
 실행 기록 원본은 `docs/evidence/`에 있습니다 (`checks.md`는 `python -m scripts.run_checks`로 다시 만들 수 있음).
-화면 캡처는 `docs/screenshots/V01.png` … 처럼 번호대로 저장합니다.
+화면 캡처는 `docs/screenshots/`에 있습니다 (2026-10-22, 실제 키로 켠 서버를 크롬으로 조작해 찍음. 터미널 그림은 명령 출력을 그대로 옮김. V06·V07은 다시 실행하면 색인이 바뀌어 기록 파일을 그림으로 옮김).
+추가 캡처: `F2009_first_screen.png`(첫 화면), `F2012_progress.png`(답을 찾는 중 진행 상태), `F2013_mobile_390.png`(좁은 화면).
 
 검증 환경: 2026-10-21 · gpt-4.1-mini / text-embedding-3-small · 청크 800/150 · Top-k 5 · similarity
 
@@ -12,25 +13,25 @@ V19·V20은 "자유 질문" 추가 뒤 새로 넣은 항목입니다. V06·V07·
 
 | 번호 | 확인 내용 | 요구사항 | 결과 | 근거 기록 | 캡처 |
 |---|---|---|---|---|---|
-| V01 | 로드 151건 = 색인 151청크, 두 번 실행해도 151 | F2001, F2002 | ✅ 1회차 0 → 151, 2회차 151 → 151 | `build_index` 출력 | ⬜ 터미널 캡처 |
-| V02 | 리자몽 항목 텍스트에 모든 속성 포함 | F2001 | ✅ 이름·번호·분류·타입·특성·키·몸무게·능력치·진화·구분·도감 설명 | `build_item_text --id 6` | ⬜ 터미널 캡처 |
-| V03 | 검색어 목록, 색인된 문서 / 버려진 문서 | F2003, F2004 | ✅ 예: Q2 검색어 [리자몽, 포켓몬의 타입] → 색인 「리자몽」, 버림: 목록 문서 2개(표로 된 목록), 파이리·꼬부기 등(관련 적음) | `evidence/checks.md` | ⬜ 화면 "수집 기록" 펼친 모습 |
-| V04 | 같은 질문 재질문 시 "예전에 모아 둔 자료" | F2004, NF2002 | ✅ Q1~Q6 모두 재질문 때 검색어 전부 캐시, 새 색인 0개 | `evidence/checks.md` | ⬜ 진행 기록 |
-| V05 | 포켓몬 자체 위키 문서가 항상 포함 | F2004 | ✅ 이브이 → 「이브이」, 팬텀 → 「팬텀 (포켓몬)」(동음이의어 「팬텀」은 제외), 잠만보 → 「잠만보」. 단독 문서가 없는 119마리는 이유를 기록 | `evidence/checks.md`, `wiki_coverage.md` | ⬜ |
-| V06 | 청크 크기 800 → 400 변경 시 청크 수 변화 | F2005 | ✅ 위키 청크 181 → 377 (pokemon_docs 277 → 473), 원복 시 277 | `evidence/V06_*.txt` | ⬜ 터미널 캡처 |
-| V07 | Top-k 3 → 8 변경 시 근거 목록 변화 | F2006 | ✅ 근거 4개 → 9개 (늘어난 근거 대부분 같은 「이브이」 문서의 다른 조각) | `evidence/V07_V16_compare_search.txt` | ⬜ |
-| V08 | LangGraph 노드 두 개 | F2007 | ✅ `__start__ → retrieve → generate → __end__` | `rag.graph --draw` | ⬜ 터미널 캡처 |
-| V09 | 답변 근거 번호 = 참고 카드, 출처 종류 구분 | F2007, F2008, F2016 | ✅ 답변에 쓴 번호만 목록에 남음(없는 번호 무시). 예: Q4 → [1] 도감 데이터 · [2] 위키백과 · [3] PokéAPI 자료 | `evidence/checks.md` | ⬜ 답변 화면 |
-| V10 | 문서에 없는 질문 → "확인되지 않습니다" | F2007 | ✅ "피카츄의 꼬리 길이는 몇 cm야?" → "제공된 자료에서는 확인되지 않습니다" (3회 반복 모두 같음) | `evidence/checks.md` | ⬜ |
-| V11 | 인용 근거 0개 안내 | F2008 | ✅ 위 질문에서 `no_citation: true` → 참고 카드 자리에 점선 빈 카드 "이번 답에는 인용된 근거가 없어요" | `evidence/checks.md` | ⬜ |
-| V12 | 포켓몬 바꾸면 대화가 섞이지 않음 | F2009 | ✅ 기록은 `{포켓몬ID 또는 "free": [기록]}`로 따로 저장되고 선택한 것만 그림. Streamlit 자동 시험: 자유 질문 기록 2개를 만든 뒤 리자몽으로 바꾸면 리자몽 기록 0개 | `web/js/state.js`, Streamlit AppTest | ⬜ 두 포켓몬 전환 캡처 |
-| V13 | 조건 탐색 결과에 조건 밖 포켓몬 없음 | F2011 | ✅ "물 타입인데 몸무게 100kg 넘는 포켓몬" → 라프라스·쥬레곤·파르셀·갸라도스 = 데이터 기준 정답 4마리와 정확히 일치 | `evidence/checks.md` | ⬜ 탐색 화면 |
-| V14 | 특화 기능 결과에 근거 표시 | F2010 | ✅ 피카츄 vs 꼬부기 → 판정 "유리", 근거 4건(양쪽 도감 데이터 + 전기·물 타입 상성). 이브이 진화 → 근거 3건 | `evidence/checks.md` | ⬜ 배틀·진화 화면 |
-| V15 | 색인 없음 / 키 없음 안내 | F2012 | ✅ 키 없음: `/api/ask` → 503 `API_KEY_MISSING` + 화면 안내 카드. 색인 없음: "도감이 비어 있어요" 안내 카드 | 1280·390px 스크린샷 확인 | ⬜ 각각 캡처 |
-| V16 | 유사도 vs MMR 근거 비교 | F2014 | ✅ Top-k 8: 서로 다른 문서 유사도 4개 → MMR 8개 (무관한 공용 문서도 섞임 — 설계문서 7장) | `evidence/V07_V16_compare_search.txt` | ⬜ 화면 "근거 비교" |
+| V01 | 로드 151건 = 색인 151청크, 두 번 실행해도 151 | F2001, F2002 | ✅ 1회차 0 → 151, 2회차 151 → 151 | `build_index` 출력 | `screenshots/V01_terminal.png` |
+| V02 | 리자몽 항목 텍스트에 모든 속성 포함 | F2001 | ✅ 이름·번호·분류·타입·특성·키·몸무게·능력치·진화·구분·도감 설명 | `build_item_text --id 6` | `screenshots/V02_terminal.png` |
+| V03 | 검색어 목록, 색인된 문서 / 버려진 문서 | F2003, F2004 | ✅ 예: Q2 검색어 [리자몽, 포켓몬의 타입] → 색인 「리자몽」, 버림: 목록 문서 2개(표로 된 목록), 파이리·꼬부기 등(관련 적음) | `evidence/checks.md` | `screenshots/V03_V18_answer_new_collect.png` · `screenshots/V03_V05_collect_log.png` |
+| V04 | 같은 질문 재질문 시 "예전에 모아 둔 자료" | F2004, NF2002 | ✅ Q1~Q6 모두 재질문 때 검색어 전부 캐시, 새 색인 0개 | `evidence/checks.md` | `screenshots/V04_cached_requestion.png` |
+| V05 | 포켓몬 자체 위키 문서가 항상 포함 | F2004 | ✅ 이브이 → 「이브이」, 팬텀 → 「팬텀 (포켓몬)」(동음이의어 「팬텀」은 제외), 잠만보 → 「잠만보」. 단독 문서가 없는 119마리는 이유를 기록 | `evidence/checks.md`, `wiki_coverage.md` | `screenshots/V03_V05_collect_log.png` (라프라스 → 「라프라스」) |
+| V06 | 청크 크기 800 → 400 변경 시 청크 수 변화 | F2005 | ✅ 위키 청크 181 → 377 (pokemon_docs 277 → 473), 원복 시 277 | `evidence/V06_*.txt` | `screenshots/V06_terminal.png` (기록 파일) |
+| V07 | Top-k 3 → 8 변경 시 근거 목록 변화 | F2006 | ✅ 근거 4개 → 9개 (늘어난 근거 대부분 같은 「이브이」 문서의 다른 조각) | `evidence/V07_V16_compare_search.txt` | `screenshots/V07_terminal.png` (기록 파일) |
+| V08 | LangGraph 노드 두 개 | F2007 | ✅ `__start__ → retrieve → generate → __end__` | `rag.graph --draw` | `screenshots/V08_terminal.png` |
+| V09 | 답변 근거 번호 = 참고 카드, 출처 종류 구분 | F2007, F2008, F2016 | ✅ 답변에 쓴 번호만 목록에 남음(없는 번호 무시). 예: Q4 → [1] 도감 데이터 · [2] 위키백과 · [3] PokéAPI 자료 | `evidence/checks.md` | `screenshots/V09_citations_source_types.png` |
+| V10 | 문서에 없는 질문 → "확인되지 않습니다" | F2007 | ✅ "피카츄의 꼬리 길이는 몇 cm야?" → "제공된 자료에서는 확인되지 않습니다" (3회 반복 모두 같음) | `evidence/checks.md` | `screenshots/V10_V11_not_found_no_citation.png` |
+| V11 | 인용 근거 0개 안내 | F2008 | ✅ 위 질문에서 `no_citation: true` → 참고 카드 자리에 점선 빈 카드 "이번 답에는 인용된 근거가 없어요" | `evidence/checks.md` | `screenshots/V10_V11_not_found_no_citation.png` |
+| V12 | 포켓몬 바꾸면 대화가 섞이지 않음 | F2009 | ✅ 기록은 `{포켓몬ID 또는 "free": [기록]}`로 따로 저장되고 선택한 것만 그림. Streamlit 자동 시험: 자유 질문 기록 2개를 만든 뒤 리자몽으로 바꾸면 리자몽 기록 0개 | `web/js/state.js`, Streamlit AppTest | `screenshots/V12_switch_to_charizard.png` · `screenshots/V12_switch_to_pikachu.png` |
+| V13 | 조건 탐색 결과에 조건 밖 포켓몬 없음 | F2011 | ✅ "물 타입인데 몸무게 100kg 넘는 포켓몬" → 라프라스·쥬레곤·파르셀·갸라도스 = 데이터 기준 정답 4마리와 정확히 일치 | `evidence/checks.md` | `screenshots/V13_find.png` |
+| V14 | 특화 기능 결과에 근거 표시 | F2010 | ✅ 피카츄 vs 꼬부기 → 판정 "유리", 근거 4건(양쪽 도감 데이터 + 전기·물 타입 상성). 이브이 진화 → 근거 3건 | `evidence/checks.md` | `screenshots/V14_battle_coach.png` · `screenshots/V14_evolution_guide.png` |
+| V15 | 색인 없음 / 키 없음 안내 | F2012 | ✅ 키 없음: `/api/ask` → 503 `API_KEY_MISSING` + 화면 안내 카드. 색인 없음: "도감이 비어 있어요" 안내 카드 | 1280·390px 스크린샷 확인 | `screenshots/V15_index_empty.png` · `screenshots/V15_api_key_missing.png` |
+| V16 | 유사도 vs MMR 근거 비교 | F2014 | ✅ Top-k 8: 서로 다른 문서 유사도 4개 → MMR 8개 (무관한 공용 문서도 섞임 — 설계문서 7장) | `evidence/V07_V16_compare_search.txt` | `screenshots/V16_similarity_vs_mmr.png` |
 | V17 | RAG 전후 비교 문서 | F2015 | ✅ 7문항. RAG 없이 완전히 맞은 것 2개(Q2·Q6) / RAG 7개 모두 맞음. Q7은 근거 없이 "약 10cm"로 지어냄 | `rag_comparison.md` | — |
-| V18 | 대표 질문 처리 시간 | NF2001 | ✅ 첫 질문 3.2~7.4초(위키 수집 포함), 재질문 1.8~4.3초 | `evidence/checks.md` | ⬜ |
-| V19 | 자유 질문 (포켓몬을 고르지 않고 묻기) | F2009-1 | ✅ "1세대에서 가장 무거운 포켓몬은?" → 잠만보 460kg [1세대 몸무게 순위]. "고스트→에스퍼" → 1세대 0배·현재 2배 [타입 상성 2건]. "피카츄와 꼬부기 중 누가 빨라?" → 두 이름을 찾아 90 vs 43 [두 도감 데이터] | `evidence/checks.md` | ⬜ 자유 질문 화면 |
+| V18 | 대표 질문 처리 시간 | NF2001 | ✅ 첫 질문 3.2~7.4초(위키 수집 포함), 재질문 1.8~4.3초 | `evidence/checks.md` | `screenshots/V03_V18_answer_new_collect.png` · `screenshots/V04_cached_requestion.png` (2026-10-22 다시 잼: 새 수집 26.6초, 재질문 8.3초) |
+| V19 | 자유 질문 (포켓몬을 고르지 않고 묻기) | F2009-1 | ✅ "1세대에서 가장 무거운 포켓몬은?" → 잠만보 460kg [1세대 몸무게 순위]. "고스트→에스퍼" → 1세대 0배·현재 2배 [타입 상성 2건]. "피카츄와 꼬부기 중 누가 빨라?" → 두 이름을 찾아 90 vs 43 [두 도감 데이터] | `evidence/checks.md` | `screenshots/V19_free_question.png` |
 | V20 | 자유 질문 문서가 포켓몬별 검색에 섞이지 않음 | F2009-1, F2006 | ✅ 자유 질문 문서 제목으로 포켓몬 7마리 × 유사도·MMR 검색 → 섞인 문서 0건 | `evidence/checks.md` | — |
 
 ## 2. 명세서 4장 항목별 대조
@@ -98,7 +99,7 @@ V19·V20은 "자유 질문" 추가 뒤 새로 넣은 항목입니다. V06·V07·
 
 - [x] 필수 F2001~F2012 동작 (기능 검증 완료, 화면 캡처는 사람이)
 - [x] 심화 F2013~F2016 결과가 있고 필수 구현과 비교되어 있음 (`rag_comparison.md`, 설계문서 7장)
-- [ ] V01~V18 화면 캡처 — `docs/screenshots/`에 사람이 저장
+- [x] V01~V19 화면 캡처 — `docs/screenshots/` (V17·V20은 문서·기록으로 확인)
 - [x] 요구사항 정의서(`docs/requirements.md`), RAG 파이프라인 설계문서(`docs/rag_design.md`), README.md, SOURCES.md
 - [ ] 셀프·상호 체크리스트 (3일차 오후 제공 양식)
 - [x] README에 실행 순서: ① 가상환경·설치 ② .env ③ build_index ④ uvicorn 또는 streamlit
