@@ -8,6 +8,31 @@ SSAFY AI 코어 프로젝트 2회차(RAG 기반 도메인 지식 서비스) 결�
 > **RAG**(검색 증강 생성): 답하기 전에 자료를 먼저 찾아 읽고, 찾은 자료만 근거로 답하게 하는 방법.
 > 기억에만 의존하면 틀리기 쉬운 사실(진화 조건, 세대별 타입 상성, 정확한 몸무게)을 자료로 확인해서 답합니다.
 
+**🔗 바로 써 보기: https://pokemon-lab.onrender.com/**
+(무료 서버라 한동안 아무도 안 쓰면 잠들어요. 첫 접속은 서버가 깨어나는 데 1분쯤 걸릴 수 있어요.)
+
+![첫 화면: 왼쪽 위 도감 기계, 가운데 연구노트, 아래 풀숲](docs/screenshots/F2017_first_screen.png)
+
+## 화면 둘러보기
+
+| 근거 번호가 붙는 답변 | 배틀 상성 코치 |
+|---|---|
+| ![팬텀 진화 질문에 근거 번호 ①②③을 달아 답하고, 오른쪽에 참고 카드 3장(도감 데이터·위키백과·PokéAPI 자료)이 붙은 화면](docs/screenshots/V09_citations_source_types.png) | ![피카츄와 꼬부기의 상성을 '유리'로 판정하고 이유와 근거를 보여주는 화면](docs/screenshots/V14_battle_coach.png) |
+| 답 속 동그란 숫자를 누르면 오른쪽 참고 카드로 이어져요. 카드마다 출처 종류(도감 데이터·위키백과·PokéAPI 자료)가 표시돼요. | 두 포켓몬을 고르면 타입 상성으로 누가 유리한지 근거와 함께 알려 줘요. |
+| **조건으로 찾기** | **진화 안내** |
+| ![물 타입이면서 몸무게 100kg이 넘는 포켓몬을 찾은 결과 화면](docs/screenshots/V13_find.png) | ![이브이가 무엇으로 진화하는지 근거와 함께 알려 주는 화면](docs/screenshots/V14_evolution_guide.png) |
+| "물 타입인데 100kg 넘는 포켓몬"처럼 조건을 적으면 도감 데이터로 정확히 걸러 줘요. | 진화 조건(레벨, 돌, 통신교환)을 자료에서 찾아 알려 줘요. |
+
+**연구소 놀이터** (첫 화면 아래로 스크롤)
+
+| 몬스터볼로 잡기 | 진화 극장 | 나는 어떤 포켓몬일까? |
+|---|---|---|
+| ![풀숲에서 몬스터볼을 던져 포켓몬을 잡은 화면](docs/screenshots/F2017_catch_result.png) | ![이브이 진화 갈래 중 하나를 고르는 진화 극장 화면](docs/screenshots/F2017_evolution_choose.png) | ![성격 테스트 결과로 닮은 포켓몬과 이유를 보여주는 화면](docs/screenshots/F2017_persona_result.png) |
+| **실루엣 퀴즈 · 포켓몬과 이야기하기** | **내 도감** | **휴대폰 화면** |
+| ![까만 그림자를 보고 포켓몬을 맞히는 퀴즈와 잠만보와 대화하는 화면](docs/screenshots/F2017_quiz_answer_and_talk.png) | ![잡은 포켓몬이 채워지는 151칸 내 도감](docs/screenshots/F2017_playground_my_dex.png) | <img src="docs/screenshots/F2013_mobile_390.png" alt="폭 390px 휴대폰 크기에서 본 화면" width="200"> |
+
+더 많은 화면(검증 항목별 캡처)은 [docs/screenshots/](docs/screenshots/)와 [docs/verification.md](docs/verification.md)에 있어요.
+
 ---
 
 ## 1. 실행 방법
